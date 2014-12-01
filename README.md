@@ -38,7 +38,7 @@ An API key can be obtained by signing in to [invoiced.com](https://invoiced.com)
 
 The API key must be passed in through the username with the password left blank. Here is an example using [curl](http://curl.haxx.se/):
 
-```bash
+```Shell
 curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
 ```
 
