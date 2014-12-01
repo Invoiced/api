@@ -7,6 +7,7 @@ Documentation for the Invoiced API
 * [Introduction](#introduction)
 * [Authentication](#authentication)
 * [Errors](#errors)
+* [Special Parameters](#special-parameters)
 * [Customers](#customers)
 * [Estimates](#estimates)
 * [Invoices](#invoices)
@@ -46,18 +47,36 @@ The API key must be passed in through the username with the password left blank.
 
 A 4xx or 5xx status code will be returned upon a failed request.
 
-Common error codes:
+Possible error codes:
 
 * `401` Unauthorized - missing or invalid API key
 * `403` Forbidden - correctly authenticated but missing permission to execute the request
 * `404` Not Found - returned when trying to access an entity that does not exist
 * `500` Internal Server Error - something has broke on our end
 
+## Special Parameters
+
+### Expanding
+
+Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
+
+Relational properties can be expanded by passing in a comma-separated list of properties to expand through the `expand` parameter i.e. `expand=customer,invoice`. This will replace the ID with an object containing the entity's properties.
+
+The `expand` parameter works on most requests that return one or more entities.
+
+### Human-readable JSON
+
+Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
+
 ## Customers
 
 ### List Customers
 	
 	GET /customers
+
+#### Parameters
+
+#### Response
 
 ### Creating a Customer
 
