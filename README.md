@@ -18,7 +18,7 @@ Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API 
 
 We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API. **Please note that this API is currently in beta and subject to change.** Any changes or new additions will be announced in the [changelog](CHANGELOG.md).
 
-All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
+All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). InPATCH data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
 
 ### API Endpoint
 
@@ -51,19 +51,27 @@ Common error codes:
 
 ## Customers
 
+### List Customers
+	
+	GET /customers
+
 ### Creating a Customer
 
     POST /customers
 
 ### Editing a Customer
 
-	PUT /customers/:id
+	PATCH /customers/:id
 
 ### Deleting a Customer
 
 	DELETE /customers/:id
 
 ## Estimates
+
+### List Estimates
+
+	GET /estimates
 
 ### Creating an Estimate
 
@@ -77,7 +85,7 @@ Common error codes:
 
 ### Editing an Estimate
 
-	PUT /estimates/:id
+	PATCH /estimates/:id
 	
 ### Converting an Estimate into an Invoice
 
@@ -88,6 +96,10 @@ Common error codes:
 	DELETE /estimates/:id
 
 ## Invoices
+
+### List Invoices
+
+	GET /invoices
 
 ### Creating an Invoice
 
@@ -101,13 +113,17 @@ Common error codes:
 
 ### Editing an Invoice
 
-	PUT /invoices/:id
+	PATCH /invoices/:id
 
 ### Deleting an Invoice
 
 	DELETE /invoices/:id
 
 ## Payments
+
+### List Payments
+
+	GET /payments
 
 ### Creating a Payment
 
