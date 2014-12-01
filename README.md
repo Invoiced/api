@@ -20,6 +20,10 @@ We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representat
 
 All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
 
+### API Endpoint
+
+```https://api.invoiced.com```
+
 ## Authentication
 
 The API uses [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) to authenticate users. A valid API key is required for all requests. Also, **all requests must use HTTPS.** Any HTTP requests will be ignored.
@@ -37,6 +41,13 @@ The API key must be passed in through the username with the password left blank.
 ## Errors
 
 A 4xx or 5xx status code will be returned upon a failed request.
+
+Common error codes:
+
+* `401` Unauthorized - missing or invalid API key
+* `403` Forbidden - correctly authenticated but missing permission to execute the request
+* `404` Not Found - returned when trying to access an entity that does not exist
+* `500` Internal Server Error - something has broke on our end
 
 ## Customers
 
