@@ -22,9 +22,7 @@ All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data 
 
 ### API Endpoint
 
-```
-https://api.invoiced.com
-```
+    https://api.invoiced.com
 
 ## Authentication
 
@@ -38,9 +36,7 @@ An API key can be obtained by signing in to [invoiced.com](https://invoiced.com)
 
 The API key must be passed in through the username with the password left blank. Here is an example using [curl](http://curl.haxx.se/):
 
-```Shell
-curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
-```
+    curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
 
 ## Errors
 
@@ -57,40 +53,72 @@ Common error codes:
 
 ### Creating a Customer
 
+    POST /customers
+
 ### Editing a Customer
 
+	PUT /customers/:id
+
 ### Deleting a Customer
+
+	DELETE /customers/:id
 
 ## Estimates
 
 ### Creating an Estimate
 
+	POST /estimates
+
 ### Sending an Estimate
+
+	POST /estimates/:id/emails
 
 ### Downloading an Estimate PDF
 
 ### Editing an Estimate
 
+	PUT /estimates/:id
+	
+### Converting an Estimate into an Invoice
+
+	POST /estimates/:id/invoice
+
 ### Deleting an Estimate
+
+	DELETE /estimates/:id
 
 ## Invoices
 
 ### Creating an Invoice
 
+	POST /invoices
+
 ### Sending an Invoice
+
+	POST /invoices/:id/emails
 
 ### Downloading an Invoice PDF
 
 ### Editing an Invoice
 
+	PUT /invoices/:id
+
 ### Deleting an Invoice
+
+	DELETE /invoices/:id
 
 ## Payments
 
 ### Creating a Payment
 
+	POST /payments/:id
+
 ### Sending a Payment Receipt
+
+	POST /payments/:id/emails
 
 ### Downloading a Payment Receipt PDF
 
 ### Deleting a Payment
+
+	DELETE /payments/:id
