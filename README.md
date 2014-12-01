@@ -18,11 +18,15 @@ Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API 
 
 We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API. **Please note that this API is currently in beta and subject to change.** Any changes or new additions will be announced in the [changelog](CHANGELOG.md).
 
-All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). InPATCH data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
+All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
 
 ### API Endpoint
 
     https://api.invoiced.com
+
+### Issues, Suggestions, and Contributions
+
+Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com.
 
 ## Authentication
 
