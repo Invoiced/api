@@ -19,11 +19,15 @@ Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API 
 
 We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API. **Please note that this API is currently in beta and subject to change.** Any changes or new additions will be announced in the [changelog](CHANGELOG.md).
 
-All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
-
 ### API Endpoint
 
     https://api.invoiced.com
+
+### Formatting
+
+All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
+
+Dates are input and displayed as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time) in the API. Entity IDs are represented by integers.
 
 ### Issues, Suggestions, and Contributions
 
@@ -56,7 +60,7 @@ Possible error codes:
 
 ## Special Parameters
 
-### Expanding
+### Expanding Relations
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
 
@@ -68,6 +72,19 @@ The `expand` parameter works on most requests that return one or more entities.
 
 Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
+### Filter
+
+With the `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
+
+The `filter` parameter is an object whose keys are the properties that should be matched:
+
+```
+filter: {
+	paid: false,
+	customer: 1234
+}
+```
+
 ## Customers
 
 ### List Customers
@@ -76,11 +93,23 @@ Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
 #### Parameters
 
+Name | Type | Description
+-----|------|-------------
+`sort`|`string`|Column to sort by, i.e. `name asc`
+`filter`|`object`|[Filter](#filter)
+
 #### Response
+
+```json
+```
 
 ### Creating a Customer
 
     POST /customers
+
+### Fetch a Customer
+
+	GET /customers/:id
 
 ### Editing a Customer
 
@@ -96,9 +125,25 @@ Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
 	GET /estimates
 
+#### Parameters
+
+Name | Type | Description
+-----|------|-------------
+`sort`|`string`|Column to sort by, i.e. `name asc`
+`filter`|`object`|[Filter](#filter)
+
+#### Response
+
+```json
+```
+
 ### Creating an Estimate
 
 	POST /estimates
+
+### Fetch an Estimate
+
+	GET /estimates/:id
 
 ### Sending an Estimate
 
@@ -124,9 +169,26 @@ Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
 	GET /invoices
 
+#### Parameters
+
+Name | Type | Description
+-----|------|-------------
+`sort`|`string`|Column to sort by, i.e. `name asc`
+`filter`|`object`|[Filter](#filter)
+`status`|`string`|Can be `paid`,`sent`,`overdue`,`not_sent`, or `unpaid`
+
+#### Response
+
+```json
+```
+
 ### Creating an Invoice
 
 	POST /invoices
+
+### Fetch an Invoice
+	
+	GET /invoices/:id
 
 ### Sending an Invoice
 
@@ -148,9 +210,69 @@ Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
 	GET /payments
 
+#### Parameters
+
+Name | Type | Description
+-----|------|-------------
+`sort`|`string`|Column to sort by, i.e. `name asc`
+`filter`|`object`|[Filter](#filter)
+
+#### Response
+
+```json
+payments: [
+	{
+           "created_at": 1415228628,
+           "updated_at": 1415228642,
+           "id": 20939,
+           "company": 3694,
+           "customer": 15460,
+           "invoice": 44648,
+           "date": 1410843600,
+           "type": "check",
+           "currency": "USD",
+           "amount": 800,
+           "fee": 0,
+           "net": 800,
+           "stripe_charge": "",
+           "paypal_transaction_id": "",
+           "notes": null,
+           "check_no": null
+	},
+       ...
+   ]
+```
+
 ### Creating a Payment
 
 	POST /payments/:id
+
+### Fetch a Payment
+
+	GET /payments/:id
+
+#### Response
+
+```json
+payment: {
+    "created_at": 1415228628,
+    "updated_at": 1415228642,
+    "id": 20939,
+    "company": 3694,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "check",
+    "currency": "USD",
+    "amount": 800,
+     "fee": 0,
+     "net": 800,
+    "stripe_charge": "",
+    "paypal_transaction_id": "",
+    "no tes": null,
+    "check_no": null
+}
+```
 
 ### Sending a Payment Receipt
 
