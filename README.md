@@ -23,7 +23,8 @@ All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data 
 ### API Endpoint
 
 ```
-https://api.invoiced.com```
+https://api.invoiced.com
+```
 
 ## Authentication
 
@@ -38,7 +39,8 @@ An API key can be obtained by signing in to [invoiced.com](https://invoiced.com)
 The API key must be passed in through the username with the password left blank. Here is an example using [curl](http://curl.haxx.se/):
 
 ```bash
-curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices```
+curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
+```
 
 ## Errors
 
