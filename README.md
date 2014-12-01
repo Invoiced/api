@@ -26,7 +26,7 @@ All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data 
 
 ### Issues, Suggestions, and Contributions
 
-Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com.
+Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com. Any pull requests to improve this document are welcome!
 
 ## Authentication
 
