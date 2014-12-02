@@ -107,17 +107,88 @@ X-Total-Count: 10
 ```
 
 ```json
+    "customers": [
+        {
+            "created_at": 1415222128,
+            "updated_at": 1417460942,
+            "id": 15444,
+            "company": 3694,
+            "number": "CUST-0001",
+            "name": "Acme",
+            "primary_contact": "Lesa Dunn",
+            "email": "billings@acmecorp.com",
+            "address1": "342 Amber St",
+            "address2": null,
+            "city": "Hill Valley",
+            "state": "CA",
+            "postal_code": "94523",
+            "country": "United States",
+            "tax_id": "893-934835",
+            "phone": "(820) 297-2983",
+            "other_phone": null,
+            "website": "acmecorp.com",
+            "notes": null,
+            "balance": 3395.47,
+            "stripe_customer": null
+        },
+        ...
+    ]
 ```
 
 ### Creating a Customer
 
     POST /customers
 
+#### Input
+
+```json
+{
+    "number": "CUST-0001",
+    "name": "Acme",
+    "primary_contact": "Lesa Dunn",
+    "email": "billings@acmecorp.com",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null
+}
+```
+
 #### Response
 
 	Status: 201 Created
 
 ```json
+"customer": {
+    "created_at": 1415222128,
+    "updated_at": null,
+    "id": 15444,
+    "company": 3694,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "primary_contact": "Lesa Dunn",
+    "email": "billings@acmecorp.com",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null,
+    "balance": 0,
+    "stripe_customer": null
+}
 ```
 
 ### Fetch a Customer
@@ -129,11 +200,43 @@ X-Total-Count: 10
 	Status: 200 OK
 
 ```json
+"customer": {
+    "created_at": 1415222128,
+    "updated_at": 1417460942,
+    "id": 15444,
+    "company": 3694,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "primary_contact": "Lesa Dunn",
+    "email": "billings@acmecorp.com",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null,
+    "balance": 3395.47,
+    "stripe_customer": null
+}
 ```
 
 ### Editing a Customer
 
 	PATCH /customers/:id
+
+#### Input
+
+```json
+{
+	"other_phone": "(820) 297-2984",
+	"notes": "Notes about customer..."
+}
+```
 
 #### Response
 
@@ -175,17 +278,25 @@ X-Total-Count: 10
 ```
 
 ```json
+TODO
 ```
 
 ### Creating an Estimate
 
 	POST /estimates
 
+#### Input
+
+```json
+TODO
+```
+
 #### Response
 
 	Status: 201 Created
 
 ```json
+TODO
 ```
 
 ### Fetch an Estimate
@@ -197,11 +308,18 @@ X-Total-Count: 10
 	Status: 200 OK
 
 ```json
+TODO
 ```
 
 ### Editing an Estimate
 
 	PATCH /estimates/:id
+
+#### Input
+
+```json
+TODO
+```
 
 #### Response
 
@@ -216,6 +334,12 @@ X-Total-Count: 10
 ### Sending an Estimate
 
 	POST /estimates/:id/emails
+
+#### Input
+
+```json
+TODO
+```
 
 #### Response
 
@@ -268,11 +392,18 @@ X-Total-Count: 10
 
 	POST /invoices
 
+#### Input
+
+```json
+TODO
+```
+
 #### Response
 
 	Status: 201 Created
 
 ```json
+TODO
 ```
 
 ### Fetch an Invoice
@@ -284,11 +415,18 @@ X-Total-Count: 10
 	Status: 200 OK
 
 ```json
+TODO
 ```
 
 ### Editing an Invoice
 
 	PATCH /invoices/:id
+
+#### Input
+
+```json
+TODO
+```
 
 #### Response
 
@@ -303,6 +441,12 @@ X-Total-Count: 10
 ### Sending an Invoice
 
 	POST /invoices/:id/emails
+
+#### Input
+
+```json
+TODO
+```
 
 #### Response
 
@@ -372,11 +516,18 @@ payments: [
 
 	POST /payments
 
+#### Input
+
+```json
+TODO
+```
+
 #### Response
 
 	Status: 201 Created
 
 ```json
+TODO
 ```
 
 ### Fetch a Payment
@@ -413,6 +564,12 @@ payment: {
 
 	PATCH /payments/:id
 
+#### Input
+
+```json
+TODO
+```
+
 #### Response
 
 	Status: 200 OK
@@ -426,6 +583,12 @@ payment: {
 ### Sending a Payment Receipt
 
 	POST /payments/:id/emails
+
+#### Input
+
+```json
+TODO
+```
 
 #### Response
 
