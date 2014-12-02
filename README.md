@@ -149,8 +149,6 @@ Name | Type | Description
 
 	POST /estimates/:id/emails
 
-### Downloading an Estimate PDF
-
 ### Editing an Estimate
 
 	PATCH /estimates/:id
@@ -194,8 +192,6 @@ Name | Type | Description
 
 	POST /invoices/:id/emails
 
-### Downloading an Invoice PDF
-
 ### Editing an Invoice
 
 	PATCH /invoices/:id
@@ -234,12 +230,13 @@ payments: [
            "amount": 800,
            "fee": 0,
            "net": 800,
+           "notes": null,
+           "check_no": null,
            "stripe_charge": "",
            "paypal_transaction_id": "",
-           "notes": null,
-           "check_no": null
+		   "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 	},
-       ...
+    ...
    ]
 ```
 
@@ -267,10 +264,11 @@ payment: {
     "amount": 800,
      "fee": 0,
      "net": 800,
+    "notes": null,
+    "check_no": null,
     "stripe_charge": "",
     "paypal_transaction_id": "",
-    "no tes": null,
-    "check_no": null
+    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 }
 ```
 
@@ -278,7 +276,9 @@ payment: {
 
 	POST /payments/:id/emails
 
-### Downloading a Payment Receipt PDF
+### Editing a Payment
+
+	PATCH /payments/:id
 
 ### Deleting a Payment
 
