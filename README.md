@@ -278,7 +278,63 @@ X-Total-Count: 10
 ```
 
 ```json
-TODO
+	"estimates": [
+		{
+            "created_at": 1415223825,
+            "updated_at": 1415223841,
+            "id": 1410,
+            "company": 3694,
+            "customer": 15453,
+            "currency": "USD",
+            "date_format": "M j, Y",
+            "template": null,
+            "number": "EST-0002",
+            "date": 1415223417,
+            "purchase_order": null,
+            "items": [
+                {
+                    "type": "product",
+                    "name": "Copy Paper, Case",
+		            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+                    "quantity": 10,
+                    "unit_cost": 45,
+                    "amount": 450,
+                    "fields": [],
+                    "id": 79
+                },
+                {
+                    "type": "product",
+                    "name": "Jumbo Paper Clips, Box",
+                    "description": "1,000 pack",
+                    "quantity": 2,
+                    "unit_cost": 9,
+                    "amount": 18,
+                    "fields": [],
+                    "id": 82
+                },
+                {
+                    "type": "service",
+                    "name": "Delivery",
+                    "description": "",
+                    "quantity": 1,
+                    "unit_cost": 10,
+                    "amount": 10,
+                    "fields": [],
+                    "id": 83
+                }
+            ],
+            "terms": "Net 30",
+            "notes": "Thank you for your business!",
+            "subtotal": 478,
+            "total": 478,
+            "fields": [],
+            "sent": false,
+            "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
+            "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
+            "status": "invoiced"
+        },
+        ...
+    ]
 ```
 
 ### Creating an Estimate
@@ -288,7 +344,57 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+    "company": 3694,
+    "customer": 15453,
+    "currency": "USD",
+    "date_format": "M j, Y",
+    "template": null,
+    "number": "EST-0002",
+    "date": 1415223417,
+    "purchase_order": null,
+    "items": [
+        {
+            "type": "product",
+            "name": "Copy Paper, Case",
+            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+            "quantity": 10,
+            "unit_cost": 45,
+            "amount": 450,
+            "fields": [],
+            "id": 79
+        },
+        {
+            "type": "product",
+            "name": "Jumbo Paper Clips, Box",
+            "description": "1,000 pack",
+            "quantity": 2,
+            "unit_cost": 9,
+            "amount": 18,
+            "fields": [],
+            "id": 82
+        },
+        {
+            "type": "service",
+            "name": "Delivery",
+            "description": "",
+            "quantity": 1,
+            "unit_cost": 10,
+            "amount": 10,
+            "fields": [],
+            "id": 83
+        }
+    ],
+    "terms": "Net 30",
+    "notes": "Thank you for your business!",
+    "subtotal": 478,
+    "total": 478,
+    "fields": [],
+    "sent": false,
+    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
+    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
+    "status": "invoiced"
+}
 ```
 
 #### Response
@@ -296,7 +402,62 @@ TODO
 	Status: 201 Created
 
 ```json
-TODO
+{
+	"estimate": {
+	    "created_at": 1415223825,
+	    "updated_at": null,
+	    "id": 1410,
+	    "company": 3694,
+	    "customer": 15453,
+	    "currency": "USD",
+	    "date_format": "M j, Y",
+	    "template": null,
+	    "number": "EST-0002",
+	    "date": 1415223417,
+	    "purchase_order": null,
+	    "items": [
+	        {
+	            "type": "product",
+	            "name": "Copy Paper, Case",
+	      "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	            "quantity": 10,
+	            "unit_cost": 45,
+	            "amount": 450,
+	            "fields": [],
+	            "id": 79
+	        },
+	        {
+	            "type": "product",
+	            "name": "Jumbo Paper Clips, Box",
+	            "description": "1,000 pack",
+	            "quantity": 2,
+	            "unit_cost": 9,
+	            "amount": 18,
+	            "fields": [],
+	            "id": 82
+	        },
+	        {
+	            "type": "service",
+	            "name": "Delivery",
+	            "description": "",
+	            "quantity": 1,
+	            "unit_cost": 10,
+	            "amount": 10,
+	            "fields": [],
+	            "id": 83
+	        }
+	    ],
+	    "terms": "Net 30",
+	    "notes": "Thank you for your business!",
+	    "subtotal": 478,
+	    "total": 478,
+	    "fields": [],
+	    "sent": false,
+	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
+	    "status": "invoiced"
+	}
+}
 ```
 
 ### Fetch an Estimate
@@ -308,7 +469,62 @@ TODO
 	Status: 200 OK
 
 ```json
-TODO
+{
+	"estimate": {
+	    "created_at": 1415223825,
+	    "updated_at": 1415223841,
+	    "id": 1410,
+	    "company": 3694,
+	    "customer": 15453,
+	    "currency": "USD",
+	    "date_format": "M j, Y",
+	    "template": null,
+	    "number": "EST-0002",
+	    "date": 1415223417,
+	    "purchase_order": null,
+	    "items": [
+	        {
+	            "type": "product",
+	            "name": "Copy Paper, Case",
+	      "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	            "quantity": 10,
+	            "unit_cost": 45,
+	            "amount": 450,
+	            "fields": [],
+	            "id": 79
+	        },
+	        {
+	            "type": "product",
+	            "name": "Jumbo Paper Clips, Box",
+	            "description": "1,000 pack",
+	            "quantity": 2,
+	            "unit_cost": 9,
+	            "amount": 18,
+	            "fields": [],
+	            "id": 82
+	        },
+	        {
+	            "type": "service",
+	            "name": "Delivery",
+	            "description": "",
+	            "quantity": 1,
+	            "unit_cost": 10,
+	            "amount": 10,
+	            "fields": [],
+	            "id": 83
+	        }
+	    ],
+	    "terms": "Net 30",
+	    "notes": "Thank you for your business!",
+	    "subtotal": 478,
+	    "total": 478,
+	    "fields": [],
+	    "sent": false,
+	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
+	    "status": "invoiced"
+	}
+}
 ```
 
 ### Editing an Estimate
@@ -318,7 +534,9 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+	"sent": true
+}
 ```
 
 #### Response
@@ -338,7 +556,12 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+	"to": "client@example.com",
+	"subject": "optional subject...",
+	"bcc": "derek@example.com,ann@example.com",
+	"message": "optional message.."
+}
 ```
 
 #### Response
