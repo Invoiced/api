@@ -115,9 +115,23 @@ Name | Type | Description
 
 	PATCH /customers/:id
 
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
 ### Deleting a Customer
 
 	DELETE /customers/:id
+
+#### Response
+
+	Status: 204 No Content
 
 ## Estimates
 
@@ -145,14 +159,34 @@ Name | Type | Description
 
 	GET /estimates/:id
 
+### Editing an Estimate
+
+	PATCH /estimates/:id
+
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
 ### Sending an Estimate
 
 	POST /estimates/:id/emails
 
-### Editing an Estimate
+#### Response
 
-	PATCH /estimates/:id
-	
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
 ### Converting an Estimate into an Invoice
 
 	POST /estimates/:id/invoice
@@ -160,6 +194,10 @@ Name | Type | Description
 ### Deleting an Estimate
 
 	DELETE /estimates/:id
+
+#### Response
+
+	Status: 204 No Content
 
 ## Invoices
 
@@ -188,17 +226,31 @@ Name | Type | Description
 	
 	GET /invoices/:id
 
-### Sending an Invoice
-
-	POST /invoices/:id/emails
-
 ### Editing an Invoice
 
 	PATCH /invoices/:id
 
+### Sending an Invoice
+
+	POST /invoices/:id/emails
+
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
 ### Deleting an Invoice
 
 	DELETE /invoices/:id
+
+#### Response
+
+	Status: 204 No Content
 
 ## Payments
 
@@ -214,6 +266,12 @@ Name | Type | Description
 `filter`|`object`|[Filter](#filter)
 
 #### Response
+
+```
+Status: 200 OK
+Link: <>; rel="self", <>; rel="first", ...
+X-Total-Count: 10
+```
 
 ```json
 payments: [
@@ -242,13 +300,22 @@ payments: [
 
 ### Creating a Payment
 
-	POST /payments/:id
+	POST /payments
+
+#### Response
+
+	Status: 201 Created
+
+```json
+```
 
 ### Fetch a Payment
 
 	GET /payments/:id
 
 #### Response
+
+	Status: 200 OK
 
 ```json
 payment: {
@@ -272,14 +339,38 @@ payment: {
 }
 ```
 
-### Sending a Payment Receipt
-
-	POST /payments/:id/emails
-
 ### Editing a Payment
 
 	PATCH /payments/:id
 
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
+### Sending a Payment Receipt
+
+	POST /payments/:id/emails
+
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
 ### Deleting a Payment
 
 	DELETE /payments/:id
+
+#### Response
+
+	Status: 204 No Content
