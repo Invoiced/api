@@ -100,6 +100,12 @@ Name | Type | Description
 
 #### Response
 
+```
+Status: 200 OK
+Link: <>; rel="self", <>; rel="first", ...
+X-Total-Count: 10
+```
+
 ```json
 ```
 
@@ -107,9 +113,23 @@ Name | Type | Description
 
     POST /customers
 
+#### Response
+
+	Status: 201 Created
+
+```json
+```
+
 ### Fetch a Customer
 
 	GET /customers/:id
+
+#### Response
+
+	Status: 200 OK
+
+```json
+```
 
 ### Editing a Customer
 
@@ -148,6 +168,12 @@ Name | Type | Description
 
 #### Response
 
+```
+Status: 200 OK
+Link: <>; rel="self", <>; rel="first", ...
+X-Total-Count: 10
+```
+
 ```json
 ```
 
@@ -155,9 +181,23 @@ Name | Type | Description
 
 	POST /estimates
 
+#### Response
+
+	Status: 201 Created
+
+```json
+```
+
 ### Fetch an Estimate
 
 	GET /estimates/:id
+
+#### Response
+
+	Status: 200 OK
+
+```json
+```
 
 ### Editing an Estimate
 
@@ -215,6 +255,12 @@ Name | Type | Description
 
 #### Response
 
+```
+Status: 200 OK
+Link: <>; rel="self", <>; rel="first", ...
+X-Total-Count: 10
+```
+
 ```json
 ```
 
@@ -222,13 +268,37 @@ Name | Type | Description
 
 	POST /invoices
 
+#### Response
+
+	Status: 201 Created
+
+```json
+```
+
 ### Fetch an Invoice
 	
 	GET /invoices/:id
 
+#### Response
+
+	Status: 200 OK
+
+```json
+```
+
 ### Editing an Invoice
 
 	PATCH /invoices/:id
+
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
 
 ### Sending an Invoice
 
@@ -329,8 +399,8 @@ payment: {
     "type": "check",
     "currency": "USD",
     "amount": 800,
-     "fee": 0,
-     "net": 800,
+    "fee": 0,
+    "net": 800,
     "notes": null,
     "check_no": null,
     "stripe_charge": "",
