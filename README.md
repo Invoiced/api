@@ -1,18 +1,6 @@
 Invoiced API
 ===
 
-Documentation for the Invoiced API
-
-## Table of Contents
-* [Introduction](#introduction)
-* [Authentication](#authentication)
-* [Errors](#errors)
-* [Special Parameters](#special-parameters)
-* [Customers](Endpoints/Customers.md)
-* [Estimates](Endpoints/Estimates.md)
-* [Invoices](Endpoints/Invoices.md)
-* [Payments](Endpoints/Payments.md)
-
 ## Introduction
 
 Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API was designed to be easy to integrate into your workflow.
@@ -84,3 +72,9 @@ filter: {
 	customer: 1234
 }
 ```
+
+## Table of Contents
+* [Customers](Endpoints/Customers.md)
+* [Estimates](Endpoints/Estimates.md)
+* [Invoices](Endpoints/Invoices.md)
+* [Payments](Endpoints/Payments.md)
