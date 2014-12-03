@@ -96,7 +96,7 @@ filter: {
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter)
+`filter`|`object`|[Filter](#filter) - can be `company`
 
 #### Response
 
@@ -107,6 +107,7 @@ X-Total-Count: 10
 ```
 
 ```json
+{
     "customers": [
         {
             "created_at": 1415222128,
@@ -133,6 +134,7 @@ X-Total-Count: 10
         },
         ...
     ]
+}
 ```
 
 ### Creating a Customer
@@ -267,7 +269,7 @@ X-Total-Count: 10
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter)
+`filter`|`object`|[Filter](#filter) - can be `company`,`customer`, or `template`
 
 #### Response
 
@@ -278,6 +280,7 @@ X-Total-Count: 10
 ```
 
 ```json
+{
 	"estimates": [
 		{
             "created_at": 1415223825,
@@ -335,6 +338,7 @@ X-Total-Count: 10
         },
         ...
     ]
+}
 ```
 
 ### Creating an Estimate
@@ -345,7 +349,6 @@ X-Total-Count: 10
 
 ```json
 {
-    "company": 3694,
     "customer": 15453,
     "currency": "USD",
     "date_format": "M j, Y",
@@ -355,45 +358,37 @@ X-Total-Count: 10
     "purchase_order": null,
     "items": [
         {
+            "id": 79,
             "type": "product",
             "name": "Copy Paper, Case",
             "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
             "quantity": 10,
             "unit_cost": 45,
-            "amount": 450,
-            "fields": [],
-            "id": 79
+            "fields": []
         },
         {
+            "id": 82,
             "type": "product",
             "name": "Jumbo Paper Clips, Box",
             "description": "1,000 pack",
             "quantity": 2,
             "unit_cost": 9,
-            "amount": 18,
-            "fields": [],
-            "id": 82
+            "fields": []
         },
         {
+            "id": 83,
             "type": "service",
             "name": "Delivery",
             "description": "",
             "quantity": 1,
             "unit_cost": 10,
-            "amount": 10,
-            "fields": [],
-            "id": 83
+            "fields": []
         }
     ],
     "terms": "Net 30",
     "notes": "Thank you for your business!",
-    "subtotal": 478,
-    "total": 478,
     "fields": [],
-    "sent": false,
-    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
-    "status": "invoiced"
+    "sent": false
 }
 ```
 
@@ -450,7 +445,7 @@ X-Total-Count: 10
 	    "terms": "Net 30",
 	    "notes": "Thank you for your business!",
 	    "subtotal": 478,
-	    "total": 478,
+	    "total": 478,	    
 	    "fields": [],
 	    "sent": false,
 	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002",
@@ -558,15 +553,15 @@ X-Total-Count: 10
 ```json
 {
 	"to": "client@example.com",
+	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "optional subject...",
-	"bcc": "derek@example.com,ann@example.com",
-	"message": "optional message.."
+	"message": "optional message..."
 }
 ```
 
 #### Response
 
-	Status: 200 OK
+	Status: 201 Created
 
 ```json
 {
@@ -577,6 +572,73 @@ X-Total-Count: 10
 ### Converting an Estimate into an Invoice
 
 	POST /estimates/:id/invoice
+
+#### Response
+
+	Status: 201 Created
+
+```json
+{
+	"invoice": {
+	    "company": 3694,
+	    "customer": 15453,
+	    "currency": "USD",
+	    "date_format": "M j, Y",
+	    "late_payment_reminders_disabled": false,
+	    "template": null,
+	    "estimate": null,
+	    "subscription": null,
+	    "number": "INV-0015",
+	    "date": 1415223417,
+	    "due_date": null,
+	    "purchase_order": null,
+	    "items": [
+	        {
+	            "type": "product",
+	            "name": "Copy Paper, Case",
+			    "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	            "quantity": 10,
+	            "unit_cost": 45,
+	            "amount": 450,
+	            "fields": [],
+	            "id": 79
+	        },
+	        {
+	            "type": "product",
+	            "name": "Jumbo Paper Clips, Box",
+	            "description": "1,000 pack",
+	            "quantity": 2,
+	            "unit_cost": 9,
+	            "amount": 18,
+	            "fields": [],
+	            "id": 82
+	        },
+	        {
+	            "type": "service",
+	            "name": "Delivery",
+	            "description": "",
+	            "quantity": 1,
+	            "unit_cost": 10,
+	            "amount": 10,
+	            "fields": [],
+	            "id": 83
+	        }
+	    ],
+	    "terms": "Net 30",
+	    "notes": "Thank you for your business!",	    "subtotal": 478,
+	    "total": 478,
+	    "amount_paid": 0,
+	    "balance": 478,
+	    "fields": [],
+	    "sent": false,
+	    "closed": false,
+	    "paid": false,
+	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
+	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "status": "overdue"
+	}
+}
+```
 
 ### Deleting an Estimate
 
@@ -597,7 +659,7 @@ X-Total-Count: 10
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter)
+`filter`|`object`|[Filter](#filter) - can be `company`, `customer`, `template`, `estimate`, or `subscription`
 `status`|`string`|Can be `paid`,`sent`,`overdue`,`not_sent`, or `unpaid`
 
 #### Response
@@ -609,6 +671,61 @@ X-Total-Count: 10
 ```
 
 ```json
+{
+	"invoices": {
+        "created_at": 1415229884,
+        "updated_at": 1416291302,
+        "id": 46225,
+        "company": 3694,
+        "customer": 15444,
+        "currency": "USD",
+        "date_format": "M j, Y",
+        "template": null,
+        "estimate": null,
+        "subscription": 410,
+        "late_payment_reminders_disabled": false,
+        "number": "INV-0016",
+        "date": 1416290400,
+        "due_date": 1416549600,
+        "purchase_order": null,
+        "items": [
+            {
+                "id": 79,
+                "type": "product",
+                "name": "Copy Paper, Case",
+                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+                "quantity": 1,
+                "unit_cost": 45,
+				"amount": 45,
+                "fields": []
+            },
+            {
+            	"id": 83,
+                "type": "service",
+                "name": "Delivery",
+                "description": "",
+                "quantity": 1,
+                "unit_cost": 10,
+                "amount": 10,
+                "fields": []
+            }
+        ],
+        "terms": null,
+        "notes": null,
+        "subtotal": 55,
+        "total": 55,
+        "amount_paid": 0,
+        "balance": 55,
+        "fields": [],
+        "sent": false,
+        "closed": false,
+        "paid": false,
+        "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
+        "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+        "status": "overdue"
+    },
+    ...
+]
 ```
 
 ### Creating an Invoice
@@ -618,7 +735,43 @@ X-Total-Count: 10
 #### Input
 
 ```json
-TODO
+{
+    "customer": 15444,
+    "currency": "USD",
+    "date_format": "M j, Y",
+    "template": null,
+    "estimate": null,
+    "late_payment_reminders_disabled": false,
+    "number": "INV-0016",
+    "date": 1416290400,
+    "due_date": 1416549600,
+    "purchase_order": null,
+    "items": [
+        {
+            "id": 79,
+            "type": "product",
+            "name": "Copy Paper, Case",
+            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+            "quantity": 1,
+            "unit_cost": 45,
+            "fields": []
+        },
+        {
+        	"id": 83,
+            "type": "service",
+            "name": "Delivery",
+            "description": "",
+            "quantity": 1,
+            "unit_cost": 10,
+            "fields": []
+        }
+    ],
+    "terms": null,
+    "notes": null,    
+    "fields": [],
+    "sent": false,
+    "closed": false
+}
 ```
 
 #### Response
@@ -626,7 +779,55 @@ TODO
 	Status: 201 Created
 
 ```json
-TODO
+{
+	"invoice": {
+	    "customer": 15444,
+	    "currency": "USD",
+	    "date_format": "M j, Y",
+	    "template": null,
+	    "estimate": null,
+	    "subscription": null,
+	    "late_payment_reminders_disabled": false,
+	    "number": "INV-0016",
+	    "date": 1416290400,
+	    "due_date": 1416549600,
+	    "purchase_order": null,
+	    "items": [
+	        {
+	            "id": 79,
+	            "type": "product",
+	            "name": "Copy Paper, Case",
+	            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	            "quantity": 1,
+	            "unit_cost": 45,
+	"amount": 45,
+	            "fields": []
+	        },
+	        {
+	        	"id": 83,
+	            "type": "service",
+	            "name": "Delivery",
+	            "description": "",
+	            "quantity": 1,
+	            "unit_cost": 10,
+	            "amount": 10,
+	            "fields": []
+	        }
+	    ],
+	    "terms": null,
+	    "notes": null,
+	    "total": 55,
+	    "amount_paid": 0,
+	    "balance": 55,
+	    "fields": [],
+	    "sent": false,
+	    "closed": false,
+	    "paid": false,
+	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
+	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "status": "overdue"
+	}
+}
 ```
 
 ### Fetch an Invoice
@@ -638,7 +839,55 @@ TODO
 	Status: 200 OK
 
 ```json
-TODO
+{
+	"invoice": {
+	    "customer": 15444,
+	    "currency": "USD",
+	    "date_format": "M j, Y",
+	    "template": null,
+	    "estimate": null,
+	    "subscription": null,
+	    "late_payment_reminders_disabled": false,
+	    "number": "INV-0016",
+	    "date": 1416290400,
+	    "due_date": 1416549600,
+	    "purchase_order": null,
+	    "items": [
+	        {
+	            "id": 79,
+	            "type": "product",
+	            "name": "Copy Paper, Case",
+	            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	            "quantity": 1,
+	            "unit_cost": 45,
+	"amount": 45,
+	            "fields": []
+	        },
+	        {
+	        	"id": 83,
+	            "type": "service",
+	            "name": "Delivery",
+	            "description": "",
+	            "quantity": 1,
+	            "unit_cost": 10,
+	            "amount": 10,
+	            "fields": []
+	        }
+	    ],
+	    "terms": null,
+	    "notes": null,
+	    "total": 55,
+	    "amount_paid": 0,
+	    "balance": 55,
+	    "fields": [],
+	    "sent": false,
+	    "closed": false,
+	    "paid": false,
+	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
+	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "status": "overdue"
+	}
+}
 ```
 
 ### Editing an Invoice
@@ -648,7 +897,9 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+	"sent": true
+}
 ```
 
 #### Response
@@ -668,12 +919,17 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+	"to": "client@example.com",
+	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
+	"subject": "optional subject...",
+	"message": "optional message..."
+}
 ```
 
 #### Response
 
-	Status: 200 OK
+	Status: 201 Created
 
 ```json
 {
@@ -700,7 +956,7 @@ TODO
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter)
+`filter`|`object`|[Filter](#filter) - can be `company`,`customer`, or `invoice`
 
 #### Response
 
@@ -742,7 +998,17 @@ payments: [
 #### Input
 
 ```json
-TODO
+"payment": {
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "check",
+    "currency": "USD",
+    "amount": 800,
+    "fee": 0,
+    "notes": null,
+    "check_no": null
+}
 ```
 
 #### Response
@@ -750,7 +1016,25 @@ TODO
 	Status: 201 Created
 
 ```json
-TODO
+"payment": {
+    "created_at": 1415228628,
+    "updated_at": 1415228642,
+    "id": 20939,
+    "company": 3694,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "check",
+    "currency": "USD",
+    "amount": 800,
+    "fee": 0,
+    "net": 800,
+    "notes": null,
+    "check_no": null,
+    "stripe_charge": "",
+    "paypal_transaction_id": "",
+    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+}
 ```
 
 ### Fetch a Payment
@@ -762,7 +1046,7 @@ TODO
 	Status: 200 OK
 
 ```json
-payment: {
+"payment": {
     "created_at": 1415228628,
     "updated_at": 1415228642,
     "id": 20939,
@@ -790,7 +1074,9 @@ payment: {
 #### Input
 
 ```json
-TODO
+{
+	"notes": "Received by Jan."
+}
 ```
 
 #### Response
@@ -810,12 +1096,17 @@ TODO
 #### Input
 
 ```json
-TODO
+{
+	"to": "test@example.com",
+	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
+	"subject": "subject...",
+	"message": "message..."
+}
 ```
 
 #### Response
 
-	Status: 200 OK
+	Status: 201 Created
 
 ```json
 {
