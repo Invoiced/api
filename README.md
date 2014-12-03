@@ -580,13 +580,16 @@ X-Total-Count: 10
 ```json
 {
 	"invoice": {
+        "created_at": 1415229884,
+        "updated_at": 1416291302,
+		"id": 4522,
 	    "company": 3694,
 	    "customer": 15453,
 	    "currency": "USD",
 	    "date_format": "M j, Y",
 	    "late_payment_reminders_disabled": false,
 	    "template": null,
-	    "estimate": null,
+	    "estimate": 1410,
 	    "subscription": null,
 	    "number": "INV-0015",
 	    "date": 1415223417,
@@ -594,34 +597,34 @@ X-Total-Count: 10
 	    "purchase_order": null,
 	    "items": [
 	        {
+	            "id": 79
 	            "type": "product",
 	            "name": "Copy Paper, Case",
 			    "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
 	            "quantity": 10,
 	            "unit_cost": 45,
 	            "amount": 450,
-	            "fields": [],
-	            "id": 79
+	            "fields": []
 	        },
 	        {
+	            "id": 82,
 	            "type": "product",
 	            "name": "Jumbo Paper Clips, Box",
 	            "description": "1,000 pack",
 	            "quantity": 2,
 	            "unit_cost": 9,
 	            "amount": 18,
-	            "fields": [],
-	            "id": 82
+	            "fields": []
 	        },
 	        {
+	            "id": 83,
 	            "type": "service",
 	            "name": "Delivery",
 	            "description": "",
 	            "quantity": 1,
 	            "unit_cost": 10,
 	            "amount": 10,
-	            "fields": [],
-	            "id": 83
+	            "fields": []
 	        }
 	    ],
 	    "terms": "Net 30",
@@ -633,8 +636,8 @@ X-Total-Count: 10
 	    "sent": false,
 	    "closed": false,
 	    "paid": false,
-	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
-	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
 	    "status": "overdue"
 	}
 }
@@ -672,60 +675,62 @@ X-Total-Count: 10
 
 ```json
 {
-	"invoices": {
-        "created_at": 1415229884,
-        "updated_at": 1416291302,
-        "id": 46225,
-        "company": 3694,
-        "customer": 15444,
-        "currency": "USD",
-        "date_format": "M j, Y",
-        "template": null,
-        "estimate": null,
-        "subscription": 410,
-        "late_payment_reminders_disabled": false,
-        "number": "INV-0016",
-        "date": 1416290400,
-        "due_date": 1416549600,
-        "purchase_order": null,
-        "items": [
-            {
-                "id": 79,
-                "type": "product",
-                "name": "Copy Paper, Case",
-                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-                "quantity": 1,
-                "unit_cost": 45,
-				"amount": 45,
-                "fields": []
-            },
-            {
-            	"id": 83,
-                "type": "service",
-                "name": "Delivery",
-                "description": "",
-                "quantity": 1,
-                "unit_cost": 10,
-                "amount": 10,
-                "fields": []
-            }
-        ],
-        "terms": null,
-        "notes": null,
-        "subtotal": 55,
-        "total": 55,
-        "amount_paid": 0,
-        "balance": 55,
-        "fields": [],
-        "sent": false,
-        "closed": false,
-        "paid": false,
-        "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
-        "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
-        "status": "overdue"
-    },
-    ...
-]
+	"invoices": [
+		{
+	        "created_at": 1415229884,
+	        "updated_at": 1416291302,
+	        "id": 46225,
+	        "company": 3694,
+	        "customer": 15444,
+	        "currency": "USD",
+	        "date_format": "M j, Y",
+	        "template": null,
+	        "estimate": null,
+	        "subscription": 410,
+	        "late_payment_reminders_disabled": false,
+	        "number": "INV-0016",
+	        "date": 1416290400,
+	        "due_date": 1416549600,
+	        "purchase_order": null,
+	        "items": [
+	            {
+	                "id": 79,
+	                "type": "product",
+	                "name": "Copy Paper, Case",
+	                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+	                "quantity": 1,
+	                "unit_cost": 45,
+					"amount": 45,
+	                "fields": []
+	            },
+	            {
+	            	"id": 83,
+	                "type": "service",
+	                "name": "Delivery",
+	                "description": "",
+	                "quantity": 1,
+	                "unit_cost": 10,
+	                "amount": 10,
+	                "fields": []
+	            }
+	        ],
+	        "terms": null,
+	        "notes": null,
+	        "subtotal": 55,
+	        "total": 55,
+	        "amount_paid": 0,
+	        "balance": 55,
+	        "fields": [],
+	        "sent": false,
+	        "closed": false,
+	        "paid": false,
+	        "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+	        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
+	        "status": "overdue"
+	    },
+	    ...
+	]
+}
 ```
 
 ### Creating an Invoice
@@ -823,8 +828,8 @@ X-Total-Count: 10
 	    "sent": false,
 	    "closed": false,
 	    "paid": false,
-	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
-	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
 	    "status": "overdue"
 	}
 }
@@ -883,8 +888,8 @@ X-Total-Count: 10
 	    "sent": false,
 	    "closed": false,
 	    "paid": false,
-	    "client_view_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016",
-	    "pdf_url": "https:\/\/invoiced.com\/dundermifflin\/CUST-0001\/INV-0016\/pdf",
+	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
 	    "status": "overdue"
 	}
 }
@@ -998,7 +1003,7 @@ payments: [
 #### Input
 
 ```json
-"payment": {
+{
     "customer": 15460,
     "invoice": 44648,
     "date": 1410843600,
@@ -1016,24 +1021,26 @@ payments: [
 	Status: 201 Created
 
 ```json
-"payment": {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "id": 20939,
-    "company": 3694,
-    "customer": 15460,
-    "invoice": 44648,
-    "date": 1410843600,
-    "type": "check",
-    "currency": "USD",
-    "amount": 800,
-    "fee": 0,
-    "net": 800,
-    "notes": null,
-    "check_no": null,
-    "stripe_charge": "",
-    "paypal_transaction_id": "",
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+{
+	"payment": {
+	    "created_at": 1415228628,
+	    "updated_at": 1415228642,
+	    "id": 20939,
+	    "company": 3694,
+	    "customer": 15460,
+	    "invoice": 44648,
+	    "date": 1410843600,
+	    "type": "check",
+	    "currency": "USD",
+	    "amount": 800,
+	    "fee": 0,
+	    "net": 800,
+	    "notes": null,
+	    "check_no": null,
+	    "stripe_charge": "",
+	    "paypal_transaction_id": "",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+	}
 }
 ```
 
@@ -1046,24 +1053,26 @@ payments: [
 	Status: 200 OK
 
 ```json
-"payment": {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "id": 20939,
-    "company": 3694,
-    "customer": 15460,
-    "invoice": 44648,
-    "date": 1410843600,
-    "type": "check",
-    "currency": "USD",
-    "amount": 800,
-    "fee": 0,
-    "net": 800,
-    "notes": null,
-    "check_no": null,
-    "stripe_charge": "",
-    "paypal_transaction_id": "",
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+{
+	"payment": {
+	    "created_at": 1415228628,
+	    "updated_at": 1415228642,
+	    "id": 20939,
+	    "company": 3694,
+	    "customer": 15460,
+	    "invoice": 44648,
+	    "date": 1410843600,
+	    "type": "check",
+	    "currency": "USD",
+	    "amount": 800,
+	    "fee": 0,
+	    "net": 800,
+	    "notes": null,
+	    "check_no": null,
+	    "stripe_charge": "",
+	    "paypal_transaction_id": "",
+	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+	}
 }
 ```
 
