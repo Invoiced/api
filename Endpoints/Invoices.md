@@ -16,7 +16,10 @@ Name | Type | Description
 
 ```
 Status: 200 OK
-Link: <>; rel="self", <>; rel="first", ...
+Link: <https://api.invoiced.com/invoices?page=1&per_page=10>; rel="self",
+	  <https://api.invoiced.com/invoices?page=1&per_page=10>; rel="first",
+	  <https://api.invoiced.com/invoices?page=2&per_page=10>; rel="next",
+	  <https://api.invoiced.com/invoices?page=3&per_page=10>; rel="last"
 X-Total-Count: 10
 ```
 

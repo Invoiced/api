@@ -15,8 +15,11 @@ Name | Type | Description
 
 ```
 Status: 200 OK
-Link: <>; rel="self", <>; rel="first", ...
-X-Total-Count: 10
+Link: <https://api.invoiced.com/estimates?page=1&per_page=10>; rel="self",
+	  <https://api.invoiced.com/estimates?page=1&per_page=10>; rel="first",
+	  <https://api.invoiced.com/estimates?page=2&per_page=10>; rel="next",
+	  <https://api.invoiced.com/estimates?page=3&per_page=10>; rel="last"
+X-Total-Count: 30
 ```
 
 ```json
