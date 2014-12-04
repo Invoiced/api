@@ -40,7 +40,7 @@ payments: [
            "paypal_transaction_id": "",
 		   "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 	},
-    ...
+    {...}
    ]
 ```
 

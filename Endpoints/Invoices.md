@@ -75,7 +75,7 @@ X-Total-Count: 10
 	        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
 	        "status": "overdue"
 	    },
-	    ...
+	    {...}
 	]
 }
 ```

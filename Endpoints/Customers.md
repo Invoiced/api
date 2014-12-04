@@ -45,7 +45,7 @@ X-Total-Count: 10
             "balance": 3395.47,
             "stripe_customer": null
         },
-        ...
+        {...}
     ]
 }
 ```

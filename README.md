@@ -16,19 +16,19 @@ Invoiced API
 
 Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API was designed to be easy to integrate into your workflow.
 
-We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API. **Please note that this API is currently in beta and subject to change.** Any changes or new additions will be announced in the [changelog](CHANGELOG.md).
+We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API. **Please note that this API is currently in beta and subject to change.** Any changes or new additions will be announced in the [changelog](CHANGELOG.md). You can also receive API-related announcements [@invoicedapi](https://twitter.com/invoicedapi).
 
 ### API Endpoint
 
     https://api.invoiced.com
 
-### Formatting
+### JSON-only
 
 All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
 
-Dates are input and displayed as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time) in the API. Entity IDs are represented by integers.
+In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time). Each entity like customers or invoices has a unique integer id.
 
-### Issues, Suggestions, and Contributions
+### Getting Help or Contributing
 
 Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com. Any pull requests to improve this document are welcome!
 
@@ -73,14 +73,14 @@ Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
 
 ### Filter
 
-With the `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
+The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
 
 The `filter` parameter is an object whose keys are the properties that should be matched:
 
-```
+```json
 filter: {
-	paid: false,
-	customer: 1234
+	"paid": false,
+	"customer": 1234
 }
 ```
 

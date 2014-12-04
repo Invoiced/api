@@ -76,7 +76,7 @@ X-Total-Count: 10
             "pdf_url": "https://invoiced.com/dundermifflin/CUST-0002/EST-0002/pdf",
             "status": "invoiced"
         },
-        ...
+        {...}
     ]
 }
 ```
