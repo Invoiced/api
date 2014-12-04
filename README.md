@@ -4,9 +4,9 @@ Invoiced API
 ## Table of Contents
 * [Introduction](#introduction)
 * [Authentication](#authentication)
+* [Errors](#errors)
 * [Pagination](#pagination)
 * [Special Parameters](#special-parameters)
-* [Errors](#errors)
 * [Endpoints](#endpoints)
 	* [Customers](Endpoints/Customers.md)
 	* [Estimates](Endpoints/Estimates.md)
@@ -46,6 +46,17 @@ An API key can be obtained by signing in to [invoiced.com](https://invoiced.com)
 The API key must be passed in through the username with the password left blank. Here is an example using [curl](http://curl.haxx.se/):
 
     curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
+
+## Errors
+
+A 4xx or 5xx status code will be returned upon a failed request.
+
+Possible error codes:
+
+* `401` Unauthorized - missing or invalid API key
+* `403` Forbidden - correctly authenticated but missing permission to execute the request
+* `404` Not Found - returned when trying to access an entity that does not exist
+* `500` Internal Server Error - something has broke on our end
 
 ## Pagination
 
@@ -87,17 +98,6 @@ filter: {
 	"customer": 1234
 }
 ```
-
-## Errors
-
-A 4xx or 5xx status code will be returned upon a failed request.
-
-Possible error codes:
-
-* `401` Unauthorized - missing or invalid API key
-* `403` Forbidden - correctly authenticated but missing permission to execute the request
-* `404` Not Found - returned when trying to access an entity that does not exist
-* `500` Internal Server Error - something has broke on our end
 
 ## Endpoints
 * [Customers](Endpoints/Customers.md)
