@@ -84,6 +84,20 @@ filter: {
 }
 ```
 
+### Pagination
+
+All list operations will be paginated in similar fashion as the GitHub API. In most cases we will paginate requests returning more than 100 results. You can control pagination with the `page` and `per_page` parameters. Pages start at `1` and the first page will be returned if no page is specified.
+
+When traversing the pages, we recommend using the `Link` and `X-Total-Count` headers. The [Link header](http://tools.ietf.org/html/rfc5988) will return URLs that will enable you to traverse the API without having to write your own. It's preferred to use the links from the API because it protects against future updates.
+
+```
+Link: <https://api.invoiced.com/customers?page=3&per_page=10>; rel="self",
+	  <https://api.invoiced.com/customers?page=1&per_page=10>; rel="first",
+	  <https://api.invoiced.com/customers?page=2&per_page=10>; rel="previous",
+	  <https://api.invoiced.com/customers?page=4&per_page=10>; rel="next",
+	  <https://api.invoiced.com/customers?page=5&per_page=10>; rel="last"
+```
+
 ## Endpoints
 * [Customers](Endpoints/Customers.md)
 * [Estimates](Endpoints/Estimates.md)
