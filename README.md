@@ -4,8 +4,9 @@ Invoiced API
 ## Table of Contents
 * [Introduction](#introduction)
 * [Authentication](#authentication)
-* [Errors](#errors)
+* [Pagination](#pagination)
 * [Special Parameters](#special-parameters)
+* [Errors](#errors)
 * [Endpoints](#endpoints)
 	* [Customers](Endpoints/Customers.md)
 	* [Estimates](Endpoints/Estimates.md)
@@ -46,16 +47,19 @@ The API key must be passed in through the username with the password left blank.
 
     curl -u {YOUR_API_KEY}: https://api.invoiced.com/invoices
 
-## Errors
+## Pagination
 
-A 4xx or 5xx status code will be returned upon a failed request.
+All list operations will be paginated in similar fashion as the GitHub API. In most cases we will paginate requests returning more than 100 results. You can control pagination with the `page` and `per_page` parameters. Pages start at `1` and the first page will be returned if no page is specified.
 
-Possible error codes:
+When traversing the pages, we recommend using the `Link` and `X-Total-Count` headers. The [Link header](http://tools.ietf.org/html/rfc5988) will return URLs that you can use to traverse the API without having to write your own. It's preferred to use the links from the API because it protects against future updates.
 
-* `401` Unauthorized - missing or invalid API key
-* `403` Forbidden - correctly authenticated but missing permission to execute the request
-* `404` Not Found - returned when trying to access an entity that does not exist
-* `500` Internal Server Error - something has broke on our end
+```
+Link: <https://api.invoiced.com/customers?page=3&per_page=10>; rel="self",
+	  <https://api.invoiced.com/customers?page=1&per_page=10>; rel="first",
+	  <https://api.invoiced.com/customers?page=2&per_page=10>; rel="previous",
+	  <https://api.invoiced.com/customers?page=4&per_page=10>; rel="next",
+	  <https://api.invoiced.com/customers?page=5&per_page=10>; rel="last"
+```
 
 ## Special Parameters
 
@@ -84,19 +88,16 @@ filter: {
 }
 ```
 
-### Pagination
+## Errors
 
-All list operations will be paginated in similar fashion as the GitHub API. In most cases we will paginate requests returning more than 100 results. You can control pagination with the `page` and `per_page` parameters. Pages start at `1` and the first page will be returned if no page is specified.
+A 4xx or 5xx status code will be returned upon a failed request.
 
-When traversing the pages, we recommend using the `Link` and `X-Total-Count` headers. The [Link header](http://tools.ietf.org/html/rfc5988) will return URLs that will enable you to traverse the API without having to write your own. It's preferred to use the links from the API because it protects against future updates.
+Possible error codes:
 
-```
-Link: <https://api.invoiced.com/customers?page=3&per_page=10>; rel="self",
-	  <https://api.invoiced.com/customers?page=1&per_page=10>; rel="first",
-	  <https://api.invoiced.com/customers?page=2&per_page=10>; rel="previous",
-	  <https://api.invoiced.com/customers?page=4&per_page=10>; rel="next",
-	  <https://api.invoiced.com/customers?page=5&per_page=10>; rel="last"
-```
+* `401` Unauthorized - missing or invalid API key
+* `403` Forbidden - correctly authenticated but missing permission to execute the request
+* `404` Not Found - returned when trying to access an entity that does not exist
+* `500` Internal Server Error - something has broke on our end
 
 ## Endpoints
 * [Customers](Endpoints/Customers.md)
