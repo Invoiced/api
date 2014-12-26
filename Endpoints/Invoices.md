@@ -92,7 +92,7 @@ X-Total-Count: 10
 }
 ```
 
-### Create Invoice
+### Creating an Invoice
 
 	POST /invoices
 
@@ -196,7 +196,7 @@ X-Total-Count: 10
 }
 ```
 
-### Fetch Invoice
+### Fetch an Invoice
 	
 	GET /invoices/:id
 
