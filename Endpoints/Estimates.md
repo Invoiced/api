@@ -10,7 +10,7 @@
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter)
+`filter`|`object`|[Filter](../README.md#filter)
 
 #### Response
 
