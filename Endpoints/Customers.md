@@ -3,7 +3,7 @@ Customers
 
 * [List Customers](#list-customers)
 * [Creating a Customer](#creating-a-customer)
-* [Fetch a Customer](#fetching-a-customer)
+* [Fetch a Customer](#fetch-a-customer)
 * [Creating a Customer Contact](#creating-a-customer-contact)
 * [Fetch a Customer's Contacts](#fetch-a-customers-contacts)
 * [Editing a Customer Contact](#editing-a-customer-contact)
