@@ -1,4 +1,5 @@
-## Payments
+# Payments
+====
 
 ### List Payments
 
@@ -9,7 +10,7 @@
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter) - can be `company`,`customer`, or `invoice`
+`filter`|`object`|[Filter](#filter)
 
 #### Response
 

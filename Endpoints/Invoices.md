@@ -1,4 +1,5 @@
-## Invoices
+# Invoices
+====
 
 ### List Invoices
 
@@ -9,7 +10,7 @@
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter) - can be `company`, `customer`, `template`, `estimate`, or `subscription`
+`filter`|`object`|[Filter](#filter)
 `status`|`string`|Can be `paid`,`sent`,`overdue`,`not_sent`, or `unpaid`
 
 #### Response

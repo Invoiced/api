@@ -1,4 +1,5 @@
-## Customers
+# Customers
+====
 
 ### List Customers
 	
@@ -9,7 +10,7 @@
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter) - can be `company`
+`filter`|`object`|[Filter](#filter)
 
 #### Response
 
@@ -32,8 +33,6 @@ X-Total-Count: 30
             "company": 3694,
             "number": "CUST-0001",
             "name": "Acme",
-            "primary_contact": "Lesa Dunn",
-            "email": "billings@acmecorp.com",
             "address1": "342 Amber St",
             "address2": null,
             "city": "Hill Valley",
@@ -63,8 +62,6 @@ X-Total-Count: 30
 {
     "number": "CUST-0001",
     "name": "Acme",
-    "primary_contact": "Lesa Dunn",
-    "email": "billings@acmecorp.com",
     "address1": "342 Amber St",
     "address2": null,
     "city": "Hill Valley",
@@ -91,8 +88,6 @@ X-Total-Count: 30
     "company": 3694,
     "number": "CUST-0001",
     "name": "Acme",
-    "primary_contact": "Lesa Dunn",
-    "email": "billings@acmecorp.com",
     "address1": "342 Amber St",
     "address2": null,
     "city": "Hill Valley",
@@ -125,8 +120,6 @@ X-Total-Count: 30
     "company": 3694,
     "number": "CUST-0001",
     "name": "Acme",
-    "primary_contact": "Lesa Dunn",
-    "email": "billings@acmecorp.com",
     "address1": "342 Amber St",
     "address2": null,
     "city": "Hill Valley",
@@ -142,6 +135,110 @@ X-Total-Count: 30
     "stripe_customer": null
 }
 ```
+
+### Creating a customer contact
+
+	POST /customers/:customer_id/contacts
+
+
+### Input
+
+```json
+{
+    "customer": 15444,
+    "name": "Tia Lesa Dunn",
+    "email": "billings@acmecorp.com",
+    "primary": true
+}
+```
+
+### Response
+
+	Status: 201 Created
+
+```json
+{
+    "contact": {
+        "created_at": 1415222128,
+        "updated_at": 1418883302,
+        "id": 22256,
+        "company": 3694,
+        "customer": 15444,
+        "name": "Tia Lesa Dunn",
+        "email": "billings@acmecorp.com",
+        "primary": true
+    }
+}
+```
+
+### Fetching a customer's contacts
+
+	GET /customers/:customer_id/contacts
+
+#### Parameters
+
+Name | Type | Description
+-----|------|-------------
+`sort`|`string`|Column to sort by, i.e. `name asc`
+`filter`|`object`|[Filter](#filter) - can be `company`
+
+#### Response
+
+```
+Status: 200 OK
+Link: <https://api.invoiced.com/customers/15444/contacts?page=1&per_page=10>; rel="self",
+	  <https://api.invoiced.com/customers/15444/contacts?page=1&per_page=10>; rel="first",
+	  <https://api.invoiced.com/customers/15444/contacts?page=1&per_page=10>; rel="last"
+X-Total-Count: 5
+```
+
+```json
+{
+    "contacts": [
+    	{
+	        "created_at": 1415222128,
+	        "updated_at": 1418883302,
+	        "id": 22256,
+	        "company": 3694,
+	        "customer": 15444,
+	        "name": "Tia Lesa Dunn",
+	        "email": "billings@acmecorp.com",
+	        "primary": true
+	    },
+	    {...}
+    ]
+}
+```
+
+### Editing a customer contact
+
+	PATCH /customers/:customer_id/contacts/:id
+
+#### Input
+
+```json
+{
+	"primary": false
+}
+```
+
+#### Response
+
+	Status: 200 OK
+
+```json
+{
+	"success": true
+}
+```
+
+### Deleting a customer contact
+
+	DELETE /customers/:customer_id/contacts/:id
+
+#### Response
+
+	Status: 204 No Content
 
 ### Editing a Customer
 
