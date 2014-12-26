@@ -32,6 +32,7 @@ X-Total-Count: 10
 	        "id": 46225,
 	        "company": 3694,
 	        "customer": 15444,
+	        "name": "Invoice # INV-0016",
 	        "currency": "USD",
 	        "date_format": "M j, Y",
 	        "template": null,
@@ -92,6 +93,7 @@ X-Total-Count: 10
 ```json
 {
     "customer": 15444,
+    "name": null,
     "currency": "USD",
     "date_format": "M j, Y",
     "template": null,
@@ -137,6 +139,7 @@ X-Total-Count: 10
 {
 	"invoice": {
 	    "customer": 15444,
+	    "name": "Invoice # INV-0016",
 	    "currency": "USD",
 	    "date_format": "M j, Y",
 	    "template": null,
@@ -197,6 +200,7 @@ X-Total-Count: 10
 {
 	"invoice": {
 	    "customer": 15444,
+	    "name": "Invoice # INV-0016",
 	    "currency": "USD",
 	    "date_format": "M j, Y",
 	    "template": null,
