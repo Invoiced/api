@@ -1,6 +1,13 @@
 Invoices
 ====
 
+* [List Invoices](#list-invoices)
+* [Creating an Invoice](#creating-an-invoice)
+* [Fetching an Invoice](#fetching-an-invoice)
+* [Editing an Invoice](#editing-an-invoice)
+* [Sending an Invoice](#sending-an-invoice)
+* [Deleting a Customer](#deleting-an-invoice)
+
 ### List Invoices
 
 	GET /invoices
@@ -85,7 +92,7 @@ X-Total-Count: 10
 }
 ```
 
-### Creating an Invoice
+### Create Invoice
 
 	POST /invoices
 
@@ -189,7 +196,7 @@ X-Total-Count: 10
 }
 ```
 
-### Fetch an Invoice
+### Fetch Invoice
 	
 	GET /invoices/:id
 
@@ -288,7 +295,8 @@ X-Total-Count: 10
 	],
 	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "optional subject...",
-	"message": "optional message..."
+	"message": "optional message...",
+	"attach_pdf": false
 }
 ```
 

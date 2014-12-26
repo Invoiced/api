@@ -1,6 +1,13 @@
 Payments
 ====
 
+* [List Payments](#list-payments)
+* [Creating a Payment](#creating-a-payment)
+* [Fetching a Payment](#fetching-a-payment)
+* [Editing a Payment](#editing-a-payment)
+* [Sending a Payment Receipt](#sending-a-payment-receipt)
+* [Deleting a Payment](#deleting-a-payment)
+
 ### List Payments
 
 	GET /payments
@@ -166,7 +173,8 @@ payments: [
 	],
 	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "subject...",
-	"message": "message..."
+	"message": "message...",
+	"attach_pdf": true
 }
 ```
 

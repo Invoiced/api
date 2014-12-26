@@ -1,6 +1,12 @@
 Customers
 ====
 
+* [List Customers](#list-customers)
+* [Creating a Customer](#creating-a-customer)
+* [Fetching a Customer](#fetching-a-customer)
+* [Editing a Customer](#editing-a-customer)
+* [Deleting a Customer](#deleting-a-customer)
+
 ### List Customers
 	
 	GET /customers

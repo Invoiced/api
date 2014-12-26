@@ -1,6 +1,14 @@
 Estimates
 ====
 
+* [List Estimates](#list-estimates)
+* [Creating an Estimate](#creating-an-estimate)
+* [Fetching an Estimate](#fetching-an-estimate)
+* [Sending an Estimate](#sending-an-estimate)
+* [Converting an Estimate into an Invoice](#converting-an-estimate-into-an-invoice)
+* [Editing an Estimate](#editing-an-estimate)
+* [Deleting an Estimate](#deleting-an-estimate)
+
 ### List Estimates
 
 	GET /estimates
@@ -86,7 +94,7 @@ X-Total-Count: 30
 }
 ```
 
-### Creating an Estimate
+### Create Estimate
 
 	POST /estimates
 
@@ -202,7 +210,7 @@ X-Total-Count: 30
 }
 ```
 
-### Fetch an Estimate
+### Fetch Estimate
 
 	GET /estimates/:id
 
@@ -308,7 +316,8 @@ X-Total-Count: 30
 	],
 	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "optional subject...",
-	"message": "optional message..."
+	"message": "optional message...",
+	"attach_pdf": false
 }
 ```
 
