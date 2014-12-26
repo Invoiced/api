@@ -3,7 +3,7 @@ Estimates
 
 * [List Estimates](#list-estimates)
 * [Creating an Estimate](#creating-an-estimate)
-* [Fetching an Estimate](#fetching-an-estimate)
+* [Fetch an Estimate](#fetch-an-estimate)
 * [Sending an Estimate](#sending-an-estimate)
 * [Converting an Estimate into an Invoice](#converting-an-estimate-into-an-invoice)
 * [Editing an Estimate](#editing-an-estimate)
@@ -94,7 +94,7 @@ X-Total-Count: 30
 }
 ```
 
-### Create Estimate
+### Creating an Estimate
 
 	POST /estimates
 
@@ -210,7 +210,7 @@ X-Total-Count: 30
 }
 ```
 
-### Fetch Estimate
+### Fetch an Estimate
 
 	GET /estimates/:id
 

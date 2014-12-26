@@ -3,7 +3,11 @@ Customers
 
 * [List Customers](#list-customers)
 * [Creating a Customer](#creating-a-customer)
-* [Fetching a Customer](#fetching-a-customer)
+* [Fetch a Customer](#fetching-a-customer)
+* [Creating a Customer Contact](#creating-a-customer-contact)
+* [Fetch a Customer's Contacts](#fetch-a-customers-contacts)
+* [Editing a Customer Contact](#editing-a-customer-contact)
+* [Deleting a Customer Contact](#deleting-a-customer-contact)
 * [Editing a Customer](#editing-a-customer)
 * [Deleting a Customer](#deleting-a-customer)
 
@@ -142,7 +146,7 @@ X-Total-Count: 30
 }
 ```
 
-### Creating a customer contact
+### Creating a Customer Contact
 
 	POST /customers/:customer_id/contacts
 
@@ -177,7 +181,7 @@ X-Total-Count: 30
 }
 ```
 
-### Fetching a customer's contacts
+### Fetch a Customer's Contacts
 
 	GET /customers/:customer_id/contacts
 
@@ -216,7 +220,7 @@ X-Total-Count: 5
 }
 ```
 
-### Editing a customer contact
+### Editing a Customer Contact
 
 	PATCH /customers/:customer_id/contacts/:id
 
@@ -238,7 +242,7 @@ X-Total-Count: 5
 }
 ```
 
-### Deleting a customer contact
+### Deleting a Customer Contact
 
 	DELETE /customers/:customer_id/contacts/:id
 

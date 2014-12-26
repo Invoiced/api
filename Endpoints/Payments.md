@@ -3,7 +3,7 @@ Payments
 
 * [List Payments](#list-payments)
 * [Creating a Payment](#creating-a-payment)
-* [Fetching a Payment](#fetching-a-payment)
+* [Fetch a Payment](#fetch-a-payment)
 * [Editing a Payment](#editing-a-payment)
 * [Sending a Payment Receipt](#sending-a-payment-receipt)
 * [Deleting a Payment](#deleting-a-payment)

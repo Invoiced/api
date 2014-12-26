@@ -3,7 +3,7 @@ Invoices
 
 * [List Invoices](#list-invoices)
 * [Creating an Invoice](#creating-an-invoice)
-* [Fetching an Invoice](#fetching-an-invoice)
+* [Fetch an Invoice](#fetch-an-invoice)
 * [Editing an Invoice](#editing-an-invoice)
 * [Sending an Invoice](#sending-an-invoice)
 * [Deleting a Customer](#deleting-an-invoice)
