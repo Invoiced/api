@@ -158,7 +158,12 @@ payments: [
 
 ```json
 {
-	"to": "test@example.com",
+	"to": [
+		{
+			"name": "Client",
+			"email": "client@example.com"
+		}
+	],
 	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "subject...",
 	"message": "message..."

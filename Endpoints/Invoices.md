@@ -280,7 +280,12 @@ X-Total-Count: 10
 
 ```json
 {
-	"to": "client@example.com",
+	"to": [
+		{
+			"name": "Client",
+			"email": "client@example.com"
+		}
+	],
 	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
 	"subject": "optional subject...",
 	"message": "optional message..."
