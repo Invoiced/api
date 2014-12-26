@@ -1,4 +1,4 @@
-# Customers
+Customers
 ====
 
 ### List Customers

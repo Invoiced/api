@@ -1,4 +1,4 @@
-# Payments
+Payments
 ====
 
 ### List Payments

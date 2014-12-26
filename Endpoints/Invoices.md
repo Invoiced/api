@@ -1,4 +1,4 @@
-# Invoices
+Invoices
 ====
 
 ### List Invoices
