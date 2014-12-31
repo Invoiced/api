@@ -105,7 +105,6 @@ X-Total-Count: 30
     "customer": 15453,
     "name": null,
     "currency": "USD",
-    "date_format": "M j, Y",
     "template": null,
     "number": "EST-0002",
     "date": 1415223417,

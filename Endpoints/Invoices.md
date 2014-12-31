@@ -103,7 +103,6 @@ X-Total-Count: 10
     "customer": 15444,
     "name": null,
     "currency": "USD",
-    "date_format": "M j, Y",
     "template": null,
     "estimate": null,
     "late_payment_reminders_disabled": false,

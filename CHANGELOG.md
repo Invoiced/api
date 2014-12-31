@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### December 31, 2014
+
+- Removed option to set `date_format` for individual invoices and estimates
+
 ### December 26, 2014
 
 - Added `attach_pdf` parameter when sending emails.
