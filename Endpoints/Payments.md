@@ -49,6 +49,7 @@ payments: [
            "check_no": null,
            "stripe_charge": "",
            "paypal_transaction_id": "",
+           "sent": false,
 		   "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 	},
     {...}
@@ -98,6 +99,7 @@ payments: [
 	    "check_no": null,
 	    "stripe_charge": "",
 	    "paypal_transaction_id": "",
+	    "sent": false,
 	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 	}
 }
@@ -130,6 +132,7 @@ payments: [
 	    "check_no": null,
 	    "stripe_charge": "",
 	    "paypal_transaction_id": "",
+	    "sent": false,
 	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
 	}
 }
@@ -143,7 +146,8 @@ payments: [
 
 ```json
 {
-	"notes": "Received by Jan."
+	"notes": "Received by Jan.",
+	"sent": true
 }
 ```
 

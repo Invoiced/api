@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### January 26, 2015
+
+- Added `sent` property to payments to track if a receipt has been sent
+
 ### December 31, 2014
 
 - Removed option to set `date_format` for individual invoices and estimates
