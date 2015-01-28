@@ -85,7 +85,10 @@ X-Total-Count: 10
 	        "paid": false,
 	        "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
 	        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	        "status": "overdue"
+	        "status": "overdue",
+	        "disabled_payment_methods": {
+	        	"paypal": true
+	    	}
 	    },
 	    {...}
 	]
@@ -134,7 +137,10 @@ X-Total-Count: 10
     "notes": null,    
     "fields": [],
     "sent": false,
-    "closed": false
+    "closed": false,
+    "disabled_payment_methods": {
+    	"paypal": true
+	}
 }
 ```
 
@@ -190,7 +196,10 @@ X-Total-Count: 10
 	    "paid": false,
 	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
 	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	    "status": "overdue"
+	    "status": "overdue",
+        "disabled_payment_methods": {
+        	"paypal": true
+    	}
 	}
 }
 ```
@@ -251,7 +260,10 @@ X-Total-Count: 10
 	    "paid": false,
 	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
 	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	    "status": "overdue"
+	    "status": "overdue",
+        "disabled_payment_methods": {
+        	"paypal": true
+    	}
 	}
 }
 ```

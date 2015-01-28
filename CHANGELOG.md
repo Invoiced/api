@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### January 28, 2015
+
+- Added `disabled_payment_methods` property to invoices to turn off various payment methods for a specific invoice.
+
 ### January 26, 2015
 
 - Added `sent` property to payments to track if a receipt has been sent
