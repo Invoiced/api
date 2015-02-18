@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### February 18, 2015
+
+- The `id` property of estimate and invoice line items have been renamed to `item`. When set, they reference a stored item. The `id` property is now the identifier for the line item.
+
 ### January 28, 2015
 
 - Added `disabled_payment_methods` property to invoices to turn off various payment methods for a specific invoice.

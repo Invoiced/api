@@ -10,7 +10,7 @@ Invoices
 
 ### List Invoices
 
-	GET /invoices
+    GET /invoices
 
 #### Parameters
 
@@ -25,79 +25,81 @@ Name | Type | Description
 ```
 Status: 200 OK
 Link: <https://api.invoiced.com/invoices?page=1&per_page=10>; rel="self",
-	  <https://api.invoiced.com/invoices?page=1&per_page=10>; rel="first",
-	  <https://api.invoiced.com/invoices?page=2&per_page=10>; rel="next",
-	  <https://api.invoiced.com/invoices?page=3&per_page=10>; rel="last"
+      <https://api.invoiced.com/invoices?page=1&per_page=10>; rel="first",
+      <https://api.invoiced.com/invoices?page=2&per_page=10>; rel="next",
+      <https://api.invoiced.com/invoices?page=3&per_page=10>; rel="last"
 X-Total-Count: 10
 ```
 
 ```json
 {
-	"invoices": [
-		{
-	        "created_at": 1415229884,
-	        "updated_at": 1416291302,
-	        "id": 46225,
-	        "company": 3694,
-	        "customer": 15444,
-	        "name": "Invoice # INV-0016",
-	        "currency": "USD",
-	        "date_format": "M j, Y",
-	        "template": null,
-	        "estimate": null,
-	        "subscription": 410,
-	        "late_payment_reminders_disabled": false,
-	        "number": "INV-0016",
-	        "date": 1416290400,
-	        "due_date": 1416549600,
-	        "purchase_order": null,
-	        "items": [
-	            {
-	                "id": 79,
-	                "type": "product",
-	                "name": "Copy Paper, Case",
-	                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-	                "quantity": 1,
-	                "unit_cost": 45,
-					"amount": 45,
-	                "fields": []
-	            },
-	            {
-	            	"id": 83,
-	                "type": "service",
-	                "name": "Delivery",
-	                "description": "",
-	                "quantity": 1,
-	                "unit_cost": 10,
-	                "amount": 10,
-	                "fields": []
-	            }
-	        ],
-	        "terms": null,
-	        "notes": null,
-	        "subtotal": 55,
-	        "total": 55,
-	        "amount_paid": 0,
-	        "balance": 55,
-	        "fields": [],
-	        "sent": false,
-	        "closed": false,
-	        "paid": false,
-	        "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
-	        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	        "status": "overdue",
-	        "disabled_payment_methods": {
-	        	"paypal": true
-	    	}
-	    },
-	    {...}
-	]
+    "invoices": [
+        {
+            "created_at": 1415229884,
+            "updated_at": 1416291302,
+            "id": 46225,
+            "company": 3694,
+            "customer": 15444,
+            "name": "Invoice # INV-0016",
+            "currency": "USD",
+            "date_format": "M j, Y",
+            "template": null,
+            "estimate": null,
+            "subscription": 410,
+            "late_payment_reminders_disabled": false,
+            "number": "INV-0016",
+            "date": 1416290400,
+            "due_date": 1416549600,
+            "purchase_order": null,
+            "items": [
+                {
+                    "id": 7,
+                    "item": 79,
+                    "type": "product",
+                    "name": "Copy Paper, Case",
+                    "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+                    "quantity": 1,
+                    "unit_cost": 45,
+                    "amount": 45,
+                    "fields": []
+                },
+                {
+                    "id": 8,
+                    "item": 83,
+                    "type": "service",
+                    "name": "Delivery",
+                    "description": "",
+                    "quantity": 1,
+                    "unit_cost": 10,
+                    "amount": 10,
+                    "fields": []
+                }
+            ],
+            "terms": null,
+            "notes": null,
+            "subtotal": 55,
+            "total": 55,
+            "amount_paid": 0,
+            "balance": 55,
+            "fields": [],
+            "sent": false,
+            "closed": false,
+            "paid": false,
+            "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+            "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
+            "status": "overdue",
+            "disabled_payment_methods": {
+                "paypal": true
+            }
+        },
+        {...}
+    ]
 }
 ```
 
 ### Creating an Invoice
 
-	POST /invoices
+    POST /invoices
 
 #### Input
 
@@ -115,21 +117,25 @@ X-Total-Count: 10
     "purchase_order": null,
     "items": [
         {
-            "id": 79,
+            "id": 7,
+            "item": 79,
             "type": "product",
             "name": "Copy Paper, Case",
             "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
             "quantity": 1,
             "unit_cost": 45,
+            "amount": 45,
             "fields": []
         },
         {
-        	"id": 83,
+            "id": 8,
+            "item": 83,
             "type": "service",
             "name": "Delivery",
             "description": "",
             "quantity": 1,
             "unit_cost": 10,
+            "amount": 10,
             "fields": []
         }
     ],
@@ -139,192 +145,195 @@ X-Total-Count: 10
     "sent": false,
     "closed": false,
     "disabled_payment_methods": {
-    	"paypal": true
-	}
+        "paypal": true
+    }
 }
 ```
 
 #### Response
 
-	Status: 201 Created
+    Status: 201 Created
 
 ```json
 {
-	"invoice": {
-	    "customer": 15444,
-	    "name": "Invoice # INV-0016",
-	    "currency": "USD",
-	    "date_format": "M j, Y",
-	    "template": null,
-	    "estimate": null,
-	    "subscription": null,
-	    "late_payment_reminders_disabled": false,
-	    "number": "INV-0016",
-	    "date": 1416290400,
-	    "due_date": 1416549600,
-	    "purchase_order": null,
-	    "items": [
-	        {
-	            "id": 79,
-	            "type": "product",
-	            "name": "Copy Paper, Case",
-	            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-	            "quantity": 1,
-	            "unit_cost": 45,
-	"amount": 45,
-	            "fields": []
-	        },
-	        {
-	        	"id": 83,
-	            "type": "service",
-	            "name": "Delivery",
-	            "description": "",
-	            "quantity": 1,
-	            "unit_cost": 10,
-	            "amount": 10,
-	            "fields": []
-	        }
-	    ],
-	    "terms": null,
-	    "notes": null,
-	    "total": 55,
-	    "amount_paid": 0,
-	    "balance": 55,
-	    "fields": [],
-	    "sent": false,
-	    "closed": false,
-	    "paid": false,
-	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
-	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	    "status": "overdue",
+    "invoice": {
+        "customer": 15444,
+        "name": "Invoice # INV-0016",
+        "currency": "USD",
+        "date_format": "M j, Y",
+        "template": null,
+        "estimate": null,
+        "subscription": null,
+        "late_payment_reminders_disabled": false,
+        "number": "INV-0016",
+        "date": 1416290400,
+        "due_date": 1416549600,
+        "purchase_order": null,
+            {
+                "id": 7,
+                "item": 79,
+                "type": "product",
+                "name": "Copy Paper, Case",
+                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+                "quantity": 1,
+                "unit_cost": 45,
+                "amount": 45,
+                "fields": []
+            },
+            {
+                "id": 8,
+                "item": 83,
+                "type": "service",
+                "name": "Delivery",
+                "description": "",
+                "quantity": 1,
+                "unit_cost": 10,
+                "amount": 10,
+                "fields": []
+            }
+        ],
+        "terms": null,
+        "notes": null,
+        "total": 55,
+        "amount_paid": 0,
+        "balance": 55,
+        "fields": [],
+        "sent": false,
+        "closed": false,
+        "paid": false,
+        "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
+        "status": "overdue",
         "disabled_payment_methods": {
-        	"paypal": true
-    	}
-	}
+            "paypal": true
+        }
+    }
 }
 ```
 
 ### Fetch an Invoice
-	
-	GET /invoices/:id
+    
+    GET /invoices/:id
 
 #### Response
 
-	Status: 200 OK
+    Status: 200 OK
 
 ```json
 {
-	"invoice": {
-	    "customer": 15444,
-	    "name": "Invoice # INV-0016",
-	    "currency": "USD",
-	    "date_format": "M j, Y",
-	    "template": null,
-	    "estimate": null,
-	    "subscription": null,
-	    "late_payment_reminders_disabled": false,
-	    "number": "INV-0016",
-	    "date": 1416290400,
-	    "due_date": 1416549600,
-	    "purchase_order": null,
-	    "items": [
-	        {
-	            "id": 79,
-	            "type": "product",
-	            "name": "Copy Paper, Case",
-	            "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-	            "quantity": 1,
-	            "unit_cost": 45,
-	"amount": 45,
-	            "fields": []
-	        },
-	        {
-	        	"id": 83,
-	            "type": "service",
-	            "name": "Delivery",
-	            "description": "",
-	            "quantity": 1,
-	            "unit_cost": 10,
-	            "amount": 10,
-	            "fields": []
-	        }
-	    ],
-	    "terms": null,
-	    "notes": null,
-	    "total": 55,
-	    "amount_paid": 0,
-	    "balance": 55,
-	    "fields": [],
-	    "sent": false,
-	    "closed": false,
-	    "paid": false,
-	    "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
-	    "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
-	    "status": "overdue",
+    "invoice": {
+        "customer": 15444,
+        "name": "Invoice # INV-0016",
+        "currency": "USD",
+        "date_format": "M j, Y",
+        "template": null,
+        "estimate": null,
+        "subscription": null,
+        "late_payment_reminders_disabled": false,
+        "number": "INV-0016",
+        "date": 1416290400,
+        "due_date": 1416549600,
+        "purchase_order": null,
+        "items": [
+            {
+                "id": 7,
+                "item": 79,
+                "type": "product",
+                "name": "Copy Paper, Case",
+                "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+                "quantity": 1,
+                "unit_cost": 45,
+                "amount": 45,
+                "fields": []
+            },
+            {
+                "id": 8,
+                "item": 83,
+                "type": "service",
+                "name": "Delivery",
+                "description": "",
+                "quantity": 1,
+                "unit_cost": 10,
+                "amount": 10,
+                "fields": []
+            }
+        ],
+        "terms": null,
+        "notes": null,
+        "total": 55,
+        "amount_paid": 0,
+        "balance": 55,
+        "fields": [],
+        "sent": false,
+        "closed": false,
+        "paid": false,
+        "client_view_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016",
+        "pdf_url": "https://invoiced.com/dundermifflin/CUST-0001/INV-0016/pdf",
+        "status": "overdue",
         "disabled_payment_methods": {
-        	"paypal": true
-    	}
-	}
+            "paypal": true
+        }
+    }
 }
 ```
 
 ### Editing an Invoice
 
-	PATCH /invoices/:id
+    PATCH /invoices/:id
 
 #### Input
 
 ```json
 {
-	"sent": true
+    "sent": true
 }
 ```
 
 #### Response
 
-	Status: 200 OK
+    Status: 200 OK
 
 ```json
 {
-	"success": true
+    "success": true
 }
 ```
 
 ### Sending an Invoice
 
-	POST /invoices/:id/emails
+    POST /invoices/:id/emails
 
 #### Input
 
 ```json
 {
-	"to": [
-		{
-			"name": "Client",
-			"email": "client@example.com"
-		}
-	],
-	"bcc": "billing@acmecorp.com,jan@acmecorp.com",
-	"subject": "optional subject...",
-	"message": "optional message...",
-	"attach_pdf": false
+    "to": [
+        {
+            "name": "Client",
+            "email": "client@example.com"
+        }
+    ],
+    "bcc": "billing@acmecorp.com,jan@acmecorp.com",
+    "subject": "optional subject...",
+    "message": "optional message...",
+    "attach_pdf": false
 }
 ```
 
 #### Response
 
-	Status: 201 Created
+    Status: 201 Created
 
 ```json
 {
-	"success": true
+    "success": true
 }
 ```
 
 ### Deleting an Invoice
 
-	DELETE /invoices/:id
+    DELETE /invoices/:id
 
 #### Response
 
-	Status: 204 No Content
+    Status: 204 No Content
