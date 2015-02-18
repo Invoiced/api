@@ -50,7 +50,7 @@ payments: [
     "stripe_charge": "",
     "paypal_transaction_id": "",
     "sent": false,
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   },
   {...}
    ]
@@ -100,7 +100,7 @@ payments: [
     "stripe_charge": "",
     "paypal_transaction_id": "",
     "sent": false,
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
 }
 ```
@@ -133,7 +133,7 @@ payments: [
     "stripe_charge": "",
     "paypal_transaction_id": "",
     "sent": false,
-    "pdf_url": "https://invoiced.com/dundermifflin/CUST-001/INV-001/20939/pdf"
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
 }
 ```
