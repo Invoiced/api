@@ -85,7 +85,7 @@ X-Total-Count: 10
       "sent": false,
       "closed": false,
       "paid": false,
-      "client_view_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+      "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
       "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
       "status": "overdue",
       "disabled_payment_methods": {
@@ -201,7 +201,7 @@ X-Total-Count: 10
     "sent": false,
     "closed": false,
     "paid": false,
-    "client_view_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "overdue",
     "disabled_payment_methods": {
@@ -267,7 +267,7 @@ X-Total-Count: 10
     "sent": false,
     "closed": false,
     "paid": false,
-    "client_view_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "overdue",
     "disabled_payment_methods": {

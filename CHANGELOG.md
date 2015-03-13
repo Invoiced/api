@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 13, 2015
+
+- The `client_view_url` property of estimate and invoices has been renamed to `url`.
+
 ### February 18, 2015
 
 - The `id` property of estimate and invoice line items have been renamed to `item`. When set, they reference a stored item. The `id` property is now the identifier for the line item.

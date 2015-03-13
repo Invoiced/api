@@ -88,7 +88,7 @@ X-Total-Count: 30
       "total": 478,
       "fields": [],
       "sent": false,
-      "client_view_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
+      "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
       "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
       "status": "invoiced"
     },
@@ -211,7 +211,7 @@ X-Total-Count: 30
     "total": 478,       
     "fields": [],
     "sent": false,
-    "client_view_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
+    "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "invoiced"
   }
@@ -282,7 +282,7 @@ X-Total-Count: 30
     "total": 478,
     "fields": [],
     "sent": false,
-    "client_view_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
+    "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "invoiced"
   }
@@ -414,7 +414,7 @@ X-Total-Count: 30
     "sent": false,
     "closed": false,
     "paid": false,
-    "client_view_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
+    "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "overdue"
   }
