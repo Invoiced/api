@@ -84,6 +84,7 @@ X-Total-Count: 30
       "subtotal": 478,
       "total": 478,
       "fields": [],
+      "draft": false,
       "sent": false,
       "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
       "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -142,8 +143,7 @@ X-Total-Count: 30
   ],
   "terms": "Net 30",
   "notes": "Thank you for your business!",
-  "fields": [],
-  "sent": false
+  "fields": []
 }
 ```
 
@@ -203,6 +203,7 @@ X-Total-Count: 30
     "subtotal": 478,
     "total": 478,       
     "fields": [],
+    "draft": false,
     "sent": false,
     "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -271,6 +272,7 @@ X-Total-Count: 30
     "subtotal": 478,
     "total": 478,
     "fields": [],
+    "draft": false,
     "sent": false,
     "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -287,6 +289,7 @@ X-Total-Count: 30
 
 ```json
 {
+  "draft": false,
   "sent": true
 }
 ```
@@ -398,6 +401,7 @@ X-Total-Count: 30
     "amount_paid": 0,
     "balance": 478,
     "fields": [],
+    "draft": false,
     "sent": false,
     "closed": false,
     "paid": false,

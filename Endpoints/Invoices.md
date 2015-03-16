@@ -79,6 +79,7 @@ X-Total-Count: 10
       "amount_paid": 0,
       "balance": 55,
       "fields": [],
+      "draft": false,
       "sent": false,
       "closed": false,
       "paid": false,
@@ -138,7 +139,6 @@ X-Total-Count: 10
   "terms": null,
   "notes": null,    
   "fields": [],
-  "sent": false,
   "closed": false,
   "disabled_payment_methods": {
     "paypal": true
@@ -192,6 +192,7 @@ X-Total-Count: 10
     "amount_paid": 0,
     "balance": 55,
     "fields": [],
+    "draft": false,
     "sent": false,
     "closed": false,
     "paid": false,
@@ -256,6 +257,7 @@ X-Total-Count: 10
     "amount_paid": 0,
     "balance": 55,
     "fields": [],
+    "draft": false,
     "sent": false,
     "closed": false,
     "paid": false,
@@ -277,6 +279,7 @@ X-Total-Count: 10
 
 ```json
 {
+  "draft": false,
   "sent": true
 }
 ```

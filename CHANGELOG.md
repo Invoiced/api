@@ -7,6 +7,7 @@ Changelog
 - Removed the deprecated `date_format` property on estimates and invoices.
 - All `currency` properties are now lowercase.
 - Support for multiple templates are being deprecated due to a lack of interest. Removed the `template` property on estimates and invoices. In the near future companies will only have a single template.
+- Added `draft` property to invoices and estimates. Invoices and estimates are not published to the client's account until `draft` is `false`. If you are creating drafts then you must set `draft=true` when the model is first created because it will default to `false`.
 
 ### March 13, 2015
 
