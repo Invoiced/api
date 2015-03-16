@@ -40,7 +40,7 @@ X-Total-Count: 10
       "id": 46225,
       "customer": 15444,
       "name": "Invoice # INV-0016",
-      "currency": "USD",
+      "currency": "usd",
       "template": null,
       "estimate": null,
       "subscription": 410,
@@ -105,7 +105,7 @@ X-Total-Count: 10
 {
   "customer": 15444,
   "name": null,
-  "currency": "USD",
+  "currency": "usd",
   "template": null,
   "estimate": null,
   "late_payment_reminders_disabled": false,
@@ -157,7 +157,7 @@ X-Total-Count: 10
   "invoice": {
     "customer": 15444,
     "name": "Invoice # INV-0016",
-    "currency": "USD",
+    "currency": "usd",
     "template": null,
     "estimate": null,
     "subscription": null,
@@ -221,7 +221,7 @@ X-Total-Count: 10
   "invoice": {
     "customer": 15444,
     "name": "Invoice # INV-0016",
-    "currency": "USD",
+    "currency": "usd",
     "template": null,
     "estimate": null,
     "subscription": null,
