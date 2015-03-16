@@ -18,7 +18,7 @@ Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
 `filter`|`object`|[Filter](../README.md#filter)
-`status`|`string`|Can be `paid`,`sent`,`overdue`,`not_sent`, or `unpaid`
+`status`|`string`|Can be `paid`, `sent`, `overdue`, or `not_sent`
 
 #### Response
 
@@ -39,7 +39,7 @@ X-Total-Count: 10
       "updated_at": 1416291302,
       "id": 46225,
       "customer": 15444,
-      "name": "Invoice # INV-0016",
+      "name": "Monthly Paper Delivery",
       "currency": "usd",
       "estimate": null,
       "subscription": 410,
@@ -158,7 +158,7 @@ X-Total-Count: 10
 {
   "invoice": {
     "customer": 15444,
-    "name": "Invoice # INV-0016",
+    "name": "Monthly Paper Delivery",
     "currency": "usd",
     "estimate": null,
     "subscription": null,
@@ -224,7 +224,7 @@ X-Total-Count: 10
 {
   "invoice": {
     "customer": 15444,
-    "name": "Invoice # INV-0016",
+    "name": "Monthly Paper Delivery",
     "currency": "usd",
     "estimate": null,
     "subscription": null,
