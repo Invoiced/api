@@ -6,6 +6,7 @@ Changelog
 - Removed the redundant `company` property on all API responses. Since API keys are owned by a single company, the key used implies which company is the owner.
 - Removed the deprecated `date_format` property on estimates and invoices.
 - All `currency` properties are now lowercase.
+- Support for multiple templates are being deprecated due to a lack of interest. Removed the `template` property on estimates and invoices. In the near future companies will only have a single template.
 
 ### March 13, 2015
 
