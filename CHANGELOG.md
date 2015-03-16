@@ -4,6 +4,7 @@ Changelog
 ### March 16, 2015
 
 - Removed the redundant `company` property on all API responses. Since API keys are owned by a single company, the key used implies which company is the owner.
+- Removed the deprecated `date_format` property on estimates and invoices.
 
 ### March 13, 2015
 
