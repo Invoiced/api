@@ -40,7 +40,6 @@ X-Total-Count: 30
       "created_at": 1415222128,
       "updated_at": 1417460942,
       "id": 15444,
-      "company": 3694,
       "number": "CUST-0001",
       "name": "Acme",
       "address1": "342 Amber St",
@@ -95,7 +94,6 @@ X-Total-Count: 30
   "created_at": 1415222128,
   "updated_at": null,
   "id": 15444,
-  "company": 3694,
   "number": "CUST-0001",
   "name": "Acme",
   "address1": "342 Amber St",
@@ -127,7 +125,6 @@ X-Total-Count: 30
   "created_at": 1415222128,
   "updated_at": 1417460942,
   "id": 15444,
-  "company": 3694,
   "number": "CUST-0001",
   "name": "Acme",
   "address1": "342 Amber St",
@@ -172,7 +169,6 @@ X-Total-Count: 30
     "created_at": 1415222128,
     "updated_at": 1418883302,
     "id": 22256,
-    "company": 3694,
     "customer": 15444,
     "name": "Tia Lesa Dunn",
     "email": "billings@acmecorp.com",
@@ -190,7 +186,7 @@ X-Total-Count: 30
 Name | Type | Description
 -----|------|-------------
 `sort`|`string`|Column to sort by, i.e. `name asc`
-`filter`|`object`|[Filter](#filter) - can be `company`
+`filter`|`object`|[Filter](../README.md#filter)
 
 #### Response
 
@@ -209,7 +205,6 @@ X-Total-Count: 5
       "created_at": 1415222128,
       "updated_at": 1418883302,
       "id": 22256,
-      "company": 3694,
       "customer": 15444,
       "name": "Tia Lesa Dunn",
       "email": "billings@acmecorp.com",

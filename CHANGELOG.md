@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 16, 2015
+
+- Removed the redundant `company` property on all API responses. Since API keys are owned by a single company, the key used implies which company is the owner.
+
 ### March 13, 2015
 
 - The `client_view_url` property of estimate and invoices has been renamed to `url`.

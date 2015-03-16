@@ -38,7 +38,6 @@ X-Total-Count: 10
       "created_at": 1415229884,
       "updated_at": 1416291302,
       "id": 46225,
-      "company": 3694,
       "customer": 15444,
       "name": "Invoice # INV-0016",
       "currency": "USD",
