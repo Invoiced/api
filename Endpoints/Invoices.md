@@ -167,6 +167,7 @@ X-Total-Count: 10
     "date": 1416290400,
     "due_date": 1416549600,
     "purchase_order": null,
+    "items": [
       {
         "id": 7,
         "item": 79,
