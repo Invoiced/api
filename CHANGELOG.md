@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 18, 2015
+
+- Payments are moving to a more diverse transaction model. New `transaction_type`, `method`, `status`, `gateway`, `gateway_id`, and `parent_transaction` properties have been added. The `type`, `check_no`, `paypal_transaction_id`, and `stripe_charge` properties have been deprecated.
+
 ### March 16, 2015
 
 - Removed the redundant `company` property on all API responses. Since API keys are owned by a single company, the key used implies which company is the owner.

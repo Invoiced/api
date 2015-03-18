@@ -39,15 +39,16 @@ payments: [
     "customer": 15460,
     "invoice": 44648,
     "date": 1410843600,
-    "type": "check",
+    "transaction_type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
     "currency": "usd",
     "amount": 800,
     "fee": 0,
     "net": 800,
     "notes": null,
-    "check_no": null,
-    "stripe_charge": "",
-    "paypal_transaction_id": "",
     "sent": false,
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   },
@@ -66,12 +67,12 @@ payments: [
   "customer": 15460,
   "invoice": 44648,
   "date": 1410843600,
-  "type": "check",
+  "method": "check",
   "currency": "usd",
   "amount": 800,
   "fee": 0,
   "notes": null,
-  "check_no": null
+  "gateway_id": "Check # goes here"
 }
 ```
 
@@ -88,15 +89,16 @@ payments: [
     "customer": 15460,
     "invoice": 44648,
     "date": 1410843600,
-    "type": "check",
+    "transaction_type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
     "currency": "usd",
     "amount": 800,
     "fee": 0,
     "net": 800,
     "notes": null,
-    "check_no": null,
-    "stripe_charge": "",
-    "paypal_transaction_id": "",
     "sent": false,
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
@@ -120,15 +122,16 @@ payments: [
     "customer": 15460,
     "invoice": 44648,
     "date": 1410843600,
-    "type": "check",
+    "transaction_type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
     "currency": "usd",
     "amount": 800,
     "fee": 0,
     "net": 800,
     "notes": null,
-    "check_no": null,
-    "stripe_charge": "",
-    "paypal_transaction_id": "",
     "sent": false,
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
@@ -143,7 +146,7 @@ payments: [
 
 ```json
 {
-  "notes": "Received by Jan.",
+  "notes": "Received by Jan",
   "sent": true
 }
 ```
