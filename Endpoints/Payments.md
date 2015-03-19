@@ -64,15 +64,13 @@ payments: [
 
 ```json
 {
-  "customer": 15460,
   "invoice": 44648,
   "date": 1410843600,
   "method": "check",
   "currency": "usd",
   "amount": 800,
-  "fee": 0,
-  "notes": null,
-  "gateway_id": "Check # goes here"
+  "notes": "Extra notes about the payment for the customer",
+  "gateway_id": "Optional check # goes here"
 }
 ```
 
