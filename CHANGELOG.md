@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 20, 2015
+
+- Estimates now have a `closed` property. When an estimate is closed it cannot be modified. An estimate is closed automatically upon approval.
+
 ### March 18, 2015
 
 - Payments are moving to a more diverse transaction model. New `transaction_type`, `method`, `status`, `gateway`, `gateway_id`, and `parent_transaction` properties have been added. The `type`, `check_no`, `paypal_transaction_id`, and `stripe_charge` properties have been deprecated.

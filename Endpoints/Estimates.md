@@ -86,6 +86,8 @@ X-Total-Count: 30
       "fields": [],
       "draft": false,
       "sent": false,
+      "closed": false,
+      "approved": null,
       "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
       "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
       "status": "invoiced"
@@ -205,6 +207,8 @@ X-Total-Count: 30
     "fields": [],
     "draft": false,
     "sent": false,
+    "closed": false,
+    "approved": null,
     "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "invoiced"
@@ -274,6 +278,8 @@ X-Total-Count: 30
     "fields": [],
     "draft": false,
     "sent": false,
+    "closed": true,
+    "approved": "LIST",
     "url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "status": "invoiced"
@@ -290,7 +296,8 @@ X-Total-Count: 30
 ```json
 {
   "draft": false,
-  "sent": true
+  "sent": true,
+  "approved": "LIS"
 }
 ```
 
