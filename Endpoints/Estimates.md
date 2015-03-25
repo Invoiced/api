@@ -54,7 +54,9 @@ X-Total-Count: 30
           "quantity": 10,
           "unit_cost": 45,
           "amount": 450,
-          "fields": []
+          "discounts": [],
+          "taxes": [],
+          "shipping": []
         },
         {
           "id": 2,
@@ -65,7 +67,9 @@ X-Total-Count: 30
           "quantity": 2,
           "unit_cost": 9,
           "amount": 18,
-          "fields": []
+          "discounts": [],
+          "taxes": [],
+          "shipping": []
         },
         {
           "id": 3,
@@ -76,14 +80,31 @@ X-Total-Count: 30
           "quantity": 1,
           "unit_cost": 10,
           "amount": 10,
-          "fields": []
+          "discounts": [],
+          "taxes": [],
+          "shipping": []
         }
       ],
       "terms": "Net 30",
       "notes": "Thank you for your business!",
       "subtotal": 478,
-      "total": 478,
-      "fields": [],
+      "discounts": [
+        {
+          "id": 5802,
+          "amount": 23.9,
+          "rate": {
+            "id": 12,
+            "type": "discount",
+            "name": "Being awesome",
+            "number": null,
+            "is_percent": true,
+            "value": 5
+          }
+        }
+      ],
+      "taxes": [],
+      "shipping": [],
+      "total": 454.10,
       "draft": false,
       "sent": false,
       "closed": false,
@@ -120,7 +141,9 @@ X-Total-Count: 30
       "quantity": 10,
       "unit_cost": 45,
       "amount": 450,
-      "fields": []
+      "discounts": [],
+      "taxes": [],
+      "shipping": []
     },
     {
       "item": 82,
@@ -130,7 +153,9 @@ X-Total-Count: 30
       "quantity": 2,
       "unit_cost": 9,
       "amount": 18,
-      "fields": []
+      "discounts": [],
+      "taxes": [],
+      "shipping": []
     },
     {
       "item": 83,
@@ -140,12 +165,20 @@ X-Total-Count: 30
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
-      "fields": []
+      "discounts": [],
+      "taxes": [],
+      "shipping": []
     }
   ],
   "terms": "Net 30",
   "notes": "Thank you for your business!",
-  "fields": []
+  "discounts": [
+    {
+      "rate": 12
+    }
+  ],
+  "taxes": [],
+  "shipping": []
 }
 ```
 
@@ -175,7 +208,9 @@ X-Total-Count: 30
         "quantity": 10,
         "unit_cost": 45,
         "amount": 450,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 2,
@@ -186,7 +221,9 @@ X-Total-Count: 30
         "quantity": 2,
         "unit_cost": 9,
         "amount": 18,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 3,
@@ -197,14 +234,31 @@ X-Total-Count: 30
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       }
     ],
     "terms": "Net 30",
     "notes": "Thank you for your business!",
     "subtotal": 478,
-    "total": 478,       
-    "fields": [],
+    "discounts": [
+      {
+        "id": 5802,
+        "amount": 23.9,
+        "rate": {
+          "id": 12,
+          "type": "discount",
+          "name": "Being awesome",
+          "number": null,
+          "is_percent": true,
+          "value": 5
+        }
+      }
+    ],
+    "taxes": [],
+    "shipping": [],
+    "total": 454.10,
     "draft": false,
     "sent": false,
     "closed": false,
@@ -246,7 +300,9 @@ X-Total-Count: 30
         "quantity": 10,
         "unit_cost": 45,
         "amount": 450,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 2,
@@ -257,7 +313,9 @@ X-Total-Count: 30
         "quantity": 2,
         "unit_cost": 9,
         "amount": 18,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 3,
@@ -268,14 +326,31 @@ X-Total-Count: 30
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       }
     ],
     "terms": "Net 30",
     "notes": "Thank you for your business!",
     "subtotal": 478,
-    "total": 478,
-    "fields": [],
+    "discounts": [
+      {
+        "id": 5802,
+        "amount": 23.9,
+        "rate": {
+          "id": 12,
+          "type": "discount",
+          "name": "Being awesome",
+          "number": null,
+          "is_percent": true,
+          "value": 5
+        }
+      }
+    ],
+    "taxes": [],
+    "shipping": [],
+    "total": 454.10,
     "draft": false,
     "sent": false,
     "closed": true,
@@ -376,7 +451,9 @@ X-Total-Count: 30
         "quantity": 10,
         "unit_cost": 45,
         "amount": 450,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 5,
@@ -387,7 +464,9 @@ X-Total-Count: 30
         "quantity": 2,
         "unit_cost": 9,
         "amount": 18,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 6,
@@ -398,7 +477,9 @@ X-Total-Count: 30
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       }
     ],
     "notes": "Thank you for your business!",
@@ -407,7 +488,23 @@ X-Total-Count: 30
     "total": 478,
     "amount_paid": 0,
     "balance": 478,
-    "fields": [],
+    "discounts": [
+      {
+        "id": 5802,
+        "amount": 23.9,
+        "rate": {
+          "id": 12,
+          "type": "discount",
+          "name": "Being awesome",
+          "number": null,
+          "is_percent": true,
+          "value": 5
+        }
+      }
+    ],
+    "taxes": [],
+    "shipping": [],
+    "total": 454.10,
     "draft": false,
     "sent": false,
     "closed": false,

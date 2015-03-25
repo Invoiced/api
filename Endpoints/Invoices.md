@@ -59,7 +59,9 @@ X-Total-Count: 10
           "quantity": 1,
           "unit_cost": 45,
           "amount": 45,
-          "fields": []
+          "discounts": [],
+          "taxes": [],
+          "shipping": []
         },
         {
           "id": 8,
@@ -71,16 +73,33 @@ X-Total-Count: 10
           "quantity": 1,
           "unit_cost": 10,
           "amount": 10,
-          "fields": []
+          "discounts": [],
+          "taxes": [],
+          "shipping": []
         }
       ],
       "terms": null,
       "notes": null,
       "subtotal": 55,
-      "total": 55,
+      "discounts": [],
+      "taxes": [
+        {
+          "id": 2084,
+          "amount": 3.85,
+          "rate": {
+            "id": 304,
+            "type": "tax",
+            "name": "Sales Tax",
+            "number": "FI-8200",
+            "is_percent": true,
+            "value": 7
+          }
+        }
+      ],
+      "shipping": [],
+      "total": 51.15,
       "amount_paid": 0,
-      "balance": 55,
-      "fields": [],
+      "balance": 51.15,
       "draft": false,
       "sent": false,
       "closed": false,
@@ -125,7 +144,9 @@ X-Total-Count: 10
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
-      "fields": []
+      "discounts": [],
+      "taxes": [],
+      "shipping": []
     },
     {
       "id": 8,
@@ -137,12 +158,33 @@ X-Total-Count: 10
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
-      "fields": []
+      "discounts": [],
+      "taxes": [],
+      "shipping": []
     }
   ],
   "terms": null,
   "notes": null,    
-  "fields": [],
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 2084,
+      "amount": 3.85,
+      "rate": {
+        "id": 304,
+        "type": "tax",
+        "name": "Sales Tax",
+        "number": "FI-8200",
+        "is_percent": true,
+        "value": 7
+      }
+    }
+  ],
+  "shipping": [],
+  "total": 51.15,
+  "amount_paid": 0,
+  "balance": 51.15,
   "closed": false,
   "disabled_payment_methods": {
     "paypal": true
@@ -178,7 +220,9 @@ X-Total-Count: 10
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 8,
@@ -190,15 +234,33 @@ X-Total-Count: 10
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       }
     ],
     "terms": null,
     "notes": null,
-    "total": 55,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 2084,
+        "amount": 3.85,
+        "rate": {
+          "id": 304,
+          "type": "tax",
+          "name": "Sales Tax",
+          "number": "FI-8200",
+          "is_percent": true,
+          "value": 7
+        }
+      }
+    ],
+    "shipping": [],
+    "total": 51.15,
     "amount_paid": 0,
-    "balance": 55,
-    "fields": [],
+    "balance": 51.15,
     "draft": false,
     "sent": false,
     "closed": false,
@@ -245,7 +307,9 @@ X-Total-Count: 10
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       },
       {
         "id": 8,
@@ -257,15 +321,33 @@ X-Total-Count: 10
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
-        "fields": []
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
       }
     ],
     "terms": null,
     "notes": null,
-    "total": 55,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 2084,
+        "amount": 3.85,
+        "rate": {
+          "id": 304,
+          "type": "tax",
+          "name": "Sales Tax",
+          "number": "FI-8200",
+          "is_percent": true,
+          "value": 7
+        }
+      }
+    ],
+    "shipping": [],
+    "total": 51.15,
     "amount_paid": 0,
-    "balance": 55,
-    "fields": [],
+    "balance": 51.15,
     "draft": false,
     "sent": false,
     "closed": false,
