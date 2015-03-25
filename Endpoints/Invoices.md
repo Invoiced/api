@@ -52,7 +52,7 @@ X-Total-Count: 10
         {
           "id": 7,
           "item": 79,
-          "plan": 20,
+          "plan": null,
           "type": "product",
           "name": "Copy Paper, Case",
           "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
@@ -66,7 +66,7 @@ X-Total-Count: 10
         {
           "id": 8,
           "item": 83,
-          "plan": 20,
+          "plan": null,
           "type": "service",
           "name": "Delivery",
           "description": "",
@@ -137,7 +137,7 @@ X-Total-Count: 10
     {
       "id": 7,
       "item": 79,
-      "plan": 20,
+      "plan": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
@@ -151,7 +151,7 @@ X-Total-Count: 10
     {
       "id": 8,
       "item": 83,
-      "plan": 20,
+      "plan": null,
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -213,7 +213,7 @@ X-Total-Count: 10
       {
         "id": 7,
         "item": 79,
-        "plan": 20,
+        "plan": null,
         "type": "product",
         "name": "Copy Paper, Case",
         "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
@@ -227,7 +227,7 @@ X-Total-Count: 10
       {
         "id": 8,
         "item": 83,
-        "plan": 20,
+        "plan": null,
         "type": "service",
         "name": "Delivery",
         "description": "",
@@ -300,7 +300,7 @@ X-Total-Count: 10
       {
         "id": 7,
         "item": 79,
-        "plan": 20,
+        "plan": null,
         "type": "product",
         "name": "Copy Paper, Case",
         "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
@@ -314,7 +314,7 @@ X-Total-Count: 10
       {
         "id": 8,
         "item": 83,
-        "plan": 20,
+        "plan": null,
         "type": "service",
         "name": "Delivery",
         "description": "",
