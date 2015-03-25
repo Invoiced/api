@@ -12,6 +12,7 @@ Invoiced API
 	* [Estimates](Endpoints/Estimates.md)
 	* [Invoices](Endpoints/Invoices.md)
 	* [Payments](Endpoints/Payments.md)
+	* [Rates](Endpoints/Rates.md)
 
 ## Introduction
 
