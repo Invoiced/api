@@ -3,23 +3,26 @@ Payment Methods
 
 Payment Methods control how your clients are able to pay on the payment page in the client portal.
 
-You must specify your PayPal email address with the `paypal`. You can add instructions for offline payment methods, like where to mail a check, using the `meta` property.
+* [Intro](#intro)
+* [List Payment Methods](#list-payment-methods)
+* [Creating a Payment Method](#creating-a-payment-method)
+* [Fetch a Payment Method](#fetch-a-payment-method)
+* [Editing a Payment Method](#editing-a-payment-method)
+* [Deleting a Payment Method](#deleting-a-payment-method)
+
+### Intro
 
 Possible methods:
 - `credit_card`
 - `ach`
 - `bitcoin`
 - `paypal`
-- `check` (offline)
-- `wire_transfer` (offline)
-- `cash` (offline)
-- `other` (offline)
+- `check` - offline
+- `wire_transfer` - offline
+- `cash` - offline
+- `other` - offline
 
-* [List Payment Methods](#list-payment-methods)
-* [Creating a Payment Method](#creating-a-payment-method)
-* [Fetch a Payment Method](#fetch-a-payment-method)
-* [Editing a Payment Method](#editing-a-payment-method)
-* [Deleting a Payment Method](#deleting-a-payment-method)
+**Notes** You must specify your PayPal email address with the `paypal` method. You can add instructions for offline payment methods, like where to mail a check, using the `meta` property.
 
 ### List Payment Methods
 
