@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 26, 2015
+
+- Added Payment Methods endpoints for managing how your clients pay.
+
 ### March 25, 2015
 
 - Estimates, Invoices, and Line Items now have `discounts`, `taxes`, and `shipping` properties. Each of these properties are a list of Applied Rates matching the Rate's type. For example, discounts can be added to an Invoice by adding `"discounts":[{"rate": rate_id}]`.
