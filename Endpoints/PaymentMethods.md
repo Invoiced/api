@@ -12,7 +12,7 @@ Payment Methods control how your clients are able to pay on the payment page in 
 
 ### Intro
 
-Possible methods:
+Available payment methods:
 - `credit_card`
 - `ach`
 - `bitcoin`
