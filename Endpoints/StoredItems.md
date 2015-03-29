@@ -40,7 +40,9 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": [],
+    "discounts": [],
+    "taxes": [],
+    "shipping": [],
     "archived": false
   },
   {...}
@@ -59,7 +61,9 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": []
+    "discounts": [],
+    "taxes": [],
+    "shipping": []
 }
 ```
 
@@ -77,7 +81,9 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": [],
+    "discounts": [],
+    "taxes": [],
+    "shipping": [],
     "archived": false
   },
 }
@@ -101,7 +107,9 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": [],
+    "discounts": [],
+    "taxes": [],
+    "shipping": [],
     "archived": false
   },
 }

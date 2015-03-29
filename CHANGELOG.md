@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 29, 2015
+
+- Added `discounts`, `taxes`, and `shipping` properties to Stored Items.
+
 ### March 28, 2015
 
 - Renamed `Payments` to `Transactions`. Transactions can represent a `charge`, `payment`, `refund`, or `adjustment` with the `transaction_type` property.
