@@ -1,16 +1,21 @@
 Transactions
 ====
 
-Transactions can represent a `charge`, `payment`, `refund`, or `adjustment`. We record `charge` and `refund` transactions automatically. The `payment` transaction type is designated for recording offline payments like checks.
+Transactions can represent a `charge`, `payment`, `refund`, or `adjustment`.
 
-The `method` property specifies the instrument the transaction was performed over. For more information about supported payment methods please see the [Payment Methods](PaymentMethods.md) section.
-
+* [Intro](#intro)
 * [List Transactions](#list-transactions)
 * [Creating a Transaction](#creating-a-transaction)
 * [Fetch a Transaction](#fetch-a-transaction)
 * [Editing a Transaction](#editing-a-transaction)
 * [Sending a Payment Receipt](#sending-a-payment-receipt)
 * [Deleting a Transaction](#deleting-a-transaction)
+
+### Intro
+
+We record `charge` and `refund` transactions automatically. The `payment` transaction type is designated for recording offline payments like checks. Finally, an `adjustment` transaction can represent any additional credit or debits to a customer's balance.
+
+The `method` property specifies the instrument the transaction was performed with. For more information about supported payment methods please see the [Payment Methods](PaymentMethods.md) section.
 
 ### List Transactions
 
