@@ -1,7 +1,7 @@
 Stored Items
 ====
 
-Stored Items represent a reusable line item. They are used to prepoulate line items for saving time and to associate matching line items. Stored **Items cannot be deleted, only archived.**
+Stored Items represent a reusable line item. They are used to prepoulate line items for saving time and to associate matching line items. **Stored Items cannot be deleted, only archived.**
 
 * [List Stored Items](#list-stored-items)
 * [Creating a Stored Item](#creating-a-stored-item)
@@ -40,7 +40,7 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": []
+    "fields": [],
     "archived": false
   },
   {...}
@@ -77,7 +77,7 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": []
+    "fields": [],
     "archived": false
   },
 }
@@ -101,7 +101,7 @@ stored_items: [
     "name": "Web Site Starter",
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
-    "fields": []
+    "fields": [],
     "archived": false
   },
 }
