@@ -13,6 +13,7 @@ Invoiced API
 	* [Invoices](Endpoints/Invoices.md)
 	* [Transactions](Endpoints/Transactions.md)
 	* [Rates](Endpoints/Rates.md)
+	* [Stored Items](Endpoints/StoredItems.md)
 	* [Payment Methods](Endpoints/PaymentMethods.md)
 
 ## Introduction
@@ -107,4 +108,5 @@ filter: {
 * [Invoices](Endpoints/Invoices.md)
 * [Transactions](Endpoints/Transactions.md)
 * [Rates](Endpoints/Rates.md)
+* [Stored Items](Endpoints/StoredItems.md)
 * [Payment Methods](Endpoints/PaymentMethods.md)

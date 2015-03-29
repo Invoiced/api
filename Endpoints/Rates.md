@@ -1,13 +1,12 @@
 Rates
 ====
 
-Rates represent a discount, tax, or shipping rate on Invoiced. A Rate can be a percentage or fixed amount. Rates can be applied to Estimates, Invoices, and Line Items. Whenever a Rate is applied to any of these a corresponding Applied Rate object is created. Rates cannot be deleted, only archived. Also, once a Rate is created the value or type cannot be changed.
+Rates represent a discount, tax, or shipping rate on Invoiced. A Rate can be a percentage or fixed amount. Rates can be applied to Estimates, Invoices, and Line Items. Whenever a Rate is applied to any of these a corresponding Applied Rate object is created. **Rates cannot be deleted, only archived.** Also, once a Rate is created the value or type cannot be changed.
 
 * [List Rates](#list-rates)
 * [Creating a Rate](#creating-a-rate)
 * [Fetch a Rate](#fetch-a-rate)
 * [Editing a Rate](#editing-a-rate)
-* [Deleting a Rate](#deleting-a-rate)
 
 ### List Rates
 
@@ -42,7 +41,7 @@ rates: [
     "number": "FI-8200",
     "is_percent": true,
     "value": 7,
-    "archived": true
+    "archived": false
   },
   {...}
    ]
@@ -102,7 +101,7 @@ rates: [
     "number": "FI-8200",
     "is_percent": true,
     "value": 7,
-    "archived": true
+    "archived": false
   },
 }
 ```
@@ -128,11 +127,3 @@ rates: [
   "success": true
 }
 ```
-
-### Deleting a Rate
-
-  DELETE /rates/:id
-
-#### Response
-
-  Status: 204 No Content

@@ -4,6 +4,7 @@ Changelog
 ### March 28, 2015
 
 - Renamed `Payments` to `Transactions`. Transactions can represent a `charge`, `payment`, `refund`, or `adjustment` with the `transaction_type` property.
+- Added Stored Items endpoints for frequently invoiced items, such as services or products.
 
 ### March 26, 2015
 
