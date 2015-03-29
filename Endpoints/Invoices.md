@@ -161,16 +161,7 @@ X-Total-Count: 10
   "discounts": [],
   "taxes": [
     {
-      "id": 2084,
-      "amount": 3.85,
-      "rate": {
-        "id": 304,
-        "type": "tax",
-        "name": "Sales Tax",
-        "number": "FI-8200",
-        "is_percent": true,
-        "value": 7
-      }
+      "rate": 304
     }
   ],
   "shipping": [],
