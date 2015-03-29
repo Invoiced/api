@@ -1,16 +1,20 @@
-Payments
+Transactions
 ====
 
-* [List Payments](#list-payments)
-* [Creating a Payment](#creating-a-payment)
-* [Fetch a Payment](#fetch-a-payment)
-* [Editing a Payment](#editing-a-payment)
+Transactions can represent a `charge`, `payment`, `refund`, or `adjustment`. We record `charge` and `refund` transactions automatically. The `payment` transaction type is designated for recording offline payments like checks.
+
+The `method` property specifies the instrument the transaction was performed over. For more information about supported payment methods please see the [Payment Methods](Payments.md) section.
+
+* [List Transactions](#list-transactions)
+* [Creating a Transaction](#creating-a-transaction)
+* [Fetch a Transaction](#fetch-a-transaction)
+* [Editing a Transaction](#editing-a-transaction)
 * [Sending a Payment Receipt](#sending-a-payment-receipt)
-* [Deleting a Payment](#deleting-a-payment)
+* [Deleting a Transaction](#deleting-a-transaction)
 
-### List Payments
+### List Transactions
 
-  GET /payments
+  GET /transactions
 
 #### Parameters
 
@@ -23,15 +27,15 @@ Name | Type | Description
 
 ```
 Status: 200 OK
-Link: <https://api.invoiced.com/payments?page=1&per_page=10>; rel="self",
-    <https://api.invoiced.com/payments?page=1&per_page=10>; rel="first",
-    <https://api.invoiced.com/payments?page=2&per_page=10>; rel="next",
-    <https://api.invoiced.com/payments?page=3&per_page=10>; rel="last"
+Link: <https://api.invoiced.com/transactions?page=1&per_page=10>; rel="self",
+    <https://api.invoiced.com/transactions?page=1&per_page=10>; rel="first",
+    <https://api.invoiced.com/transactions?page=2&per_page=10>; rel="next",
+    <https://api.invoiced.com/transactions?page=3&per_page=10>; rel="last"
 X-Total-Count: 30
 ```
 
 ```json
-payments: [
+transactions: [
   {
     "created_at": 1415228628,
     "updated_at": 1415228642,
@@ -56,9 +60,9 @@ payments: [
    ]
 ```
 
-### Creating a Payment
+### Creating a Transaction
 
-  POST /payments
+  POST /transactions
 
 #### Input
 
@@ -80,7 +84,7 @@ payments: [
 
 ```json
 {
-  "payment": {
+  "transaction": {
     "created_at": 1415228628,
     "updated_at": 1415228642,
     "id": 20939,
@@ -103,9 +107,9 @@ payments: [
 }
 ```
 
-### Fetch a Payment
+### Fetch a Transaction
 
-  GET /payments/:id
+  GET /transactions/:id
 
 #### Response
 
@@ -113,7 +117,7 @@ payments: [
 
 ```json
 {
-  "payment": {
+  "transaction": {
     "created_at": 1415228628,
     "updated_at": 1415228642,
     "id": 20939,
@@ -136,9 +140,9 @@ payments: [
 }
 ```
 
-### Editing a Payment
+### Editing a Transaction
 
-  PATCH /payments/:id
+  PATCH /transactions/:id
 
 #### Input
 
@@ -161,7 +165,7 @@ payments: [
 
 ### Sending a Payment Receipt
 
-  POST /payments/:id/emails
+  POST /transactions/:id/emails
 
 #### Input
 
@@ -190,9 +194,9 @@ payments: [
 }
 ```
 
-### Deleting a Payment
+### Deleting a Transaction
 
-  DELETE /payments/:id
+  DELETE /transactions/:id
 
 #### Response
 

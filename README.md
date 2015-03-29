@@ -11,7 +11,7 @@ Invoiced API
 	* [Customers](Endpoints/Customers.md)
 	* [Estimates](Endpoints/Estimates.md)
 	* [Invoices](Endpoints/Invoices.md)
-	* [Payments](Endpoints/Payments.md)
+	* [Transactions](Endpoints/Transactions.md)
 	* [Rates](Endpoints/Rates.md)
 	* [Payment Methods](Endpoints/PaymentMethods.md)
 
@@ -105,4 +105,6 @@ filter: {
 * [Customers](Endpoints/Customers.md)
 * [Estimates](Endpoints/Estimates.md)
 * [Invoices](Endpoints/Invoices.md)
-* [Payments](Endpoints/Payments.md)
+* [Transactions](Endpoints/Transactions.md)
+* [Rates](Endpoints/Rates.md)
+* [Payment Methods](Endpoints/PaymentMethods.md)

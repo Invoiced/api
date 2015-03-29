@@ -1,6 +1,8 @@
 Invoices
 ====
 
+Invoices can be marked paid by adding payments via [Transactions](Transactions.md).
+
 * [List Invoices](#list-invoices)
 * [Creating an Invoice](#creating-an-invoice)
 * [Fetch an Invoice](#fetch-an-invoice)

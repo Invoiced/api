@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### March 28, 2015
+
+- Renamed `Payments` to `Transactions`. Transactions can represent a `charge`, `payment`, `refund`, or `adjustment` with the `transaction_type` property.
+
 ### March 26, 2015
 
 - Added Payment Methods endpoints for managing how your clients pay.
