@@ -44,7 +44,7 @@ stored_items: [
     "archived": false
   },
   {...}
-   ]
+]
 ```
 
 ### Creating a Stored Item

@@ -44,7 +44,7 @@ rates: [
     "archived": false
   },
   {...}
-   ]
+]
 ```
 
 ### Creating a Rate

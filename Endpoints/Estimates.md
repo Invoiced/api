@@ -140,7 +140,6 @@ X-Total-Count: 30
       "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
       "quantity": 10,
       "unit_cost": 45,
-      "amount": 450,
       "discounts": [],
       "taxes": [],
       "shipping": []
@@ -152,7 +151,6 @@ X-Total-Count: 30
       "description": "1,000 pack",
       "quantity": 2,
       "unit_cost": 9,
-      "amount": 18,
       "discounts": [],
       "taxes": [],
       "shipping": []
@@ -164,7 +162,6 @@ X-Total-Count: 30
       "description": "",
       "quantity": 1,
       "unit_cost": 10,
-      "amount": 10,
       "discounts": [],
       "taxes": [],
       "shipping": []
