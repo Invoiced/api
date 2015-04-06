@@ -40,29 +40,32 @@ X-Total-Count: 30
 ```
 
 ```json
-transactions: [
-  {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "id": 20939,
-    "customer": 15460,
-    "invoice": 44648,
-    "date": 1410843600,
-    "transaction_type": "payment",
-    "method": "check",
-    "status": "succeeded",
-    "gateway": null,
-    "gateway_id": null,
-    "currency": "usd",
-    "amount": 800,
-    "fee": 0,
-    "net": 800,
-    "notes": null,
-    "sent": false,
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
-  },
-  {...}
-   ]
+{
+  "transactions": [
+    ...,
+    {
+      "created_at": 1415228628,
+      "updated_at": 1415228642,
+      "id": 20939,
+      "customer": 15460,
+      "invoice": 44648,
+      "date": 1410843600,
+      "transaction_type": "payment",
+      "method": "check",
+      "status": "succeeded",
+      "gateway": null,
+      "gateway_id": null,
+      "currency": "usd",
+      "amount": 800,
+      "fee": 0,
+      "net": 800,
+      "notes": null,
+      "sent": false,
+      "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
+    },
+    ...
+  ]
+}
 ```
 
 ### Creating a Transaction

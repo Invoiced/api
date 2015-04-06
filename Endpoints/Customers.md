@@ -36,6 +36,7 @@ X-Total-Count: 30
 ```json
 {
   "customers": [
+    ...,
     {
       "created_at": 1415222128,
       "updated_at": 1417460942,
@@ -56,7 +57,7 @@ X-Total-Count: 30
       "balance": 3395.47,
       "stripe_customer": null
     },
-    {...}
+    ...
   ]
 }
 ```

@@ -36,52 +36,55 @@ X-Total-Count: 30
 ```
 
 ```json
-themes: [
-  {
-    "created_at": 1415228628,
-    "updated_at": 1422902098,
-    "id": 6,
-    "name": "My Theme",
-    "from_title": "From",
-    "to_title": "Client",
-    "tax_id_title": null,
-    "customer_number_title": "Customer Number",
-    "show_customer_no": false,
-    "invoice_number_title": "Invoice Number",
-    "date_title": "Date",
-    "due_date_title": "Due Date",
-    "date_format": null,
-    "purchase_order_title": "Purchase Order",
-    "show_purchase_order": false,
-    "quantity_header": "Quantity",
-    "item_header": "Item",
-    "unit_cost_header": "Rate",
-    "amount_header": "Amount",
-    "subtotal_title": "Subtotal",
-    "notes_title": "Notes",
-    "terms_title": "Terms",
-    "header": "INVOICE",
-    "payment_terms_title": "Payment Terms",
-    "amount_paid_title": "Amount Paid",
-    "balance_title": "Balance Due",
-    "header_estimate": "ESTIMATE",
-    "estimate_number_title": "Estimate Number",
-    "total_title": "Total",
-    "header_receipt": "RECEIPT",
-    "amount_title": "Amount",
-    "payment_method_title": "Payment Method",
-    "check_no_title": "Check #",
-    "receipt_footer": "Thank you!",
-    "custom_appearance": false,
-    "estimate_css": null,
-    "estimate_html": null,
-    "invoice_css": null,
-    "invoice_html": null,
-    "receipt_css": null,
-    "receipt_html": null
-  },
-  {...}
-]
+{
+    "themes": [
+        ...,
+        {
+            "created_at": 1415228628,
+            "updated_at": 1422902098,
+            "id": 6,
+            "name": "My Theme",
+            "from_title": "From",
+            "to_title": "Client",
+            "tax_id_title": null,
+            "customer_number_title": "Customer Number",
+            "show_customer_no": false,
+            "invoice_number_title": "Invoice Number",
+            "date_title": "Date",
+            "due_date_title": "Due Date",
+            "date_format": null,
+            "purchase_order_title": "Purchase Order",
+            "show_purchase_order": false,
+            "quantity_header": "Quantity",
+            "item_header": "Item",
+            "unit_cost_header": "Rate",
+            "amount_header": "Amount",
+            "subtotal_title": "Subtotal",
+            "notes_title": "Notes",
+            "terms_title": "Terms",
+            "header": "INVOICE",
+            "payment_terms_title": "Payment Terms",
+            "amount_paid_title": "Amount Paid",
+            "balance_title": "Balance Due",
+            "header_estimate": "ESTIMATE",
+            "estimate_number_title": "Estimate Number",
+            "total_title": "Total",
+            "header_receipt": "RECEIPT",
+            "amount_title": "Amount",
+            "payment_method_title": "Payment Method",
+            "check_no_title": "Check #",
+            "receipt_footer": "Thank you!",
+            "custom_appearance": false,
+            "estimate_css": null,
+            "estimate_html": null,
+            "invoice_css": null,
+            "invoice_html": null,
+            "receipt_css": null,
+            "receipt_html": null
+        },
+        ...
+    ]
+}
 ```
 
 ### Creating a Theme
@@ -249,7 +252,7 @@ themes: [
 
 ```json
 {
-  "archived": true
+  "show_customer_no": true
 }
 ```
 

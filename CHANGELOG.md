@@ -3,6 +3,7 @@ Changelog
 
 ### April 6, 2015
 
+- Added Templates endpoints for managing pre-filled shortcuts for estimates and invoices.
 - Added Themes endpoints for managing the appearance of estimates, invoices, and receipts.
 - Added `theme` properties to Estimates and Invoices.
 

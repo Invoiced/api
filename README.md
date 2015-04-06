@@ -17,6 +17,7 @@ Invoiced API
 		* [Stored Items](Endpoints/StoredItems.md)
 		* [Payment Methods](Endpoints/PaymentMethods.md)
 		* [Themes](Endpoints/Themes.md)
+		* [Templates](Endpoints/Templates.md)
 
 ## Introduction
 

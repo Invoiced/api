@@ -31,21 +31,24 @@ X-Total-Count: 30
 ```
 
 ```json
-stored_items: [
-  {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "id": 2804,
-    "type": "service",
-    "name": "Web Site Starter",
-    "description": "The most affordable way to get an online presence.",
-    "unit_cost": 1000,
-    "discounts": [],
-    "taxes": [],
-    "shipping": [],
-    "archived": false
-  },
-  {...}
+{
+    "stored_items": [
+        ...,
+        {
+            "created_at": 1415228628,
+            "updated_at": 1415228642,
+            "id": 2804,
+            "type": "service",
+            "name": "Web Site Starter",
+            "description": "The most affordable way to get an online presence.",
+            "unit_cost": 1000,
+            "discounts": [],
+            "taxes": [],
+            "shipping": [],
+            "archived": false
+        },
+        ...
+    }
 ]
 ```
 

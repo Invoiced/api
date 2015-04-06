@@ -34,6 +34,7 @@ X-Total-Count: 30
 ```json
 {
   "estimates": [
+    ...,
     {
       "created_at": 1415223825,
       "updated_at": 1415223841,
@@ -114,7 +115,7 @@ X-Total-Count: 30
       "pdf_url": "https://dundermifflin.invoiced.com/estimates/ZZmXbVOPyvfD3GPBmyd6FwXY/pdf",
       "status": "invoiced"
     },
-    {...}
+    ...
   ]
 }
 ```

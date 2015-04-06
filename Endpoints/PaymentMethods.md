@@ -47,17 +47,19 @@ X-Total-Count: 30
 ```
 
 ```json
-payment_methods: [
-  ...
-  {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "method": "check",
-    "enabled": true,
-    "meta": "Please mail any checks to 701 Brazos St\nAustin, TX 78748"
-  },
-  ...
-]
+{
+    "payment_methods: [
+        ...
+        {
+          "created_at": 1415228628,
+          "updated_at": 1415228642,
+          "method": "check",
+          "enabled": true,
+          "meta": "Please mail any checks to 701 Brazos St\nAustin, TX 78748"
+        },
+        ...
+    ]
+}
 ```
 
 ### Creating a Payment Method

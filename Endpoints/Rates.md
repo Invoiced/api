@@ -31,20 +31,23 @@ X-Total-Count: 30
 ```
 
 ```json
-rates: [
-  {
-    "created_at": 1415228628,
-    "updated_at": 1415228642,
-    "id": 304,
-    "type": "tax",
-    "name": "Sales Tax",
-    "number": "FI-8200",
-    "is_percent": true,
-    "value": 7,
-    "archived": false
-  },
-  {...}
-]
+{
+    "rates": [
+        ...,
+        {
+          "created_at": 1415228628,
+          "updated_at": 1415228642,
+          "id": 304,
+          "type": "tax",
+          "name": "Sales Tax",
+          "number": "FI-8200",
+          "is_percent": true,
+          "value": 7,
+          "archived": false
+        },
+        ...
+    ]
+}
 ```
 
 ### Creating a Rate

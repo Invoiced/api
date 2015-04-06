@@ -35,87 +35,88 @@ X-Total-Count: 10
 
 ```json
 {
-  "invoices": [
-    {
-      "created_at": 1415229884,
-      "updated_at": 1416291302,
-      "id": 46225,
-      "customer": 15444,
-      "name": "Monthly Paper Delivery",
-      "currency": "usd",
-      "estimate": null,
-      "subscription": 410,
-      "theme": null,
-      "late_payment_reminders_disabled": false,
-      "number": "INV-0016",
-      "date": 1416290400,
-      "due_date": 1416549600,
-      "purchase_order": null,
-      "items": [
+    "invoices": [
+        ...,
         {
-          "id": 7,
-          "item": 79,
-          "plan": null,
-          "type": "product",
-          "name": "Copy Paper, Case",
-          "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-          "quantity": 1,
-          "unit_cost": 45,
-          "amount": 45,
+          "created_at": 1415229884,
+          "updated_at": 1416291302,
+          "id": 46225,
+          "customer": 15444,
+          "name": "Monthly Paper Delivery",
+          "currency": "usd",
+          "estimate": null,
+          "subscription": 410,
+          "theme": null,
+          "late_payment_reminders_disabled": false,
+          "number": "INV-0016",
+          "date": 1416290400,
+          "due_date": 1416549600,
+          "purchase_order": null,
+          "items": [
+            {
+              "id": 7,
+              "item": 79,
+              "plan": null,
+              "type": "product",
+              "name": "Copy Paper, Case",
+              "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+              "quantity": 1,
+              "unit_cost": 45,
+              "amount": 45,
+              "discounts": [],
+              "taxes": [],
+              "shipping": []
+            },
+            {
+              "id": 8,
+              "item": 83,
+              "plan": null,
+              "type": "service",
+              "name": "Delivery",
+              "description": "",
+              "quantity": 1,
+              "unit_cost": 10,
+              "amount": 10,
+              "discounts": [],
+              "taxes": [],
+              "shipping": []
+            }
+          ],
+          "terms": null,
+          "notes": null,
+          "subtotal": 55,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
-        },
-        {
-          "id": 8,
-          "item": 83,
-          "plan": null,
-          "type": "service",
-          "name": "Delivery",
-          "description": "",
-          "quantity": 1,
-          "unit_cost": 10,
-          "amount": 10,
-          "discounts": [],
-          "taxes": [],
-          "shipping": []
-        }
-      ],
-      "terms": null,
-      "notes": null,
-      "subtotal": 55,
-      "discounts": [],
-      "taxes": [
-        {
-          "id": 2084,
-          "amount": 3.85,
-          "rate": {
-            "id": 304,
-            "type": "tax",
-            "name": "Sales Tax",
-            "number": "FI-8200",
-            "is_percent": true,
-            "value": 7
+          "taxes": [
+            {
+              "id": 2084,
+              "amount": 3.85,
+              "rate": {
+                "id": 304,
+                "type": "tax",
+                "name": "Sales Tax",
+                "number": "FI-8200",
+                "is_percent": true,
+                "value": 7
+              }
+            }
+          ],
+          "shipping": [],
+          "total": 51.15,
+          "amount_paid": 0,
+          "balance": 51.15,
+          "draft": false,
+          "sent": false,
+          "closed": false,
+          "paid": false,
+          "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+          "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+          "status": "overdue",
+          "disabled_payment_methods": {
+            "paypal": true
           }
-        }
-      ],
-      "shipping": [],
-      "total": 51.15,
-      "amount_paid": 0,
-      "balance": 51.15,
-      "draft": false,
-      "sent": false,
-      "closed": false,
-      "paid": false,
-      "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-      "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-      "status": "overdue",
-      "disabled_payment_methods": {
-        "paypal": true
-      }
-    },
-    {...}
-  ]
+        },
+        ...
+    ]
 }
 ```
 
