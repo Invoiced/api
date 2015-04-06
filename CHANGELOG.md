@@ -1,6 +1,11 @@
 Changelog
 ===
 
+### April 6, 2015
+
+- Added Themes endpoints for managing the appearance of estimates, invoices, and receipts.
+- Added `theme` properties to Estimates and Invoices.
+
 ### March 29, 2015
 
 - Added `discounts`, `taxes`, and `shipping` properties to Stored Items.
