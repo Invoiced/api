@@ -13,11 +13,10 @@ Invoiced API
 	* [Invoices](Endpoints/Invoices.md)
 	* [Transactions](Endpoints/Transactions.md)
 	* [Rates](Endpoints/Rates.md)
-	* **Settings**
-		* [Stored Items](Endpoints/StoredItems.md)
-		* [Payment Methods](Endpoints/PaymentMethods.md)
-		* [Themes](Endpoints/Themes.md)
-		* [Templates](Endpoints/Templates.md)
+	* [Stored Items](Endpoints/StoredItems.md)
+	* [Payment Methods](Endpoints/PaymentMethods.md)
+	* [Themes](Endpoints/Themes.md)
+	* [Templates](Endpoints/Templates.md)
 
 ## Introduction
 
