@@ -90,7 +90,25 @@ X-Total-Count: 30
 
 ```json
 {
-
+    "name": "Pencil Order Template",
+    "currency": null,
+    "payment_terms": "NET 30",
+    "items": [
+        {
+            "name": "Pencil",
+            "description": "Just an ordinary pencil...",
+            "quantity": 100,
+            "unit_cost": 1,
+            "discounts": [],
+            "taxes": [],
+            "shipping": []
+        }
+    ],
+    "discounts": [12],
+    "taxes": [304],
+    "shipping": [],
+    "notes": "Thank you for your business",
+    "terms": "Failure to pay by the due date will result in a 1.5% late fee every 30 days.",
 }
 ```
 
@@ -100,11 +118,48 @@ X-Total-Count: 30
 
 ```json
 {
-  "template": {
-    "created_at": 1415228628,
-    "updated_at": 1422902098,
-    "id": 812,
-  },
+    "template": {
+        "created_at": 1415228628,
+        "updated_at": 1422902098,
+        "id": 812,
+        "name": "Pencil Order Template",
+        "currency": null,
+        "payment_terms": "NET 30",
+        "items": [
+            {
+                "name": "Pencil",
+                "description": "Just an ordinary pencil...",
+                "quantity": 100,
+                "unit_cost": 1,
+                "discounts": [],
+                "taxes": [],
+                "shipping": []
+            }
+        ],
+        "discounts": [
+            {
+                "id": 12,
+                "type": "discount",
+                "name": "Being awesome",
+                "number": null,
+                "is_percent": true,
+                "value": 5
+            }
+        ],
+        "taxes": [
+            {
+                "id": 304,
+                "type": "tax",
+                "name": "Sales Tax",
+                "number": "FI-8200",
+                "is_percent": true,
+                "value": 7
+            },
+        ],
+        "shipping": [],
+        "notes": "Thank you for your business",
+        "terms": "Failure to pay by the due date will result in a 1.5% late fee every 30 days.",
+    },
 }
 ```
 
@@ -118,11 +173,48 @@ X-Total-Count: 30
 
 ```json
 {
-  "template": {
-    "created_at": 1415228628,
-    "updated_at": 1422902098,
-    "id": 812,
-  },
+    "template": {
+        "created_at": 1415228628,
+        "updated_at": 1422902098,
+        "id": 812,
+        "name": "Pencil Order Template",
+        "currency": null,
+        "payment_terms": "NET 30",
+        "items": [
+            {
+                "name": "Pencil",
+                "description": "Just an ordinary pencil...",
+                "quantity": 100,
+                "unit_cost": 1,
+                "discounts": [],
+                "taxes": [],
+                "shipping": []
+            }
+        ],
+        "discounts": [
+            {
+                "id": 12,
+                "type": "discount",
+                "name": "Being awesome",
+                "number": null,
+                "is_percent": true,
+                "value": 5
+            }
+        ],
+        "taxes": [
+            {
+                "id": 304,
+                "type": "tax",
+                "name": "Sales Tax",
+                "number": "FI-8200",
+                "is_percent": true,
+                "value": 7
+            },
+        ],
+        "shipping": [],
+        "notes": "Thank you for your business",
+        "terms": "Failure to pay by the due date will result in a 1.5% late fee every 30 days.",
+    },
 }
 ```
 
