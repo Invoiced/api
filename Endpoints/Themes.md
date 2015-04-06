@@ -3,7 +3,7 @@ Themes
 
 Themes control the appearance of Estimates, Invoices, and Receipts. A theme specifies field titles and any custom HTML/CSS for use when rendering the document as a PDF or in the browser.
 
-Whenever the HTML or CSS properties are null or `customer_appearance` is `false`, the latest stock themes will be used when rendering documents. Otherwise, the `custom_appearance` property may be set to `true` in order to use the non-null from `estimate_html`, `estimate_css`, `invoice_html`, `invoice_css`, `receipt_html`, and `receipt_css`.
+Whenever the HTML or CSS properties are null or `custom_appearance` is `false`, the latest stock themes will be used when rendering documents. Otherwise, the `custom_appearance` property may be set to `true` in order to use the non-null from `estimate_html`, `estimate_css`, `invoice_html`, `invoice_css`, `receipt_html`, and `receipt_css`.
 
 The HTML templates use Mustache for templating awesomeness. Please consult the [Mustache documentation](https://mustache.github.io/mustache.5.html) to learn more. You can use [this tool](http://trymustache.com/) to validate your HTML templates. 
 
