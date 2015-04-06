@@ -49,7 +49,7 @@ X-Total-Count: 30
 ```json
 {
     "payment_methods: [
-        ...
+        ...,
         {
           "created_at": 1415228628,
           "updated_at": 1415228642,

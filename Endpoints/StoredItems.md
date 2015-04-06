@@ -48,8 +48,8 @@ X-Total-Count: 30
             "archived": false
         },
         ...
-    }
-]
+    ]
+}
 ```
 
 ### Creating a Stored Item
