@@ -202,6 +202,7 @@ X-Total-Count: 5
 ```json
 {
   "contacts": [
+    ...,
     {
       "created_at": 1415222128,
       "updated_at": 1418883302,
@@ -211,7 +212,7 @@ X-Total-Count: 5
       "email": "billings@acmecorp.com",
       "primary": true
     },
-    {...}
+    ...
   ]
 }
 ```
