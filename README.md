@@ -112,3 +112,5 @@ filter: {
 * [Rates](Endpoints/Rates.md)
 * [Stored Items](Endpoints/StoredItems.md)
 * [Payment Methods](Endpoints/PaymentMethods.md)
+* [Themes](Endpoints/Themes.md)
+* [Templates](Endpoints/Templates.md)
