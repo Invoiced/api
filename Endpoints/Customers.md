@@ -1,6 +1,8 @@
 Customers
 ====
 
+Customers represent the entity you are billing, whether this is an organization or a person. Contacts are individual contacts belonging to a Customer. They are used to represent people within an organization and also to tie user accounts to Customers. If the customer signs up in the client portal then their user ID will be associated with a Contact matching their account email address.
+
 * [List Customers](#list-customers)
 * [Creating a Customer](#creating-a-customer)
 * [Fetch a Customer](#fetch-a-customer)
@@ -43,6 +45,7 @@ X-Total-Count: 30
       "id": 15444,
       "number": "CUST-0001",
       "name": "Acme",
+      "email": "billing@acmecorp.com",
       "address1": "342 Amber St",
       "address2": null,
       "city": "Hill Valley",
@@ -72,6 +75,7 @@ X-Total-Count: 30
 {
   "number": "CUST-0001",
   "name": "Acme",
+  "email": "billing@acmecorp.com",
   "address1": "342 Amber St",
   "address2": null,
   "city": "Hill Valley",
@@ -97,6 +101,7 @@ X-Total-Count: 30
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
+  "email": "billing@acmecorp.com",
   "address1": "342 Amber St",
   "address2": null,
   "city": "Hill Valley",
@@ -128,6 +133,7 @@ X-Total-Count: 30
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
+  "email": "billing@acmecorp.com",
   "address1": "342 Amber St",
   "address2": null,
   "city": "Hill Valley",

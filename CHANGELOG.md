@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 15, 2015
+
+- Added `email` property to customers.
+
 ### April 6, 2015
 
 - Added Templates endpoints for managing pre-filled shortcuts for estimates and invoices.
