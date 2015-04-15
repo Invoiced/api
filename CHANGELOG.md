@@ -4,6 +4,7 @@ Changelog
 ### April 15, 2015
 
 - Added `email` property to customers.
+- Added `attempt_count`, `next_payment_attempt`, and `stripe_invoice` properties to invoices.
 
 ### April 6, 2015
 
