@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 17, 2015
+
+- Added `next_chase_on` property to invoices.
+
 ### April 15, 2015
 
 - Added `email` property to customers.
