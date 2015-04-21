@@ -4,6 +4,7 @@ Changelog
 ### April 21, 2015
 
 - Added `number` property to stored items.
+- Added `item_number_title` and `show_item_number` properties to themes.
 
 ### April 17, 2015
 
