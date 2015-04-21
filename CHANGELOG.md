@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 21, 2015
+
+- Added `number` property to stored items.
+
 ### April 17, 2015
 
 - Added `next_chase_on` property to invoices.
