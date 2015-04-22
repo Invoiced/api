@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 22, 2015
+
+- Added `theme` property to transactions.
+
 ### April 21, 2015
 
 - Added `number` property to stored items.
