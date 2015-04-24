@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 24, 2015
+
+- Added `type` property to customers to identify if a customer is a `company` or `person`.
+
 ### April 22, 2015
 
 - Added `theme` property to transactions.
