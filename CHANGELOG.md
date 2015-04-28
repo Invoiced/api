@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### April 27, 2015
+
+- Added `attention_to` property to customers
+
 ### April 24, 2015
 
 - Added `type` property to customers to identify if a customer is a `company` or `person`.
