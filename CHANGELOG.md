@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### May 20, 2015
+
+- Removed `number` property on stored items. Recommend using `name` property instead.
+
 ### April 27, 2015
 
 - Added `attention_to` property to customers
