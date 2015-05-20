@@ -47,7 +47,7 @@ X-Total-Count: 10
           "estimate": null,
           "subscription": 410,
           "theme": null,
-          "late_payment_reminders_disabled": false,
+          "chase": false,
           "number": "INV-0016",
           "date": 1416290400,
           "due_date": 1416549600,
@@ -103,6 +103,7 @@ X-Total-Count: 10
           "shipping": [],
           "total": 51.15,
           "amount_paid": 0,
+          "amount_adjusted": 0,
           "balance": 51.15,
           "draft": false,
           "sent": false,
@@ -110,6 +111,7 @@ X-Total-Count: 10
           "paid": false,
           "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
           "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+          "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv",
           "status": "not_sent",
           "next_chase_on": null,
           "attempt_count": 0,
@@ -176,7 +178,7 @@ X-Total-Count: 10
   "disabled_payment_methods": {
     "paypal": true
   },
-  "late_payment_reminders_disabled": false
+  "chase": false
 }
 ```
 
@@ -193,7 +195,7 @@ X-Total-Count: 10
     "estimate": null,
     "subscription": null,
     "theme": 432,
-    "late_payment_reminders_disabled": false,
+    "chase": false,
     "number": "INV-0016",
     "date": 1416290400,
     "due_date": 1416549600,
@@ -249,6 +251,7 @@ X-Total-Count: 10
     "shipping": [],
     "total": 51.15,
     "amount_paid": 0,
+    "amount_adjusted": 0,
     "balance": 51.15,
     "draft": false,
     "sent": false,
@@ -256,6 +259,7 @@ X-Total-Count: 10
     "paid": false,
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv",
     "status": "not_sent",
     "next_chase_on": null,
     "attempt_count": 0,
@@ -285,7 +289,7 @@ X-Total-Count: 10
     "estimate": null,
     "subscription": null,
     "theme": 432,
-    "late_payment_reminders_disabled": false,
+    "chase": false,
     "number": "INV-0016",
     "date": 1416290400,
     "due_date": 1416549600,
@@ -341,6 +345,7 @@ X-Total-Count: 10
     "shipping": [],
     "total": 51.15,
     "amount_paid": 0,
+    "amount_adjusted": 0,
     "balance": 51.15,
     "draft": false,
     "sent": false,
@@ -348,6 +353,7 @@ X-Total-Count: 10
     "paid": false,
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv",
     "status": "not_sent",
     "next_chase_on": null,
     "attempt_count": 0,

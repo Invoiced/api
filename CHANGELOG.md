@@ -4,6 +4,7 @@ Changelog
 ### May 20, 2015
 
 - Removed `number` property on stored items. Recommend using `name` property instead.
+- Added `csv_url` and `amount_adjusted` properties to invoices.
 
 ### April 27, 2015
 
