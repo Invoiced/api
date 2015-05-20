@@ -13,6 +13,7 @@ A customer can be a `company` or `person`.
 * [Editing a Customer Contact](#editing-a-customer-contact)
 * [Deleting a Customer Contact](#deleting-a-customer-contact)
 * [Editing a Customer](#editing-a-customer)
+* [Sending a Statement](#sending-a-statement)
 * [Deleting a Customer](#deleting-a-customer)
 
 ### List Customers
@@ -282,6 +283,37 @@ X-Total-Count: 5
 #### Response
 
   Status: 200 OK
+
+```json
+{
+  "success": true
+}
+```
+
+### Sending a Statement
+
+  POST /customers/:id/emails
+
+#### Input
+
+```json
+{
+  "to": [
+    {
+      "name": "Client",
+      "email": "client@example.com"
+    }
+  ],
+  "bcc": "billing@acmecorp.com,jan@acmecorp.com",
+  "subject": "optional subject...",
+  "message": "optional message...",
+  "attach_pdf": false
+}
+```
+
+#### Response
+
+  Status: 201 Created
 
 ```json
 {
