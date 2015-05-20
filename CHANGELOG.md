@@ -7,6 +7,7 @@ Changelog
 - Added `csv_url` and `amount_adjusted` properties to invoices.
 - Added `statement_pdf_url` property to customers.
 - Added endpoint to send customer statements
+- Added `payment_terms` property to estimates and invoices.
 
 ### April 27, 2015
 

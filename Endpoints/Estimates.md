@@ -45,6 +45,7 @@ X-Total-Count: 30
       "theme": 304,
       "number": "EST-0002",
       "date": 1415223417,
+      "payment_terms": null,
       "purchase_order": null,
       "items": [
         {
@@ -134,6 +135,7 @@ X-Total-Count: 30
   "theme": 304,
   "number": "EST-0002",
   "date": 1415223417,
+  "payment_terms": null,
   "purchase_order": null,
   "items": [
     {
@@ -197,6 +199,7 @@ X-Total-Count: 30
     "currency": "usd",
     "number": "EST-0002",
     "date": 1415223417,
+    "payment_terms": null,
     "purchase_order": null,
     "items": [
       {
@@ -290,6 +293,7 @@ X-Total-Count: 30
     "theme": 304,
     "number": "EST-0002",
     "date": 1415223417,
+    "payment_terms": null,
     "purchase_order": null,
     "items": [
       {
@@ -442,6 +446,7 @@ X-Total-Count: 30
     "number": "INV-0015",
     "date": 1415223417,
     "due_date": null,
+    "payment_terms": null,
     "purchase_order": null,
     "items": [
       {

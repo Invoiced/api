@@ -51,6 +51,7 @@ X-Total-Count: 10
           "number": "INV-0016",
           "date": 1416290400,
           "due_date": 1416549600,
+          "payment_terms": null,
           "purchase_order": null,
           "items": [
             {
@@ -141,6 +142,7 @@ X-Total-Count: 10
   "number": "INV-0016",
   "date": 1416290400,
   "due_date": 1416549600,
+  "payment_terms": null,
   "purchase_order": null,
   "items": [
     {
@@ -199,6 +201,7 @@ X-Total-Count: 10
     "number": "INV-0016",
     "date": 1416290400,
     "due_date": 1416549600,
+    "payment_terms": null,
     "purchase_order": null,
     "items": [
       {
@@ -293,6 +296,7 @@ X-Total-Count: 10
     "number": "INV-0016",
     "date": 1416290400,
     "due_date": 1416549600,
+    "payment_terms": null,
     "purchase_order": null,
     "items": [
       {
