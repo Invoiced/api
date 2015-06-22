@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### June 22, 2015
+
+- Added `auto_billed` property to invoices that get automatically charged.
+
 ### May 20, 2015
 
 - Removed `number` property on stored items. Recommend using `name` property instead.

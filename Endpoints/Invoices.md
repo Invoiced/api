@@ -117,6 +117,7 @@ X-Total-Count: 10
           "next_chase_on": null,
           "attempt_count": 0,
           "next_payment_attempt": null,
+          "auto_billed": false,
           "stripe_invoice": null,
           "disabled_payment_methods": {
             "paypal": true
@@ -267,6 +268,7 @@ X-Total-Count: 10
     "next_chase_on": null,
     "attempt_count": 0,
     "next_payment_attempt": null,
+    "auto_billed": false,
     "stripe_invoice": null,
     "disabled_payment_methods": {
       "paypal": true
@@ -362,6 +364,7 @@ X-Total-Count: 10
     "next_chase_on": null,
     "attempt_count": 0,
     "next_payment_attempt": null,
+    "auto_billed": false,
     "stripe_invoice": null,
     "disabled_payment_methods": {
       "paypal": true
