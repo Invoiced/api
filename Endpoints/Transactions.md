@@ -62,6 +62,7 @@ X-Total-Count: 30
       "net": 800,
       "notes": null,
       "sent": false,
+      "failure_reason": null,
       "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
     },
     ...
@@ -112,6 +113,7 @@ X-Total-Count: 30
     "net": 800,
     "notes": null,
     "sent": false,
+    "failure_reason": null,
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
 }
@@ -146,6 +148,7 @@ X-Total-Count: 30
     "net": 800,
     "notes": null,
     "sent": false,
+    "failure_reason": null,
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/20939/pdf"
   }
 }

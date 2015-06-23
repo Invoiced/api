@@ -4,6 +4,7 @@ Changelog
 ### June 23, 2015
 
 - Added Plans and Subscriptions endpoints for setting up and managing recurring billing
+- Added `failure_reason` property to transactions
 
 ### June 22, 2015
 
