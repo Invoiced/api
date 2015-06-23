@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### June 23, 2015
+
+- Added Plans and Subscriptions endpoints for setting up and managing recurring billing
+
 ### June 22, 2015
 
 - Added `auto_billed` property to invoices that get automatically charged.
