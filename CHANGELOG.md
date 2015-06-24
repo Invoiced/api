@@ -4,6 +4,8 @@ Changelog
 ### June 24, 2015
 
 - Removed `stripe_*` properties
+- Replaced invoice `auto_billed` property with `collection_mode`
+- Added `collection_mode` and `payment_terms` properties to customers
 
 ### June 23, 2015
 
