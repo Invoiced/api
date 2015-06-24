@@ -63,7 +63,6 @@ X-Total-Count: 30
       "website": "acmecorp.com",
       "notes": null,
       "balance": 3395.47,
-      "stripe_customer": null,
       "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf"
     },
     ...
@@ -124,7 +123,6 @@ X-Total-Count: 30
   "website": "acmecorp.com",
   "notes": null,
   "balance": 0,
-  "stripe_customer": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf"
 }
 ```
@@ -159,7 +157,6 @@ X-Total-Count: 30
   "website": "acmecorp.com",
   "notes": null,
   "balance": 3395.47,
-  "stripe_customer": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf"
 }
 ```

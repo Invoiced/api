@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### June 24, 2015
+
+- Removed `stripe_*` properties
+
 ### June 23, 2015
 
 - Added Plans and Subscriptions endpoints for setting up and managing recurring billing
