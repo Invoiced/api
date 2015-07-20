@@ -41,7 +41,6 @@ X-Total-Count: 30
 ```json
 {
   "customers": [
-    ...,
     {
       "created_at": 1415222128,
       "updated_at": 1417460942,
@@ -50,7 +49,7 @@ X-Total-Count: 30
       "name": "Acme",
       "email": "billing@acmecorp.com",
       "collection_mode": "manual",
-      "payment_terms': "NET 30",
+      "payment_terms": "NET 30",
       "type": "company",
       "attention_to": "Sarah Fisher",
       "address1": "342 Amber St",
@@ -67,7 +66,8 @@ X-Total-Count: 30
       "balance": 3395.47,
       "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf"
     },
-    ...
+    {...},
+    {...}
   ]
 }
 ```
@@ -84,7 +84,7 @@ X-Total-Count: 30
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
-  "payment_terms': "NET 30",
+  "payment_terms": "NET 30",
   "type": "company",
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
@@ -114,7 +114,7 @@ X-Total-Count: 30
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
-  "payment_terms': "NET 30",
+  "payment_terms": "NET 30",
   "type": "company",
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
@@ -150,7 +150,7 @@ X-Total-Count: 30
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
-  "payment_terms': "NET 30",
+  "payment_terms": "NET 30",
   "type": "company",
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",

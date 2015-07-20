@@ -89,10 +89,6 @@ Relational properties can be expanded by passing in a comma-separated list of pr
 
 The `expand` parameter works on most requests that return one or more entities.
 
-### Human-readable JSON
-
-Set the `pretty` parameter to true to get a readable response, i.e. `pretty=1`.
-
 ### Filter
 
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
