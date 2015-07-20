@@ -105,7 +105,6 @@ X-Total-Count: 10
               "amount": 3.85,
               "rate": {
                 "id": 304,
-                "type": "tax",
                 "name": "Sales Tax",
                 "number": "FI-8200",
                 "is_percent": true,
@@ -258,7 +257,6 @@ X-Total-Count: 10
           "amount": 3.85,
           "rate": {
             "id": 304,
-            "type": "tax",
             "name": "Sales Tax",
             "number": "FI-8200",
             "is_percent": true,
@@ -356,7 +354,6 @@ X-Total-Count: 10
           "amount": 3.85,
           "rate": {
             "id": 304,
-            "type": "tax",
             "name": "Sales Tax",
             "number": "FI-8200",
             "is_percent": true,

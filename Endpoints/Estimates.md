@@ -97,7 +97,6 @@ X-Total-Count: 30
           "amount": 23.9,
           "rate": {
             "id": 12,
-            "type": "discount",
             "name": "Being awesome",
             "number": null,
             "is_percent": true,
@@ -251,7 +250,6 @@ X-Total-Count: 30
         "amount": 23.9,
         "rate": {
           "id": 12,
-          "type": "discount",
           "name": "Being awesome",
           "number": null,
           "is_percent": true,
@@ -345,7 +343,6 @@ X-Total-Count: 30
         "amount": 23.9,
         "rate": {
           "id": 12,
-          "type": "discount",
           "name": "Being awesome",
           "number": null,
           "is_percent": true,
@@ -501,7 +498,6 @@ X-Total-Count: 30
         "amount": 23.9,
         "rate": {
           "id": 12,
-          "type": "discount",
           "name": "Being awesome",
           "number": null,
           "is_percent": true,
