@@ -34,30 +34,28 @@ X-Total-Count: 30
 ```
 
 ```json
-{
-    "plans": [
-        ...,
-        {
-            "created_at": 1415229884,
-            "updated_at": 1429285176,
-            "id": 420,
-            "name": "Starter",
-            "theme": null,
-            "chase": true,
-            "currency": "usd",
-            "amount": 55,
-            "interval": "month",
-            "interval_count": 1,
-            "description": "Plan description that will populate line item description...",
-            "type": "product",
-            "notes": null,
-            "terms": null,
-            "send_invoice_after_renewal": false,
-            "disabled_payment_methods": []
-        },
-        ...
-    ]
-}
+[
+    {
+        "created_at": 1415229884,
+        "updated_at": 1429285176,
+        "id": 420,
+        "name": "Starter",
+        "theme": null,
+        "chase": true,
+        "currency": "usd",
+        "amount": 55,
+        "interval": "month",
+        "interval_count": 1,
+        "description": "Plan description that will populate line item description...",
+        "type": "product",
+        "notes": null,
+        "terms": null,
+        "send_invoice_after_renewal": false,
+        "disabled_payment_methods": []
+    },
+    { ... },
+    { ... }
+]
 ```
 
 ### Creating a Plan
@@ -90,24 +88,22 @@ X-Total-Count: 30
 
 ```json
 {
-    "plan": {
-        "created_at": 1415229884,
-        "updated_at": 1429285176,
-        "id": 420,
-        "name": "Starter",
-        "theme": null,
-        "chase": true,
-        "currency": "usd",
-        "amount": 55,
-        "interval": "month",
-        "interval_count": 1,
-        "description": "Plan description that will populate line item description...",
-        "type": "product",
-        "notes": null,
-        "terms": null,
-        "send_invoice_after_renewal": false,
-        "disabled_payment_methods": []
-    }
+    "created_at": 1415229884,
+    "updated_at": 1429285176,
+    "id": 420,
+    "name": "Starter",
+    "theme": null,
+    "chase": true,
+    "currency": "usd",
+    "amount": 55,
+    "interval": "month",
+    "interval_count": 1,
+    "description": "Plan description that will populate line item description...",
+    "type": "product",
+    "notes": null,
+    "terms": null,
+    "send_invoice_after_renewal": false,
+    "disabled_payment_methods": []
 }
 ```
 
@@ -121,24 +117,22 @@ X-Total-Count: 30
 
 ```json
 {
-    "plan": {
-        "created_at": 1415229884,
-        "updated_at": 1429285176,
-        "id": 420,
-        "name": "Starter",
-        "theme": null,
-        "chase": true,
-        "currency": "usd",
-        "amount": 55,
-        "interval": "month",
-        "interval_count": 1,
-        "description": "Plan description that will populate line item description...",
-        "type": "product",
-        "notes": null,
-        "terms": null,
-        "send_invoice_after_renewal": false,
-        "disabled_payment_methods": []
-    }
+    "created_at": 1415229884,
+    "updated_at": 1429285176,
+    "id": 420,
+    "name": "Starter",
+    "theme": null,
+    "chase": true,
+    "currency": "usd",
+    "amount": 55,
+    "interval": "month",
+    "interval_count": 1,
+    "description": "Plan description that will populate line item description...",
+    "type": "product",
+    "notes": null,
+    "terms": null,
+    "send_invoice_after_renewal": false,
+    "disabled_payment_methods": []
 }
 ```
 
@@ -161,7 +155,22 @@ X-Total-Count: 30
 
 ```json
 {
-  "success": true
+    "created_at": 1415229884,
+    "updated_at": 1429285176,
+    "id": 420,
+    "name": "Starter",
+    "theme": null,
+    "chase": true,
+    "currency": "usd",
+    "amount": 55,
+    "interval": "month",
+    "interval_count": 1,
+    "description": "Plan description that will populate line item description...",
+    "type": "product",
+    "notes": "Notes that populate the invoice",
+    "terms": "Terms & Conditions...",
+    "send_invoice_after_renewal": false,
+    "disabled_payment_methods": []
 }
 ```
 
