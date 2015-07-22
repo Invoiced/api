@@ -34,94 +34,92 @@ X-Total-Count: 10
 ```
 
 ```json
-{
-    "invoices": [
-        ...,
+[
+    {
+      "created_at": 1415229884,
+      "updated_at": 1416291302,
+      "id": 46225,
+      "customer": 15444,
+      "name": "Monthly Paper Delivery",
+      "currency": "usd",
+      "draft": false,
+      "sent": false,
+      "closed": false,
+      "paid": false,
+      "status": "not_sent",
+      "chase": false,
+      "next_chase_on": null,
+      "collection_mode": "manual",
+      "attempt_count": 0,
+      "next_payment_attempt": null,
+      "theme": null,
+      "disabled_payment_methods": {
+        "paypal": true
+      },
+      "estimate": null,
+      "subscription": 410,
+      "number": "INV-0016",
+      "date": 1416290400,
+      "due_date": 1416549600,
+      "payment_terms": null,
+      "purchase_order": null,
+      "items": [
         {
-          "created_at": 1415229884,
-          "updated_at": 1416291302,
-          "id": 46225,
-          "customer": 15444,
-          "name": "Monthly Paper Delivery",
-          "currency": "usd",
-          "draft": false,
-          "sent": false,
-          "closed": false,
-          "paid": false,
-          "status": "not_sent",
-          "chase": false,
-          "next_chase_on": null,
-          "collection_mode": "manual",
-          "attempt_count": 0,
-          "next_payment_attempt": null,
-          "theme": null,
-          "disabled_payment_methods": {
-            "paypal": true
-          },
-          "estimate": null,
-          "subscription": 410,
-          "number": "INV-0016",
-          "date": 1416290400,
-          "due_date": 1416549600,
-          "payment_terms": null,
-          "purchase_order": null,
-          "items": [
-            {
-              "id": 7,
-              "item": 79,
-              "plan": null,
-              "type": "product",
-              "name": "Copy Paper, Case",
-              "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-              "quantity": 1,
-              "unit_cost": 45,
-              "amount": 45,
-              "discounts": [],
-              "taxes": []
-            },
-            {
-              "id": 8,
-              "item": 83,
-              "plan": null,
-              "type": "service",
-              "name": "Delivery",
-              "description": "",
-              "quantity": 1,
-              "unit_cost": 10,
-              "amount": 10,
-              "discounts": [],
-              "taxes": []
-            }
-          ],
-          "terms": null,
-          "notes": null,
-          "subtotal": 55,
+          "id": 7,
+          "item": 79,
+          "plan": null,
+          "type": "product",
+          "name": "Copy Paper, Case",
+          "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+          "quantity": 1,
+          "unit_cost": 45,
+          "amount": 45,
           "discounts": [],
-          "taxes": [
-            {
-              "id": 2084,
-              "amount": 3.85,
-              "rate": {
-                "id": 304,
-                "name": "Sales Tax",
-                "number": "FI-8200",
-                "is_percent": true,
-                "value": 7
-              }
-            }
-          ],
-          "shipping": [],
-          "total": 51.15,
-          "amount_paid": 0,
-          "amount_adjusted": 0,
-          "balance": 51.15,
-          "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-          "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-          "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
+          "taxes": []
         },
-        ...
-    ]
-}
+        {
+          "id": 8,
+          "item": 83,
+          "plan": null,
+          "type": "service",
+          "name": "Delivery",
+          "description": "",
+          "quantity": 1,
+          "unit_cost": 10,
+          "amount": 10,
+          "discounts": [],
+          "taxes": []
+        }
+      ],
+      "terms": null,
+      "notes": null,
+      "subtotal": 55,
+      "discounts": [],
+      "taxes": [
+        {
+          "id": 2084,
+          "amount": 3.85,
+          "rate": {
+            "id": 304,
+            "name": "Sales Tax",
+            "number": "FI-8200",
+            "is_percent": true,
+            "value": 7
+          }
+        }
+      ],
+      "shipping": [],
+      "total": 51.15,
+      "amount_paid": 0,
+      "amount_adjusted": 0,
+      "balance": 51.15,
+      "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+      "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
+    },
+    { ... },
+    { ... }
+]
 ```
 
 ### Creating an Invoice
@@ -185,88 +183,86 @@ X-Total-Count: 10
 
 ```json
 {
-  "invoice": {
-      "created_at": 1415229884,
-      "updated_at": 1416291302,
-      "id": 46225,
-      "customer": 15444,
-      "name": "Monthly Paper Delivery",
-      "currency": "usd",
-      "draft": false,
-      "sent": false,
-      "closed": false,
-      "paid": false,
-      "status": "not_sent",
-      "chase": false,
-      "next_chase_on": null,
-      "collection_mode": "manual",
-      "attempt_count": 0,
-      "next_payment_attempt": null,
-      "theme": null,
-      "disabled_payment_methods": {
-        "paypal": true
-      },
-      "estimate": null,
-      "subscription": 410,
-      "number": "INV-0016",
-      "date": 1416290400,
-      "due_date": 1416549600,
-      "payment_terms": null,
-      "purchase_order": null,
-      "items": [
-        {
-          "id": 7,
-          "item": 79,
-          "plan": null,
-          "type": "product",
-          "name": "Copy Paper, Case",
-          "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-          "quantity": 1,
-          "unit_cost": 45,
-          "amount": 45,
-          "discounts": [],
-          "taxes": []
-        },
-        {
-          "id": 8,
-          "item": 83,
-          "plan": null,
-          "type": "service",
-          "name": "Delivery",
-          "description": "",
-          "quantity": 1,
-          "unit_cost": 10,
-          "amount": 10,
-          "discounts": [],
-          "taxes": []
-        }
-      ],
-      "terms": null,
-      "notes": null,
-      "subtotal": 55,
+  "created_at": 1415229884,
+  "updated_at": 1416291302,
+  "id": 46225,
+  "customer": 15444,
+  "name": "Monthly Paper Delivery",
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "disabled_payment_methods": {
+    "paypal": true
+  },
+  "estimate": null,
+  "subscription": 410,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1416549600,
+  "payment_terms": null,
+  "purchase_order": null,
+  "items": [
+    {
+      "id": 7,
+      "item": 79,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
       "discounts": [],
-      "taxes": [
-        {
-          "id": 2084,
-          "amount": 3.85,
-          "rate": {
-            "id": 304,
-            "name": "Sales Tax",
-            "number": "FI-8200",
-            "is_percent": true,
-            "value": 7
-          }
-        }
-      ],
-      "shipping": [],
-      "total": 51.15,
-      "amount_paid": 0,
-      "amount_adjusted": 0,
-      "balance": 51.15,
-      "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-      "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-      "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
-  }
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "item": 83,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 2084,
+      "amount": 3.85,
+      "rate": {
+        "id": 304,
+        "name": "Sales Tax",
+        "number": "FI-8200",
+        "is_percent": true,
+        "value": 7
+      }
+    }
+  ],
+  "shipping": [],
+  "total": 51.15,
+  "amount_paid": 0,
+  "amount_adjusted": 0,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
 }
 ```
 
@@ -280,88 +276,86 @@ X-Total-Count: 10
 
 ```json
 {
-  "invoice": {
-      "created_at": 1415229884,
-      "updated_at": 1416291302,
-      "id": 46225,
-      "customer": 15444,
-      "name": "Monthly Paper Delivery",
-      "currency": "usd",
-      "draft": false,
-      "sent": false,
-      "closed": false,
-      "paid": false,
-      "status": "not_sent",
-      "chase": false,
-      "next_chase_on": null,
-      "collection_mode": "manual",
-      "attempt_count": 0,
-      "next_payment_attempt": null,
-      "theme": null,
-      "disabled_payment_methods": {
-        "paypal": true
-      },
-      "estimate": null,
-      "subscription": 410,
-      "number": "INV-0016",
-      "date": 1416290400,
-      "due_date": 1416549600,
-      "payment_terms": null,
-      "purchase_order": null,
-      "items": [
-        {
-          "id": 7,
-          "item": 79,
-          "plan": null,
-          "type": "product",
-          "name": "Copy Paper, Case",
-          "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
-          "quantity": 1,
-          "unit_cost": 45,
-          "amount": 45,
-          "discounts": [],
-          "taxes": []
-        },
-        {
-          "id": 8,
-          "item": 83,
-          "plan": null,
-          "type": "service",
-          "name": "Delivery",
-          "description": "",
-          "quantity": 1,
-          "unit_cost": 10,
-          "amount": 10,
-          "discounts": [],
-          "taxes": []
-        }
-      ],
-      "terms": null,
-      "notes": null,
-      "subtotal": 55,
+  "created_at": 1415229884,
+  "updated_at": 1416291302,
+  "id": 46225,
+  "customer": 15444,
+  "name": "Monthly Paper Delivery",
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "disabled_payment_methods": {
+    "paypal": true
+  },
+  "estimate": null,
+  "subscription": 410,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1416549600,
+  "payment_terms": null,
+  "purchase_order": null,
+  "items": [
+    {
+      "id": 7,
+      "item": 79,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
       "discounts": [],
-      "taxes": [
-        {
-          "id": 2084,
-          "amount": 3.85,
-          "rate": {
-            "id": 304,
-            "name": "Sales Tax",
-            "number": "FI-8200",
-            "is_percent": true,
-            "value": 7
-          }
-        }
-      ],
-      "shipping": [],
-      "total": 51.15,
-      "amount_paid": 0,
-      "amount_adjusted": 0,
-      "balance": 51.15,
-      "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-      "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-      "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
-  }
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "item": 83,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 2084,
+      "amount": 3.85,
+      "rate": {
+        "id": 304,
+        "name": "Sales Tax",
+        "number": "FI-8200",
+        "is_percent": true,
+        "value": 7
+      }
+    }
+  ],
+  "shipping": [],
+  "total": 51.15,
+  "amount_paid": 0,
+  "amount_adjusted": 0,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
 }
 ```
 
@@ -384,7 +378,86 @@ X-Total-Count: 10
 
 ```json
 {
-  "success": true
+  "created_at": 1415229884,
+  "updated_at": 1416291302,
+  "id": 46225,
+  "customer": 15444,
+  "name": "Monthly Paper Delivery",
+  "currency": "usd",
+  "draft": false,
+  "sent": true,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "disabled_payment_methods": {
+    "paypal": true
+  },
+  "estimate": null,
+  "subscription": 410,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1416549600,
+  "payment_terms": null,
+  "purchase_order": null,
+  "items": [
+    {
+      "id": 7,
+      "item": 79,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": "20 lb., 92 US / 104 Euro Bright, Ideal for toner-based copiers, plain-paper fax machines,and printers",
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "item": 83,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 2084,
+      "amount": 3.85,
+      "rate": {
+        "id": 304,
+        "name": "Sales Tax",
+        "number": "FI-8200",
+        "is_percent": true,
+        "value": 7
+      }
+    }
+  ],
+  "shipping": [],
+  "total": 51.15,
+  "amount_paid": 0,
+  "amount_adjusted": 0,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "csv_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/csv"
 }
 ```
 
@@ -414,9 +487,7 @@ X-Total-Count: 10
   Status: 201 Created
 
 ```json
-{
-  "success": true
-}
+[]
 ```
 
 ### Deleting an Invoice
