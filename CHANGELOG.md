@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### July 22, 2015
+
+- Removed `shipping` property on line items
+
 ### June 24, 2015
 
 - Removed `stripe_*` properties

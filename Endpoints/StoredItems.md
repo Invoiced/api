@@ -44,7 +44,6 @@ X-Total-Count: 30
             "unit_cost": 1000,
             "discounts": [],
             "taxes": [],
-            "shipping": [],
             "archived": false
         },
         ...
@@ -65,8 +64,7 @@ X-Total-Count: 30
     "description": "The most affordable way to get an online presence.",
     "unit_cost": 1000,
     "discounts": [],
-    "taxes": [],
-    "shipping": []
+    "taxes": []
 }
 ```
 
@@ -86,7 +84,6 @@ X-Total-Count: 30
     "unit_cost": 1000,
     "discounts": [],
     "taxes": [],
-    "shipping": [],
     "archived": false
   },
 }
@@ -112,7 +109,6 @@ X-Total-Count: 30
     "unit_cost": 1000,
     "discounts": [],
     "taxes": [],
-    "shipping": [],
     "archived": false
   },
 }

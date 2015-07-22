@@ -49,8 +49,7 @@ X-Total-Count: 30
                     "quantity": 100,
                     "unit_cost": 1,
                     "discounts": [],
-                    "taxes": [],
-                    "shipping": []
+                    "taxes": []
                 }
             ],
             "discounts": [
@@ -100,8 +99,7 @@ X-Total-Count: 30
             "quantity": 100,
             "unit_cost": 1,
             "discounts": [],
-            "taxes": [],
-            "shipping": []
+            "taxes": []
         }
     ],
     "discounts": [12],
@@ -132,8 +130,7 @@ X-Total-Count: 30
                 "quantity": 100,
                 "unit_cost": 1,
                 "discounts": [],
-                "taxes": [],
-                "shipping": []
+                "taxes": []
             }
         ],
         "discounts": [
@@ -187,8 +184,7 @@ X-Total-Count: 30
                 "quantity": 100,
                 "unit_cost": 1,
                 "discounts": [],
-                "taxes": [],
-                "shipping": []
+                "taxes": []
             }
         ],
         "discounts": [

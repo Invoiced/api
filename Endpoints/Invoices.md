@@ -77,8 +77,7 @@ X-Total-Count: 10
               "unit_cost": 45,
               "amount": 45,
               "discounts": [],
-              "taxes": [],
-              "shipping": []
+              "taxes": []
             },
             {
               "id": 8,
@@ -91,8 +90,7 @@ X-Total-Count: 10
               "unit_cost": 10,
               "amount": 10,
               "discounts": [],
-              "taxes": [],
-              "shipping": []
+              "taxes": []
             }
           ],
           "terms": null,
@@ -152,8 +150,7 @@ X-Total-Count: 10
       "quantity": 1,
       "unit_cost": 45,
       "discounts": [],
-      "taxes": [],
-      "shipping": []
+      "taxes": []
     },
     {
       "item": 83,
@@ -163,8 +160,7 @@ X-Total-Count: 10
       "quantity": 1,
       "unit_cost": 10,
       "discounts": [],
-      "taxes": [],
-      "shipping": []
+      "taxes": []
     }
   ],
   "discounts": [],
@@ -229,8 +225,7 @@ X-Total-Count: 10
           "unit_cost": 45,
           "amount": 45,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         },
         {
           "id": 8,
@@ -243,8 +238,7 @@ X-Total-Count: 10
           "unit_cost": 10,
           "amount": 10,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         }
       ],
       "terms": null,
@@ -326,8 +320,7 @@ X-Total-Count: 10
           "unit_cost": 45,
           "amount": 45,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         },
         {
           "id": 8,
@@ -340,8 +333,7 @@ X-Total-Count: 10
           "unit_cost": 10,
           "amount": 10,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         }
       ],
       "terms": null,

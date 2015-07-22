@@ -58,8 +58,7 @@ X-Total-Count: 30
           "unit_cost": 45,
           "amount": 450,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         },
         {
           "id": 2,
@@ -71,8 +70,7 @@ X-Total-Count: 30
           "unit_cost": 9,
           "amount": 18,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         },
         {
           "id": 3,
@@ -84,8 +82,7 @@ X-Total-Count: 30
           "unit_cost": 10,
           "amount": 10,
           "discounts": [],
-          "taxes": [],
-          "shipping": []
+          "taxes": []
         }
       ],
       "terms": "Net 30",
@@ -145,8 +142,7 @@ X-Total-Count: 30
       "quantity": 10,
       "unit_cost": 45,
       "discounts": [],
-      "taxes": [],
-      "shipping": []
+      "taxes": []
     },
     {
       "item": 82,
@@ -156,8 +152,7 @@ X-Total-Count: 30
       "quantity": 2,
       "unit_cost": 9,
       "discounts": [],
-      "taxes": [],
-      "shipping": []
+      "taxes": []
     },
     {
       "item": 83,
@@ -167,8 +162,7 @@ X-Total-Count: 30
       "quantity": 1,
       "unit_cost": 10,
       "discounts": [],
-      "taxes": [],
-      "shipping": []
+      "taxes": []
     }
   ],
   "terms": "Net 30",
@@ -211,8 +205,7 @@ X-Total-Count: 30
         "unit_cost": 45,
         "amount": 450,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 2,
@@ -224,8 +217,7 @@ X-Total-Count: 30
         "unit_cost": 9,
         "amount": 18,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 3,
@@ -237,8 +229,7 @@ X-Total-Count: 30
         "unit_cost": 10,
         "amount": 10,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       }
     ],
     "terms": "Net 30",
@@ -304,8 +295,7 @@ X-Total-Count: 30
         "unit_cost": 45,
         "amount": 450,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 2,
@@ -317,8 +307,7 @@ X-Total-Count: 30
         "unit_cost": 9,
         "amount": 18,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 3,
@@ -330,8 +319,7 @@ X-Total-Count: 30
         "unit_cost": 10,
         "amount": 10,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       }
     ],
     "terms": "Net 30",
@@ -456,8 +444,7 @@ X-Total-Count: 30
         "unit_cost": 45,
         "amount": 450,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 5,
@@ -469,8 +456,7 @@ X-Total-Count: 30
         "unit_cost": 9,
         "amount": 18,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       },
       {
         "id": 6,
@@ -482,8 +468,7 @@ X-Total-Count: 30
         "unit_cost": 10,
         "amount": 10,
         "discounts": [],
-        "taxes": [],
-        "shipping": []
+        "taxes": []
       }
     ],
     "notes": "Thank you for your business!",
