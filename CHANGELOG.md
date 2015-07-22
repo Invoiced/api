@@ -5,6 +5,7 @@ Changelog
 
 - Removed `shipping` property on line items
 - Added more descriptive email responses
+- Renamed `transaction_type` property on transactions to `type`
 
 ### June 24, 2015
 
