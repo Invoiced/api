@@ -34,28 +34,26 @@ X-Total-Count: 30
 ```
 
 ```json
-{
-    "subscriptions": [
-        ...,
-        {
-            "created_at": 1425572798,
-            "updated_at": 1433520901,
-            "id": 595,
-            "customer": 15444,
-            "plan": 420,
-            "start_date": 1425572792,
-            "quantity": 1,
-            "cycles": null,
-            "renews_next": 1436109992,
-            "renewed_last": 1433517992,
-            "status": "active",
-            "discounts": [],
-            "taxes": [],
-            "shipping": []
-        },
-        ...
-    ]
-}
+[
+    {
+        "created_at": 1425572798,
+        "updated_at": 1433520901,
+        "id": 595,
+        "customer": 15444,
+        "plan": 420,
+        "start_date": 1425572792,
+        "quantity": 1,
+        "cycles": null,
+        "renews_next": 1436109992,
+        "renewed_last": 1433517992,
+        "status": "active",
+        "discounts": [],
+        "taxes": [],
+        "shipping": []
+    },
+    { ... },
+    { .. }
+]
 ```
 
 ### Creating a Subscription
@@ -78,22 +76,20 @@ X-Total-Count: 30
 
 ```json
 {
-    "subscription": {
-        "created_at": 1425572798,
-        "updated_at": 1433520901,
-        "id": 595,
-        "customer": 15444,
-        "plan": 420,
-        "start_date": 1425572792,
-        "quantity": 1,
-        "cycles": null,
-        "renews_next": 1436109992,
-        "renewed_last": 1433517992,
-        "status": "active",
-        "discounts": [],
-        "taxes": [],
-        "shipping": []
-    }
+    "created_at": 1425572798,
+    "updated_at": 1433520901,
+    "id": 595,
+    "customer": 15444,
+    "plan": 420,
+    "start_date": 1425572792,
+    "quantity": 1,
+    "cycles": null,
+    "renews_next": 1436109992,
+    "renewed_last": 1433517992,
+    "status": "active",
+    "discounts": [],
+    "taxes": [],
+    "shipping": []
 }
 ```
 
@@ -107,22 +103,20 @@ X-Total-Count: 30
 
 ```json
 {
-    "subscription": {
-        "created_at": 1425572798,
-        "updated_at": 1433520901,
-        "id": 595,
-        "customer": 15444,
-        "plan": 420,
-        "start_date": 1425572792,
-        "quantity": 1,
-        "cycles": null,
-        "renews_next": 1436109992,
-        "renewed_last": 1433517992,
-        "status": "active",
-        "discounts": [],
-        "taxes": [],
-        "shipping": []
-    }
+    "created_at": 1425572798,
+    "updated_at": 1433520901,
+    "id": 595,
+    "customer": 15444,
+    "plan": 420,
+    "start_date": 1425572792,
+    "quantity": 1,
+    "cycles": null,
+    "renews_next": 1436109992,
+    "renewed_last": 1433517992,
+    "status": "active",
+    "discounts": [],
+    "taxes": [],
+    "shipping": []
 }
 ```
 
@@ -145,7 +139,20 @@ X-Total-Count: 30
 
 ```json
 {
-  "success": true
+    "created_at": 1425572798,
+    "updated_at": 1433520901,
+    "id": 595,
+    "customer": 15444,
+    "plan": 420,
+    "start_date": 1425572792,
+    "quantity": 1,
+    "cycles": null,
+    "renews_next": 1436109992,
+    "renewed_last": 1433517992,
+    "status": "active",
+    "discounts": [],
+    "taxes": [],
+    "shipping": []
 }
 ```
 
