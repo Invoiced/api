@@ -487,7 +487,25 @@ X-Total-Count: 10
   Status: 201 Created
 
 ```json
-[]
+[
+  {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce725",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "new_invoice_email",
+    "subject": "Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message": "Dear Client, a new invoice has been created on your account. Click here to view the invoice online. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047,
+    "updated_at": 1436890047
+  },
+  { ... },
+  { ... }
+]
 ```
 
 ### Deleting an Invoice

@@ -203,9 +203,25 @@ X-Total-Count: 30
   Status: 201 Created
 
 ```json
-{
-  "success": true
-}
+[
+  {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce643",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, a receipt for your recent payment has been attached. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047,
+    "updated_at": 1436890047
+  },
+  { ... },
+  { ... }
+]
 ```
 
 ### Deleting a Transaction

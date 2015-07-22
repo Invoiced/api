@@ -402,9 +402,25 @@ X-Total-Count: 30
   Status: 201 Created
 
 ```json
-{
-  "success": true
-}
+[
+  {
+    "id": "f45382c6fbc44d44aa7f9a55eb2s9845",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "estimate_email",
+    "subject": "Estimate from Dunder Mifflin, Inc.: EST-0002",
+    "message": "Dear Client, a new estimate has been created on your account. Click here to view the estimate online. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047,
+    "updated_at": 1436890047
+  },
+  { ... },
+  { ... }
+]
 ```
 
 ### Converting an Estimate into an Invoice

@@ -4,6 +4,7 @@ Changelog
 ### July 22, 2015
 
 - Removed `shipping` property on line items
+- Added more descriptive email responses
 
 ### June 24, 2015
 
