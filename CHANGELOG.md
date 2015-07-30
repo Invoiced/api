@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### July 30, 2015
+
+- The API documentation has been redesigned. It's now viewable at [invoiced.github.io/api](http://invoiced.github.io/api).
+
 ### July 22, 2015
 
 - Removed `shipping` property on line items
