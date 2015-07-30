@@ -1,0 +1,3512 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Invoiced API Documentation</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["shell","ruby"]);
+        });
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='mailto:api@invoiced.com'>Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API was designed to be easy to integrate into your workflow.</p>
+
+<p>We have done our best to follow <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> principles when designing the API.</p>
+
+<h3 id="api-endpoint">API Endpoint</h3>
+
+<p>All API calls must be made to <code class="prettyprint">https://api.invoiced.com</code>.</p>
+
+<h3 id="json-only">JSON-only</h3>
+
+<p>All responses will be in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a>. Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the <code class="prettyprint">Content-Type</code> header as <code class="prettyprint">application/json</code>.</p>
+
+<p>In the API dates are represented as <a href="https://en.wikipedia.org/wiki/Unix_time">UNIX timestamps</a>. Each entity like customers or invoices has a unique integer id.</p>
+
+<h3 id="client-libraries">Client Libraries</h3>
+
+<p>We have client libraries available in several languages. If you don&rsquo;t see your language listed then please contact us and we would be happy to help.</p>
+
+<ul>
+<li><a href="https://github.com/Invoiced/invoiced-ruby">Ruby</a></li>
+<li><a href="https://github.com/Invoiced/go-invoiced-api">Go</a></li>
+</ul>
+
+<h3 id="getting-help-or-contributing">Getting Help or Contributing</h3>
+
+<p>We&rsquo;ve made this document open source. Please report any issues or suggestions in the <a href="https://github.com/invoiced/api/issues">issues</a>. If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com. Any pull requests to improve this document are welcome too!</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>The API uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a> to authenticate users. A valid API key is required for all requests.</p>
+
+<aside class="warning">
+<strong>Use HTTPS only!</strong> Any HTTP requests will be ignored.
+</aside>
+
+<h3 id="obtaining-an-api-key">Obtaining an API Key</h3>
+
+<p>An API key can be obtained by signing in to <a href="https://invoiced.com">invoiced.com</a>, and then going to <strong>Settings</strong> &gt; <strong>API Keys</strong>. Each business on Invoiced has its own set of API keys. We recommend creating a separate API key for each application that will be making calls on your behalf.</p>
+
+<h3 id="usage">Usage</h3>
+<pre class="highlight shell"><code>curl https://api.invoiced.com/invoices <span class="se">\</span>
+  -u <span class="o">{</span>YOUR_API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"invoiced"</span>
+<span class="n">invoiced</span> <span class="o">=</span> <span class="no">Invoiced</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"{YOUR_API_KEY}"</span><span class="p">)</span>
+</code></pre>
+
+<p>The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization</p>
+
+<aside class="notice">
+You must replace <code>{API_KEY}</code> with your account API key.
+</aside>
+
+<h1 id="errors">Errors</h1>
+
+<p>Each API call returns an HTTP status code that reflects the nature of the response. We have done our best to follow the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> conventions.</p>
+
+<p>Any request that did not succeed will return a 4xx or 5xx error. The 4xx range means there was a problem with the request, like a missing parameter. The 5xx range means that something went wrong on our end.</p>
+
+<blockquote>
+<p>The Invoiced API returns the following HTTP status codes:<br/><br/>
+200 OK &ndash; Request succeeded<br/>
+201 Created &ndash; A resource was created<br/>
+204 No Content &ndash; Request succeeded but there is no response body<br/><br/>
+400 Bad Request &ndash; Invalid request parameters<br/>
+401 Unauthorized &ndash; Incorrect or missing API key<br/>
+403 Forbidden &ndash; You do not have permission to view a resource or perform an action<br/>
+404 Not Found &ndash; The specified resource could not be found<br/>
+429 Too Many Requests &ndash; You&rsquo;re moving too fast! Slow down!<br/>
+500 Internal Server Error &ndash; There was a problem on our end</p>
+</blockquote>
+
+<p>All error responses will contain an object with these attributes</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>Type of error, <code class="prettyprint">invalid_request</code> or <code class="prettyprint">api</code></td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>Explanation of the error</td>
+</tr>
+<tr>
+<td><strong>param</strong></td>
+<td>Available when a specific request parameter was responsible</td>
+</tr>
+</tbody></table>
+
+<h1 id="pagination">Pagination</h1>
+<pre class="highlight plaintext"><code>Link: &lt;https://api.invoiced.com/customers?page=3&amp;per_page=10&gt;; rel="self",
+      &lt;https://api.invoiced.com/customers?page=1&amp;per_page=10&gt;; rel="first",
+      &lt;https://api.invoiced.com/customers?page=2&amp;per_page=10&gt;; rel="previous",
+      &lt;https://api.invoiced.com/customers?page=4&amp;per_page=10&gt;; rel="next",
+      &lt;https://api.invoiced.com/customers?page=5&amp;per_page=10&gt;; rel="last"
+</code></pre>
+
+<p>All list operations will be paginated in similar fashion as the GitHub API. In most cases we will paginate requests returning more than 100 results. You can control pagination with the <code class="prettyprint">page</code> and <code class="prettyprint">per_page</code> parameters. Pages start at <code class="prettyprint">1</code> and the first page will be returned if no page is specified.</p>
+
+<p>When traversing the pages, we recommend using the <code class="prettyprint">Link</code> and <code class="prettyprint">X-Total-Count</code> headers. The <a href="http://tools.ietf.org/html/rfc5988">Link header</a> will return URLs that you can use to traverse the API without having to write your own. It&rsquo;s preferred to use the links from the API because it protects against future updates.</p>
+
+<h1 id="versioning">Versioning</h1>
+
+<p>Any future changes to the API will be versioned in order to maintain backwards compatibility with existing integrations.</p>
+
+<h1 id="special-parameters">Special Parameters</h1>
+
+<h3 id="expanding-relations">Expanding Relations</h3>
+
+<p>Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.</p>
+
+<p>Certain relational properties can be expanded by passing in a comma-separated list of properties to expand through the <code class="prettyprint">expand</code> parameter. For example if you were requesting a payment and wanted to expand the associated customer and invoice objects you would set <code class="prettyprint">expand=customer,invoice</code>. This will replace the ID on the <code class="prettyprint">customer</code> and <code class="prettyprint">invoice</code> properties with expanded objects.</p>
+
+<p>The <code class="prettyprint">expand</code> parameter works for any response that has relational properties.</p>
+
+<h3 id="filter">Filter</h3>
+<pre class="highlight shell"><code><span class="s2">"filter"</span>: <span class="o">{</span>
+    <span class="s2">"paid"</span>: <span class="nb">false</span>,
+    <span class="s2">"customer"</span>: 1234
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="ss">:filter</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">:paid</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="ss">:customer</span> <span class="o">=&gt;</span> <span class="mi">1234</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The <code class="prettyprint">filter</code> parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the <code class="prettyprint">filter</code> parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.</p>
+
+<p>The <code class="prettyprint">filter</code> parameter is an object whose keys are the properties that should be matched:</p>
+
+          <h1 id="customers">Customers</h1>
+
+<p>Customers represent the entity you are billing, whether this is an organization or a individual. Each customer has a collection mode, automatic or manual. In automatic collection mode any invoices will be charged to your customer&rsquo;s payment source. Currently we only support debit and credit cards as payment sources.</p>
+
+<p>Conversely, manual collection mode will let your customers pay each invoice issued with one of the payment methods you accept.</p>
+
+<h2 id="customer-object">Customer Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 15444,
+  <span class="s2">"name"</span>: <span class="s2">"Acme"</span>,
+  <span class="s2">"number"</span>: <span class="s2">"CUST-0001"</span>,
+  <span class="s2">"email"</span>: <span class="s2">"billing@acmecorp.com"</span>,
+  <span class="s2">"type"</span>: <span class="s2">"company"</span>,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"auto"</span>,
+  <span class="s2">"payment_terms"</span>: null,
+  <span class="s2">"payment_source"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 850,
+    <span class="s2">"brand"</span>: <span class="s2">"Visa"</span>,
+    <span class="s2">"last4"</span>: 4242,
+    <span class="s2">"exp_month"</span>: 2,
+    <span class="s2">"exp_year"</span>: 20,
+    <span class="s2">"funding"</span>: <span class="s2">"credit"</span>
+  <span class="o">}</span>,
+  <span class="s2">"attention_to"</span>: null,
+  <span class="s2">"address1"</span>: null,
+  <span class="s2">"address2"</span>: null,
+  <span class="s2">"city"</span>: null,
+  <span class="s2">"state"</span>: null,
+  <span class="s2">"postal_code"</span>: null,
+  <span class="s2">"country"</span>: <span class="s2">"United States"</span>,
+  <span class="s2">"tax_id"</span>: null,
+  <span class="s2">"phone"</span>: null,
+  <span class="s2">"other_phone"</span>: null,
+  <span class="s2">"website"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"statement_pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415222128
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d08 id=15444&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"CUST-0001"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"auto"</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"payment_source"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
+    <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"Visa"</span><span class="p">,</span>
+    <span class="s2">"last4"</span><span class="p">:</span> <span class="mi">4242</span><span class="p">,</span>
+    <span class="s2">"exp_month"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"exp_year"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"funding"</span><span class="p">:</span> <span class="s2">"credit"</span>
+  <span class="p">},</span>
+  <span class="s2">"attention_to"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address1"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address2"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"city"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"postal_code"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"United States"</span><span class="p">,</span>
+  <span class="s2">"tax_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"other_phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"website"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The customer&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Customer name</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the customer for use in the dashboard</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Organization type, <code class="prettyprint">company</code> or <code class="prettyprint">person</code></td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><em>string</em></td>
+<td>Email address</td>
+</tr>
+<tr>
+<td><strong>collection_mode</strong></td>
+<td><em>string</em></td>
+<td>Invoice collection mode, <code class="prettyprint">auto</code> or <code class="prettyprint">manual</code></td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms used for <code class="prettyprint">manual</code> collection mode, i.e. &ldquo;NET 30&rdquo;</td>
+</tr>
+<tr>
+<td><strong>payment_source</strong></td>
+<td><em>object</em></td>
+<td>Summary of the customer&rsquo;s payment source, if attached</td>
+</tr>
+<tr>
+<td><strong>attention_to</strong></td>
+<td><em>string</em></td>
+<td>Used for ATTN: address line if <code class="prettyprint">company</code></td>
+</tr>
+<tr>
+<td><strong>address1</strong></td>
+<td><em>string</em></td>
+<td>First address line</td>
+</tr>
+<tr>
+<td><strong>address2</strong></td>
+<td><em>string</em></td>
+<td>Optional second address line</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td><em>string</em></td>
+<td>City</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td><em>string</em></td>
+<td>State or province</td>
+</tr>
+<tr>
+<td><strong>postal_code</strong></td>
+<td><em>string</em></td>
+<td>Zip or postal code</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td><em>string</em></td>
+<td>Country</td>
+</tr>
+<tr>
+<td><strong>tax_id</strong></td>
+<td><em>string</em></td>
+<td>Tax ID to be displayed on documents</td>
+</tr>
+<tr>
+<td><strong>phone</strong></td>
+<td><em>string</em></td>
+<td>Phone #</td>
+</tr>
+<tr>
+<td><strong>other_phone</strong></td>
+<td><em>string</em></td>
+<td>Second phone #</td>
+</tr>
+<tr>
+<td><strong>website</strong></td>
+<td><em>string</em></td>
+<td>Website</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Private customer notes</td>
+</tr>
+<tr>
+<td><strong>statement_pdf_url</strong></td>
+<td><em>string</em></td>
+<td>URL to download the latest account statement</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><em>timestamp</em></td>
+<td>Timestamp when created</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-customer">Create a customer</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -d <span class="nv">name</span><span class="o">=</span><span class="s2">"Acme"</span> <span class="se">\</span>
+  -d <span class="nv">email</span><span class="o">=</span><span class="s2">"billing@acmecorp.com"</span> <span class="se">\</span>
+  -d <span class="nv">collection_mode</span><span class="o">=</span><span class="s2">"manual"</span> <span class="se">\</span>
+  -d <span class="nv">payment_terms</span><span class="o">=</span><span class="s2">"NET 30"</span> <span class="se">\</span>
+  -d <span class="nb">type</span><span class="o">=</span><span class="s2">"company"</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoiced</span><span class="o">.</span><span class="no">Customer</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+  <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="ss">:collection_mode</span> <span class="o">=&gt;</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="ss">:payment_terms</span> <span class="o">=&gt;</span> <span class="s2">"NET 30"</span><span class="p">,</span>
+  <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"company"</span>
+<span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 15444,
+  <span class="s2">"number"</span>: <span class="s2">"CUST-0001"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Acme"</span>,
+  <span class="s2">"email"</span>: <span class="s2">"billing@acmecorp.com"</span>,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 30"</span>,
+  <span class="s2">"payment_source"</span>: null,
+  <span class="s2">"type"</span>: <span class="s2">"company"</span>,
+  <span class="s2">"attention_to"</span>: null,
+  <span class="s2">"address1"</span>: null,
+  <span class="s2">"address2"</span>: null,
+  <span class="s2">"city"</span>: null,
+  <span class="s2">"state"</span>: null,
+  <span class="s2">"postal_code"</span>: null,
+  <span class="s2">"country"</span>: <span class="s2">"United States"</span>,
+  <span class="s2">"tax_id"</span>: null,
+  <span class="s2">"phone"</span>: null,
+  <span class="s2">"other_phone"</span>: null,
+  <span class="s2">"website"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"statement_pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415222128
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d08 id=15444&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"CUST-0001"</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 30"</span><span class="p">,</span>
+  <span class="s2">"payment_source"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">,</span>
+  <span class="s2">"attention_to"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address1"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address2"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"city"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"postal_code"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"United States"</span><span class="p">,</span>
+  <span class="s2">"tax_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"other_phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"website"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Create a new customer profile with this endpoint.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Customer name - <strong>required</strong></td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the customer for use in the dashboard. We will generate one if not supplied.</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Organization type, <code class="prettyprint">company</code> or <code class="prettyprint">person</code>. Defaults to <code class="prettyprint">company</code></td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><em>string</em></td>
+<td>Email address</td>
+</tr>
+<tr>
+<td><strong>collection_mode</strong></td>
+<td><em>string</em></td>
+<td>Invoice collection mode, <code class="prettyprint">auto</code> or <code class="prettyprint">manual</code>. Defaults to <code class="prettyprint">manual</code></td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms used for <code class="prettyprint">manual</code> collection mode, i.e. &ldquo;NET 30&rdquo;</td>
+</tr>
+<tr>
+<td><strong>stripe_token</strong></td>
+<td><em>string</em></td>
+<td>When provided sets the customer&rsquo;s payment source to the tokenized Stripe card</td>
+</tr>
+<tr>
+<td><strong>attention_to</strong></td>
+<td><em>string</em></td>
+<td>Used for ATTN: address line if <code class="prettyprint">company</code></td>
+</tr>
+<tr>
+<td><strong>address1</strong></td>
+<td><em>string</em></td>
+<td>First address line</td>
+</tr>
+<tr>
+<td><strong>address2</strong></td>
+<td><em>string</em></td>
+<td>Optional second address line</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td><em>string</em></td>
+<td>City</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td><em>string</em></td>
+<td>State or province</td>
+</tr>
+<tr>
+<td><strong>postal_code</strong></td>
+<td><em>string</em></td>
+<td>Zip or postal code</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td><em>string</em></td>
+<td>Country</td>
+</tr>
+<tr>
+<td><strong>tax_id</strong></td>
+<td><em>string</em></td>
+<td>Tax ID to be displayed on documents</td>
+</tr>
+<tr>
+<td><strong>phone</strong></td>
+<td><em>string</em></td>
+<td>Phone #</td>
+</tr>
+<tr>
+<td><strong>other_phone</strong></td>
+<td><em>string</em></td>
+<td>Second phone #</td>
+</tr>
+<tr>
+<td><strong>website</strong></td>
+<td><em>string</em></td>
+<td>Website</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Private customer notes</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-customer">Retrieve a customer</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{CUSTOMER_ID}"</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 15444,
+  <span class="s2">"number"</span>: <span class="s2">"CUST-0001"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Acme"</span>,
+  <span class="s2">"email"</span>: <span class="s2">"billing@acmecorp.com"</span>,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 30"</span>,
+  <span class="s2">"payment_source"</span>: null,
+  <span class="s2">"type"</span>: <span class="s2">"company"</span>,
+  <span class="s2">"attention_to"</span>: <span class="s2">"Sarah Fisher"</span>,
+  <span class="s2">"address1"</span>: <span class="s2">"342 Amber St"</span>,
+  <span class="s2">"address2"</span>: null,
+  <span class="s2">"city"</span>: <span class="s2">"Hill Valley"</span>,
+  <span class="s2">"state"</span>: <span class="s2">"CA"</span>,
+  <span class="s2">"postal_code"</span>: <span class="s2">"94523"</span>,
+  <span class="s2">"country"</span>: <span class="s2">"United States"</span>,
+  <span class="s2">"tax_id"</span>: <span class="s2">"893-934835"</span>,
+  <span class="s2">"phone"</span>: <span class="s2">"(820) 297-2983"</span>,
+  <span class="s2">"other_phone"</span>: null,
+  <span class="s2">"website"</span>: <span class="s2">"acmecorp.com"</span>,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"statement_pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415222128
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d08 id=15444&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"CUST-0001"</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 30"</span><span class="p">,</span>
+  <span class="s2">"payment_source"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">,</span>
+  <span class="s2">"attention_to"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address1"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"address2"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"city"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"postal_code"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"United States"</span><span class="p">,</span>
+  <span class="s2">"tax_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"other_phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"website"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This endpoint retrieves a specific customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customers/:id</code></p>
+
+<h2 id="update-a-customer">Update a customer</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -d <span class="nv">payment_terms</span><span class="o">=</span><span class="s2">"NET 14"</span> <span class="se">\</span>
+  -d <span class="nv">attention_to</span><span class="o">=</span><span class="s2">"Sarah Fisher"</span> <span class="se">\</span>
+  -d <span class="nv">address1</span><span class="o">=</span><span class="s2">"342 Amber St"</span> <span class="se">\</span>
+  -d <span class="nv">city</span><span class="o">=</span><span class="s2">"Hill Valley"</span> <span class="se">\</span>
+  -d <span class="nv">state</span><span class="o">=</span><span class="s2">"CA"</span> <span class="se">\</span>
+  -d <span class="nv">postal_code</span><span class="o">=</span><span class="s2">"94523"</span> <span class="se">\</span>
+  -d <span class="nv">tax_id</span><span class="o">=</span><span class="s2">"893-934835"</span> <span class="se">\</span>
+  -d <span class="nv">phone</span><span class="o">=</span><span class="s2">"(820) 297-2983"</span> <span class="se">\</span>
+  -d <span class="nv">website</span><span class="o">=</span><span class="s2">"acmecorp.com"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">customer</span><span class="p">.</span><span class="nf">payment_terms</span> <span class="o">=</span> <span class="s2">"NET 14"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">attention_to</span> <span class="o">=</span> <span class="s2">"Sarah Fisher"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">address1</span> <span class="o">=</span> <span class="s2">"342 Amber St"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">city</span> <span class="o">=</span> <span class="s2">"Hill Valley"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">state</span> <span class="o">=</span> <span class="s2">"CA"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">postal_code</span> <span class="o">=</span> <span class="s2">"94523"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">tax_id</span> <span class="o">=</span> <span class="s2">"893-934835"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">phone</span> <span class="o">=</span> <span class="s2">"(820) 297-2983"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">website</span> <span class="o">=</span> <span class="s2">"acmecorp.com"</span>
+<span class="n">customer</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 15444,
+  <span class="s2">"number"</span>: <span class="s2">"CUST-0001"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Acme"</span>,
+  <span class="s2">"email"</span>: <span class="s2">"billing@acmecorp.com"</span>,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+  <span class="s2">"payment_source"</span>: null,
+  <span class="s2">"type"</span>: <span class="s2">"company"</span>,
+  <span class="s2">"attention_to"</span>: <span class="s2">"Sarah Fisher"</span>,
+  <span class="s2">"address1"</span>: <span class="s2">"342 Amber St"</span>,
+  <span class="s2">"address2"</span>: null,
+  <span class="s2">"city"</span>: <span class="s2">"Hill Valley"</span>,
+  <span class="s2">"state"</span>: <span class="s2">"CA"</span>,
+  <span class="s2">"postal_code"</span>: <span class="s2">"94523"</span>,
+  <span class="s2">"country"</span>: <span class="s2">"United States"</span>,
+  <span class="s2">"tax_id"</span>: <span class="s2">"893-934835"</span>,
+  <span class="s2">"phone"</span>: <span class="s2">"(820) 297-2983"</span>,
+  <span class="s2">"other_phone"</span>: null,
+  <span class="s2">"website"</span>: <span class="s2">"acmecorp.com"</span>,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"statement_pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415222128
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d08 id=15444&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"CUST-0001"</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s2">"payment_source"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">,</span>
+  <span class="s2">"attention_to"</span><span class="p">:</span> <span class="s2">"Sarah Fisher"</span><span class="p">,</span>
+  <span class="s2">"address1"</span><span class="p">:</span> <span class="s2">"342 Amber St"</span><span class="p">,</span>
+  <span class="s2">"address2"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Hill Valley"</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+  <span class="s2">"postal_code"</span><span class="p">:</span> <span class="s2">"94523"</span><span class="p">,</span>
+  <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"United States"</span><span class="p">,</span>
+  <span class="s2">"tax_id"</span><span class="p">:</span> <span class="s2">"893-934835"</span><span class="p">,</span>
+  <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"(820) 297-2983"</span><span class="p">,</span>
+  <span class="s2">"other_phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"website"</span><span class="p">:</span> <span class="s2">"acmecorp.com"</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Use this endpoint to update a customer profile.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH /customers/:id</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Customer name</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the customer for use in the dashboard</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Organization type, <code class="prettyprint">company</code> or <code class="prettyprint">person</code></td>
+</tr>
+<tr>
+<td><strong>email</strong></td>
+<td><em>string</em></td>
+<td>Email address</td>
+</tr>
+<tr>
+<td><strong>collection_mode</strong></td>
+<td><em>string</em></td>
+<td>Invoice collection mode, <code class="prettyprint">auto</code> or <code class="prettyprint">manual</code></td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms used for <code class="prettyprint">manual</code> collection mode, i.e. &ldquo;NET 30&rdquo;</td>
+</tr>
+<tr>
+<td><strong>stripe_token</strong></td>
+<td><em>string</em></td>
+<td>When provided sets the customer&rsquo;s payment source to the tokenized Stripe card</td>
+</tr>
+<tr>
+<td><strong>attention_to</strong></td>
+<td><em>string</em></td>
+<td>Used for ATTN: address line if <code class="prettyprint">company</code></td>
+</tr>
+<tr>
+<td><strong>address1</strong></td>
+<td><em>string</em></td>
+<td>First address line</td>
+</tr>
+<tr>
+<td><strong>address2</strong></td>
+<td><em>string</em></td>
+<td>Optional second address line</td>
+</tr>
+<tr>
+<td><strong>city</strong></td>
+<td><em>string</em></td>
+<td>City</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td><em>string</em></td>
+<td>State or province</td>
+</tr>
+<tr>
+<td><strong>postal_code</strong></td>
+<td><em>string</em></td>
+<td>Zip or postal code</td>
+</tr>
+<tr>
+<td><strong>country</strong></td>
+<td><em>string</em></td>
+<td>Country</td>
+</tr>
+<tr>
+<td><strong>tax_id</strong></td>
+<td><em>string</em></td>
+<td>Tax ID to be displayed on documents</td>
+</tr>
+<tr>
+<td><strong>phone</strong></td>
+<td><em>string</em></td>
+<td>Phone #</td>
+</tr>
+<tr>
+<td><strong>other_phone</strong></td>
+<td><em>string</em></td>
+<td>Second phone #</td>
+</tr>
+<tr>
+<td><strong>website</strong></td>
+<td><em>string</em></td>
+<td>Website</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Private customer notes</td>
+</tr>
+</tbody></table>
+
+<h2 id="list-customer-subscriptions">List customer subscriptions</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/:id/subscriptions"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">subscriptions</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">subscriptions</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+      <span class="s2">"id"</span>: 412,
+      <span class="s2">"customer"</span>: 15444,
+      <span class="s2">"plan"</span>: 418,
+      <span class="s2">"start_date"</span>: 1415230038,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"cycles"</span>: null,
+      <span class="s2">"renews_next"</span>: 1438813638,
+      <span class="s2">"renewed_last"</span>: 1436135238,
+      <span class="s2">"status"</span>: <span class="s2">"past_due"</span>,
+      <span class="s2">"url"</span>: <span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">dundermifflin.invoiced.com</span><span class="se">\/</span><span class="s2">subscriptions</span><span class="se">\/</span><span class="s2">ClfLz70YiFSgu5E2dA5qrwXX"</span>,
+      <span class="s2">"created_at"</span>: 1415230041
+  <span class="o">}</span>,
+  <span class="o">{</span>
+      <span class="s2">"id"</span>: 595,
+      <span class="s2">"customer"</span>: 15444,
+      <span class="s2">"plan"</span>: 420,
+      <span class="s2">"start_date"</span>: 1425572792,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"cycles"</span>: null,
+      <span class="s2">"renews_next"</span>: 1438788392,
+      <span class="s2">"renewed_last"</span>: 1436109992,
+      <span class="s2">"status"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"url"</span>: <span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">dundermifflin.invoiced.com</span><span class="se">\/</span><span class="s2">subscriptions</span><span class="se">\/</span><span class="s2">ir5n8vGRTcsJyBNS8lzR6gXX"</span>,
+      <span class="s2">"created_at"</span>: 1425572798
+  <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Subscription:0x3fdbf9sf9e4d08 id=412&gt; JSON: {</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">412</span><span class="p">,</span>
+      <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="mi">418</span><span class="p">,</span>
+      <span class="s2">"start_date"</span><span class="p">:</span> <span class="mi">1415230038</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cycles"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"renews_next"</span><span class="p">:</span> <span class="mi">1438813638</span><span class="p">,</span>
+      <span class="s2">"renewed_last"</span><span class="p">:</span> <span class="mi">1436135238</span><span class="p">,</span>
+      <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"past_due"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">dundermifflin.invoiced.com</span><span class="se">\/</span><span class="s2">subscriptions</span><span class="se">\/</span><span class="s2">ClfLz70YiFSgu5E2dA5qrwXX"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415230041</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Subscription:0x3fdbf95as4d08 id=595&gt; JSON: {</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">595</span><span class="p">,</span>
+      <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="mi">420</span><span class="p">,</span>
+      <span class="s2">"start_date"</span><span class="p">:</span> <span class="mi">1425572792</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"cycles"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"renews_next"</span><span class="p">:</span> <span class="mi">1438788392</span><span class="p">,</span>
+      <span class="s2">"renewed_last"</span><span class="p">:</span> <span class="mi">1436109992</span><span class="p">,</span>
+      <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"active"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">dundermifflin.invoiced.com</span><span class="se">\/</span><span class="s2">subscriptions</span><span class="se">\/</span><span class="s2">ir5n8vGRTcsJyBNS8lzR6gXX"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1425572798</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint lists all the subscriptions for a specific customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customers/:id/subscriptions</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand</strong></td>
+<td><em>string</em></td>
+<td>Properties to expand</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-current-balance">Get current balance</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/balance"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">customer</span><span class="p">.</span><span class="nf">balance</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"available_credits"</span>: 50,
+  <span class="s2">"past_due"</span>: <span class="nb">false</span>,
+  <span class="s2">"total_outstanding"</span>: 470
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">{</span>
+  <span class="ss">:available_credits</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span>
+  <span class="ss">:past_due</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="ss">:total_outstanding</span> <span class="o">=&gt;</span> <span class="mi">470</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This endpoint calculates the customer&rsquo;s current balance.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customers/:id/balance</code></p>
+
+<h2 id="send-a-statement">Send a statement</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/:id/emails"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X POST
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">send_statement</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"sent"</span>,
+    <span class="s2">"reject_reason"</span>: null,
+    <span class="s2">"email"</span>: <span class="s2">"client@example.com"</span>,
+    <span class="s2">"template"</span>: <span class="s2">"statement_email"</span>,
+    <span class="s2">"subject"</span>: <span class="s2">"Statement from Dunder Mifflin, Inc."</span>,
+    <span class="s2">"message"</span>: <span class="s2">"Dear Client, we have attached your latest account statement. Thank you!"</span>,
+    <span class="s2">"opens"</span>: 0,
+    <span class="s2">"opens_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"clicks"</span>: 0,
+    <span class="s2">"clicks_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"created_at"</span>: 1436890047
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"sent"</span><span class="p">,</span>
+    <span class="s2">"reject_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"client@example.com"</span><span class="p">,</span>
+    <span class="s2">"template"</span><span class="p">:</span> <span class="s2">"statement_email"</span><span class="p">,</span>
+    <span class="s2">"subject"</span><span class="p">:</span> <span class="s2">"Statement from Dunder Mifflin, Inc."</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Dear Client, we have attached your latest account statement. Thank you!"</span><span class="p">,</span>
+    <span class="s2">"opens"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"opens_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"clicks"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"clicks_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1436890047</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint sends a PDF account statement to a customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /customers/:id/emails</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>to</strong></td>
+<td><em>array</em></td>
+<td>Optional array of recipients like:<br/><code class="prettyprint">[{&quot;name&quot;: &quot;Client&quot;, &quot;email&quot;: &quot;client@example.com&quot;}]</code></td>
+</tr>
+<tr>
+<td><strong>bcc</strong></td>
+<td><em>string</em></td>
+<td>Optional comma-separated list of email addresses to be blind carbon copied</td>
+</tr>
+<tr>
+<td><strong>subject</strong></td>
+<td><em>string</em></td>
+<td>Optional subject</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td><em>string</em></td>
+<td>Optional message body, otherwise the <em>Statement Email</em> template is used</td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
+<h2 id="delete-a-customer">Delete a customer</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X DELETE
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">customer</span><span class="p">.</span><span class="nf">delete</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">204 No Content</code></p>
+</blockquote>
+
+<p>This endpoint deletes a specific customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /customers/:id</code></p>
+
+<h2 id="list-all-customers">List all customers</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/customers"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">customers</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Customer</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: 15444,
+    <span class="s2">"number"</span>: <span class="s2">"CUST-0001"</span>,
+    <span class="s2">"name"</span>: <span class="s2">"Acme"</span>,
+    <span class="s2">"email"</span>: <span class="s2">"billing@acmecorp.com"</span>,
+    <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+    <span class="s2">"payment_terms"</span>: <span class="s2">"NET 30"</span>,
+    <span class="s2">"payment_source"</span>: null,
+    <span class="s2">"type"</span>: <span class="s2">"company"</span>,
+    <span class="s2">"attention_to"</span>: <span class="s2">"Sarah Fisher"</span>,
+    <span class="s2">"address1"</span>: <span class="s2">"342 Amber St"</span>,
+    <span class="s2">"address2"</span>: null,
+    <span class="s2">"city"</span>: <span class="s2">"Hill Valley"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"CA"</span>,
+    <span class="s2">"postal_code"</span>: <span class="s2">"94523"</span>,
+    <span class="s2">"country"</span>: <span class="s2">"United States"</span>,
+    <span class="s2">"tax_id"</span>: <span class="s2">"893-934835"</span>,
+    <span class="s2">"phone"</span>: <span class="s2">"(820) 297-2983"</span>,
+    <span class="s2">"other_phone"</span>: null,
+    <span class="s2">"website"</span>: <span class="s2">"acmecorp.com"</span>,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"statement_pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415222128
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d08 id=15444&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+    <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"CUST-0001"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Acme"</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+    <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+    <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 30"</span><span class="p">,</span>
+    <span class="s2">"payment_source"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">,</span>
+    <span class="s2">"attention_to"</span><span class="p">:</span> <span class="s2">"Sarah Fisher"</span><span class="p">,</span>
+    <span class="s2">"address1"</span><span class="p">:</span> <span class="s2">"342 Amber St"</span><span class="p">,</span>
+    <span class="s2">"address2"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"city"</span><span class="p">:</span> <span class="s2">"Hill Valley"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"CA"</span><span class="p">,</span>
+    <span class="s2">"postal_code"</span><span class="p">:</span> <span class="s2">"94523"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"United States"</span><span class="p">,</span>
+    <span class="s2">"tax_id"</span><span class="p">:</span> <span class="s2">"893-934835"</span><span class="p">,</span>
+    <span class="s2">"phone"</span><span class="p">:</span> <span class="s2">"(820) 297-2983"</span><span class="p">,</span>
+    <span class="s2">"other_phone"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"website"</span><span class="p">:</span> <span class="s2">"acmecorp.com"</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d09 id=15445&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d10 id=15446&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint retrieves all customers.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /customers</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>sort</strong> <em>string</em></td>
+<td>Column to sort by, i.e. <code class="prettyprint">name asc</code></td>
+</tr>
+<tr>
+<td><strong>filter</strong> <em>object</em></td>
+<td>Filter object</td>
+</tr>
+</tbody></table>
+
+          <h1 id="invoices">Invoices</h1>
+
+<p>An invoice representeds a balance owed to you by a Customer. Each invoice has a collection of line items that detail the products or services that are now due. An invoice can be in one of many different states depending on the due date, payments, and whether it was sent to or viewed by the customer.</p>
+
+<p>Invoices can be marked as paid with Transactions. Once the sum of all Transactions for an invoice is greater than or equal to the total then the invoice will be considered paid in full.</p>
+
+<h2 id="invoice-object">Invoice Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 46225,
+  <span class="s2">"customer"</span>: 15444,
+  <span class="s2">"name"</span>: null,
+  <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+  <span class="s2">"draft"</span>: <span class="nb">false</span>,
+  <span class="s2">"sent"</span>: <span class="nb">false</span>,
+  <span class="s2">"closed"</span>: <span class="nb">false</span>,
+  <span class="s2">"paid"</span>: <span class="nb">false</span>,
+  <span class="s2">"status"</span>: <span class="s2">"not_sent"</span>,
+  <span class="s2">"chase"</span>: <span class="nb">false</span>,
+  <span class="s2">"next_chase_on"</span>: null,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"attempt_count"</span>: 0,
+  <span class="s2">"next_payment_attempt"</span>: null,
+  <span class="s2">"theme"</span>: null,
+  <span class="s2">"subscription"</span>: null,
+  <span class="s2">"number"</span>: <span class="s2">"INV-0016"</span>,
+  <span class="s2">"date"</span>: 1416290400,
+  <span class="s2">"due_date"</span>: 1417500000,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 7,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+      <span class="s2">"description"</span>: null,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 45,
+      <span class="s2">"amount"</span>: 45,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 8,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+      <span class="s2">"description"</span>: <span class="s2">""</span>,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 10,
+      <span class="s2">"amount"</span>: 10,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"terms"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"subtotal"</span>: 55,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 20554,
+      <span class="s2">"amount"</span>: 3.85,
+      <span class="s2">"rate"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"total"</span>: 51.15,
+  <span class="s2">"balance"</span>: 51.15,
+  <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span>,
+  <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415229884
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46225&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46225</span><span class="p">,</span>
+  <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+  <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"not_sent"</span><span class="p">,</span>
+  <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0016"</span><span class="p">,</span>
+  <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290400</span><span class="p">,</span>
+  <span class="s2">"due_date"</span><span class="p">:</span> <span class="mi">1417500000</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+      <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span><span class="p">,</span>
+  <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The invoice&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>customer</strong></td>
+<td><em>integer</em></td>
+<td>Customer ID</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Invoice name for internal use, defaults to &ldquo;Invoice&rdquo;</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the invoice for use in the dashboard</td>
+</tr>
+<tr>
+<td><strong>collection_mode</strong></td>
+<td><em>string</em></td>
+<td>Invoice collection mode, <code class="prettyprint">auto</code> or <code class="prettyprint">manual</code></td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code</td>
+</tr>
+<tr>
+<td><strong>draft</strong></td>
+<td><em>boolean</em></td>
+<td>When false, the invoice is considered outstanding, or when true, the invoice is a draft</td>
+</tr>
+<tr>
+<td><strong>sent</strong></td>
+<td><em>boolean</em></td>
+<td>Indicates whether the invoice has been sent</td>
+</tr>
+<tr>
+<td><strong>closed</strong></td>
+<td><em>boolean</em></td>
+<td>When true, an invoice is closed and considered bad debt. No further payments are allowed.</td>
+</tr>
+<tr>
+<td><strong>paid</strong></td>
+<td><em>boolean</em></td>
+<td>Indicates whether an invoice has been paid in full</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><em>string</em></td>
+<td>Invoice state, one of <code class="prettyprint">draft</code>, <code class="prettyprint">not_sent</code>, <code class="prettyprint">sent</code>, <code class="prettyprint">viewed</code>, <code class="prettyprint">past_due</code>, <code class="prettyprint">paid</code>, or <code class="prettyprint">overpaid</code></td>
+</tr>
+<tr>
+<td><strong>chase</strong></td>
+<td><em>boolean</em></td>
+<td>Whether chasing is enabled for the invoice</td>
+</tr>
+<tr>
+<td><strong>next_chase_on</strong></td>
+<td><em>timestamp</em></td>
+<td>Next scheduled chase</td>
+</tr>
+<tr>
+<td><strong>attempt_count</strong></td>
+<td><em>integer</em></td>
+<td># of payment attempts</td>
+</tr>
+<tr>
+<td><strong>next_payment_attempt</strong></td>
+<td><em>timestamp</em></td>
+<td>Next scheduled charge attempt, when in automatic collection</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>subscription</strong></td>
+<td><em>integer</em></td>
+<td>Subscription ID if invoice came from subscription</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Invoice date</td>
+</tr>
+<tr>
+<td><strong>due_date</strong></td>
+<td><em>timestamp</em></td>
+<td>Date payment is due by</td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms for the invoice, i.e. &ldquo;NET 30&rdquo;</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td><em>array</em></td>
+<td>Collection of Line Item objects</td>
+</tr>
+<tr>
+<td><strong>terms</strong></td>
+<td><em>string</em></td>
+<td>Terms and conditions displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Additional notes displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>subtotal</strong></td>
+<td><em>number</em></td>
+<td>Subtotal</td>
+</tr>
+<tr>
+<td><strong>discounts</strong></td>
+<td><em>array</em></td>
+<td>Collection of Discount objects</td>
+</tr>
+<tr>
+<td><strong>taxes</strong></td>
+<td><em>array</em></td>
+<td>Collection of Tax objects</td>
+</tr>
+<tr>
+<td><strong>total</strong></td>
+<td><em>number</em></td>
+<td>Total</td>
+</tr>
+<tr>
+<td><strong>balance</strong></td>
+<td><em>number</em></td>
+<td>Balance</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td><em>string</em></td>
+<td>URL to view the invoice in the billing portal</td>
+</tr>
+<tr>
+<td><strong>pdf_url</strong></td>
+<td><em>string</em></td>
+<td>URL to download the invoice as a PDF</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><em>timestamp</em></td>
+<td>Timestamp when created</td>
+</tr>
+</tbody></table>
+
+<h2 id="line-item-object">Line Item Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 8,
+  <span class="s2">"stored_item"</span>: null,
+  <span class="s2">"plan"</span>: null,
+  <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+  <span class="s2">"description"</span>: <span class="s2">""</span>,
+  <span class="s2">"quantity"</span>: 1,
+  <span class="s2">"unit_cost"</span>: 10,
+  <span class="s2">"amount"</span>: 10,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[]</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::LineItem:0x3fdbf95e4d08 id=8&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The line item&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>stored_item</strong></td>
+<td><em>integer</em></td>
+<td>Stored Item ID this line is associated with, if any</td>
+</tr>
+<tr>
+<td><strong>plan</strong></td>
+<td><em>integer</em></td>
+<td>Plan ID the line item was generated from</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Line item type, one of <code class="prettyprint">product</code>, <code class="prettyprint">service</code>, <code class="prettyprint">hours</code>, <code class="prettyprint">days</code>, or <code class="prettyprint">expense</code></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Title</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><em>string</em></td>
+<td>Optional description</td>
+</tr>
+<tr>
+<td><strong>quantity</strong></td>
+<td><em>number</em></td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td><strong>unit_cost</strong></td>
+<td><em>number</em></td>
+<td>Unit cost or rate</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Computed from <code class="prettyprint">quantity</code> x <code class="prettyprint">unit_cost</code></td>
+</tr>
+<tr>
+<td><strong>discounts</strong></td>
+<td><em>array</em></td>
+<td>Line item Discounts</td>
+</tr>
+<tr>
+<td><strong>taxes</strong></td>
+<td><em>array</em></td>
+<td>Line item Taxes</td>
+</tr>
+</tbody></table>
+
+<h2 id="discount-object">Discount Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 20553,
+  <span class="s2">"amount"</span>: 5,
+  <span class="s2">"rate"</span>: null
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Discount:0x3fdbf95e4d08 id=20553&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20553</span><span class="p">,</span>
+  <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The discount&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Discount amount</td>
+</tr>
+<tr>
+<td><strong>rate</strong></td>
+<td><em>object</em></td>
+<td>Discount Rate the discount was computed from, if any</td>
+</tr>
+</tbody></table>
+
+<h2 id="tax-object">Tax Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 20554,
+  <span class="s2">"amount"</span>: 3.85,
+  <span class="s2">"rate"</span>: null
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Tax:0x3fdbf95e4d08 id=20554&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+  <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+  <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The tax&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Tax amount</td>
+</tr>
+<tr>
+<td><strong>rate</strong></td>
+<td><em>object</em></td>
+<td>Tax Rate the tax was computed from, if any</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-invoice">Create an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -d <span class="nv">customer</span><span class="o">=</span>15444 <span class="se">\</span>
+  -d <span class="nv">payment_terms</span><span class="o">=</span><span class="s2">"NET 14"</span> <span class="se">\</span>
+  -d items[0][name]<span class="o">=</span><span class="s2">"Copy paper, Case"</span> <span class="se">\</span>
+  -d items[0][quantity]<span class="o">=</span>1 <span class="se">\</span>
+  -d items[0][unit_cost]<span class="o">=</span>45 <span class="se">\</span>
+  -d items[1][type]<span class="o">=</span><span class="s2">"service"</span> <span class="se">\</span>
+  -d items[1][name]<span class="o">=</span><span class="s2">"Delivery"</span> <span class="se">\</span>
+  -d items[1][quantity]<span class="o">=</span>1 <span class="se">\</span>
+  -d items[1][unit_cost]<span class="o">=</span>10 <span class="se">\</span>
+  -d taxes[0][amount]<span class="o">=</span>3.85
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoiced</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+  <span class="ss">:customer</span> <span class="o">=&gt;</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="ss">:payment_terms</span> <span class="o">=&gt;</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="ss">:items</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"Copy paper, Case"</span><span class="p">,</span>
+      <span class="ss">:quantity</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="ss">:unit_cost</span> <span class="o">=&gt;</span> <span class="mi">45</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="ss">:quantity</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="ss">:unit_cost</span> <span class="o">=&gt;</span> <span class="mi">45</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="ss">:taxes</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 46225,
+  <span class="s2">"customer"</span>: 15444,
+  <span class="s2">"name"</span>: null,
+  <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+  <span class="s2">"draft"</span>: <span class="nb">false</span>,
+  <span class="s2">"sent"</span>: <span class="nb">false</span>,
+  <span class="s2">"closed"</span>: <span class="nb">false</span>,
+  <span class="s2">"paid"</span>: <span class="nb">false</span>,
+  <span class="s2">"status"</span>: <span class="s2">"not_sent"</span>,
+  <span class="s2">"chase"</span>: <span class="nb">false</span>,
+  <span class="s2">"next_chase_on"</span>: null,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"attempt_count"</span>: 0,
+  <span class="s2">"next_payment_attempt"</span>: null,
+  <span class="s2">"theme"</span>: null,
+  <span class="s2">"subscription"</span>: null,
+  <span class="s2">"number"</span>: <span class="s2">"INV-0016"</span>,
+  <span class="s2">"date"</span>: 1416290400,
+  <span class="s2">"due_date"</span>: 1417500000,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 7,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+      <span class="s2">"description"</span>: null,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 45,
+      <span class="s2">"amount"</span>: 45,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 8,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+      <span class="s2">"description"</span>: <span class="s2">""</span>,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 10,
+      <span class="s2">"amount"</span>: 10,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"terms"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"subtotal"</span>: 55,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 20554,
+      <span class="s2">"amount"</span>: 3.85,
+      <span class="s2">"rate"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"total"</span>: 51.15,
+  <span class="s2">"balance"</span>: 51.15,
+  <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span>,
+  <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415229884
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46225&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46225</span><span class="p">,</span>
+  <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+  <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"not_sent"</span><span class="p">,</span>
+  <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0016"</span><span class="p">,</span>
+  <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290400</span><span class="p">,</span>
+  <span class="s2">"due_date"</span><span class="p">:</span> <span class="mi">1417500000</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+      <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span><span class="p">,</span>
+  <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Create a new invoice with this endpoint.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>customer</strong></td>
+<td><em>integer</em></td>
+<td>Customer ID - <strong>required</strong></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Invoice name for internal use, defaults to &ldquo;Invoice&rdquo;</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the invoice, defaults to next # in auto-numbering sequence</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code - defaults to account currency</td>
+</tr>
+<tr>
+<td><strong>collection_mode</strong></td>
+<td><em>string</em></td>
+<td>Invoice collection mode, <code class="prettyprint">auto</code> or <code class="prettyprint">manual</code> - inherited from customer by default</td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms for the invoice, i.e. &ldquo;NET 30&rdquo; - inherited from customer by default</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Invoice date - defaults to current timestamp</td>
+</tr>
+<tr>
+<td><strong>due_date</strong></td>
+<td><em>timestamp</em></td>
+<td>Due date - computed from <code class="prettyprint">payment_terms</code> when not supplied</td>
+</tr>
+<tr>
+<td><strong>draft</strong></td>
+<td><em>boolean</em></td>
+<td>When false, the invoice is considered outstanding, or when true, the invoice is a draft</td>
+</tr>
+<tr>
+<td><strong>sent</strong></td>
+<td><em>boolean</em></td>
+<td>Marks an invoice as sent</td>
+</tr>
+<tr>
+<td><strong>closed</strong></td>
+<td><em>boolean</em></td>
+<td>Marks an invoice as closed</td>
+</tr>
+<tr>
+<td><strong>chase</strong></td>
+<td><em>boolean</em></td>
+<td>Enables chasing for this invoice</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td><em>array</em></td>
+<td>Collection of Line Item objects</td>
+</tr>
+<tr>
+<td><strong>terms</strong></td>
+<td><em>string</em></td>
+<td>Terms and conditions displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Additional notes displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>discounts</strong></td>
+<td><em>array</em></td>
+<td>Collection of Discount objects</td>
+</tr>
+<tr>
+<td><strong>taxes</strong></td>
+<td><em>array</em></td>
+<td>Collection of Tax objects</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-an-invoice">Retrieve an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoice</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{INVOICE_ID}"</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 46225,
+  <span class="s2">"customer"</span>: 15444,
+  <span class="s2">"name"</span>: null,
+  <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+  <span class="s2">"draft"</span>: <span class="nb">false</span>,
+  <span class="s2">"sent"</span>: <span class="nb">false</span>,
+  <span class="s2">"closed"</span>: <span class="nb">false</span>,
+  <span class="s2">"paid"</span>: <span class="nb">false</span>,
+  <span class="s2">"status"</span>: <span class="s2">"not_sent"</span>,
+  <span class="s2">"chase"</span>: <span class="nb">false</span>,
+  <span class="s2">"next_chase_on"</span>: null,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"attempt_count"</span>: 0,
+  <span class="s2">"next_payment_attempt"</span>: null,
+  <span class="s2">"theme"</span>: null,
+  <span class="s2">"subscription"</span>: null,
+  <span class="s2">"number"</span>: <span class="s2">"INV-0016"</span>,
+  <span class="s2">"date"</span>: 1416290400,
+  <span class="s2">"due_date"</span>: 1417500000,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 7,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+      <span class="s2">"description"</span>: null,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 45,
+      <span class="s2">"amount"</span>: 45,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 8,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+      <span class="s2">"description"</span>: <span class="s2">""</span>,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 10,
+      <span class="s2">"amount"</span>: 10,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"terms"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"subtotal"</span>: 55,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 20554,
+      <span class="s2">"amount"</span>: 3.85,
+      <span class="s2">"rate"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"total"</span>: 51.15,
+  <span class="s2">"balance"</span>: 51.15,
+  <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span>,
+  <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415229884
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46225&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46225</span><span class="p">,</span>
+  <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+  <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"not_sent"</span><span class="p">,</span>
+  <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0016"</span><span class="p">,</span>
+  <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290400</span><span class="p">,</span>
+  <span class="s2">"due_date"</span><span class="p">:</span> <span class="mi">1417500000</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+      <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span><span class="p">,</span>
+  <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This endpoint retrieves a specific invoice.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /invoices/:id</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>expand</strong></td>
+<td><em>string</em></td>
+<td>Properties to expand</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-invoice">Update an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X PATCH <span class="se">\</span>
+  -d <span class="nv">sent</span><span class="o">=</span>1 <span class="se">\</span>
+  -d <span class="nv">chase</span><span class="o">=</span>1
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoice</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"July Paper Delivery"</span>
+<span class="n">invoice</span><span class="p">.</span><span class="nf">notes</span> <span class="o">=</span> <span class="s2">"The order was delivered on Jul 20, 2015"</span>
+<span class="n">invoice</span><span class="p">.</span><span class="nf">sent</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">invoice</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 46225,
+  <span class="s2">"customer"</span>: 15444,
+  <span class="s2">"name"</span>: <span class="s2">"July Paper Delivery"</span>,
+  <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+  <span class="s2">"draft"</span>: <span class="nb">false</span>,
+  <span class="s2">"sent"</span>: <span class="nb">false</span>,
+  <span class="s2">"closed"</span>: <span class="nb">false</span>,
+  <span class="s2">"paid"</span>: <span class="nb">false</span>,
+  <span class="s2">"status"</span>: <span class="s2">"sent"</span>,
+  <span class="s2">"chase"</span>: <span class="nb">false</span>,
+  <span class="s2">"next_chase_on"</span>: null,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+  <span class="s2">"attempt_count"</span>: 0,
+  <span class="s2">"next_payment_attempt"</span>: null,
+  <span class="s2">"theme"</span>: null,
+  <span class="s2">"subscription"</span>: null,
+  <span class="s2">"number"</span>: <span class="s2">"INV-0016"</span>,
+  <span class="s2">"date"</span>: 1416290400,
+  <span class="s2">"due_date"</span>: 1417500000,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 7,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+      <span class="s2">"description"</span>: null,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 45,
+      <span class="s2">"amount"</span>: 45,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 8,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+      <span class="s2">"description"</span>: <span class="s2">""</span>,
+      <span class="s2">"quantity"</span>: 1,
+      <span class="s2">"unit_cost"</span>: 10,
+      <span class="s2">"amount"</span>: 10,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"terms"</span>: null,
+  <span class="s2">"notes"</span>: <span class="s2">"The order was delivered on Jul 20, 2015"</span>,
+  <span class="s2">"subtotal"</span>: 55,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 20554,
+      <span class="s2">"amount"</span>: 3.85,
+      <span class="s2">"rate"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"total"</span>: 51.15,
+  <span class="s2">"balance"</span>: 51.15,
+  <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span>,
+  <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415229884
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46225&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46225</span><span class="p">,</span>
+  <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+  <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"not_sent"</span><span class="p">,</span>
+  <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0016"</span><span class="p">,</span>
+  <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290400</span><span class="p">,</span>
+  <span class="s2">"due_date"</span><span class="p">:</span> <span class="mi">1417500000</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+      <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span><span class="p">,</span>
+  <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Use this endpoint to update an invoice.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td><em>string</em></td>
+<td>Invoice name for internal use, defaults to &ldquo;Invoice&rdquo;</td>
+</tr>
+<tr>
+<td><strong>number</strong></td>
+<td><em>string</em></td>
+<td>The reference number assigned to the invoice, defaults to next # in auto-numbering sequence</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code - defaults to account currency</td>
+</tr>
+<tr>
+<td><strong>payment_terms</strong></td>
+<td><em>string</em></td>
+<td>Payment terms for the invoice, i.e. &ldquo;NET 30&rdquo; - inherited from customer by default</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Invoice date - defaults to current timestamp</td>
+</tr>
+<tr>
+<td><strong>due_date</strong></td>
+<td><em>timestamp</em></td>
+<td>Due date - computed from <code class="prettyprint">payment_terms</code> when not supplied</td>
+</tr>
+<tr>
+<td><strong>draft</strong></td>
+<td><em>boolean</em></td>
+<td>When false, the invoice is considered outstanding, or when true, the invoice is a draft</td>
+</tr>
+<tr>
+<td><strong>sent</strong></td>
+<td><em>boolean</em></td>
+<td>Marks an invoice as sent</td>
+</tr>
+<tr>
+<td><strong>closed</strong></td>
+<td><em>boolean</em></td>
+<td>Marks an invoice as closed</td>
+</tr>
+<tr>
+<td><strong>chase</strong></td>
+<td><em>boolean</em></td>
+<td>Enables chasing for this invoice</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>items</strong></td>
+<td><em>array</em></td>
+<td>Collection of Line Item objects</td>
+</tr>
+<tr>
+<td><strong>terms</strong></td>
+<td><em>string</em></td>
+<td>Terms and conditions displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Additional notes displayed on invoice</td>
+</tr>
+<tr>
+<td><strong>discounts</strong></td>
+<td><em>array</em></td>
+<td>Collection of Discount objects</td>
+</tr>
+<tr>
+<td><strong>taxes</strong></td>
+<td><em>array</em></td>
+<td>Collection of Tax objects</td>
+</tr>
+</tbody></table>
+
+<h2 id="send-an-invoice">Send an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices/:id/emails"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X POST
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoice</span><span class="p">.</span><span class="nf">send</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"sent"</span>,
+    <span class="s2">"reject_reason"</span>: null,
+    <span class="s2">"email"</span>: <span class="s2">"client@example.com"</span>,
+    <span class="s2">"template"</span>: <span class="s2">"new_invoice_email"</span>,
+    <span class="s2">"subject"</span>: <span class="s2">"New Invoice from Dunder Mifflin, Inc.: INV-0016"</span>,
+    <span class="s2">"message"</span>: <span class="s2">"Dear Client, a new invoice for </span><span class="nv">$51</span><span class="s2">.15 has been created on your account. [View and Pay Invoice button] Thank you!"</span>,
+    <span class="s2">"opens"</span>: 0,
+    <span class="s2">"opens_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"clicks"</span>: 0,
+    <span class="s2">"clicks_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"created_at"</span>: 1436890047
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"sent"</span><span class="p">,</span>
+    <span class="s2">"reject_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"client@example.com"</span><span class="p">,</span>
+    <span class="s2">"template"</span><span class="p">:</span> <span class="s2">"new_invoice_email"</span><span class="p">,</span>
+    <span class="s2">"subject"</span><span class="p">:</span> <span class="s2">"New Invoice from Dunder Mifflin, Inc.: INV-0016"</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!"</span><span class="p">,</span>
+    <span class="s2">"opens"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"opens_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"clicks"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"clicks_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1436890047</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint sends an invoice to your customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /invoices/:id/emails</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>to</strong></td>
+<td><em>array</em></td>
+<td>Optional array of recipients like:<br/><code class="prettyprint">[{&quot;name&quot;: &quot;Client&quot;, &quot;email&quot;: &quot;client@example.com&quot;}]</code></td>
+</tr>
+<tr>
+<td><strong>bcc</strong></td>
+<td><em>string</em></td>
+<td>Optional comma-separated list of email addresses to be blind carbon copied</td>
+</tr>
+<tr>
+<td><strong>subject</strong></td>
+<td><em>string</em></td>
+<td>Optional subject</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td><em>string</em></td>
+<td>Optional message body, otherwise the appropriate invoice template is used</td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
+<h2 id="pay-an-invoice">Pay an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices/:id/pay"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X POST
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoice</span><span class="p">.</span><span class="nf">pay</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 46226,
+  <span class="s2">"customer"</span>: 15446,
+  <span class="s2">"name"</span>: null,
+  <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+  <span class="s2">"draft"</span>: <span class="nb">false</span>,
+  <span class="s2">"sent"</span>: <span class="nb">false</span>,
+  <span class="s2">"closed"</span>: <span class="nb">false</span>,
+  <span class="s2">"paid"</span>: <span class="nb">true</span>,
+  <span class="s2">"status"</span>: <span class="s2">"paid"</span>,
+  <span class="s2">"chase"</span>: <span class="nb">false</span>,
+  <span class="s2">"next_chase_on"</span>: null,
+  <span class="s2">"collection_mode"</span>: <span class="s2">"auto"</span>,
+  <span class="s2">"attempt_count"</span>: 1,
+  <span class="s2">"next_payment_attempt"</span>: null,
+  <span class="s2">"theme"</span>: null,
+  <span class="s2">"subscription"</span>: null,
+  <span class="s2">"number"</span>: <span class="s2">"INV-0017"</span>,
+  <span class="s2">"date"</span>: 1416290402,
+  <span class="s2">"due_date"</span>: null,
+  <span class="s2">"payment_terms"</span>: <span class="s2">"Auto-Charged"</span>,
+  <span class="s2">"items"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 8,
+      <span class="s2">"stored_item"</span>: null,
+      <span class="s2">"plan"</span>: null,
+      <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+      <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+      <span class="s2">"description"</span>: null,
+      <span class="s2">"quantity"</span>: 5,
+      <span class="s2">"unit_cost"</span>: 45,
+      <span class="s2">"amount"</span>: 225,
+      <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+      <span class="s2">"taxes"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"terms"</span>: null,
+  <span class="s2">"notes"</span>: null,
+  <span class="s2">"subtotal"</span>: 225,
+  <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+  <span class="s2">"taxes"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 20554,
+      <span class="s2">"amount"</span>: 3.85,
+      <span class="s2">"rate"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"total"</span>: 228.85,
+  <span class="s2">"balance"</span>: 228.85,
+  <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ"</span>,
+  <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf"</span>,
+  <span class="s2">"created_at"</span>: 1415229885
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46226&gt; JSON: {</span>
+  <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46226</span><span class="p">,</span>
+  <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15446</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+  <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"paid"</span><span class="p">,</span>
+  <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"auto"</span><span class="p">,</span>
+  <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0017"</span><span class="p">,</span>
+  <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290402</span><span class="p">,</span>
+  <span class="s2">"due_date"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"Auto-Charged"</span><span class="p">,</span>
+  <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">225</span><span class="p">,</span>
+      <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">225</span><span class="p">,</span>
+  <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+      <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+      <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"total"</span><span class="p">:</span> <span class="mi">228</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+  <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">228</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ"</span><span class="p">,</span>
+  <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229885</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.</p>
+
+<aside class="warning">
+We can only collect on invoices in `auto` collection mode with a customer that has a valid payment source attached.
+</aside>
+
+<h2 id="delete-an-invoice">Delete an invoice</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X DELETE
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoice</span><span class="p">.</span><span class="nf">delete</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">204 No Content</code></p>
+</blockquote>
+
+<p>This endpoint deletes a specific invoice.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /invoices/:id</code></p>
+
+<h2 id="list-all-invoices">List all invoices</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/invoices"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoices</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: 46225,
+    <span class="s2">"customer"</span>: 15444,
+    <span class="s2">"name"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"draft"</span>: <span class="nb">false</span>,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"closed"</span>: <span class="nb">false</span>,
+    <span class="s2">"paid"</span>: <span class="nb">false</span>,
+    <span class="s2">"status"</span>: <span class="s2">"not_sent"</span>,
+    <span class="s2">"chase"</span>: <span class="nb">false</span>,
+    <span class="s2">"next_chase_on"</span>: null,
+    <span class="s2">"collection_mode"</span>: <span class="s2">"manual"</span>,
+    <span class="s2">"attempt_count"</span>: 0,
+    <span class="s2">"next_payment_attempt"</span>: null,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"subscription"</span>: null,
+    <span class="s2">"number"</span>: <span class="s2">"INV-0016"</span>,
+    <span class="s2">"date"</span>: 1416290400,
+    <span class="s2">"due_date"</span>: 1417500000,
+    <span class="s2">"payment_terms"</span>: <span class="s2">"NET 14"</span>,
+    <span class="s2">"items"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"id"</span>: 7,
+        <span class="s2">"stored_item"</span>: null,
+        <span class="s2">"plan"</span>: null,
+        <span class="s2">"type"</span>: <span class="s2">"product"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"Copy Paper, Case"</span>,
+        <span class="s2">"description"</span>: null,
+        <span class="s2">"quantity"</span>: 1,
+        <span class="s2">"unit_cost"</span>: 45,
+        <span class="s2">"amount"</span>: 45,
+        <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+        <span class="s2">"taxes"</span>: <span class="o">[]</span>
+      <span class="o">}</span>,
+      <span class="o">{</span>
+        <span class="s2">"id"</span>: 8,
+        <span class="s2">"stored_item"</span>: null,
+        <span class="s2">"plan"</span>: null,
+        <span class="s2">"type"</span>: <span class="s2">"service"</span>,
+        <span class="s2">"name"</span>: <span class="s2">"Delivery"</span>,
+        <span class="s2">"description"</span>: <span class="s2">""</span>,
+        <span class="s2">"quantity"</span>: 1,
+        <span class="s2">"unit_cost"</span>: 10,
+        <span class="s2">"amount"</span>: 10,
+        <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+        <span class="s2">"taxes"</span>: <span class="o">[]</span>
+      <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"terms"</span>: null,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"subtotal"</span>: 55,
+    <span class="s2">"discounts"</span>: <span class="o">[]</span>,
+    <span class="s2">"taxes"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"id"</span>: 20554,
+        <span class="s2">"amount"</span>: 3.85,
+        <span class="s2">"rate"</span>: null
+      <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">"total"</span>: 51.15,
+    <span class="s2">"balance"</span>: 51.15,
+    <span class="s2">"url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span>,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415229884
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d08 id=46225&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">46225</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15444</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"draft"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"closed"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"paid"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"not_sent"</span><span class="p">,</span>
+    <span class="s2">"chase"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"next_chase_on"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"collection_mode"</span><span class="p">:</span> <span class="s2">"manual"</span><span class="p">,</span>
+    <span class="s2">"attempt_count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"next_payment_attempt"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"subscription"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"number"</span><span class="p">:</span> <span class="s2">"INV-0016"</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1416290400</span><span class="p">,</span>
+    <span class="s2">"due_date"</span><span class="p">:</span> <span class="mi">1417500000</span><span class="p">,</span>
+    <span class="s2">"payment_terms"</span><span class="p">:</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+    <span class="s2">"items"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"product"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Copy Paper, Case"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+        <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+        <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="s2">"stored_item"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"plan"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"service"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"unit_cost"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"terms"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"subtotal"</span><span class="p">:</span> <span class="mi">55</span><span class="p">,</span>
+    <span class="s2">"discounts"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20554</span><span class="p">,</span>
+        <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
+        <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"total"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+    <span class="s2">"balance"</span><span class="p">:</span> <span class="mi">51</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY"</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d09 id=15445&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d10 id=15446&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint retrieves all invoices.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /invoices</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>sort</strong> <em>string</em></td>
+<td>Column to sort by, i.e. <code class="prettyprint">name asc</code></td>
+</tr>
+<tr>
+<td><strong>filter</strong> <em>object</em></td>
+<td>Filter object</td>
+</tr>
+</tbody></table>
+
+          <h1 id="transactions">Transactions</h1>
+
+<p>Transactions can represent a <code class="prettyprint">charge</code>, <code class="prettyprint">payment</code>, <code class="prettyprint">refund</code>, or <code class="prettyprint">adjustment</code>.</p>
+
+<p>We record <code class="prettyprint">charge</code> and <code class="prettyprint">refund</code> transactions for you that happen through Invoiced. The <code class="prettyprint">payment</code> transaction type is designated for recording offline payments like checks. Finally, an <code class="prettyprint">adjustment</code> transaction represents any additional credit or debits to a customer&rsquo;s balance.</p>
+
+<p>Most transactions will be associated with an invoice, however, not all. For example, if you wanted to credit your customer for $20 you would create an <code class="prettyprint">adjustment</code> transaction for -$20 using the customer ID only instead of the invoice ID.</p>
+
+<p>We currently support the following payment methods on transactions:</p>
+
+<ul>
+<li><code class="prettyprint">credit_card</code></li>
+<li><code class="prettyprint">ach</code></li>
+<li><code class="prettyprint">bitcoin</code></li>
+<li><code class="prettyprint">paypal</code></li>
+<li><code class="prettyprint">wire_transfer</code></li>
+<li><code class="prettyprint">check</code></li>
+<li><code class="prettyprint">cash</code></li>
+<li><code class="prettyprint">other</code></li>
+</ul>
+
+<h2 id="transaction-object">Transaction Object</h2>
+
+<h3 id="attributes">Attributes</h3>
+<pre class="highlight shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 20939,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"payment"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 800,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: null,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20939&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"payment"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+<span class="p">}</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><em>integer</em></td>
+<td>The transaction&rsquo;s unique ID</td>
+</tr>
+<tr>
+<td><strong>customer</strong></td>
+<td><em>integer</em></td>
+<td>Associated Customer</td>
+</tr>
+<tr>
+<td><strong>invoice</strong></td>
+<td><em>integer</em></td>
+<td>Associated Invoice, if any</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Transaction date</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Transaction type, <code class="prettyprint">charge</code>, <code class="prettyprint">payment</code>, <code class="prettyprint">refund</code>, or <code class="prettyprint">adjustment</code></td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td><em>string</em></td>
+<td>Payment instrument used to facilitate transaction</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><em>string</em></td>
+<td>Transaction status, one of <code class="prettyprint">succeeded</code>, <code class="prettyprint">pending</code>, or <code class="prettyprint">failed</code></td>
+</tr>
+<tr>
+<td><strong>gateway</strong></td>
+<td><em>string</em></td>
+<td>Payment gateway that processed the transaction, if any</td>
+</tr>
+<tr>
+<td><strong>gateway_id</strong></td>
+<td><em>string</em></td>
+<td>Transaction ID from the payment gateway</td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td><strong>fee</strong></td>
+<td><em>number</em></td>
+<td>Processing fees</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Internal notes</td>
+</tr>
+<tr>
+<td><strong>sent</strong></td>
+<td><em>boolean</em></td>
+<td>Indicates if the transaction receipt has been sent&rsquo;</td>
+</tr>
+<tr>
+<td><strong>parent_transaction</strong></td>
+<td><em>integer</em></td>
+<td>ID of the original transaction for refunds</td>
+</tr>
+<tr>
+<td><strong>pdf_url</strong></td>
+<td><em>string</em></td>
+<td>URL to download the invoice as a PDF</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><em>timestamp</em></td>
+<td>Timestamp when created</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-transaction">Create a transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transaction"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -d <span class="nv">invoice</span><span class="o">=</span>44648 <span class="se">\</span>
+  -d <span class="nv">method</span><span class="o">=</span><span class="s2">"check"</span> <span class="se">\</span>
+  -d <span class="nv">gateway_id</span><span class="o">=</span><span class="s2">"1450"</span> <span class="se">\</span>
+  -d <span class="nv">amount</span><span class="o">=</span>800
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">invoiced</span><span class="o">.</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+  <span class="ss">:invoice</span> <span class="o">=&gt;</span> <span class="mi">44648</span><span class="p">,</span>
+  <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="s2">"check"</span><span class="p">,</span>
+  <span class="ss">:gateway_id</span> <span class="o">=&gt;</span> <span class="s2">"1450"</span><span class="p">,</span>
+  <span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">800</span>
+<span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 20939,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"payment"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: <span class="s2">"1450"</span>,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 800,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: null,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=30939&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"payment"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Create a new transaction with this endpoint.</p>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>customer</strong></td>
+<td><em>integer</em></td>
+<td>Customer ID, required if invoice ID is not supplied</td>
+</tr>
+<tr>
+<td><strong>invoice</strong></td>
+<td><em>integer</em></td>
+<td>Invoice ID, if any</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><em>string</em></td>
+<td>Transaction type, <code class="prettyprint">charge</code>, <code class="prettyprint">payment</code>, <code class="prettyprint">refund</code>, or <code class="prettyprint">adjustment</code> - <strong>required</strong></td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Transaction date, defaults to current timestamp</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td><em>string</em></td>
+<td>Payment instrument used to facilitate transaction, defaults to <code class="prettyprint">other</code></td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><em>string</em></td>
+<td>Transaction status, one of <code class="prettyprint">succeeded</code>, <code class="prettyprint">pending</code>, or <code class="prettyprint">failed</code>, defaults to <code class="prettyprint">succeeded</code></td>
+</tr>
+<tr>
+<td><strong>gateway</strong></td>
+<td><em>string</em></td>
+<td>Payment gateway that processed the transaction, if any</td>
+</tr>
+<tr>
+<td><strong>gateway_id</strong></td>
+<td><em>string</em></td>
+<td>Transaction ID from the payment gateway, or check # if method is <code class="prettyprint">check</code></td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td><strong>fee</strong></td>
+<td><em>number</em></td>
+<td>Processing fees</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Internal notes</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-transaction">Retrieve a transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{TRANSACTION_ID}"</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 20939,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"payment"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 800,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: null,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20939&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"payment"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This endpoint retrieves a specific transaction.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /transactions/:id</code></p>
+
+<h2 id="update-a-transaction">Update a transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -d <span class="nv">notes</span><span class="o">=</span><span class="s2">"Check was received by Jan"</span> <span class="se">\</span>
+  -X PATCH
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">transaction</span><span class="p">.</span><span class="nf">notes</span> <span class="o">=</span> <span class="s2">"Check was received by Jan"</span>
+<span class="n">transaction</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 20939,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"payment"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 800,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: <span class="s2">"Check was received by Jan"</span>,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: null,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20939&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"payment"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="s2">"Check was received by Jan"</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Use this endpoint to update a transaction.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH /transactions/:id</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>date</strong></td>
+<td><em>timestamp</em></td>
+<td>Transaction date, defaults to current timestamp</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td><em>integer</em></td>
+<td>Theme ID for rendering with custom themes</td>
+</tr>
+<tr>
+<td><strong>method</strong></td>
+<td><em>string</em></td>
+<td>Payment instrument used to facilitate transaction, defaults to <code class="prettyprint">other</code></td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><em>string</em></td>
+<td>Transaction status, one of <code class="prettyprint">succeeded</code>, <code class="prettyprint">pending</code>, or <code class="prettyprint">failed</code>, defaults to <code class="prettyprint">succeeded</code></td>
+</tr>
+<tr>
+<td><strong>gateway</strong></td>
+<td><em>string</em></td>
+<td>Payment gateway that processed the transaction, if any</td>
+</tr>
+<tr>
+<td><strong>gateway_id</strong></td>
+<td><em>string</em></td>
+<td>Transaction ID from the payment gateway, or check # if method is <code class="prettyprint">check</code></td>
+</tr>
+<tr>
+<td><strong>currency</strong></td>
+<td><em>string</em></td>
+<td>3-digit ISO 4217 currency code</td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Transaction amount</td>
+</tr>
+<tr>
+<td><strong>fee</strong></td>
+<td><em>number</em></td>
+<td>Processing fees</td>
+</tr>
+<tr>
+<td><strong>notes</strong></td>
+<td><em>string</em></td>
+<td>Internal notes</td>
+</tr>
+</tbody></table>
+
+<h2 id="send-a-receipt">Send a receipt</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id/emails"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X POST
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">send</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"sent"</span>,
+    <span class="s2">"reject_reason"</span>: null,
+    <span class="s2">"email"</span>: <span class="s2">"client@example.com"</span>,
+    <span class="s2">"template"</span>: <span class="s2">"payment_receipt_email"</span>,
+    <span class="s2">"subject"</span>: <span class="s2">"Receipt for your recent payment to Dunder Mifflin, Inc."</span>,
+    <span class="s2">"message"</span>: <span class="s2">"Dear Client, we have attached a receipt for your most recent payment. Thank you!"</span>,
+    <span class="s2">"opens"</span>: 0,
+    <span class="s2">"opens_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"clicks"</span>: 0,
+    <span class="s2">"clicks_detail"</span>: <span class="o">[]</span>,
+    <span class="s2">"created_at"</span>: 1436890047
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"f45382c6fbc44d44aa7f9a55eb2ce731"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"sent"</span><span class="p">,</span>
+    <span class="s2">"reject_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"client@example.com"</span><span class="p">,</span>
+    <span class="s2">"template"</span><span class="p">:</span> <span class="s2">"payment_receipt_email"</span><span class="p">,</span>
+    <span class="s2">"subject"</span><span class="p">:</span> <span class="s2">"Receipt for your recent payment to Dunder Mifflin, Inc."</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"Dear Client, we have attached a receipt for your most recent payment. Thank you!"</span><span class="p">,</span>
+    <span class="s2">"opens"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"opens_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"clicks"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"clicks_detail"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1436890047</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint sends a PDF receipt to the customer.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /transactions/:id/emails</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>to</strong></td>
+<td><em>array</em></td>
+<td>Optional array of recipients like:<br/><code class="prettyprint">[{&quot;name&quot;: &quot;Client&quot;, &quot;email&quot;: &quot;client@example.com&quot;}]</code></td>
+</tr>
+<tr>
+<td><strong>bcc</strong></td>
+<td><em>string</em></td>
+<td>Optional comma-separated list of email addresses to be blind carbon copied</td>
+</tr>
+<tr>
+<td><strong>subject</strong></td>
+<td><em>string</em></td>
+<td>Optional subject</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td><em>string</em></td>
+<td>Optional message body, otherwise the <em>Payment Receipt Email</em> template is used</td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
+<h2 id="refund-a-transaction">Refund a transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id/emails"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X POST
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">{</span>
+<span class="s2">"id"</span>: 20952,
+<span class="s2">"customer"</span>: 15460,
+<span class="s2">"invoice"</span>: 44648,
+<span class="s2">"theme"</span>: null,
+<span class="s2">"date"</span>: 1410843600,
+<span class="s2">"type"</span>: <span class="s2">"refund"</span>,
+<span class="s2">"method"</span>: <span class="s2">"check"</span>,
+<span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+<span class="s2">"gateway"</span>: null,
+<span class="s2">"gateway_id"</span>: null,
+<span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+<span class="s2">"amount"</span>: 400,
+<span class="s2">"fee"</span>: 0,
+<span class="s2">"notes"</span>: null,
+<span class="s2">"sent"</span>: <span class="nb">false</span>,
+<span class="s2">"failure_reason"</span>: null,
+<span class="s2">"parent_transaction"</span>: 20939,
+<span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span>,
+<span class="s2">"created_at"</span>: 1415228628
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20952&gt; JSON: {</span>
+<span class="s2">"id"</span><span class="p">:</span> <span class="mi">20952</span><span class="p">,</span>
+<span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+<span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+<span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+<span class="s2">"type"</span><span class="p">:</span> <span class="s2">"refund"</span><span class="p">,</span>
+<span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+<span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+<span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+<span class="s2">"amount"</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+<span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+<span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+<span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+<span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span><span class="p">,</span>
+<span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>You can issue a refund for <code class="prettyprint">charge</code> and <code class="prettyprint">payment</code> transactions. When a refund is issued for a <code class="prettyprint">charge</code> transaction we will attempt to initiate the refund over the payment gateway it happened on.</p>
+
+<p>Of course, when refunding <code class="prettyprint">payment</code> transactions you would have to return the money to your customer. This endpoint simply provides a means to track any refunds that you issue for offline payments.</p>
+
+<p>Partial refunds are allowed, however, the total amount refunded cannot exceed the original transaction amount.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /transactions/:id/refunds</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>amount</strong></td>
+<td><em>number</em></td>
+<td>Amount to refund - <strong>required</strong></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+We will initiate the refund through the payment gateway for <code>charge</code> transactions that have a valid payment gateway attached.
+</aside>
+
+<h2 id="delete-a-transaction">Delete a transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
+  -X DELETE
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">transaction</span><span class="p">.</span><span class="nf">delete</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns <code class="prettyprint">204 No Content</code></p>
+</blockquote>
+
+<p>This endpoint deletes a specific transaction.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /transactions/:id</code></p>
+
+<h2 id="list-all-transactions">List all transactions</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions"</span> <span class="se">\</span>
+  -u <span class="o">{</span>API_KEY<span class="o">}</span>:
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">transactions</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: 20939,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"payment"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 800,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: null,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
+  <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>,
+  <span class="o">{</span> ... <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="p">[</span>
+  <span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20939&gt; JSON: {</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"payment"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+  <span class="p">},</span>
+  <span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d09 id=20940&gt; JSON: { ... },</span>
+  <span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d10 id=20941&gt; JSON: { ... }</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>This endpoint retrieves all transactions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /transactions</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>sort</strong> <em>string</em></td>
+<td>Column to sort by, i.e. <code class="prettyprint">name asc</code></td>
+</tr>
+<tr>
+<td><strong>filter</strong> <em>object</em></td>
+<td>Filter object</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
