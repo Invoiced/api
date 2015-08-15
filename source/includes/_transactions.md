@@ -162,6 +162,10 @@ invoiced.Transaction.create(
 
 Create a new transaction with this endpoint.
 
+### HTTP Request
+
+`POST /transactions`
+
 ### Attributes
 
 Parameter | Type | Description

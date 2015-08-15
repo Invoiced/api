@@ -181,6 +181,10 @@ invoiced.Customer.create(
 
 Create a new customer profile with this endpoint.
 
+### HTTP Request
+
+`POST /customers`
+
 ### Attributes
 
 Parameter | Type | Description

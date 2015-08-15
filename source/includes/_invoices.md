@@ -466,6 +466,10 @@ invoiced.Invoice.create(
 
 Create a new invoice with this endpoint.
 
+### HTTP Request
+
+`POST /invoices`
+
 ### Attributes
 
 Parameter | Type | Description
@@ -810,6 +814,10 @@ invoice.save
 ```
 
 Use this endpoint to update an invoice.
+
+### HTTP Request
+
+`PATCH /invoices/:id`
 
 ### Attributes
 
