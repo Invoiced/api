@@ -3334,7 +3334,7 @@ A successful response means that your email has been added to the send queue.
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">({</span><span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">})</span>
 </code></pre>
 
 <blockquote>
