@@ -420,7 +420,7 @@ curl "https://api.invoiced.com/transactions/:id/refunds" \
 ```
 
 ```ruby
-transaction = transaction.refund(400)
+transaction = transaction.refund({:amount => 400})
 ```
 
 > The above command returns JSON structured like this:
