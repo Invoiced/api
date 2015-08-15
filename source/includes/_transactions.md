@@ -345,7 +345,7 @@ curl "https://api.invoiced.com/transactions/:id/emails" \
 ```
 
 ```ruby
-emails, metadata = transaction.send
+emails = transaction.send
 ```
 
 > The above command returns JSON structured like this:
@@ -414,62 +414,62 @@ A successful response means that your email has been added to the send queue.
 ## Refund a transaction
 
 ```shell
-curl "https://api.invoiced.com/transactions/:id/emails" \
+curl "https://api.invoiced.com/transactions/:id/refunds" \
   -u {API_KEY}: \
   -X POST
 ```
 
 ```ruby
-emails, metadata = transaction.refund(400)
+transaction = transaction.refund(400)
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
 {
-"id": 20952,
-"customer": 15460,
-"invoice": 44648,
-"theme": null,
-"date": 1410843600,
-"type": "refund",
-"method": "check",
-"status": "succeeded",
-"gateway": null,
-"gateway_id": null,
-"currency": "usd",
-"amount": 400,
-"fee": 0,
-"notes": null,
-"sent": false,
-"failure_reason": null,
-"parent_transaction": 20939,
-"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-"created_at": 1415228628
+	"id": 20952,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "refund",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 400,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": 20939,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+	"created_at": 1415228628
 }
 ```
 
 ```ruby
 #<Invoiced::Transaction:0x3fdbf95e4d08 id=20952> JSON: {
-"id": 20952,
-"customer": 15460,
-"invoice": 44648,
-"theme": null,
-"date": 1410843600,
-"type": "refund",
-"method": "check",
-"status": "succeeded",
-"gateway": null,
-"gateway_id": null,
-"currency": "usd",
-"amount": 400,
-"fee": 0,
-"notes": null,
-"sent": false,
-"failure_reason": null,
-"parent_transaction": 20939,
-"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-"created_at": 1415228628
+	"id": 20952,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "refund",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 400,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": 20939,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+	"created_at": 1415228628
 }
 ```
 

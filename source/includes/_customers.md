@@ -530,7 +530,7 @@ curl "https://api.invoiced.com/customers/:id/emails" \
 ```
 
 ```ruby
-emails, metadata = customer.send_statement
+emails = customer.send_statement
 ```
 
 > The above command returns JSON structured like this:
