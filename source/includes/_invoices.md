@@ -1035,6 +1035,10 @@ invoice.pay
 
 When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.
 
+### HTTP Request
+
+`POST /invoices/:id/pay`
+
 <aside class="warning">
 We can only collect on invoices in `auto` collection mode with a customer that has a valid payment source attached.
 </aside>
