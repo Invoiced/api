@@ -449,6 +449,10 @@ You must replace <code>{API_KEY}</code> with your account API key.
 
 <p>Create a new customer profile with this endpoint.</p>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /customers</code></p>
+
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -939,7 +943,7 @@ You must replace <code>{API_KEY}</code> with your account API key.
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">send_statement</span>
+<pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">send_statement</span>
 </code></pre>
 
 <blockquote>
@@ -1798,6 +1802,10 @@ A successful response means that your email has been added to the send queue.
 
 <p>Create a new invoice with this endpoint.</p>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /invoices</code></p>
+
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -2219,6 +2227,10 @@ A successful response means that your email has been added to the send queue.
 
 <p>Use this endpoint to update an invoice.</p>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PATCH /invoices/:id</code></p>
+
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -2315,7 +2327,7 @@ A successful response means that your email has been added to the send queue.
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoice</span><span class="p">.</span><span class="nf">send</span>
+<pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">invoice</span><span class="p">.</span><span class="nf">send</span>
 </code></pre>
 
 <blockquote>
@@ -2522,6 +2534,10 @@ A successful response means that your email has been added to the send queue.
 </code></pre>
 
 <p>When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /invoices/:id/pay</code></p>
 
 <aside class="warning">
 We can only collect on invoices in `auto` collection mode with a customer that has a valid payment source attached.
@@ -2956,6 +2972,10 @@ We can only collect on invoices in `auto` collection mode with a customer that h
 
 <p>Create a new transaction with this endpoint.</p>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /transactions</code></p>
+
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -3223,7 +3243,7 @@ We can only collect on invoices in `auto` collection mode with a customer that h
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">send</span>
+<pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">send</span>
 </code></pre>
 
 <blockquote>
@@ -3310,58 +3330,58 @@ A successful response means that your email has been added to the send queue.
 </aside>
 
 <h2 id="refund-a-transaction">Refund a transaction</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id/emails"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.invoiced.com/transactions/:id/refunds"</span> <span class="se">\</span>
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">emails</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="o">{</span>
-<span class="s2">"id"</span>: 20952,
-<span class="s2">"customer"</span>: 15460,
-<span class="s2">"invoice"</span>: 44648,
-<span class="s2">"theme"</span>: null,
-<span class="s2">"date"</span>: 1410843600,
-<span class="s2">"type"</span>: <span class="s2">"refund"</span>,
-<span class="s2">"method"</span>: <span class="s2">"check"</span>,
-<span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
-<span class="s2">"gateway"</span>: null,
-<span class="s2">"gateway_id"</span>: null,
-<span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
-<span class="s2">"amount"</span>: 400,
-<span class="s2">"fee"</span>: 0,
-<span class="s2">"notes"</span>: null,
-<span class="s2">"sent"</span>: <span class="nb">false</span>,
-<span class="s2">"failure_reason"</span>: null,
-<span class="s2">"parent_transaction"</span>: 20939,
-<span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span>,
-<span class="s2">"created_at"</span>: 1415228628
+    <span class="s2">"id"</span>: 20952,
+    <span class="s2">"customer"</span>: 15460,
+    <span class="s2">"invoice"</span>: 44648,
+    <span class="s2">"theme"</span>: null,
+    <span class="s2">"date"</span>: 1410843600,
+    <span class="s2">"type"</span>: <span class="s2">"refund"</span>,
+    <span class="s2">"method"</span>: <span class="s2">"check"</span>,
+    <span class="s2">"status"</span>: <span class="s2">"succeeded"</span>,
+    <span class="s2">"gateway"</span>: null,
+    <span class="s2">"gateway_id"</span>: null,
+    <span class="s2">"currency"</span>: <span class="s2">"usd"</span>,
+    <span class="s2">"amount"</span>: 400,
+    <span class="s2">"fee"</span>: 0,
+    <span class="s2">"notes"</span>: null,
+    <span class="s2">"sent"</span>: <span class="nb">false</span>,
+    <span class="s2">"failure_reason"</span>: null,
+    <span class="s2">"parent_transaction"</span>: 20939,
+    <span class="s2">"pdf_url"</span>: <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span>,
+    <span class="s2">"created_at"</span>: 1415228628
 <span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d08 id=20952&gt; JSON: {</span>
-<span class="s2">"id"</span><span class="p">:</span> <span class="mi">20952</span><span class="p">,</span>
-<span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
-<span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
-<span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
-<span class="s2">"type"</span><span class="p">:</span> <span class="s2">"refund"</span><span class="p">,</span>
-<span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
-<span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
-<span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
-<span class="s2">"amount"</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
-<span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
-<span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-<span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
-<span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span><span class="p">,</span>
-<span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">20952</span><span class="p">,</span>
+    <span class="s2">"customer"</span><span class="p">:</span> <span class="mi">15460</span><span class="p">,</span>
+    <span class="s2">"invoice"</span><span class="p">:</span> <span class="mi">44648</span><span class="p">,</span>
+    <span class="s2">"theme"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1410843600</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"refund"</span><span class="p">,</span>
+    <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"check"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"succeeded"</span><span class="p">,</span>
+    <span class="s2">"gateway"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"usd"</span><span class="p">,</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+    <span class="s2">"fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"notes"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"sent"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">"parent_transaction"</span><span class="p">:</span> <span class="mi">20939</span><span class="p">,</span>
+    <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
 </code></pre>
 
