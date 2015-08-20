@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","ruby"]);
+          setupLanguages(["shell","ruby","php"]);
         });
       </script>
   </head>
@@ -30,6 +30,7 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="php">php</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -66,7 +67,8 @@
 
 <ul>
 <li><a href="https://github.com/Invoiced/invoiced-ruby">Ruby</a></li>
-<li><a href="https://github.com/Invoiced/go-invoiced-api">Go</a></li>
+<li><a href="https://github.com/Invoiced/invoiced-php">PHP</a></li>
+<li><a href="https://github.com/Invoiced/invoiced-go">Go</a></li>
 </ul>
 
 <h3 id="getting-help-or-contributing">Getting Help or Contributing</h3>
@@ -91,6 +93,10 @@
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"invoiced"</span>
 <span class="n">invoiced</span> <span class="o">=</span> <span class="no">Invoiced</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"{YOUR_API_KEY}"</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoiced</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Invoiced\Client</span><span class="p">(</span><span class="s2">"</span><span class="si">{</span><span class="nv">YOUR_API_KEY</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
 </code></pre>
 
 <p>The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization</p>
@@ -177,6 +183,11 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="ss">:customer</span> <span class="o">=&gt;</span> <span class="mi">1234</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>"filter" =&gt; [
+  "paid" =&gt; false,
+  "customer" =&gt; 1234
+]
+</code></pre>
 
 <p>The <code class="prettyprint">filter</code> parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the <code class="prettyprint">filter</code> parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.</p>
 
@@ -254,6 +265,38 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Customer JSON: {
+  "id": 15444,
+  "name": "Acme",
+  "number": "CUST-0001",
+  "email": "billing@acmecorp.com",
+  "type": "company",
+  "collection_mode": "auto",
+  "payment_terms": null,
+  "payment_source": {
+    "id": 850,
+    "brand": "Visa",
+    "last4": 4242,
+    "exp_month": 2,
+    "exp_year": 20,
+    "funding": "credit"
+  },
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
 </code></pre>
 
 <table><thead>
@@ -392,6 +435,16 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"company"</span>
 <span class="p">)</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Customer</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">([</span>
+  <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s2">"Acme"</span><span class="p">,</span>
+  <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s2">"billing@acmecorp.com"</span><span class="p">,</span>
+  <span class="s1">'collection_mode'</span> <span class="o">=&gt;</span> <span class="s2">"manual"</span><span class="p">,</span>
+  <span class="s1">'payment_terms'</span> <span class="o">=&gt;</span> <span class="s2">"NET 30"</span><span class="p">,</span>
+  <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s2">"company"</span>
+<span class="p">]);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -445,6 +498,31 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
 </code></pre>
 
 <p>Create a new customer profile with this endpoint.</p>
@@ -565,6 +643,10 @@ You must replace <code>{API_KEY}</code> with your account API key.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">customer</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Customer</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{CUSTOMER_ID}"</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$customer</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Customer</span><span class="o">-&gt;</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"</span><span class="si">{</span><span class="nv">CUSTOMER_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -619,6 +701,31 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+</code></pre>
 
 <p>This endpoint retrieves a specific customer.</p>
 
@@ -650,6 +757,19 @@ You must replace <code>{API_KEY}</code> with your account API key.
 <span class="n">customer</span><span class="p">.</span><span class="nf">phone</span> <span class="o">=</span> <span class="s2">"(820) 297-2983"</span>
 <span class="n">customer</span><span class="p">.</span><span class="nf">website</span> <span class="o">=</span> <span class="s2">"acmecorp.com"</span>
 <span class="n">customer</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">payment_terms</span> <span class="o">=</span> <span class="s2">"NET 14"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">attention_to</span> <span class="o">=</span> <span class="s2">"Sarah Fisher"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">address1</span> <span class="o">=</span> <span class="s2">"342 Amber St"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">city</span> <span class="o">=</span> <span class="s2">"Hill Valley"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">state</span> <span class="o">=</span> <span class="s2">"CA"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">postal_code</span> <span class="o">=</span> <span class="s2">"94523"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">tax_id</span> <span class="o">=</span> <span class="s2">"893-934835"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">phone</span> <span class="o">=</span> <span class="s2">"(820) 297-2983"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">website</span> <span class="o">=</span> <span class="s2">"acmecorp.com"</span><span class="p">;</span>
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -704,6 +824,31 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="s2">"statement_pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/statements/15444/pdf"</span><span class="p">,</span>
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415222128</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 14",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
+  "address2": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
+  "country": "United States",
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
+  "other_phone": null,
+  "website": "acmecorp.com",
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
 </code></pre>
 
 <p>Use this endpoint to update a customer profile.</p>
@@ -824,6 +969,10 @@ You must replace <code>{API_KEY}</code> with your account API key.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">subscriptions</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">subscriptions</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">list</span><span class="p">(</span><span class="nv">$subscriptions</span><span class="p">,</span> <span class="nv">$metadata</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">subscriptions</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -886,6 +1035,35 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="p">}</span>
 <span class="p">]</span>
 </code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Subscription JSON: {
+      "id": 412,
+      "customer": 15444,
+      "plan": 418,
+      "start_date": 1415230038,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438813638,
+      "renewed_last": 1436135238,
+      "status": "past_due",
+      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
+      "created_at": 1415230041
+  },
+  Invoiced\Subscription JSON: {
+      "id": 595,
+      "customer": 15444,
+      "plan": 420,
+      "start_date": 1425572792,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438788392,
+      "renewed_last": 1436109992,
+      "status": "active",
+      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "created_at": 1425572798
+  }
+]
+</code></pre>
 
 <p>This endpoint lists all the subscriptions for a specific customer.</p>
 
@@ -915,6 +1093,10 @@ You must replace <code>{API_KEY}</code> with your account API key.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">customer</span><span class="p">.</span><span class="nf">balance</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">balance</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -931,6 +1113,12 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="ss">:total_outstanding</span> <span class="o">=&gt;</span> <span class="mi">470</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>stdClass {
+  "available_credits": 50,
+  "past_due": false,
+  "total_outstanding": 470
+}
+</code></pre>
 
 <p>This endpoint calculates the customer&rsquo;s current balance.</p>
 
@@ -944,6 +1132,10 @@ You must replace <code>{API_KEY}</code> with your account API key.
   -X POST
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">customer</span><span class="p">.</span><span class="nf">send_statement</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$emails</span> <span class="o">=</span> <span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">sendStatement</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -986,6 +1178,25 @@ You must replace <code>{API_KEY}</code> with your account API key.
   <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
   <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
 <span class="p">]</span>
+</code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "statement_email",
+    "subject": "Statement from Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached your latest account statement. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
 </code></pre>
 
 <p>This endpoint sends a PDF account statement to a customer.</p>
@@ -1036,6 +1247,10 @@ A successful response means that your email has been added to the send queue.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">customer</span><span class="p">.</span><span class="nf">delete</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$customer</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns <code class="prettyprint">204 No Content</code></p>
@@ -1052,6 +1267,10 @@ A successful response means that your email has been added to the send queue.
   -u <span class="o">{</span>API_KEY<span class="o">}</span>:
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">customers</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Customer</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">list</span><span class="p">(</span><span class="nv">$customers</span><span class="p">,</span> <span class="nv">$metadata</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Customer</span><span class="o">-&gt;</span><span class="na">list</span><span class="p">([</span><span class="s1">'per_page'</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">]);</span>
 </code></pre>
 
 <blockquote>
@@ -1114,6 +1333,35 @@ A successful response means that your email has been added to the send queue.
   <span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d09 id=15445&gt; JSON: { ... },</span>
   <span class="c1">#&lt;Invoiced::Customer:0x3fdbf95e4d10 id=15446&gt; JSON: { ... }</span>
 <span class="p">]</span>
+</code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Customer JSON: {
+    "id": 15444,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "email": "billing@acmecorp.com",
+    "collection_mode": "manual",
+    "payment_terms": "NET 30",
+    "payment_source": null,
+    "type": "company",
+    "attention_to": "Sarah Fisher",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null,
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "created_at": 1415222128
+  },
+  Invoiced\Customer JSON: { ... },
+  Invoiced\Customer JSON: { ... }
+]
 </code></pre>
 
 <p>This endpoint retrieves all customers.</p>
@@ -1282,6 +1530,73 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
 </code></pre>
 
 <table><thead>
@@ -1479,6 +1794,20 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"taxes"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\LineItem JSON: {
+  "id": 8,
+  "stored_item": null,
+  "plan": null,
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
+  "discounts": [],
+  "taxes": []
+}
+</code></pre>
 
 <table><thead>
 <tr>
@@ -1559,6 +1888,12 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Discount JSON: {
+  "id": 20553,
+  "amount": 5,
+  "rate": null
+}
+</code></pre>
 
 <table><thead>
 <tr>
@@ -1598,6 +1933,12 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">3</span><span class="o">.</span><span class="mi">85</span><span class="p">,</span>
   <span class="s2">"rate"</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Tax JSON: {
+  "id": 20554,
+  "amount": 3.85,
+  "rate": null
+}
 </code></pre>
 
 <table><thead>
@@ -1660,6 +2001,31 @@ A successful response means that your email has been added to the send queue.
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoice</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Invoice</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">([</span>
+  <span class="s1">'customer'</span> <span class="o">=&gt;</span> <span class="mi">15444</span><span class="p">,</span>
+  <span class="s1">'payment_terms'</span> <span class="o">=&gt;</span> <span class="s2">"NET 14"</span><span class="p">,</span>
+  <span class="s1">'items'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s2">"Copy paper, Case"</span><span class="p">,</span>
+      <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s1">'unit_cost'</span> <span class="o">=&gt;</span> <span class="mi">45</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="s1">'type'</span> <span class="o">=&gt;</span> <span class="s2">"service"</span><span class="p">,</span>
+      <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s2">"Delivery"</span><span class="p">,</span>
+      <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s1">'unit_cost'</span> <span class="o">=&gt;</span> <span class="mi">45</span>
+    <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s1">'taxes'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mf">3.85</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]);</span>
 </code></pre>
 
 <blockquote>
@@ -1798,6 +2164,73 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
 </code></pre>
 
 <p>Create a new invoice with this endpoint.</p>
@@ -1913,6 +2346,10 @@ A successful response means that your email has been added to the send queue.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">invoice</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{INVOICE_ID}"</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoice</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Invoice</span><span class="o">-&gt;</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"</span><span class="si">{</span><span class="nv">INVOICE_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2051,6 +2488,73 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+</code></pre>
 
 <p>This endpoint retrieves a specific invoice.</p>
 
@@ -2085,6 +2589,13 @@ A successful response means that your email has been added to the send queue.
 <span class="n">invoice</span><span class="p">.</span><span class="nf">notes</span> <span class="o">=</span> <span class="s2">"The order was delivered on Jul 20, 2015"</span>
 <span class="n">invoice</span><span class="p">.</span><span class="nf">sent</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="n">invoice</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s2">"July Paper Delivery"</span><span class="p">;</span>
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">notes</span> <span class="o">=</span> <span class="s2">"The order was delivered on Jul 20, 2015"</span><span class="p">;</span>
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">sent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -2224,6 +2735,73 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229884</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+</code></pre>
 
 <p>Use this endpoint to update an invoice.</p>
 
@@ -2329,6 +2907,10 @@ A successful response means that your email has been added to the send queue.
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">invoice</span><span class="p">.</span><span class="nf">send</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$emails</span> <span class="o">=</span> <span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2370,6 +2952,25 @@ A successful response means that your email has been added to the send queue.
   <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
   <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
 <span class="p">]</span>
+</code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "new_invoice_email",
+    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
 </code></pre>
 
 <p>This endpoint sends an invoice to your customer.</p>
@@ -2419,6 +3020,10 @@ A successful response means that your email has been added to the send queue.
   -X POST
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">invoice</span><span class="p">.</span><span class="nf">pay</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">pay</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -2532,6 +3137,60 @@ A successful response means that your email has been added to the send queue.
   <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415229885</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Invoice JSON: {
+  "id": 46226,
+  "customer": 15446,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": true,
+  "status": "paid",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "auto",
+  "attempt_count": 1,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0017",
+  "date": 1416290402,
+  "due_date": null,
+  "payment_terms": "Auto-Charged",
+  "items": [
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 5,
+      "unit_cost": 45,
+      "amount": 225,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 225,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 228.85,
+  "balance": 228.85,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
+  "created_at": 1415229885
+}
+</code></pre>
 
 <p>When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.</p>
 
@@ -2550,6 +3209,10 @@ We can only collect on invoices in `auto` collection mode with a customer that h
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">invoice</span><span class="p">.</span><span class="nf">delete</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoice</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns <code class="prettyprint">204 No Content</code></p>
@@ -2566,6 +3229,10 @@ We can only collect on invoices in `auto` collection mode with a customer that h
   -u <span class="o">{</span>API_KEY<span class="o">}</span>:
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">invoices</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Invoice</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">list</span><span class="p">(</span><span class="nv">$invoices</span><span class="p">,</span> <span class="nv">$metadata</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Invoice</span><span class="o">-&gt;</span><span class="na">list</span><span class="p">([</span><span class="s1">'per_page'</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">]);</span>
 </code></pre>
 
 <blockquote>
@@ -2713,6 +3380,77 @@ We can only collect on invoices in `auto` collection mode with a customer that h
   <span class="c1">#&lt;Invoiced::Invoice:0x3fdbf95e4d10 id=15446&gt; JSON: { ... }</span>
 <span class="p">]</span>
 </code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Invoice JSON: {
+    "id": 46225,
+    "customer": 15444,
+    "name": null,
+    "currency": "usd",
+    "draft": false,
+    "sent": false,
+    "closed": false,
+    "paid": false,
+    "status": "not_sent",
+    "chase": false,
+    "next_chase_on": null,
+    "collection_mode": "manual",
+    "attempt_count": 0,
+    "next_payment_attempt": null,
+    "theme": null,
+    "subscription": null,
+    "number": "INV-0016",
+    "date": 1416290400,
+    "due_date": 1417500000,
+    "payment_terms": "NET 14",
+    "items": [
+      {
+        "id": 7,
+        "stored_item": null,
+        "plan": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discounts": [],
+        "taxes": []
+      },
+      {
+        "id": 8,
+        "stored_item": null,
+        "plan": null,
+        "type": "service",
+        "name": "Delivery",
+        "description": "",
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discounts": [],
+        "taxes": []
+      }
+    ],
+    "terms": null,
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "amount": 3.85,
+        "rate": null
+      }
+    ],
+    "total": 51.15,
+    "balance": 51.15,
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415229884
+  },
+  Invoiced\Invoice JSON: { ... },
+  Invoiced\Invoice JSON: { ... }
+]
+</code></pre>
 
 <p>This endpoint retrieves all invoices.</p>
 
@@ -2805,6 +3543,28 @@ We can only collect on invoices in `auto` collection mode with a customer that h
     <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Transaction JSON: {
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 800,
+    "fee": 0,
+    "notes": null,
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": null,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
+}
 </code></pre>
 
 <table><thead>
@@ -2921,6 +3681,15 @@ We can only collect on invoices in `auto` collection mode with a customer that h
   <span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">800</span>
 <span class="p">)</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Transaction</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">([</span>
+  <span class="s1">'invoice'</span> <span class="o">=&gt;</span> <span class="mi">44648</span><span class="p">,</span>
+  <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s2">"check"</span><span class="p">,</span>
+  <span class="s1">'gateway_id'</span> <span class="o">=&gt;</span> <span class="s2">"1450"</span><span class="p">,</span>
+  <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mi">800</span>
+<span class="p">]);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2968,6 +3737,28 @@ We can only collect on invoices in `auto` collection mode with a customer that h
     <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Transaction JSON: {
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 800,
+    "fee": 0,
+    "notes": null,
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": null,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
+}
 </code></pre>
 
 <p>Create a new transaction with this endpoint.</p>
@@ -3058,6 +3849,10 @@ We can only collect on invoices in `auto` collection mode with a customer that h
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">retrieve</span><span class="p">(</span><span class="s2">"{TRANSACTION_ID}"</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$transaction</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Transaction</span><span class="o">-&gt;</span><span class="na">retrieve</span><span class="p">(</span><span class="s2">"</span><span class="si">{</span><span class="nv">TRANSACTION_ID</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3106,6 +3901,28 @@ We can only collect on invoices in `auto` collection mode with a customer that h
     <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Transaction JSON: {
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 800,
+    "fee": 0,
+    "notes": null,
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": null,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
+}
+</code></pre>
 
 <p>This endpoint retrieves a specific transaction.</p>
 
@@ -3121,6 +3938,11 @@ We can only collect on invoices in `auto` collection mode with a customer that h
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">transaction</span><span class="p">.</span><span class="nf">notes</span> <span class="o">=</span> <span class="s2">"Check was received by Jan"</span>
 <span class="n">transaction</span><span class="p">.</span><span class="nf">save</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$transaction</span><span class="o">-&gt;</span><span class="na">notes</span> <span class="o">=</span> <span class="s2">"Check was received by Jan"</span><span class="p">;</span>
+<span class="nv">$transaction</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -3169,6 +3991,28 @@ We can only collect on invoices in `auto` collection mode with a customer that h
     <span class="s2">"pdf_url"</span><span class="p">:</span> <span class="s2">"https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
+</code></pre>
+<pre class="highlight php"><code>Invoiced\Transaction JSON: {
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 800,
+    "fee": 0,
+    "notes": "Check was received by Jan",
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": null,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
+}
 </code></pre>
 
 <p>Use this endpoint to update a transaction.</p>
@@ -3245,6 +4089,10 @@ We can only collect on invoices in `auto` collection mode with a customer that h
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">send</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$emails</span> <span class="o">=</span> <span class="nv">$transaction</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3286,6 +4134,25 @@ We can only collect on invoices in `auto` collection mode with a customer that h
   <span class="c1">#&lt;Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"&gt; JSON: { ... },</span>
   <span class="c1">#&lt;Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"&gt; JSON: { ... }</span>
 <span class="p">]</span>
+</code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
 </code></pre>
 
 <p>This endpoint sends a PDF receipt to the customer.</p>
@@ -3334,7 +4201,11 @@ A successful response means that your email has been added to the send queue.
   -u <span class="o">{</span>API_KEY<span class="o">}</span>: <span class="se">\</span>
   -X POST
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">({</span><span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">})</span>
+<pre class="highlight ruby"><code><span class="n">transaction</span> <span class="o">=</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">refund</span><span class="p">(</span><span class="ss">:amount</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$refund</span> <span class="o">=</span> <span class="nv">$transaction</span><span class="o">-&gt;</span><span class="na">refund</span><span class="p">([</span><span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mi">400</span><span class="p">]);</span>
 </code></pre>
 
 <blockquote>
@@ -3384,6 +4255,28 @@ A successful response means that your email has been added to the send queue.
     <span class="s2">"created_at"</span><span class="p">:</span> <span class="mi">1415228628</span>
 <span class="p">}</span>
 </code></pre>
+<pre class="highlight php"><code>Invoiced\Transaction JSON: {
+    "id": 20952,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "refund",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 400,
+    "fee": 0,
+    "notes": null,
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": 20939,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+    "created_at": 1415228628
+}
+</code></pre>
 
 <p>You can issue a refund for <code class="prettyprint">charge</code> and <code class="prettyprint">payment</code> transactions. When a refund is issued for a <code class="prettyprint">charge</code> transaction we will attempt to initiate the refund over the payment gateway it happened on.</p>
 
@@ -3422,6 +4315,10 @@ We will initiate the refund through the payment gateway for <code>charge</code> 
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">transaction</span><span class="p">.</span><span class="nf">delete</span>
 </code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$transaction</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns <code class="prettyprint">204 No Content</code></p>
@@ -3438,6 +4335,10 @@ We will initiate the refund through the payment gateway for <code>charge</code> 
   -u <span class="o">{</span>API_KEY<span class="o">}</span>:
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">transactions</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">invoiced</span><span class="o">.</span><span class="no">Transaction</span><span class="p">.</span><span class="nf">list</span><span class="p">(</span><span class="ss">:per_page</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="k">list</span><span class="p">(</span><span class="nv">$transactions</span><span class="p">,</span> <span class="nv">$metadata</span><span class="p">)</span> <span class="o">=</span> <span class="nv">$invoiced</span><span class="o">-&gt;</span><span class="na">Transaction</span><span class="o">-&gt;</span><span class="na">list</span><span class="p">([</span><span class="s1">'per_page'</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">]);</span>
 </code></pre>
 
 <blockquote>
@@ -3495,6 +4396,32 @@ We will initiate the refund through the payment gateway for <code>charge</code> 
   <span class="c1">#&lt;Invoiced::Transaction:0x3fdbf95e4d10 id=20941&gt; JSON: { ... }</span>
 <span class="p">]</span>
 </code></pre>
+<pre class="highlight php"><code>[
+  Invoiced\Transaction JSON: {
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "theme": null,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway": null,
+    "gateway_id": null,
+    "currency": "usd",
+    "amount": 800,
+    "fee": 0,
+    "notes": null,
+    "sent": false,
+    "failure_reason": null,
+    "parent_transaction": null,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
+  },
+  Invoiced\Transaction JSON: { ... },
+  Invoiced\Transaction JSON: { ... }
+]
+</code></pre>
 
 <p>This endpoint retrieves all transactions.</p>
 
@@ -3525,6 +4452,7 @@ We will initiate the refund through the payment gateway for <code>charge</code> 
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="php">php</a>
           </div>
       </div>
     </div>
