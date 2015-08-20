@@ -76,6 +76,40 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 }
 ```
 
+```php
+Invoiced\Customer JSON: {
+  "id": 15444,
+  "name": "Acme",
+  "number": "CUST-0001",
+  "email": "billing@acmecorp.com",
+  "type": "company",
+  "collection_mode": "auto",
+  "payment_terms": null,
+  "payment_source": {
+    "id": 850,
+    "brand": "Visa",
+    "last4": 4242,
+    "exp_month": 2,
+    "exp_year": 20,
+    "funding": "credit"
+  },
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
@@ -123,6 +157,18 @@ invoiced.Customer.create(
 )
 ```
 
+```php
+<?php
+
+$invoiced->Customer->create([
+  'name' => "Acme",
+  'email' => "billing@acmecorp.com",
+  'collection_mode' => "manual",
+  'payment_terms' => "NET 30",
+  'type' => "company"
+]);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -154,6 +200,33 @@ invoiced.Customer.create(
 
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
+```php
+Invoiced\Customer JSON: {
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
@@ -220,6 +293,12 @@ curl "https://api.invoiced.com/customers/:id" \
 customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
 ```
 
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -251,6 +330,33 @@ customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
 
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
+```php
+Invoiced\Customer JSON: {
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
@@ -312,6 +418,21 @@ customer.website = "acmecorp.com"
 customer.save
 ```
 
+```php
+<?php
+
+$customer->payment_terms = "NET 14";
+$customer->attention_to = "Sarah Fisher";
+$customer->address1 = "342 Amber St";
+$customer->city = "Hill Valley";
+$customer->state = "CA";
+$customer->postal_code = "94523";
+$customer->tax_id = "893-934835";
+$customer->phone = "(820) 297-2983";
+$customer->website = "acmecorp.com";
+$customer->save();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -343,6 +464,33 @@ customer.save
 
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 14",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
+  "address2": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
+  "country": "United States",
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
+  "other_phone": null,
+  "website": "acmecorp.com",
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
+```php
+Invoiced\Customer JSON: {
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
@@ -409,6 +557,12 @@ curl "https://api.invoiced.com/customers/:id/subscriptions" \
 subscriptions, metadata = customer.subscriptions
 ```
 
+```php
+<?php
+
+list($subscriptions, $metadata) = $customer->subscriptions();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -473,6 +627,37 @@ subscriptions, metadata = customer.subscriptions
 ]
 ```
 
+```php
+[
+  Invoiced\Subscription JSON: {
+      "id": 412,
+      "customer": 15444,
+      "plan": 418,
+      "start_date": 1415230038,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438813638,
+      "renewed_last": 1436135238,
+      "status": "past_due",
+      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
+      "created_at": 1415230041
+  },
+  Invoiced\Subscription JSON: {
+      "id": 595,
+      "customer": 15444,
+      "plan": 420,
+      "start_date": 1425572792,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438788392,
+      "renewed_last": 1436109992,
+      "status": "active",
+      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "created_at": 1425572798
+  }
+]
+```
+
 This endpoint lists all the subscriptions for a specific customer.
 
 ### HTTP Request
@@ -497,6 +682,12 @@ curl "https://api.invoiced.com/customers/balance" \
 customer.balance
 ```
 
+```php
+<?php
+
+$customer->balance();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -512,6 +703,14 @@ customer.balance
   :available_credits => 50,
   :past_due => false,
   :total_outstanding => 470
+}
+```
+
+```php
+stdClass {
+  "available_credits": 50,
+  "past_due": false,
+  "total_outstanding": 470
 }
 ```
 
@@ -531,6 +730,12 @@ curl "https://api.invoiced.com/customers/:id/emails" \
 
 ```ruby
 emails = customer.send_statement
+```
+
+```php
+<?php
+
+$emails = $customer->sendStatement();
 ```
 
 > The above command returns JSON structured like this:
@@ -577,6 +782,27 @@ emails = customer.send_statement
 ]
 ```
 
+```php
+[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "statement_email",
+    "subject": "Statement from Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached your latest account statement. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
+```
+
 This endpoint sends a PDF account statement to a customer.
 
 ### HTTP Request
@@ -608,6 +834,12 @@ curl "https://api.invoiced.com/customers/:id" \
 customer.delete
 ```
 
+```php
+<?php
+
+$customer->delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific customer.
@@ -625,6 +857,12 @@ curl "https://api.invoiced.com/customers" \
 
 ```ruby
 customers, metadata = invoiced.Customer.list(:per_page => 3)
+```
+
+```php
+<?php
+
+list($customers, $metadata) = $invoiced->Customer->list(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:
@@ -688,6 +926,37 @@ customers, metadata = invoiced.Customer.list(:per_page => 3)
   },
   #<Invoiced::Customer:0x3fdbf95e4d09 id=15445> JSON: { ... },
   #<Invoiced::Customer:0x3fdbf95e4d10 id=15446> JSON: { ... }
+]
+```
+
+```php
+[
+  Invoiced\Customer JSON: {
+    "id": 15444,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "email": "billing@acmecorp.com",
+    "collection_mode": "manual",
+    "payment_terms": "NET 30",
+    "payment_source": null,
+    "type": "company",
+    "attention_to": "Sarah Fisher",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null,
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "created_at": 1415222128
+  },
+  Invoiced\Customer JSON: { ... },
+  Invoiced\Customer JSON: { ... }
 ]
 ```
 

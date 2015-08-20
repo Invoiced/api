@@ -4,6 +4,7 @@ title: Invoiced API Documentation
 language_tabs:
   - shell
   - ruby
+  - php
 
 toc_footers:
   - <a href='mailto:api@invoiced.com'>Contact Us</a>
@@ -37,7 +38,8 @@ In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/w
 We have client libraries available in several languages. If you don't see your language listed then please contact us and we would be happy to help.
 
 - [Ruby](https://github.com/Invoiced/invoiced-ruby)
-- [Go](https://github.com/Invoiced/go-invoiced-api)
+- [PHP](https://github.com/Invoiced/invoiced-php)
+- [Go](https://github.com/Invoiced/invoiced-go)
 
 ### Getting Help or Contributing
 
@@ -66,6 +68,12 @@ curl https://api.invoiced.com/invoices \
 ```ruby
 require "invoiced"
 invoiced = Invoiced::Client.new("{YOUR_API_KEY}")
+```
+
+```php
+<?php
+
+$invoiced = new Invoiced\Client("{YOUR_API_KEY}");
 ```
 
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
@@ -141,6 +149,13 @@ The `expand` parameter works for any response that has relational properties.
   :paid => false,
   :customer => 1234
 }
+```
+
+```php
+"filter" => [
+  "paid" => false,
+  "customer" => 1234
+]
 ```
 
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.

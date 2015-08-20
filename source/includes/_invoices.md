@@ -146,6 +146,75 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
 }
 ```
 
+```php
+Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The invoice's unique ID
@@ -216,6 +285,22 @@ Parameter | Type | Description
 }
 ```
 
+```php
+Invoiced\LineItem JSON: {
+  "id": 8,
+  "stored_item": null,
+  "plan": null,
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
+  "discounts": [],
+  "taxes": []
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
@@ -250,6 +335,14 @@ Parameter | Type | Description
 }
 ```
 
+```php
+Invoiced\Discount JSON: {
+  "id": 20553,
+  "amount": 5,
+  "rate": null
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The discount's unique ID
@@ -270,6 +363,14 @@ Parameter | Type | Description
 
 ```ruby
 #<Invoiced::Tax:0x3fdbf95e4d08 id=20554> JSON: {
+  "id": 20554,
+  "amount": 3.85,
+  "rate": null
+}
+```
+
+```php
+Invoiced\Tax JSON: {
   "id": 20554,
   "amount": 3.85,
   "rate": null
@@ -322,6 +423,33 @@ invoiced.Invoice.create(
     }
   ]
 )
+```
+
+```php
+<?php
+
+$invoice = $invoiced->Invoice->create([
+  'customer' => 15444,
+  'payment_terms' => "NET 14",
+  'items' => [
+    [
+      'name' => "Copy paper, Case",
+      'quantity' => 1,
+      'unit_cost' => 45
+    ],
+    [
+      'type' => "service",
+      'name' => "Delivery",
+      'quantity' => 1,
+      'unit_cost' => 45
+    ]
+  ],
+  'taxes' => [
+    [
+      'amount' => 3.85
+    ]
+  ]
+]);
 ```
 
 > The above command returns JSON structured like this:
@@ -397,6 +525,75 @@ invoiced.Invoice.create(
 
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
+```php
+Invoiced\Invoice JSON: {
   "id": 46225,
   "customer": 15444,
   "name": null,
@@ -504,6 +701,12 @@ curl "https://api.invoiced.com/invoices/:id" \
 invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
 ```
 
+```php
+<?php
+
+$invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -644,6 +847,75 @@ invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
 }
 ```
 
+```php
+Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 This endpoint retrieves a specific invoice.
 
 ### HTTP Request
@@ -671,6 +943,15 @@ invoice.name = "July Paper Delivery"
 invoice.notes = "The order was delivered on Jul 20, 2015"
 invoice.sent = true
 invoice.save
+```
+
+```php
+<?php
+
+$invoice->name = "July Paper Delivery";
+$invoice->notes = "The order was delivered on Jul 20, 2015";
+$invoice->sent = true;
+$invoice->save();
 ```
 
 > The above command returns JSON structured like this:
@@ -813,6 +1094,75 @@ invoice.save
 }
 ```
 
+```php
+Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 Use this endpoint to update an invoice.
 
 ### HTTP Request
@@ -850,6 +1200,12 @@ curl "https://api.invoiced.com/invoices/:id/emails" \
 
 ```ruby
 emails = invoice.send
+```
+
+```php
+<?php
+
+$emails = $invoice->send();
 ```
 
 > The above command returns JSON structured like this:
@@ -896,6 +1252,27 @@ emails = invoice.send
 ]
 ```
 
+```php
+[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "new_invoice_email",
+    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
+```
+
 This endpoint sends an invoice to your customer.
 
 ### HTTP Request
@@ -925,6 +1302,12 @@ curl "https://api.invoiced.com/invoices/:id/pay" \
 
 ```ruby
 invoice.pay
+```
+
+```php
+<?php
+
+$invoice->pay();
 ```
 
 > The above command returns JSON structured like this:
@@ -1041,6 +1424,62 @@ invoice.pay
 }
 ```
 
+```php
+Invoiced\Invoice JSON: {
+  "id": 46226,
+  "customer": 15446,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": true,
+  "status": "paid",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "auto",
+  "attempt_count": 1,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0017",
+  "date": 1416290402,
+  "due_date": null,
+  "payment_terms": "Auto-Charged",
+  "items": [
+    {
+      "id": 8,
+      "stored_item": null,
+      "plan": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 5,
+      "unit_cost": 45,
+      "amount": 225,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 225,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 228.85,
+  "balance": 228.85,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
+  "created_at": 1415229885
+}
+```
+
 When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.
 
 ### HTTP Request
@@ -1063,6 +1502,12 @@ curl "https://api.invoiced.com/invoices/:id" \
 invoice.delete
 ```
 
+```php
+<?php
+
+$invoice->delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific invoice.
@@ -1080,6 +1525,12 @@ curl "https://api.invoiced.com/invoices" \
 
 ```ruby
 invoices, metadata = invoiced.Invoice.list(:per_page => 3)
+```
+
+```php
+<?php
+
+list($invoices, $metadata) = $invoiced->Invoice->list(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:
@@ -1227,6 +1678,79 @@ invoices, metadata = invoiced.Invoice.list(:per_page => 3)
   },
   #<Invoiced::Invoice:0x3fdbf95e4d09 id=15445> JSON: { ... },
   #<Invoiced::Invoice:0x3fdbf95e4d10 id=15446> JSON: { ... }
+]
+```
+
+```php
+[
+  Invoiced\Invoice JSON: {
+    "id": 46225,
+    "customer": 15444,
+    "name": null,
+    "currency": "usd",
+    "draft": false,
+    "sent": false,
+    "closed": false,
+    "paid": false,
+    "status": "not_sent",
+    "chase": false,
+    "next_chase_on": null,
+    "collection_mode": "manual",
+    "attempt_count": 0,
+    "next_payment_attempt": null,
+    "theme": null,
+    "subscription": null,
+    "number": "INV-0016",
+    "date": 1416290400,
+    "due_date": 1417500000,
+    "payment_terms": "NET 14",
+    "items": [
+      {
+        "id": 7,
+        "stored_item": null,
+        "plan": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discounts": [],
+        "taxes": []
+      },
+      {
+        "id": 8,
+        "stored_item": null,
+        "plan": null,
+        "type": "service",
+        "name": "Delivery",
+        "description": "",
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discounts": [],
+        "taxes": []
+      }
+    ],
+    "terms": null,
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "amount": 3.85,
+        "rate": null
+      }
+    ],
+    "total": 51.15,
+    "balance": 51.15,
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415229884
+  },
+  Invoiced\Invoice JSON: { ... },
+  Invoiced\Invoice JSON: { ... }
 ]
 ```
 

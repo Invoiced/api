@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### August 20, 2015
+
+- Added official PHP client library.
+
 ### July 30, 2015
 
 - The API documentation has been redesigned. It's now viewable at [invoiced.github.io/api](http://invoiced.github.io/api).

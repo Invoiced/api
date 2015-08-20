@@ -69,6 +69,30 @@ We currently support the following payment methods on transactions:
 }
 ```
 
+```php
+Invoiced\Transaction JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The transaction's unique ID
@@ -110,6 +134,17 @@ invoiced.Transaction.create(
 )
 ```
 
+```php
+<?php
+
+$invoiced->Transaction->create([
+  'invoice' => 44648,
+  'method' => "check",
+  'gateway_id' => "1450",
+  'amount' => 800
+]);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -138,6 +173,30 @@ invoiced.Transaction.create(
 
 ```ruby
 #<Invoiced::Transaction:0x3fdbf95e4d08 id=30939> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
+```php
+Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
@@ -195,6 +254,12 @@ curl "https://api.invoiced.com/transactions/:id" \
 transaction = invoiced.Transaction.retrieve("{TRANSACTION_ID}")
 ```
 
+```php
+<?php
+
+$transaction = $invoiced->Transaction->retrieve("{TRANSACTION_ID}");
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -223,6 +288,30 @@ transaction = invoiced.Transaction.retrieve("{TRANSACTION_ID}")
 
 ```ruby
 #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
+```php
+Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
@@ -265,6 +354,13 @@ transaction.notes = "Check was received by Jan"
 transaction.save
 ```
 
+```php
+<?php
+
+$transaction->notes = "Check was received by Jan";
+$transaction->save();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -293,6 +389,30 @@ transaction.save
 
 ```ruby
 #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": "Check was received by Jan",
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
+```php
+Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
@@ -348,6 +468,12 @@ curl "https://api.invoiced.com/transactions/:id/emails" \
 emails = transaction.send
 ```
 
+```php
+<?php
+
+$emails = $transaction->send();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -392,6 +518,27 @@ emails = transaction.send
 ]
 ```
 
+```php
+[
+  Invoiced\Email JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  Invoiced\Email JSON: { ... },
+  Invoiced\Email JSON: { ... }
+]
+```
+
 This endpoint sends a PDF receipt to the customer.
 
 ### HTTP Request
@@ -420,7 +567,13 @@ curl "https://api.invoiced.com/transactions/:id/refunds" \
 ```
 
 ```ruby
-transaction = transaction.refund({:amount => 400})
+transaction = transaction.refund(:amount => 400)
+```
+
+```php
+<?php
+
+$refund = $transaction->refund(['amount' => 400]);
 ```
 
 > The above command returns JSON structured like this:
@@ -451,6 +604,30 @@ transaction = transaction.refund({:amount => 400})
 
 ```ruby
 #<Invoiced::Transaction:0x3fdbf95e4d08 id=20952> JSON: {
+	"id": 20952,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "refund",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 400,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": 20939,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+	"created_at": 1415228628
+}
+```
+
+```php
+Invoiced\Transaction JSON: {
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
@@ -505,6 +682,12 @@ curl "https://api.invoiced.com/transactions/:id" \
 transaction.delete
 ```
 
+```php
+<?php
+
+$transaction->delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific transaction.
@@ -522,6 +705,12 @@ curl "https://api.invoiced.com/transactions" \
 
 ```ruby
 transactions, metadata = invoiced.Transaction.list(:per_page => 3)
+```
+
+```php
+<?php
+
+list($transactions, $metadata) = $invoiced->Transaction->list(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:
@@ -579,6 +768,34 @@ transactions, metadata = invoiced.Transaction.list(:per_page => 3)
   },
   #<Invoiced::Transaction:0x3fdbf95e4d09 id=20940> JSON: { ... },
   #<Invoiced::Transaction:0x3fdbf95e4d10 id=20941> JSON: { ... }
+]
+```
+
+```php
+[
+  Invoiced\Transaction JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+  },
+  Invoiced\Transaction JSON: { ... },
+  Invoiced\Transaction JSON: { ... }
 ]
 ```
 
