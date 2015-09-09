@@ -227,7 +227,7 @@ Parameter | Type | Description
 **sent** | *boolean* | Indicates whether the invoice has been sent
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
 **paid** | *boolean* | Indicates whether an invoice has been paid in full
-**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `paid`, or `overpaid`
+**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`, or `overpaid`
 **chase** | *boolean* | Whether chasing is enabled for the invoice
 **next_chase_on** | *timestamp* | Next scheduled chase
 **attempt_count** | *integer* | # of payment attempts

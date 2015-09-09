@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### September 8, 2015
+
+- Invoices can have `pending` status when there is a pending payment.
+
 ### August 20, 2015
 
 - Added official PHP client library.
