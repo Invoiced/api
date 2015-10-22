@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### October 22, 2015
+
+- Added `start_date` and `end_date` parameters when listing invoices.
+
 ### September 8, 2015
 
 - Invoices can have `pending` status when there is a pending payment.

@@ -1766,3 +1766,5 @@ Parameter | Description
 --------- | -----------
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
+**start_date** *timestamp* | Restricts the results to invoices *on or after* the given timestamp
+**end_date** *timestamp* | Restricts the results to invoices *on or before* the given timestamp
