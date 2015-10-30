@@ -862,7 +862,7 @@ customers, metadata = invoiced.Customer.list(:per_page => 3)
 ```php
 <?php
 
-list($customers, $metadata) = $invoiced->Customer->list(['per_page' => 3]);
+list($customers, $metadata) = $invoiced->Customer->all(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:

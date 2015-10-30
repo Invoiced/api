@@ -710,7 +710,7 @@ transactions, metadata = invoiced.Transaction.list(:per_page => 3)
 ```php
 <?php
 
-list($transactions, $metadata) = $invoiced->Transaction->list(['per_page' => 3]);
+list($transactions, $metadata) = $invoiced->Transaction->all(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:

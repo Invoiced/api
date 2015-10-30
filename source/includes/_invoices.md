@@ -1530,7 +1530,7 @@ invoices, metadata = invoiced.Invoice.list(:per_page => 3)
 ```php
 <?php
 
-list($invoices, $metadata) = $invoiced->Invoice->list(['per_page' => 3]);
+list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
 ```
 
 > The above command returns JSON structured like this:
