@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### November 3, 2015
+
+- The new `catalog_item` parameter can be used to fill in Line Items with pricing from your Invoiced catalog
+
 ### October 22, 2015
 
 - Added `start_date` and `end_date` parameters when listing invoices.

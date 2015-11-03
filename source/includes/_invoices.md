@@ -33,8 +33,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -46,8 +45,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -102,8 +100,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -115,8 +112,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -171,8 +167,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -184,8 +179,7 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -256,8 +250,7 @@ Parameter | Type | Description
 ```shell
 {
   "id": 8,
-  "stored_item": null,
-  "plan": null,
+  "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
   "description": "",
@@ -272,8 +265,7 @@ Parameter | Type | Description
 ```ruby
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
-  "stored_item": null,
-  "plan": null,
+  "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
   "description": "",
@@ -288,8 +280,7 @@ Parameter | Type | Description
 ```php
 Invoiced\LineItem JSON: {
   "id": 8,
-  "stored_item": null,
-  "plan": null,
+  "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
   "description": "",
@@ -304,9 +295,8 @@ Invoiced\LineItem JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
-**stored_item** | *integer* | Stored Item ID this line is associated with, if any
-**plan** | *integer* | Plan ID the line item was generated from
-**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, or `expense`
+**catalog_item** | *string* | Optional Catalog Item ID. Fills the line item with the name and pricing of the Catalog Item.
+**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, `months, `years`, or `expense`
 **name** | *string* | Title
 **description** | *string* | Optional description
 **quantity** | *number* | Quantity
@@ -314,6 +304,7 @@ Parameter | Type | Description
 **amount** | *number* | Computed from `quantity` x `unit_cost`
 **discounts** | *array* | Line item Discounts
 **taxes** | *array* | Line item Taxes
+**plan** | *integer* | Plan ID the line item was generated from (only present for subscriptions)
 
 ## Discount Object
 
@@ -393,10 +384,8 @@ curl "https://api.invoiced.com/invoices" \
   -d items[0][name]="Copy paper, Case" \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=45 \
-  -d items[1][type]="service" \
-  -d items[1][name]="Delivery" \
+  -d items[1][catalog_item]="delivery" \
   -d items[1][quantity]=1 \
-  -d items[1][unit_cost]=10 \
   -d taxes[0][amount]=3.85
 ```
 
@@ -411,10 +400,8 @@ invoiced.Invoice.create(
       :unit_cost => 45
     },
     {
-      :type => "service",
-      :name => "Delivery",
-      :quantity => 1,
-      :unit_cost => 45
+      :catalog_item => "delivery",
+      :quantity => 1
     }
   ],
   :taxes => [
@@ -438,10 +425,8 @@ $invoice = $invoiced->Invoice->create([
       'unit_cost' => 45
     ],
     [
-      'type' => "service",
-      'name' => "Delivery",
-      'quantity' => 1,
-      'unit_cost' => 45
+      'catalog_item' => "delivery",
+      'quantity' => 1
     ]
   ],
   'taxes' => [
@@ -479,8 +464,7 @@ $invoice = $invoiced->Invoice->create([
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -492,8 +476,7 @@ $invoice = $invoiced->Invoice->create([
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -548,8 +531,7 @@ $invoice = $invoiced->Invoice->create([
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -561,8 +543,7 @@ $invoice = $invoiced->Invoice->create([
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -617,8 +598,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -630,8 +610,7 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -734,8 +713,7 @@ $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -747,8 +725,7 @@ $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -803,8 +780,7 @@ $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -816,8 +792,7 @@ $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -872,8 +847,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -885,8 +859,7 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -981,8 +954,7 @@ $invoice->save();
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -994,8 +966,7 @@ $invoice->save();
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -1050,8 +1021,7 @@ $invoice->save();
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -1063,8 +1033,7 @@ $invoice->save();
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -1119,8 +1088,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -1132,8 +1100,7 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
       "description": "",
@@ -1336,9 +1303,8 @@ $invoice->pay();
   "payment_terms": "Auto-Charged",
   "items": [
     {
-      "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "id": 9,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -1392,9 +1358,8 @@ $invoice->pay();
   "payment_terms": "Auto-Charged",
   "items": [
     {
-      "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "id": 9,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -1448,9 +1413,8 @@ Invoiced\Invoice JSON: {
   "payment_terms": "Auto-Charged",
   "items": [
     {
-      "id": 8,
-      "stored_item": null,
-      "plan": null,
+      "id": 9,
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
       "description": null,
@@ -1561,8 +1525,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
     "items": [
       {
         "id": 7,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
         "description": null,
@@ -1574,8 +1537,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
       },
       {
         "id": 8,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
         "description": "",
@@ -1634,8 +1596,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
     "items": [
       {
         "id": 7,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
         "description": null,
@@ -1647,8 +1608,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
       },
       {
         "id": 8,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
         "description": "",
@@ -1707,8 +1667,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
     "items": [
       {
         "id": 7,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
         "description": null,
@@ -1720,8 +1679,7 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
       },
       {
         "id": 8,
-        "stored_item": null,
-        "plan": null,
+        "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
         "description": "",
