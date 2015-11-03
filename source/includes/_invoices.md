@@ -296,7 +296,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
 **catalog_item** | *string* | Optional Catalog Item ID. Fills the line item with the name and pricing of the Catalog Item.
-**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, `months, `years`, or `expense`
+**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, `month`, `year`, `expense`, or `plan`
 **name** | *string* | Title
 **description** | *string* | Optional description
 **quantity** | *number* | Quantity
@@ -304,7 +304,7 @@ Parameter | Type | Description
 **amount** | *number* | Computed from `quantity` x `unit_cost`
 **discounts** | *array* | Line item Discounts
 **taxes** | *array* | Line item Taxes
-**plan** | *integer* | Plan ID the line item was generated from (only present for subscriptions)
+**plan** | *string* | Plan ID, only present when type is `plan`
 
 ## Discount Object
 
