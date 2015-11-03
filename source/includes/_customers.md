@@ -570,26 +570,33 @@ list($subscriptions, $metadata) = $customer->subscriptions();
   {
       "id": 412,
       "customer": 15444,
-      "plan": 418,
+      "plan": "starter",
       "start_date": 1415230038,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438813638,
       "renewed_last": 1436135238,
       "status": "past_due",
+      "addons": [
+        {
+          "catalog_item": "ipad_license",
+          "quantity": 5
+        }
+      ],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   {
       "id": 595,
       "customer": 15444,
-      "plan": 420,
+      "plan": "pro",
       "start_date": 1425572792,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438788392,
       "renewed_last": 1436109992,
       "status": "active",
+      "addons": [],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
@@ -601,26 +608,33 @@ list($subscriptions, $metadata) = $customer->subscriptions();
   #<Invoiced::Subscription:0x3fdbf9sf9e4d08 id=412> JSON: {
       "id": 412,
       "customer": 15444,
-      "plan": 418,
+      "plan": "starter",
       "start_date": 1415230038,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438813638,
       "renewed_last": 1436135238,
       "status": "past_due",
+      "addons": [
+        {
+          "catalog_item": "ipad_license",
+          "quantity": 5
+        }
+      ],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   #<Invoiced::Subscription:0x3fdbf95as4d08 id=595> JSON: {
       "id": 595,
       "customer": 15444,
-      "plan": 420,
+      "plan": "pro",
       "start_date": 1425572792,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438788392,
       "renewed_last": 1436109992,
       "status": "active",
+      "addons": [],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
@@ -632,26 +646,33 @@ list($subscriptions, $metadata) = $customer->subscriptions();
   Invoiced\Subscription JSON: {
       "id": 412,
       "customer": 15444,
-      "plan": 418,
+      "plan": "starter",
       "start_date": 1415230038,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438813638,
       "renewed_last": 1436135238,
       "status": "past_due",
+      "addons": [
+        {
+          "catalog_item": "ipad_license",
+          "quantity": 5
+        }
+      ],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   Invoiced\Subscription JSON: {
       "id": 595,
       "customer": 15444,
-      "plan": 420,
+      "plan": "pro",
       "start_date": 1425572792,
       "quantity": 1,
       "cycles": null,
       "renews_next": 1438788392,
       "renewed_last": 1436109992,
       "status": "active",
+      "addons": [],
       "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
