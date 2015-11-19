@@ -117,7 +117,7 @@ Parameter | Type | Description
 ## Create a transaction
 
 ```shell
-curl "https://api.invoiced.com/transaction" \
+curl "https://api.invoiced.com/transactions" \
   -u {API_KEY}: \
   -d invoice=44648 \
   -d method="check" \
