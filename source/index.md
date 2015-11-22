@@ -7,7 +7,7 @@ language_tabs:
   - php
 
 toc_footers:
-  - <a href='mailto:api@invoiced.com'>Contact Us</a>
+  - <a href='mailto:support@invoiced.com'>Contact Us</a>
 
 includes:
   - customers
@@ -43,7 +43,7 @@ We have client libraries available in several languages. If you don't see your l
 
 ### Getting Help or Contributing
 
-We've made this document open source. Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at api@invoiced.com. Any pull requests to improve this document are welcome too!
+We've made this document open source. Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at support@invoiced.com. Any pull requests to improve this document are welcome too!
 
 
 # Authentication
