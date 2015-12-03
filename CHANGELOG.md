@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### December 3, 2015
+
+- Added official Python client library.
+
 ### November 3, 2015
 
 - The new `catalog_item` parameter can be used to fill in Line Items with pricing from your Invoiced catalog

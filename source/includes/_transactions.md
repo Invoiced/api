@@ -93,6 +93,30 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```python
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The transaction's unique ID
@@ -143,6 +167,15 @@ $invoiced->Transaction->create([
   'gateway_id' => "1450",
   'amount' => 800
 ]);
+```
+
+```python
+client.Transaction.create(
+  invoice=44648,
+  method="check",
+  gateway_id="1450",
+  amount=800
+)
 ```
 
 > The above command returns JSON structured like this:
@@ -219,6 +252,30 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```python
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
 Create a new transaction with this endpoint.
 
 ### HTTP Request
@@ -258,6 +315,10 @@ transaction = invoiced.Transaction.retrieve("{TRANSACTION_ID}")
 <?php
 
 $transaction = $invoiced->Transaction->retrieve("{TRANSACTION_ID}");
+```
+
+```python
+transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 ```
 
 > The above command returns JSON structured like this:
@@ -312,6 +373,30 @@ $transaction = $invoiced->Transaction->retrieve("{TRANSACTION_ID}");
 
 ```php
 Invoiced\Transaction JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
+```python
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
@@ -361,6 +446,11 @@ $transaction->notes = "Check was received by Jan";
 $transaction->save();
 ```
 
+```python
+transaction.notes = "Check was received by Jan"
+transaction.save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -413,6 +503,30 @@ $transaction->save();
 
 ```php
 Invoiced\Transaction JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": "Check was received by Jan",
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+}
+```
+
+```python
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
@@ -474,6 +588,10 @@ emails = transaction.send
 $emails = $transaction->send();
 ```
 
+```python
+emails = transaction.send()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -499,7 +617,7 @@ $emails = $transaction->send();
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"> JSON: {
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
     "state": "sent",
     "reject_reason": null,
@@ -513,8 +631,8 @@ $emails = $transaction->send();
     "clicks_detail": [],
     "created_at": 1436890047
   },
-  #<Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"> JSON: { ... },
-  #<Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"> JSON: { ... }
+  #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
+  #<Invoiced::Email:0x3fdbffge4d10 id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731> JSON: { ... }
 ]
 ```
 
@@ -536,6 +654,27 @@ $emails = $transaction->send();
   },
   Invoiced\Email JSON: { ... },
   Invoiced\Email JSON: { ... }
+]
+```
+
+```python
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  <Email id=a0s36fbc44d44aa7f9a55easdfi8ce731 at 0x3fdbffge4d10> JSON: { ... },
+  <Email id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731 at 0x3fdbffge4d10> JSON: { ... }
 ]
 ```
 
@@ -567,13 +706,17 @@ curl "https://api.invoiced.com/transactions/:id/refunds" \
 ```
 
 ```ruby
-transaction = transaction.refund(:amount => 400)
+refund = transaction.refund(:amount => 400)
 ```
 
 ```php
 <?php
 
 $refund = $transaction->refund(['amount' => 400]);
+```
+
+```python
+refund = transaction.refund(amount=400)
 ```
 
 > The above command returns JSON structured like this:
@@ -650,6 +793,30 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```python
+<Transaction id=20952 at 0x3fdbf95e4d08> JSON: {
+	"id": 20952,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "refund",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 400,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": 20939,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+	"created_at": 1415228628
+}
+```
+
 You can issue a refund for `charge` and `payment` transactions. When a refund is issued for a `charge` transaction we will attempt to initiate the refund over the payment gateway it happened on.
 
 Of course, when refunding `payment` transactions you would have to return the money to your customer. This endpoint simply provides a means to track any refunds that you issue for offline payments.
@@ -688,6 +855,10 @@ transaction.delete
 $transaction->delete();
 ```
 
+```python
+transaction.delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific transaction.
@@ -711,6 +882,10 @@ transactions, metadata = invoiced.Transaction.list(:per_page => 3)
 <?php
 
 list($transactions, $metadata) = $invoiced->Transaction->all(['per_page' => 3]);
+```
+
+```python
+transactions, metadata = invoiced.Transaction.list(per_page=3)
 ```
 
 > The above command returns JSON structured like this:
@@ -796,6 +971,34 @@ list($transactions, $metadata) = $invoiced->Transaction->all(['per_page' => 3]);
   },
   Invoiced\Transaction JSON: { ... },
   Invoiced\Transaction JSON: { ... }
+]
+```
+
+```python
+[
+  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
+	"id": 20939,
+	"customer": 15460,
+	"invoice": 44648,
+	"theme": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"currency": "usd",
+	"amount": 800,
+	"fee": 0,
+	"notes": null,
+	"sent": false,
+	"failure_reason": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628
+  },
+  <Transaction id=20940 at 0x3fdbf95e4d08> JSON: { ... },
+  <Transaction id=20941 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
 

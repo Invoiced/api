@@ -5,6 +5,7 @@ language_tabs:
   - shell
   - ruby
   - php
+  - python
 
 toc_footers:
   - <a href='mailto:support@invoiced.com'>Contact Us</a>
@@ -39,6 +40,7 @@ We have client libraries available in several languages. If you don't see your l
 
 - [Ruby](https://github.com/Invoiced/invoiced-ruby)
 - [PHP](https://github.com/Invoiced/invoiced-php)
+- [Python](https://github.com/Invoiced/invoiced-python)
 - [Go](https://github.com/Invoiced/invoiced-go)
 
 ### Getting Help or Contributing
@@ -74,6 +76,12 @@ invoiced = Invoiced::Client.new("{YOUR_API_KEY}")
 <?php
 
 $invoiced = new Invoiced\Client("{YOUR_API_KEY}");
+```
+
+```python
+import invoiced
+
+client = invoiced.Client("{YOUR_API_KEY}")
 ```
 
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
@@ -156,6 +164,13 @@ The `expand` parameter works for any response that has relational properties.
   "paid" => false,
   "customer" => 1234
 ]
+```
+
+```python
+"filter": {
+  "paid": False,
+  "customer": 1234
+}
 ```
 
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.

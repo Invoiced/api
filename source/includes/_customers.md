@@ -110,6 +110,40 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
+  "id": 15444,
+  "name": "Acme",
+  "number": "CUST-0001",
+  "email": "billing@acmecorp.com",
+  "type": "company",
+  "collection_mode": "auto",
+  "payment_terms": null,
+  "payment_source": {
+    "id": 850,
+    "brand": "Visa",
+    "last4": 4242,
+    "exp_month": 2,
+    "exp_year": 20,
+    "funding": "credit"
+  },
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
@@ -167,6 +201,16 @@ $invoiced->Customer->create([
   'payment_terms' => "NET 30",
   'type' => "company"
 ]);
+```
+
+```python
+client.Customer.create(
+  name="Acme",
+  email="billing@acmecorp.com",
+  collection_mode="manual",
+  payment_terms="NET 30",
+  type="company"
+)
 ```
 
 > The above command returns JSON structured like this:
@@ -227,6 +271,33 @@ $invoiced->Customer->create([
 
 ```php
 Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
@@ -299,6 +370,10 @@ customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
 $customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
 ```
 
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -357,6 +432,33 @@ $customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
 
 ```php
 Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "United States",
+  "tax_id": null,
+  "phone": null,
+  "other_phone": null,
+  "website": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
@@ -433,6 +535,19 @@ $customer->website = "acmecorp.com";
 $customer->save();
 ```
 
+```python
+customer.payment_terms = "NET 14"
+customer.attention_to = "Sarah Fisher"
+customer.address1 = "342 Amber St"
+customer.city = "Hill Valley"
+customer.state = "CA"
+customer.postal_code = "94523"
+customer.tax_id = "893-934835"
+customer.phone = "(820) 297-2983"
+customer.website = "acmecorp.com"
+customer.save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -516,6 +631,33 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 14",
+  "payment_source": null,
+  "type": "company",
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
+  "address2": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
+  "country": "United States",
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
+  "other_phone": null,
+  "website": "acmecorp.com",
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128
+}
+```
+
 Use this endpoint to update a customer profile.
 
 ### HTTP Request
@@ -563,6 +705,10 @@ subscriptions, metadata = customer.subscriptions
 list($subscriptions, $metadata) = $customer->subscriptions();
 ```
 
+```python
+subscriptions, metadata = customer.subscriptions()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -583,7 +729,7 @@ list($subscriptions, $metadata) = $customer->subscriptions();
           "quantity": 5
         }
       ],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   {
@@ -597,7 +743,7 @@ list($subscriptions, $metadata) = $customer->subscriptions();
       "renewed_last": 1436109992,
       "status": "active",
       "addons": [],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
 ]
@@ -621,7 +767,7 @@ list($subscriptions, $metadata) = $customer->subscriptions();
           "quantity": 5
         }
       ],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   #<Invoiced::Subscription:0x3fdbf95as4d08 id=595> JSON: {
@@ -635,7 +781,7 @@ list($subscriptions, $metadata) = $customer->subscriptions();
       "renewed_last": 1436109992,
       "status": "active",
       "addons": [],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
 ]
@@ -659,7 +805,7 @@ list($subscriptions, $metadata) = $customer->subscriptions();
           "quantity": 5
         }
       ],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ClfLz70YiFSgu5E2dA5qrwXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
   Invoiced\Subscription JSON: {
@@ -673,7 +819,45 @@ list($subscriptions, $metadata) = $customer->subscriptions();
       "renewed_last": 1436109992,
       "status": "active",
       "addons": [],
-      "url": "https:\/\/dundermifflin.invoiced.com\/subscriptions\/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
+      "created_at": 1425572798
+  }
+]
+```
+
+```python
+[
+  <Subscription id=412 at 0x3fdbf95e4d08> JSON: {
+      "id": 412,
+      "customer": 15444,
+      "plan": "starter",
+      "start_date": 1415230038,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438813638,
+      "renewed_last": 1436135238,
+      "status": "past_due",
+      "addons": [
+        {
+          "catalog_item": "ipad_license",
+          "quantity": 5
+        }
+      ],
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
+      "created_at": 1415230041
+  },
+  <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
+      "id": 595,
+      "customer": 15444,
+      "plan": "pro",
+      "start_date": 1425572792,
+      "quantity": 1,
+      "cycles": null,
+      "renews_next": 1438788392,
+      "renewed_last": 1436109992,
+      "status": "active",
+      "addons": [],
+      "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
       "created_at": 1425572798
   }
 ]
@@ -709,6 +893,10 @@ customer.balance
 $customer->balance();
 ```
 
+```python
+customer.balance()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -732,6 +920,14 @@ stdClass {
   "available_credits": 50,
   "past_due": false,
   "total_outstanding": 470
+}
+```
+
+```python
+{
+  :available_credits => 50,
+  :past_due => false,
+  :total_outstanding => 470
 }
 ```
 
@@ -759,6 +955,10 @@ emails = customer.send_statement
 $emails = $customer->sendStatement();
 ```
 
+```python
+emails = customer.send_statement()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -784,7 +984,7 @@ $emails = $customer->sendStatement();
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"> JSON: {
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
     "state": "sent",
     "reject_reason": null,
@@ -798,8 +998,8 @@ $emails = $customer->sendStatement();
     "clicks_detail": [],
     "created_at": 1436890047
   },
-  #<Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"> JSON: { ... },
-  #<Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"> JSON: { ... }
+  #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
+  #<Invoiced::Email:0x3fdbffge4d10 id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731> JSON: { ... }
 ]
 ```
 
@@ -821,6 +1021,27 @@ $emails = $customer->sendStatement();
   },
   Invoiced\Email JSON: { ... },
   Invoiced\Email JSON: { ... }
+]
+```
+
+```python
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "statement_email",
+    "subject": "Statement from Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached your latest account statement. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  <Email id=a0s36fbc44d44aa7f9a55easdfi8ce731 at 0x3fdasdf95e09> JSON: { ... },
+  <Email id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731 at 0x3fdbffge4d10> JSON: { ... }
 ]
 ```
 
@@ -861,6 +1082,10 @@ customer.delete
 $customer->delete();
 ```
 
+```python
+customer.delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific customer.
@@ -884,6 +1109,10 @@ customers, metadata = invoiced.Customer.list(:per_page => 3)
 <?php
 
 list($customers, $metadata) = $invoiced->Customer->all(['per_page' => 3]);
+```
+
+```python
+customers, metadata = invoiced.Customer.list(per_page=3)
 ```
 
 > The above command returns JSON structured like this:
@@ -978,6 +1207,37 @@ list($customers, $metadata) = $invoiced->Customer->all(['per_page' => 3]);
   },
   Invoiced\Customer JSON: { ... },
   Invoiced\Customer JSON: { ... }
+]
+```
+
+```python
+[
+  <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
+    "id": 15444,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "email": "billing@acmecorp.com",
+    "collection_mode": "manual",
+    "payment_terms": "NET 30",
+    "payment_source": null,
+    "type": "company",
+    "attention_to": "Sarah Fisher",
+    "address1": "342 Amber St",
+    "address2": null,
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "United States",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "other_phone": null,
+    "website": "acmecorp.com",
+    "notes": null,
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "created_at": 1415222128
+  },
+  <Customer id=15445 at 0x3fdbf95e4d08> JSON: { ... },
+  <Customer id=15446 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
 

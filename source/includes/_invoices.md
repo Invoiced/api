@@ -209,6 +209,73 @@ Invoiced\Invoice JSON: {
 }
 ```
 
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The invoice's unique ID
@@ -292,6 +359,21 @@ Invoiced\LineItem JSON: {
 }
 ```
 
+```python
+<LineItem id=8 at 0x3fdbf95e4d08> JSON: {
+  "id": 8,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
+  "discounts": [],
+  "taxes": []
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
@@ -334,6 +416,14 @@ Invoiced\Discount JSON: {
 }
 ```
 
+```python
+<Discount id=20553 at 0x3fdbf95e4d08> JSON: {
+  "id": 20553,
+  "amount": 5,
+  "rate": null
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The discount's unique ID
@@ -362,6 +452,14 @@ Parameter | Type | Description
 
 ```php
 Invoiced\Tax JSON: {
+  "id": 20554,
+  "amount": 3.85,
+  "rate": null
+}
+```
+
+```python
+<Tax id=20554 at 0x3fdbf95e4d08> JSON: {
   "id": 20554,
   "amount": 3.85,
   "rate": null
@@ -435,6 +533,29 @@ $invoice = $invoiced->Invoice->create([
     ]
   ]
 ]);
+```
+
+```python
+client.Invoice.create(
+  customer=15444,
+  payment_terms="NET 14",
+  items=[
+    {
+      'name': "Copy paper, Case",
+      'quantity': 1,
+      'unit_cost': 45
+    },
+    {
+      'catalog_item': "delivery",
+      'quantity': 1
+    }
+  ],
+  taxes=[
+    {
+      'amount': 3.85
+    }
+  ]
+)
 ```
 
 > The above command returns JSON structured like this:
@@ -575,6 +696,73 @@ $invoice = $invoiced->Invoice->create([
 
 ```php
 Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
   "customer": 15444,
   "name": null,
@@ -686,6 +874,10 @@ invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
 $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
 ```
 
+```python
+invoice = client.Invoice.retrieve("{INVOICE_ID}")
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -889,6 +1081,73 @@ Invoiced\Invoice JSON: {
 }
 ```
 
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 This endpoint retrieves a specific invoice.
 
 ### HTTP Request
@@ -925,6 +1184,13 @@ $invoice->name = "July Paper Delivery";
 $invoice->notes = "The order was delivered on Jul 20, 2015";
 $invoice->sent = true;
 $invoice->save();
+```
+
+```python
+invoice.name = "July Paper Delivery"
+invoice.notes = "The order was delivered on Jul 20, 2015"
+invoice.sent = True
+invoice.save()
 ```
 
 > The above command returns JSON structured like this:
@@ -1130,6 +1396,73 @@ Invoiced\Invoice JSON: {
 }
 ```
 
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discounts": [],
+      "taxes": []
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884
+}
+```
+
 Use this endpoint to update an invoice.
 
 ### HTTP Request
@@ -1175,6 +1508,10 @@ emails = invoice.send
 $emails = $invoice->send();
 ```
 
+```python
+emails = invoice.send()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1200,7 +1537,7 @@ $emails = $invoice->send();
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id="f45382c6fbc44d44aa7f9a55eb2ce731"> JSON: {
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
     "state": "sent",
     "reject_reason": null,
@@ -1214,8 +1551,8 @@ $emails = $invoice->send();
     "clicks_detail": [],
     "created_at": 1436890047
   },
-  #<Invoiced::Email:0x3fdasdf95e09 id="a0s36fbc44d44aa7f9a55easdfi8ce731"> JSON: { ... },
-  #<Invoiced::Email:0x3fdbffge4d10 id="s90f2c6fbc44sdfj8aa7f9a55eb2ce731"> JSON: { ... }
+  #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
+  #<Invoiced::Email:0x3fdbffge4d10 id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731> JSON: { ... }
 ]
 ```
 
@@ -1237,6 +1574,27 @@ $emails = $invoice->send();
   },
   Invoiced\Email JSON: { ... },
   Invoiced\Email JSON: { ... }
+]
+```
+
+```python
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "new_invoice_email",
+    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "clicks": 0,
+    "clicks_detail": [],
+    "created_at": 1436890047
+  },
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... },
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
 
@@ -1275,6 +1633,10 @@ invoice.pay
 <?php
 
 $invoice->pay();
+```
+
+```python
+invoice.pay()
 ```
 
 > The above command returns JSON structured like this:
@@ -1444,6 +1806,61 @@ Invoiced\Invoice JSON: {
 }
 ```
 
+```python
+<Invoice id=46226 at 0x3fdbf95e4d08> JSON: {
+  "id": 46226,
+  "customer": 15446,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "sent": false,
+  "closed": false,
+  "paid": true,
+  "status": "paid",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "auto",
+  "attempt_count": 1,
+  "next_payment_attempt": null,
+  "theme": null,
+  "subscription": null,
+  "number": "INV-0017",
+  "date": 1416290402,
+  "due_date": null,
+  "payment_terms": "Auto-Charged",
+  "items": [
+    {
+      "id": 9,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 5,
+      "unit_cost": 45,
+      "amount": 225,
+      "discounts": [],
+      "taxes": []
+    }
+  ],
+  "terms": null,
+  "notes": null,
+  "subtotal": 225,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "rate": null
+    }
+  ],
+  "total": 228.85,
+  "balance": 228.85,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
+  "created_at": 1415229885
+}
+```
+
 When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.
 
 ### HTTP Request
@@ -1472,6 +1889,10 @@ invoice.delete
 $invoice->delete();
 ```
 
+```python
+invoice.delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific invoice.
@@ -1495,6 +1916,10 @@ invoices, metadata = invoiced.Invoice.list(:per_page => 3)
 <?php
 
 list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
+```
+
+```python
+invoices, metadata = invoiced.Invoice.list(per_page=3)
 ```
 
 > The above command returns JSON structured like this:
@@ -1709,6 +2134,77 @@ list($invoices, $metadata) = $invoiced->Invoice->all(['per_page' => 3]);
   },
   Invoiced\Invoice JSON: { ... },
   Invoiced\Invoice JSON: { ... }
+]
+```
+
+```python
+[
+  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
+    "id": 46225,
+    "customer": 15444,
+    "name": null,
+    "currency": "usd",
+    "draft": false,
+    "sent": false,
+    "closed": false,
+    "paid": false,
+    "status": "not_sent",
+    "chase": false,
+    "next_chase_on": null,
+    "collection_mode": "manual",
+    "attempt_count": 0,
+    "next_payment_attempt": null,
+    "theme": null,
+    "subscription": null,
+    "number": "INV-0016",
+    "date": 1416290400,
+    "due_date": 1417500000,
+    "payment_terms": "NET 14",
+    "items": [
+      {
+        "id": 7,
+        "catalog_item": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discounts": [],
+        "taxes": []
+      },
+      {
+        "id": 8,
+        "catalog_item": "delivery",
+        "type": "service",
+        "name": "Delivery",
+        "description": "",
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discounts": [],
+        "taxes": []
+      }
+    ],
+    "terms": null,
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "amount": 3.85,
+        "rate": null
+      }
+    ],
+    "total": 51.15,
+    "balance": 51.15,
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415229884
+  },
+  <Invoice id=15445 at 0x3fdbf95e4d08> JSON: { ... },
+  <Invoice id=15446 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
 
