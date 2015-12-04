@@ -405,6 +405,14 @@ html, body {
     font-size: 10px;
   }
 
+  a {
+    color: $link-text;
+
+    &:hover, &:active {
+      color: $link-hover-text;
+    }
+  }
+
   hr {
     margin: 2em 0;
     border-top: 2px solid $examples-bg;
