@@ -283,7 +283,7 @@ Parameter | Type | Description
 **name** | *string* | Invoice name for internal use, defaults to "Invoice"
 **number** | *string* | The reference number assigned to the invoice for use in the dashboard
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
-**currency** | *string* | 3-digit ISO 4217 currency code
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
 **sent** | *boolean* | Indicates whether the invoice has been sent
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
@@ -841,7 +841,7 @@ Parameter | Type | Description
 **customer** | *integer* | Customer ID - **required**
 **name** | *string* | Invoice name for internal use, defaults to "Invoice"
 **number** | *string* | The reference number assigned to the invoice, defaults to next # in auto-numbering sequence
-**currency** | *string* | 3-digit ISO 4217 currency code - defaults to account currency
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual` - inherited from customer by default
 **payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30" - inherited from customer by default
 **date** | *timestamp* | Invoice date - defaults to current timestamp
@@ -1475,7 +1475,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Invoice name for internal use, defaults to "Invoice"
 **number** | *string* | The reference number assigned to the invoice, defaults to next # in auto-numbering sequence
-**currency** | *string* | 3-digit ISO 4217 currency code - defaults to account currency
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30" - inherited from customer by default
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied

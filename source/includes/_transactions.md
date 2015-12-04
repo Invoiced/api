@@ -129,7 +129,7 @@ Parameter | Type | Description
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
 **gateway_id** | *string* | Transaction ID from the payment gateway
-**currency** | *string* | 3-digit ISO 4217 currency code
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
@@ -295,7 +295,7 @@ Parameter | Type | Description
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
 **gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
-**currency** | *string* | 3-digit ISO 4217 currency code
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
@@ -565,7 +565,7 @@ Parameter | Type | Description
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
 **gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
-**currency** | *string* | 3-digit ISO 4217 currency code
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
