@@ -19,6 +19,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "payment_terms": null,
   "payment_source": {
     "id": 850,
+    "object": "card",
     "brand": "Visa",
     "last4": 4242,
     "exp_month": 2,
@@ -52,6 +53,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "payment_terms": null,
   "payment_source": {
     "id": 850,
+    "object": "card",
     "brand": "Visa",
     "last4": 4242,
     "exp_month": 2,
@@ -85,6 +87,7 @@ Invoiced\Customer JSON: {
   "payment_terms": null,
   "payment_source": {
     "id": 850,
+    "object": "card",
     "brand": "Visa",
     "last4": 4242,
     "exp_month": 2,
@@ -118,6 +121,7 @@ Invoiced\Customer JSON: {
   "payment_terms": null,
   "payment_source": {
     "id": 850,
+    "object": "card",
     "brand": "Visa",
     "last4": 4242,
     "exp_month": 2,
@@ -149,7 +153,7 @@ Parameter | Type | Description
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
-**payment_source** | *object* | Summary of the customer's payment source, if attached
+**payment_source** | *object* | Customer's payment source, if attached
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line

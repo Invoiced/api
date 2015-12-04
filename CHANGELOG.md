@@ -5,6 +5,7 @@ Changelog
 
 - Added official Python client library.
 - Removed `website` property from customers
+- Added `object` property to payment sources
 
 ### November 3, 2015
 
