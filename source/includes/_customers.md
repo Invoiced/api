@@ -31,7 +31,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -65,7 +65,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -99,7 +99,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -133,7 +133,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -160,7 +160,7 @@ Parameter | Type | Description
 **city** | *string* | City
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
-**country** | *string* | Country
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
@@ -231,7 +231,7 @@ client.Customer.create(
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -258,7 +258,7 @@ client.Customer.create(
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -285,7 +285,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -312,7 +312,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -346,7 +346,7 @@ Parameter | Type | Description
 **city** | *string* | City
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
-**country** | *string* | Country
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
@@ -392,7 +392,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "city": "Hill Valley",
   "state": "CA",
   "postal_code": "94523",
-  "country": "United States",
+  "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
@@ -419,7 +419,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -446,7 +446,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -473,7 +473,7 @@ Invoiced\Customer JSON: {
   "city": null,
   "state": null,
   "postal_code": null,
-  "country": "United States",
+  "country": "US",
   "tax_id": null,
   "phone": null,
   "other_phone": null,
@@ -566,7 +566,7 @@ customer.save()
   "city": "Hill Valley",
   "state": "CA",
   "postal_code": "94523",
-  "country": "United States",
+  "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
@@ -593,7 +593,7 @@ customer.save()
   "city": "Hill Valley",
   "state": "CA",
   "postal_code": "94523",
-  "country": "United States",
+  "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
@@ -620,7 +620,7 @@ Invoiced\Customer JSON: {
   "city": "Hill Valley",
   "state": "CA",
   "postal_code": "94523",
-  "country": "United States",
+  "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
@@ -647,7 +647,7 @@ Invoiced\Customer JSON: {
   "city": "Hill Valley",
   "state": "CA",
   "postal_code": "94523",
-  "country": "United States",
+  "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
@@ -681,7 +681,7 @@ Parameter | Type | Description
 **city** | *string* | City
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
-**country** | *string* | Country
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
@@ -1134,7 +1134,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "city": "Hill Valley",
     "state": "CA",
     "postal_code": "94523",
-    "country": "United States",
+    "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
@@ -1165,7 +1165,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "city": "Hill Valley",
     "state": "CA",
     "postal_code": "94523",
-    "country": "United States",
+    "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
@@ -1196,7 +1196,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "city": "Hill Valley",
     "state": "CA",
     "postal_code": "94523",
-    "country": "United States",
+    "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
@@ -1227,7 +1227,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "city": "Hill Valley",
     "state": "CA",
     "postal_code": "94523",
-    "country": "United States",
+    "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
