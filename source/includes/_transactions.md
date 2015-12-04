@@ -122,7 +122,7 @@ Parameter | Type | Description
 **id** | *integer* | The transaction's unique ID
 **customer** | *integer* | Associated Customer
 **invoice** | *integer* | Associated Invoice, if any
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **date** | *timestamp* | Transaction date
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment`
 **method** | *string* | Payment instrument used to facilitate transaction
@@ -290,7 +290,7 @@ Parameter | Type | Description
 **invoice** | *integer* | Invoice ID, if any
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment` - **required**
 **date** | *timestamp* | Transaction date, defaults to current timestamp
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
@@ -560,7 +560,7 @@ Use this endpoint to update a transaction.
 Parameter | Type | Description
 --------- | ---- | -----------
 **date** | *timestamp* | Transaction date, defaults to current timestamp
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any

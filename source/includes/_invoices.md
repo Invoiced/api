@@ -293,7 +293,7 @@ Parameter | Type | Description
 **next_chase_on** | *timestamp* | Next scheduled chase
 **attempt_count** | *integer* | # of payment attempts
 **next_payment_attempt** | *timestamp* | Next scheduled charge attempt, when in automatic collection
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **subscription** | *integer* | Subscription ID if invoice came from subscription
 **date** | *timestamp* | Invoice date
 **due_date** | *timestamp* | Date payment is due by
@@ -850,7 +850,7 @@ Parameter | Type | Description
 **sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **items** | *array* | Collection of Line Item objects
 **terms** | *string* | Terms and conditions displayed on invoice
 **notes** | *string* | Additional notes displayed on invoice
@@ -1483,7 +1483,7 @@ Parameter | Type | Description
 **sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
-**theme** | *integer* | Theme ID for rendering with custom themes
+**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **items** | *array* | Collection of Line Item objects
 **terms** | *string* | Terms and conditions displayed on invoice
 **notes** | *string* | Additional notes displayed on invoice
