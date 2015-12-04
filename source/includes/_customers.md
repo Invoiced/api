@@ -168,6 +168,68 @@ Parameter | Type | Description
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
 
+## Card Object
+
+### Attributes
+
+```shell
+{
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": 4242,
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
+}
+```
+
+```ruby
+#<Invoiced::Card:0x3fdbf95e4d08 id=850> JSON: {
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": 4242,
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
+}
+```
+
+```php
+Invoiced\Card JSON: {
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": 4242,
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
+}
+```
+
+```python
+<Card id=850 at 0x3fdbf95e4d08> JSON: {
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": 4242,
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
+}
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The card's unique ID
+**object** | *string* | `card`
+**brand** | *string* | Card brand
+**last4** | *integer* | Last 4 digits of card
+**exp_month** | *integer* | Expiry month
+**exp_year** | *integer* | Expiry year
+**funding** | *string* | Funding instrument, can be `credit`, `debit`, `prepaid`, or `unknown`
+
 ## Create a customer
 
 ```shell
