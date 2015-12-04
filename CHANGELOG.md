@@ -4,6 +4,7 @@ Changelog
 ### December 3, 2015
 
 - Added official Python client library.
+- Removed `website` property from customers
 
 ### November 3, 2015
 

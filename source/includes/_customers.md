@@ -35,7 +35,6 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -69,7 +68,6 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -103,7 +101,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -137,7 +134,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -164,7 +160,6 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
-**website** | *string* | Website
 **notes** | *string* | Private customer notes
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
@@ -235,7 +230,6 @@ client.Customer.create(
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -262,7 +256,6 @@ client.Customer.create(
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -289,7 +282,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -316,7 +308,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -350,7 +341,6 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
-**website** | *string* | Website
 **notes** | *string* | Private customer notes
 
 ## Retrieve a customer
@@ -396,7 +386,6 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
-  "website": "acmecorp.com",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -423,7 +412,6 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -450,7 +438,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -477,7 +464,6 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "other_phone": null,
-  "website": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -503,7 +489,6 @@ curl "https://api.invoiced.com/customers/:id" \
   -d postal_code="94523" \
   -d tax_id="893-934835" \
   -d phone="(820) 297-2983" \
-  -d website="acmecorp.com" \
   -X PATCH
 ```
 
@@ -516,7 +501,6 @@ customer.state = "CA"
 customer.postal_code = "94523"
 customer.tax_id = "893-934835"
 customer.phone = "(820) 297-2983"
-customer.website = "acmecorp.com"
 customer.save
 ```
 
@@ -531,7 +515,6 @@ $customer->state = "CA";
 $customer->postal_code = "94523";
 $customer->tax_id = "893-934835";
 $customer->phone = "(820) 297-2983";
-$customer->website = "acmecorp.com";
 $customer->save();
 ```
 
@@ -544,7 +527,6 @@ customer.state = "CA"
 customer.postal_code = "94523"
 customer.tax_id = "893-934835"
 customer.phone = "(820) 297-2983"
-customer.website = "acmecorp.com"
 customer.save()
 ```
 
@@ -570,7 +552,6 @@ customer.save()
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
-  "website": "acmecorp.com",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -597,7 +578,6 @@ customer.save()
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
-  "website": "acmecorp.com",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -624,7 +604,6 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
-  "website": "acmecorp.com",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -651,7 +630,6 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "other_phone": null,
-  "website": "acmecorp.com",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -685,7 +663,6 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **other_phone** | *string* | Second phone #
-**website** | *string* | Website
 **notes** | *string* | Private customer notes
 
 ## List customer subscriptions
@@ -1138,7 +1115,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
-    "website": "acmecorp.com",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1169,7 +1145,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
-    "website": "acmecorp.com",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1200,7 +1175,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
-    "website": "acmecorp.com",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1231,7 +1205,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "other_phone": null,
-    "website": "acmecorp.com",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
