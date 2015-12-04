@@ -776,7 +776,7 @@ subscriptions, metadata = customer.subscriptions()
       "created_at": 1415230041
   },
   {
-      "id": 595,
+      "id": 594,
       "customer": 15444,
       "plan": "pro",
       "start_date": 1425572792,
@@ -813,8 +813,8 @@ subscriptions, metadata = customer.subscriptions()
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
-  #<Invoiced::Subscription:0x3fdbf95as4d08 id=595> JSON: {
-      "id": 595,
+  #<Invoiced::Subscription:0x3fdbf95as4d08 id=594> JSON: {
+      "id": 594,
       "customer": 15444,
       "plan": "pro",
       "start_date": 1425572792,
@@ -852,7 +852,7 @@ subscriptions, metadata = customer.subscriptions()
       "created_at": 1415230041
   },
   Invoiced\Subscription JSON: {
-      "id": 595,
+      "id": 594,
       "customer": 15444,
       "plan": "pro",
       "start_date": 1425572792,
@@ -889,8 +889,8 @@ subscriptions, metadata = customer.subscriptions()
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
       "created_at": 1415230041
   },
-  <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-      "id": 595,
+  <Subscription id=594 at 0x3fdbf95e4d08> JSON: {
+      "id": 594,
       "customer": 15444,
       "plan": "pro",
       "start_date": 1425572792,

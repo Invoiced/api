@@ -14,6 +14,7 @@ includes:
   - customers
   - invoices
   - transactions
+  - subscriptions
 
 search: true
 ---
