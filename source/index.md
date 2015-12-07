@@ -21,9 +21,14 @@ search: true
 
 # Introduction
 
-Invoiced is simple invoicing for freelancers and small businesses. Our HTTP API was designed to be easy to integrate into your workflow.
+Invoiced is an API for businesses to invoice and get paid.
 
-We have done our best to follow [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles when designing the API.
+Our [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API was designed to supercharge the billing component of your workflow, application, or backoffice systems while making the integration process as painless as possible. Through the API you can create and send invoices, record payments, manage subscription billing, and much more.
+
+Here's a few pages that might be helpful in addition to this API reference.
+
+- [Sign up for Invoiced](https://invoiced.com/signup)
+- [Developer Documentation](https://invoiced.com/docs/dev)
 
 ### API Endpoint
 
@@ -33,7 +38,7 @@ All API calls must be made to `https://api.invoiced.com`.
 
 All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
 
-In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time). Each entity like customers or invoices has a unique integer id.
+In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time). Each entity like customers or invoices has a unique integer ID.
 
 ### Client Libraries
 
@@ -46,7 +51,7 @@ We have client libraries available in several languages. If you don't see your l
 
 ### Getting Help or Contributing
 
-We've made this document open source. Please report any issues or suggestions in the [issues](https://github.com/invoiced/api/issues). If you need help using the API or need to discuss anything sensitive please message us at support@invoiced.com. Any pull requests to improve this document are welcome too!
+We've made this document open source. Please report any issues or suggestions in the [API doc issues](https://github.com/invoiced/api/issues). Any pull requests to improve this document are welcome too! If you need help using the API or need to discuss anything sensitive please message us at [support@invoiced.com](mailto:support@invoiced.com).
 
 
 # Authentication
