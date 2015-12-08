@@ -64,7 +64,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -131,7 +131,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -198,7 +198,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -265,7 +265,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -396,7 +396,7 @@ Parameter | Type | Description
 {
   "id": 20553,
   "amount": 5,
-  "rate": null
+  "coupon": null
 }
 ```
 
@@ -404,7 +404,7 @@ Parameter | Type | Description
 #<Invoiced::Discount:0x3fdbf95e4d08 id=20553> JSON: {
   "id": 20553,
   "amount": 5,
-  "rate": null
+  "coupon": null
 }
 ```
 
@@ -412,7 +412,7 @@ Parameter | Type | Description
 Invoiced\Discount JSON: {
   "id": 20553,
   "amount": 5,
-  "rate": null
+  "coupon": null
 }
 ```
 
@@ -420,7 +420,7 @@ Invoiced\Discount JSON: {
 <Discount id=20553 at 0x3fdbf95e4d08> JSON: {
   "id": 20553,
   "amount": 5,
-  "rate": null
+  "coupon": null
 }
 ```
 
@@ -428,7 +428,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The discount's unique ID
 **amount** | *number* | Discount amount
-**rate** | *object* | Discount Rate the discount was computed from, if any
+**coupon** | *object* | Coupon the discount was computed from, if any
 
 ## Tax Object
 
@@ -438,7 +438,7 @@ Parameter | Type | Description
 {
   "id": 20554,
   "amount": 3.85,
-  "rate": null
+  "tax_rate": null
 }
 ```
 
@@ -446,7 +446,7 @@ Parameter | Type | Description
 #<Invoiced::Tax:0x3fdbf95e4d08 id=20554> JSON: {
   "id": 20554,
   "amount": 3.85,
-  "rate": null
+  "tax_rate": null
 }
 ```
 
@@ -454,7 +454,7 @@ Parameter | Type | Description
 Invoiced\Tax JSON: {
   "id": 20554,
   "amount": 3.85,
-  "rate": null
+  "tax_rate": null
 }
 ```
 
@@ -462,7 +462,7 @@ Invoiced\Tax JSON: {
 <Tax id=20554 at 0x3fdbf95e4d08> JSON: {
   "id": 20554,
   "amount": 3.85,
-  "rate": null
+  "tax_rate": null
 }
 ```
 
@@ -470,7 +470,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The tax's unique ID
 **amount** | *number* | Tax amount
-**rate** | *object* | Tax Rate the tax was computed from, if any
+**tax_rate** | *object* | Tax Rate the tax was computed from, if any
 
 ## Create an invoice
 
@@ -616,7 +616,7 @@ client.Invoice.create(
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -683,7 +683,7 @@ client.Invoice.create(
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -750,7 +750,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -817,7 +817,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -936,7 +936,7 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1003,7 +1003,7 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1070,7 +1070,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1137,7 +1137,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1251,7 +1251,7 @@ invoice.save()
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1318,7 +1318,7 @@ invoice.save()
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1385,7 +1385,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1452,7 +1452,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 51.15,
@@ -1685,7 +1685,7 @@ invoice.pay()
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 228.85,
@@ -1740,7 +1740,7 @@ invoice.pay()
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 228.85,
@@ -1795,7 +1795,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 228.85,
@@ -1850,7 +1850,7 @@ Invoiced\Invoice JSON: {
     {
       "id": 20554,
       "amount": 3.85,
-      "rate": null
+      "tax_rate": null
     }
   ],
   "total": 228.85,
@@ -1981,7 +1981,7 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
       {
         "id": 20554,
         "amount": 3.85,
-        "rate": null
+        "tax_rate": null
       }
     ],
     "total": 51.15,
@@ -2052,7 +2052,7 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
       {
         "id": 20554,
         "amount": 3.85,
-        "rate": null
+        "tax_rate": null
       }
     ],
     "total": 51.15,
@@ -2123,7 +2123,7 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
       {
         "id": 20554,
         "amount": 3.85,
-        "rate": null
+        "tax_rate": null
       }
     ],
     "total": 51.15,
@@ -2194,7 +2194,7 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
       {
         "id": 20554,
         "amount": 3.85,
-        "rate": null
+        "tax_rate": null
       }
     ],
     "total": 51.15,
