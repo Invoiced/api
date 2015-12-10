@@ -378,7 +378,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
 **catalog_item** | *string* | Optional Catalog Item ID. Fills the line item with the name and pricing of the Catalog Item.
-**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, `month`, `year`, `expense`, or `plan`
+**type** | *string* | Line item type, one of `product`, `service`, `hours`, `days`, `month`, `year`, `expense`, `shipping`, or `plan`
 **name** | *string* | Title
 **description** | *string* | Optional description
 **quantity** | *number* | Quantity

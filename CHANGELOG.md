@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### December 5, 2015
+
+- Added `shipping` line item type
+
 ### December 4, 2015
 
 - Add Subscription endpoints
