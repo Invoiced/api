@@ -298,12 +298,12 @@ Parameter | Type | Description
 **date** | *timestamp* | Invoice date
 **due_date** | *timestamp* | Date payment is due by
 **payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30"
-**items** | *array* | Collection of Line Item objects
+**items** | *array* | Collection of Line Items
 **terms** | *string* | Terms and conditions displayed on invoice
 **notes** | *string* | Additional notes displayed on invoice
 **subtotal** | *number* | Subtotal
-**discounts** | *array* | Collection of Discount objects
-**taxes** | *array* | Collection of Tax objects
+**discounts** | *array* | Collection of Discounts
+**taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
 **balance** | *number* | Balance
 **url** | *string* | URL to view the invoice in the billing portal
@@ -390,13 +390,16 @@ Parameter | Type | Description
 
 ## Discount Object
 
+Represents the application of a discount to an invoice or line item.
+
 ### Attributes
 
 ```shell
 {
   "id": 20553,
   "amount": 5,
-  "coupon": null
+  "coupon": null,
+  "expires": null
 }
 ```
 
@@ -404,7 +407,8 @@ Parameter | Type | Description
 #<Invoiced::Discount:0x3fdbf95e4d08 id=20553> JSON: {
   "id": 20553,
   "amount": 5,
-  "coupon": null
+  "coupon": null,
+  "expires": null
 }
 ```
 
@@ -412,7 +416,8 @@ Parameter | Type | Description
 Invoiced\Discount JSON: {
   "id": 20553,
   "amount": 5,
-  "coupon": null
+  "coupon": null,
+  "expires": null
 }
 ```
 
@@ -420,7 +425,8 @@ Invoiced\Discount JSON: {
 <Discount id=20553 at 0x3fdbf95e4d08> JSON: {
   "id": 20553,
   "amount": 5,
-  "coupon": null
+  "coupon": null,
+  "expires": null
 }
 ```
 
@@ -429,8 +435,11 @@ Parameter | Type | Description
 **id** | *integer* | The discount's unique ID
 **amount** | *number* | Discount amount
 **coupon** | *object* | Coupon the discount was computed from, if any
+**expires** | *timestamp* | Time until discount expires, if any
 
 ## Tax Object
+
+Represents the application of tax to an invoice or line item.
 
 ### Attributes
 
@@ -851,11 +860,11 @@ Parameter | Type | Description
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
 **theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
-**items** | *array* | Collection of Line Item objects
+**items** | *array* | Collection of Line Items
 **terms** | *string* | Terms and conditions displayed on invoice
 **notes** | *string* | Additional notes displayed on invoice
-**discounts** | *array* | Collection of Discount objects
-**taxes** | *array* | Collection of Tax objects
+**discounts** | *array* | Collection of Discounts
+**taxes** | *array* | Collection of Taxes
 
 ## Retrieve an invoice
 
@@ -1484,11 +1493,11 @@ Parameter | Type | Description
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
 **theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
-**items** | *array* | Collection of Line Item objects
+**items** | *array* | Collection of Line Items
 **terms** | *string* | Terms and conditions displayed on invoice
 **notes** | *string* | Additional notes displayed on invoice
-**discounts** | *array* | Collection of Discount objects
-**taxes** | *array* | Collection of Tax objects
+**discounts** | *array* | Collection of Discounts
+**taxes** | *array* | Collection of Taxes
 
 ## Send an invoice
 

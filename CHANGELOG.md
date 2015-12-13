@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### December 12, 2015
+
+- Added `expires` property to discounts
+
 ### December 5, 2015
 
 - Added `shipping` line item type
