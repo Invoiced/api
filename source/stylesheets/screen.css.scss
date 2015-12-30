@@ -208,6 +208,11 @@ html, body {
     margin-top: 1em;
   }
 
+  // Spacing after objects
+  .tocify-item[data-unique="webhooks"] {
+    margin-top: 1em;
+  }
+
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;

@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### December 30, 2015
+
+- Added webhooks that are now in beta
+
 ### December 12, 2015
 
 - Added `expires` property to discounts

@@ -15,6 +15,7 @@ includes:
   - invoices
   - transactions
   - subscriptions
+  - webhooks
 
 search: true
 ---
