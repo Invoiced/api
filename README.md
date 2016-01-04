@@ -6,3 +6,7 @@ Viewable at [invoiced.com/docs/api](https://invoiced.com/docs/api). Powered by [
 ## Developing
 
 The docs can be previewed locally with `middleman server` or built with `bundle exec middleman build`.
+
+## Contributing
+
+Please feel free to participate in the issues. Pull requests are welcome.
