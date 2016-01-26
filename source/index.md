@@ -95,6 +95,10 @@ client = invoiced.Client("{YOUR_API_KEY}")
 
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
 
+<aside class="notice">
+You must replace <code>{API_KEY}</code> with your account API key.
+</aside>
+
 ### Sandbox API
 
 ```shell
@@ -119,11 +123,7 @@ import invoiced
 client = invoiced.Client("{YOUR_SANDBOX_API_KEY}", True)
 ```
 
-You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com).
-
-<aside class="notice">
-You must replace <code>{API_KEY}</code> with your account API key.
-</aside>
+You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com) and request an API key there. The steps for requesting an API key are the same as production.
 
 # Errors
 
