@@ -1,6 +1,10 @@
 Changelog
 ===
 
+### January 26, 2016
+
+- Added instructions for accessing sandbox API
+
 ### December 30, 2015
 
 - Added webhooks that are now in beta

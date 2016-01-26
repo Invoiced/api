@@ -35,6 +35,8 @@ Here's a few pages that might be helpful in addition to this API reference.
 
 All API calls must be made to `https://api.invoiced.com`.
 
+We also have a sandbox environment for testing available at `https://api.sandbox.invoiced.com`.
+
 ### JSON-only
 
 All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data passed through the request body can be form-encoded or JSON-encoded. If using a JSON body, please specify the `Content-Type` header as `application/json`.
@@ -65,7 +67,7 @@ The API uses [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_acc
 
 ### Obtaining an API Key
 
-An API key can be obtained by signing in to [invoiced.com](https://invoiced.com), and then going to **Settings** > **API Keys**. Each business on Invoiced has its own set of API keys. We recommend creating a separate API key for each application that will be making calls on your behalf.
+An API key can be obtained by signing in to [invoiced.com](https://invoiced.com), and then going to **Settings** > **Developers** > **API Keys**. Each business on Invoiced has its own set of API keys. We recommend creating a separate API key for each application that will be making calls on your behalf.
 
 ### Usage
 
@@ -92,6 +94,32 @@ client = invoiced.Client("{YOUR_API_KEY}")
 ```
 
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
+
+### Sandbox API
+
+```shell
+curl https://api.sandbox.invoiced.com/invoices \
+  -u {YOUR_SANDBOX_API_KEY}:
+```
+
+```ruby
+require "invoiced"
+invoiced = Invoiced::Client.new("{YOUR_SANDBOX_API_KEY}", true)
+```
+
+```php
+<?php
+
+$invoiced = new Invoiced\Client("{YOUR_SANDBOX_API_KEY}", true);
+```
+
+```python
+import invoiced
+
+client = invoiced.Client("{YOUR_SANDBOX_API_KEY}", True)
+```
+
+You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com).
 
 <aside class="notice">
 You must replace <code>{API_KEY}</code> with your account API key.
