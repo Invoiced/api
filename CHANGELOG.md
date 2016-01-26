@@ -3,6 +3,7 @@ Changelog
 
 ### January 26, 2016
 
+- Added  `failure_reason` Transaction Object Attributes and removed it from the Json Response Examples
 - Added instructions for accessing sandbox API
 
 ### December 30, 2015

@@ -134,6 +134,7 @@ Parameter | Type | Description
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
 **sent** | *boolean* | Indicates if the transaction receipt has been sent'
+**failure_reason** | *string* | Failure message from the payment gateway (only available when `status` = `failed`)
 **parent_transaction** | *integer* | ID of the original transaction for refunds
 **pdf_url** | *string* | URL to download the invoice as a PDF
 **created_at** | *timestamp* | Timestamp when created
@@ -197,7 +198,6 @@ client.Transaction.create(
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -221,7 +221,6 @@ client.Transaction.create(
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -245,7 +244,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -269,7 +267,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -340,7 +337,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -364,7 +360,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -388,7 +383,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -412,7 +406,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -470,7 +463,6 @@ transaction.save()
 	"fee": 0,
 	"notes": "Check was received by Jan",
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -494,7 +486,6 @@ transaction.save()
 	"fee": 0,
 	"notes": "Check was received by Jan",
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -518,7 +509,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": "Check was received by Jan",
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -542,7 +532,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": "Check was received by Jan",
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -738,7 +727,6 @@ refund = transaction.refund(amount=400)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
 	"created_at": 1415228628
@@ -762,7 +750,6 @@ refund = transaction.refund(amount=400)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
 	"created_at": 1415228628
@@ -786,7 +773,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
 	"created_at": 1415228628
@@ -810,7 +796,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
 	"created_at": 1415228628
@@ -908,7 +893,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -936,7 +920,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -964,7 +947,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -992,7 +974,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
