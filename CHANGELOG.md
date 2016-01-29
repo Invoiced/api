@@ -1,5 +1,9 @@
 Changelog
-===
+=========
+
+### January 29, 2016
+
+- Custom line item types supported
 
 ### January 26, 2016
 
