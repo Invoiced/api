@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### February 5, 2016
+
+- Added `payment_url` property to invoices
+
 ### January 29, 2016
 
 - Custom line item types supported

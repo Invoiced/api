@@ -70,6 +70,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -137,6 +138,7 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -204,6 +206,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -271,6 +274,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -307,6 +311,7 @@ Parameter | Type | Description
 **total** | *number* | Total
 **balance** | *number* | Balance
 **url** | *string* | URL to view the invoice in the billing portal
+**payment_url** | *string* | URL for the invoice payment page
 **pdf_url** | *string* | URL to download the invoice as a PDF
 **created_at** | *timestamp* | Timestamp when created
 
@@ -631,6 +636,7 @@ client.Invoice.create(
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -698,6 +704,7 @@ client.Invoice.create(
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -765,6 +772,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -832,6 +840,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -951,6 +960,7 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1018,6 +1028,7 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1085,6 +1096,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1152,6 +1164,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1266,6 +1279,7 @@ invoice.save()
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1333,6 +1347,7 @@ invoice.save()
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1400,6 +1415,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1467,6 +1483,7 @@ Invoiced\Invoice JSON: {
   "total": 51.15,
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
@@ -1700,6 +1717,7 @@ invoice.pay()
   "total": 228.85,
   "balance": 228.85,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
   "created_at": 1415229885
 }
@@ -1755,6 +1773,7 @@ invoice.pay()
   "total": 228.85,
   "balance": 228.85,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
   "created_at": 1415229885
 }
@@ -1810,6 +1829,7 @@ Invoiced\Invoice JSON: {
   "total": 228.85,
   "balance": 228.85,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
   "created_at": 1415229885
 }
@@ -1865,6 +1885,7 @@ Invoiced\Invoice JSON: {
   "total": 228.85,
   "balance": 228.85,
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
   "created_at": 1415229885
 }
