@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### February 8, 2016
+
+- Added `tags` property to invoices
+
 ### February 5, 2016
 
 - Added `payment_url` property to invoices
