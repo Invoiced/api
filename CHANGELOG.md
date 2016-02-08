@@ -4,6 +4,7 @@ Changelog
 ### February 8, 2016
 
 - Added `tags` property to invoices
+- Added `tags` parameter to list all invoices endpoint for filtering invoices by tag
 
 ### February 5, 2016
 
