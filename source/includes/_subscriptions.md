@@ -117,11 +117,11 @@ Parameter | Type | Description
 **id** | *integer* | The subscription's unique ID
 **customer** | *integer* | Associated Customer
 **plan** | *string* | Plan ID
-**start_date** | *integer* | Timestamp subscription begins
+**start_date** | *timestamp* | Timestamp subscription starts (or started)
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
-**renews_next** | *integer* | Timestamp subscription renews next
-**renewed_last** | *integer* | Timestamp subscription was last renewed
+**renewed_last** | *timestamp* | Start of the current billing period
+**renews_next** | *timestamp* | End of the current billing period
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Discount objects
