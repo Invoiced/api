@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### February 24, 2016
+
+- Invoices can no longer have `overpaid` status
+
 ### February 8, 2016
 
 - Added `tags` property to invoices

@@ -296,7 +296,7 @@ Parameter | Type | Description
 **sent** | *boolean* | Indicates whether the invoice has been sent
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
 **paid** | *boolean* | Indicates whether an invoice has been paid in full
-**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`, or `overpaid`
+**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`
 **chase** | *boolean* | Whether chasing is enabled for the invoice
 **next_chase_on** | *timestamp* | Next scheduled chase
 **attempt_count** | *integer* | # of payment attempts
@@ -313,7 +313,7 @@ Parameter | Type | Description
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
-**balance** | *number* | Balance
+**balance** | *number* | Balance owed
 **tags** | *array* | Invoice tags
 **url** | *string* | URL to view the invoice in the billing portal
 **payment_url** | *string* | URL for the invoice payment page
