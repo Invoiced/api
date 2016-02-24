@@ -230,6 +230,68 @@ Parameter | Type | Description
 **exp_year** | *integer* | Expiry year
 **funding** | *string* | Funding instrument, can be `credit`, `debit`, `prepaid`, or `unknown`
 
+## Bank Account Object
+
+### Attributes
+
+```shell
+{
+  "id": 4321,
+  "object": "card",
+  "bank_name": "Wells Fargo",
+  "last4": 7890,
+  "routing_number": 110000000,
+  "verified": true,
+  "currency": "usd"
+}
+```
+
+```ruby
+#<Invoiced::BankAccount:0x3fdbf95e4d08 id=4321> JSON: {
+  "id": 4321,
+  "object": "card",
+  "bank_name": "Wells Fargo",
+  "last4": 7890,
+  "routing_number": 110000000,
+  "verified": true,
+  "currency": "usd"
+}
+```
+
+```php
+Invoiced\BankAccount JSON: {
+  "id": 4321,
+  "object": "card",
+  "bank_name": "Wells Fargo",
+  "last4": 7890,
+  "routing_number": 110000000,
+  "verified": true,
+  "currency": "usd"
+}
+```
+
+```python
+<BankAccount id=4321 at 0x3fdbf95e4d08> JSON: {
+  "id": 4321,
+  "object": "card",
+  "bank_name": "Wells Fargo",
+  "last4": 7890,
+  "routing_number": 110000000,
+  "verified": true,
+  "currency": "usd"
+}
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The bank account's unique ID
+**object** | *string* | `bank_account`
+**bank_name** | *string* | Bank name
+**last4** | *integer* | Last 4 digits of bank account
+**routing_number** | *integer* | Bank routing number
+**verified** | *boolean* | Whether the bank account has been verified with instant verification or micro-deposits
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+
 ## Create a customer
 
 ```shell

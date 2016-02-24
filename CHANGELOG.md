@@ -3,6 +3,7 @@ Changelog
 
 ### February 24, 2016
 
+- Added bank account object
 - The `number` property on customers has been renamed to `external_id`
 - Invoices can no longer have `overpaid` status
 
