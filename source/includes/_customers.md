@@ -26,6 +26,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
     "exp_year": 20,
     "funding": "credit"
   },
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -60,6 +61,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
     "exp_year": 20,
     "funding": "credit"
   },
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -94,6 +96,7 @@ Invoiced\Customer JSON: {
     "exp_year": 20,
     "funding": "credit"
   },
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -128,6 +131,7 @@ Invoiced\Customer JSON: {
     "exp_year": 20,
     "funding": "credit"
   },
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -154,6 +158,7 @@ Parameter | Type | Description
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **payment_source** | *object* | Customer's payment source, if attached
+**taxes** | *array* | Collection of Tax Rate IDs
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -348,6 +353,7 @@ client.Customer.create(
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -374,6 +380,7 @@ client.Customer.create(
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -400,6 +407,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -426,6 +434,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -459,6 +468,7 @@ Parameter | Type | Description
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`. Defaults to `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
+**taxes** | *array* | Collection of Tax Rate IDs
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -504,6 +514,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
   "address2": null,
@@ -530,6 +541,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -556,6 +568,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -582,6 +595,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 30",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": null,
   "address1": null,
   "address2": null,
@@ -670,6 +684,7 @@ customer.save()
   "payment_terms": "NET 14",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
   "address2": null,
@@ -696,6 +711,7 @@ customer.save()
   "payment_terms": "NET 14",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
   "address2": null,
@@ -722,6 +738,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 14",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
   "address2": null,
@@ -748,6 +765,7 @@ Invoiced\Customer JSON: {
   "payment_terms": "NET 14",
   "payment_source": null,
   "type": "company",
+  "taxes": [],
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
   "address2": null,
@@ -781,6 +799,7 @@ Parameter | Type | Description
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
+**taxes** | *array* | Collection of Tax Rate IDs
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -1233,6 +1252,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "payment_terms": "NET 30",
     "payment_source": null,
     "type": "company",
+    "taxes": [],
     "attention_to": "Sarah Fisher",
     "address1": "342 Amber St",
     "address2": null,
@@ -1263,6 +1283,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "payment_terms": "NET 30",
     "payment_source": null,
     "type": "company",
+    "taxes": [],
     "attention_to": "Sarah Fisher",
     "address1": "342 Amber St",
     "address2": null,
@@ -1293,6 +1314,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "payment_terms": "NET 30",
     "payment_source": null,
     "type": "company",
+    "taxes": [],
     "attention_to": "Sarah Fisher",
     "address1": "342 Amber St",
     "address2": null,
@@ -1323,6 +1345,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "payment_terms": "NET 30",
     "payment_source": null,
     "type": "company",
+    "taxes": [],
     "attention_to": "Sarah Fisher",
     "address1": "342 Amber St",
     "address2": null,

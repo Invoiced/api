@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### February 26, 2016
+
+- Added `taxes` property to customers
+
 ### February 24, 2016
 
 - Added bank account object

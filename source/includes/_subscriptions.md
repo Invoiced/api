@@ -124,8 +124,8 @@ Parameter | Type | Description
 **renews_next** | *timestamp* | End of the current billing period
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`
 **addons** | *array* | Collection of Subscription Addons
-**discounts** | *array* | Collection of Discount objects
-**taxes** | *array* | Collection of Tax objects
+**discounts** | *array* | Collection of Coupon IDs
+**taxes** | *array* | Collection of Tax Rate IDs
 **url** | *string* | URL to manage the subscription in the billing portal
 **created_at** | *timestamp* | Timestamp when created
 
@@ -350,8 +350,8 @@ Parameter | Type | Description
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
-**discounts** | *array* | Collection of Discount objects
-**taxes** | *array* | Collection of Tax objects
+**discounts** | *array* | Collection of Coupon IDs
+**taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
 
 ## Retrieve a subscription
@@ -632,6 +632,8 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **quantity** | *integer* | Plan quantity. Defaults to 1
+**discounts** | *array* | Collection of Coupon IDs
+**taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
 **prorate** | *boolean* | Prorate changes to plan, quantities, or addons, defaults to *true*
 
