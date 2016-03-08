@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### March 8, 2016
+
+- Added metered billing section
+
 ### February 26, 2016
 
 - Added `taxes` property to customers

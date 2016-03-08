@@ -15,6 +15,7 @@ includes:
   - invoices
   - transactions
   - subscriptions
+  - metered_billing
   - webhooks
 
 search: true
