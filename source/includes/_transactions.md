@@ -124,7 +124,7 @@ Parameter | Type | Description
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
-**sent** | *boolean* | Indicates if the transaction receipt has been sent'
+**sent** | *boolean* | Indicates if the transaction receipt has been sent
 **failure_reason** | *string* | Failure message from the payment gateway (only available when `status` = `failed`)
 **parent_transaction** | *integer* | ID of the original transaction for refunds
 **pdf_url** | *string* | URL to download the invoice as a PDF
