@@ -352,7 +352,6 @@ invoice = customer.invoice()
   "collection_mode": "manual",
   "attempt_count": 0,
   "next_payment_attempt": null,
-  "theme": null,
   "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
@@ -384,7 +383,6 @@ invoice = customer.invoice()
       "taxes": []
     }
   ],
-  "terms": null,
   "notes": null,
   "subtotal": 55,
   "discounts": [],
@@ -421,7 +419,6 @@ invoice = customer.invoice()
   "collection_mode": "manual",
   "attempt_count": 0,
   "next_payment_attempt": null,
-  "theme": null,
   "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
@@ -453,7 +450,6 @@ invoice = customer.invoice()
       "taxes": []
     }
   ],
-  "terms": null,
   "notes": null,
   "subtotal": 55,
   "discounts": [],
@@ -490,7 +486,6 @@ Invoiced\Invoice JSON: {
   "collection_mode": "manual",
   "attempt_count": 0,
   "next_payment_attempt": null,
-  "theme": null,
   "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
@@ -522,7 +517,6 @@ Invoiced\Invoice JSON: {
       "taxes": []
     }
   ],
-  "terms": null,
   "notes": null,
   "subtotal": 55,
   "discounts": [],
@@ -559,7 +553,6 @@ Invoiced\Invoice JSON: {
   "collection_mode": "manual",
   "attempt_count": 0,
   "next_payment_attempt": null,
-  "theme": null,
   "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
@@ -591,7 +584,6 @@ Invoiced\Invoice JSON: {
       "taxes": []
     }
   ],
-  "terms": null,
   "notes": null,
   "subtotal": 55,
   "discounts": [],

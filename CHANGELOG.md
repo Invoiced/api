@@ -4,6 +4,8 @@ Changelog
 ### March 29, 2016
 
 - Removed `other_phone` property on customers
+- Removed `terms` property on invoices
+- Removed `theme` property on invoices and transactions
 
 ### March 8, 2016
 

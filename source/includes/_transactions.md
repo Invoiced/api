@@ -26,7 +26,6 @@ We currently support the following payment methods on transactions:
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -50,7 +49,6 @@ We currently support the following payment methods on transactions:
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -74,7 +72,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -98,7 +95,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -122,7 +118,6 @@ Parameter | Type | Description
 **id** | *integer* | The transaction's unique ID
 **customer** | *integer* | Associated Customer
 **invoice** | *integer* | Associated Invoice, if any
-**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **date** | *timestamp* | Transaction date
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment`
 **method** | *string* | Payment instrument used to facilitate transaction
@@ -186,7 +181,6 @@ client.Transaction.create(
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -209,7 +203,6 @@ client.Transaction.create(
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -232,7 +225,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -255,7 +247,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -287,7 +278,6 @@ Parameter | Type | Description
 **invoice** | *integer* | Invoice ID, if any
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment` - **required**
 **date** | *timestamp* | Transaction date, defaults to current timestamp
-**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
@@ -325,7 +315,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -348,7 +337,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -371,7 +359,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -394,7 +381,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -451,7 +437,6 @@ transaction.save()
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -474,7 +459,6 @@ transaction.save()
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -497,7 +481,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -520,7 +503,6 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -549,7 +531,6 @@ Use this endpoint to update a transaction.
 Parameter | Type | Description
 --------- | ---- | -----------
 **date** | *timestamp* | Transaction date, defaults to current timestamp
-**theme** | *string* | Theme ID for rendering with custom themes, defaults to `null`
 **method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
 **status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
 **gateway** | *string* | Payment gateway that processed the transaction, if any
@@ -715,7 +696,6 @@ refund = transaction.refund(amount=400)
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -738,7 +718,6 @@ refund = transaction.refund(amount=400)
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -761,7 +740,6 @@ Invoiced\Transaction JSON: {
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -784,7 +762,6 @@ Invoiced\Transaction JSON: {
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -881,7 +858,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -908,7 +884,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -935,7 +910,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -962,7 +936,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
-	"theme": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
