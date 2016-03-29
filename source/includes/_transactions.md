@@ -37,7 +37,6 @@ We currently support the following payment methods on transactions:
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -60,7 +59,6 @@ We currently support the following payment methods on transactions:
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -83,7 +81,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
@@ -106,7 +103,6 @@ Invoiced\Transaction JSON: {
 	"fee": 0,
 	"notes": null,
 	"sent": false,
-	"failure_reason": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
 	"created_at": 1415228628
