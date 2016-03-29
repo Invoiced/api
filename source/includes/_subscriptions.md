@@ -16,8 +16,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -42,8 +42,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -68,8 +68,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -94,8 +94,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -120,8 +120,8 @@ Parameter | Type | Description
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
-**renewed_last** | *timestamp* | Start of the current billing period
-**renews_next** | *timestamp* | End of the current billing period
+**period_start** | *timestamp* | Start of the current billing period
+**period_end** | *timestamp* | End of the current billing period
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs
@@ -239,8 +239,8 @@ client.Subscription.create(
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": null,
-    "renews_next": 1420391704,
+    "period_start": null,
+    "period_end": 1420391704,
     "status": "active",
     "addons": [
         {
@@ -265,8 +265,8 @@ client.Subscription.create(
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": null,
-    "renews_next": 1420391704,
+    "period_start": null,
+    "period_end": 1420391704,
     "status": "active",
     "addons": [
         {
@@ -291,8 +291,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": null,
-    "renews_next": 1420391704,
+    "period_start": null,
+    "period_end": 1420391704,
     "status": "active",
     "addons": [
         {
@@ -317,8 +317,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": null,
-    "renews_next": 1420391704,
+    "period_start": null,
+    "period_end": 1420391704,
     "status": "active",
     "addons": [
         {
@@ -385,8 +385,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -411,8 +411,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -437,8 +437,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -463,8 +463,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -523,8 +523,8 @@ subscription.save()
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -549,8 +549,8 @@ subscription.save()
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -575,8 +575,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -601,8 +601,8 @@ Invoiced\Subscription JSON: {
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -699,8 +699,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -729,8 +729,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -759,8 +759,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -789,8 +789,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
-    "renewed_last": 1446657304,
-    "renews_next": 1449249304,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
     "status": "active",
     "addons": [
         {
@@ -820,5 +820,5 @@ This endpoint retrieves all subscriptions.
 
 Parameter | Description
 --------- | -----------
-**sort** *string* | Column to sort by, i.e. `renews_next asc`
+**sort** *string* | Column to sort by, i.e. `period_end asc`
 **filter** *object* | Filter object

@@ -6,6 +6,7 @@ Changelog
 - Removed `other_phone` property on customers
 - Removed `terms` property on invoices
 - Removed `theme` property on invoices and transactions
+- Renamed `renewed_last` and `renews_next` properties on subscriptions to `period_start` and `period_end` respectively
 
 ### March 8, 2016
 
