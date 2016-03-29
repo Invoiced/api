@@ -36,7 +36,6 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -71,7 +70,6 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -106,7 +104,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -141,7 +138,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -168,7 +164,6 @@ Parameter | Type | Description
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
-**other_phone** | *string* | Second phone #
 **notes** | *string* | Private customer notes
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
@@ -363,7 +358,6 @@ client.Customer.create(
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -390,7 +384,6 @@ client.Customer.create(
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -417,7 +410,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -444,7 +436,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -478,7 +469,6 @@ Parameter | Type | Description
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
-**other_phone** | *string* | Second phone #
 **notes** | *string* | Private customer notes
 
 ## Retrieve a customer
@@ -524,7 +514,6 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -551,7 +540,6 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -578,7 +566,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -605,7 +592,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": null,
   "phone": null,
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -694,7 +680,6 @@ customer.save()
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -721,7 +706,6 @@ customer.save()
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -748,7 +732,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -775,7 +758,6 @@ Invoiced\Customer JSON: {
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
-  "other_phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128
@@ -809,7 +791,6 @@ Parameter | Type | Description
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
-**other_phone** | *string* | Second phone #
 **notes** | *string* | Private customer notes
 
 ## List customer subscriptions
@@ -1262,7 +1243,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
-    "other_phone": null,
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1293,7 +1273,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
-    "other_phone": null,
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1324,7 +1303,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
-    "other_phone": null,
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128
@@ -1355,7 +1333,6 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
-    "other_phone": null,
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
     "created_at": 1415222128

@@ -1,6 +1,10 @@
 Changelog
 =========
 
+### March 29, 2016
+
+- Removed `other_phone` property on customers
+
 ### March 8, 2016
 
 - Added metered billing section
