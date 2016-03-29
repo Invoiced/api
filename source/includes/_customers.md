@@ -12,7 +12,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 {
   "id": 15444,
   "name": "Acme",
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "email": "billing@acmecorp.com",
   "type": "company",
   "collection_mode": "auto",
@@ -46,7 +46,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
   "name": "Acme",
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "email": "billing@acmecorp.com",
   "type": "company",
   "collection_mode": "auto",
@@ -80,7 +80,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 Invoiced\Customer JSON: {
   "id": 15444,
   "name": "Acme",
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "email": "billing@acmecorp.com",
   "type": "company",
   "collection_mode": "auto",
@@ -114,7 +114,7 @@ Invoiced\Customer JSON: {
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
   "name": "Acme",
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "email": "billing@acmecorp.com",
   "type": "company",
   "collection_mode": "auto",
@@ -148,7 +148,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
 **name** | *string* | Customer name
-**external_id** | *string* | A unique ID to help tie your customer to your external systems
+**number** | *string* | A unique ID to help tie your customer to your external systems
 **type** | *string* | Organization type, `company` or `person`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
@@ -341,7 +341,7 @@ client.Customer.create(
 ```shell
 {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -367,7 +367,7 @@ client.Customer.create(
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -393,7 +393,7 @@ client.Customer.create(
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -419,7 +419,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -453,7 +453,7 @@ Create a new customer profile with this endpoint.
 Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Customer name - **required**
-**external_id** | *string* | A unique ID to help tie your customer to your external systems. We will generate one if not supplied.
+**number** | *string* | A unique ID to help tie your customer to your external systems. We will generate one if not supplied.
 **type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`. Defaults to `manual`
@@ -497,7 +497,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 ```shell
 {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -523,7 +523,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -549,7 +549,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -575,7 +575,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -663,7 +663,7 @@ customer.save()
 ```shell
 {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -689,7 +689,7 @@ customer.save()
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -715,7 +715,7 @@ customer.save()
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -741,7 +741,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
-  "external_id": "CUST-0001",
+  "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
@@ -775,7 +775,7 @@ Use this endpoint to update a customer profile.
 Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Customer name
-**external_id** | *string* | A unique ID to help tie your customer to your external systems
+**number** | *string* | A unique ID to help tie your customer to your external systems
 **type** | *string* | Organization type, `company` or `person`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
@@ -1226,7 +1226,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 [
   {
     "id": 15444,
-    "external_id": "CUST-0001",
+    "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
     "collection_mode": "manual",
@@ -1256,7 +1256,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 [
   #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
     "id": 15444,
-    "external_id": "CUST-0001",
+    "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
     "collection_mode": "manual",
@@ -1286,7 +1286,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 [
   Invoiced\Customer JSON: {
     "id": 15444,
-    "external_id": "CUST-0001",
+    "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
     "collection_mode": "manual",
@@ -1316,7 +1316,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 [
   <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
     "id": 15444,
-    "external_id": "CUST-0001",
+    "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
     "collection_mode": "manual",

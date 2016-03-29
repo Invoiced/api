@@ -7,6 +7,7 @@ Changelog
 - Removed `terms` property on invoices
 - Removed `theme` property on invoices and transactions
 - Renamed `renewed_last` and `renews_next` properties on subscriptions to `period_start` and `period_end` respectively
+- Revert `external_id` property on customers back to `number`
 
 ### March 8, 2016
 
