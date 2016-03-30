@@ -39,7 +39,9 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -51,7 +53,9 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -106,7 +110,9 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -118,7 +124,9 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -173,7 +181,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -185,7 +195,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -240,7 +252,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -252,7 +266,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -324,7 +340,9 @@ Parameter | Type | Description
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -339,7 +357,9 @@ Parameter | Type | Description
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -354,7 +374,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -369,7 +391,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -384,7 +408,9 @@ Parameter | Type | Description
 **quantity** | *number* | Quantity
 **unit_cost** | *number* | Unit cost or rate
 **amount** | *number* | Computed from `quantity` x `unit_cost`
+**discountable** | *boolean* | Excludes amount from invoice discounts when `false`
 **discounts** | *array* | Line item Discounts
+**taxable** | *boolean* | Excludes amount from invoice taxes when `false`
 **taxes** | *array* | Line item Taxes
 **plan** | *string* | Plan ID, only present when type is `plan`
 
@@ -600,7 +626,9 @@ client.Invoice.create(
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -612,7 +640,9 @@ client.Invoice.create(
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -667,7 +697,9 @@ client.Invoice.create(
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -679,7 +711,9 @@ client.Invoice.create(
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -734,7 +768,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -746,7 +782,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -801,7 +839,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -813,7 +853,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -918,7 +960,9 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -930,7 +974,9 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -985,7 +1031,9 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -997,7 +1045,9 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1052,7 +1102,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1064,7 +1116,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1119,7 +1173,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1131,7 +1187,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1233,7 +1291,9 @@ invoice.save()
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1245,7 +1305,9 @@ invoice.save()
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1300,7 +1362,9 @@ invoice.save()
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1312,7 +1376,9 @@ invoice.save()
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1367,7 +1433,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1379,7 +1447,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1434,7 +1504,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -1446,7 +1518,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1677,7 +1751,9 @@ invoice.pay()
       "quantity": 5,
       "unit_cost": 45,
       "amount": 225,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1732,7 +1808,9 @@ invoice.pay()
       "quantity": 5,
       "unit_cost": 45,
       "amount": 225,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1787,7 +1865,9 @@ Invoiced\Invoice JSON: {
       "quantity": 5,
       "unit_cost": 45,
       "amount": 225,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1842,7 +1922,9 @@ Invoiced\Invoice JSON: {
       "quantity": 5,
       "unit_cost": 45,
       "amount": 225,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -1961,7 +2043,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       },
       {
@@ -1973,7 +2057,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       }
     ],
@@ -2031,7 +2117,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       },
       {
@@ -2043,7 +2131,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       }
     ],
@@ -2101,7 +2191,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       },
       {
@@ -2113,7 +2205,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       }
     ],
@@ -2171,7 +2265,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 45,
         "amount": 45,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       },
       {
@@ -2183,7 +2279,9 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
+        "discountable": true,
         "discounts": [],
+        "taxable": true,
         "taxes": []
       }
     ],

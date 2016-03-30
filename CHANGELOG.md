@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### March 30, 2016
+- Added `discountable` and `taxable` properties to line items
+
 ### March 29, 2016
 
 - Removed `other_phone` property on customers

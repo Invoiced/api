@@ -45,7 +45,9 @@ customer.line_items().create(
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -60,7 +62,9 @@ customer.line_items().create(
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -75,7 +79,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -90,7 +96,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -111,7 +119,9 @@ Parameter | Type | Description
 **description** | *string* | Optional description
 **quantity** | *number* | Quantity
 **unit_cost** | *number* | Unit cost or rate
+**discountable** | *boolean* | Excludes amount from invoice discounts when `false`, defaults to `true
 **discounts** | *array* | Line item Discounts
+**taxable** | *boolean* | Excludes amount from invoice taxes when `false`, defaults to `true
 **taxes** | *array* | Line item Taxes
 
 ## Retrieve a pending line item
@@ -150,7 +160,9 @@ line_item = customer.line_items().retrieve("{LINE_ITEM_ID}")
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -165,7 +177,9 @@ line_item = customer.line_items().retrieve("{LINE_ITEM_ID}")
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -180,7 +194,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -195,7 +211,9 @@ Invoiced\LineItem JSON: {
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -244,7 +262,9 @@ line_item.save()
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -259,7 +279,9 @@ line_item.save()
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -274,7 +296,9 @@ Invoiced\LineItem JSON: {
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -289,7 +313,9 @@ Invoiced\LineItem JSON: {
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
+  "discountable": true,
   "discounts": [],
+  "taxable": true,
   "taxes": []
 }
 ```
@@ -309,7 +335,9 @@ Parameter | Type | Description
 **description** | *string* | Optional description
 **quantity** | *number* | Quantity
 **unit_cost** | *number* | Unit cost or rate
+**discountable** | *boolean* | Excludes amount from invoice discounts when `false`, defaults to `true
 **discounts** | *array* | Line item Discounts
+**taxable** | *boolean* | Excludes amount from invoice taxes when `false`, defaults to `true
 **taxes** | *array* | Line item Taxes
 
 ## Trigger an invoice
@@ -367,7 +395,9 @@ invoice = customer.invoice()
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -379,7 +409,9 @@ invoice = customer.invoice()
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -434,7 +466,9 @@ invoice = customer.invoice()
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -446,7 +480,9 @@ invoice = customer.invoice()
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -501,7 +537,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -513,7 +551,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -568,7 +608,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     },
     {
@@ -580,7 +622,9 @@ Invoiced\Invoice JSON: {
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
+      "discountable": true,
       "discounts": [],
+      "taxable": true,
       "taxes": []
     }
   ],
@@ -681,7 +725,9 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
+    "discountable": true,
     "discounts": [],
+    "taxable": true,
     "taxes": []
   },
   { ... },
@@ -700,7 +746,9 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
+    "discountable": true,
     "discounts": [],
+    "taxable": true,
     "taxes": []
   },
   #<Invoiced::LineItem:0x3fdbf95e4d09 id=9> JSON: { ... },
@@ -719,7 +767,9 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
+    "discountable": true,
     "discounts": [],
+    "taxable": true,
     "taxes": []
   },
   Invoiced\LineItem JSON: { ... },
@@ -738,7 +788,9 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
+    "discountable": true,
     "discounts": [],
+    "taxable": true,
     "taxes": []
   },
   <LineItem id=9 at 0x3fdbf95e4d08> JSON: { ... },
