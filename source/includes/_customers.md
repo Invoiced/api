@@ -149,12 +149,12 @@ Parameter | Type | Description
 **id** | *integer* | The customer's unique ID
 **name** | *string* | Customer name
 **number** | *string* | A unique ID to help tie your customer to your external systems
-**type** | *string* | Organization type, `company` or `person`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **payment_source** | *object* | Customer's payment source, if attached
 **taxes** | *array* | Collection of Tax Rate IDs
+**type** | *string* | Organization type, `company` or `person`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -454,12 +454,12 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Customer name - **required**
 **number** | *string* | A unique ID to help tie your customer to your external systems. We will generate one if not supplied.
-**type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`. Defaults to `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
 **taxes** | *array* | Collection of Tax Rate IDs
+**type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -776,12 +776,12 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Customer name
 **number** | *string* | A unique ID to help tie your customer to your external systems
-**type** | *string* | Organization type, `company` or `person`
 **email** | *string* | Email address
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
 **taxes** | *array* | Collection of Tax Rate IDs
+**type** | *string* | Organization type, `company` or `person`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
