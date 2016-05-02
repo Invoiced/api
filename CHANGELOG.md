@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### May 2, 2016
+- Objects now support a key-value metadata store for sending additional information into Invoiced
+
 ### March 30, 2016
 - Added `discountable` and `taxable` properties to line items
 

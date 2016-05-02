@@ -30,7 +30,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -56,7 +57,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -82,7 +84,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -108,7 +111,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -128,6 +132,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Tax Rate IDs
 **url** | *string* | URL to manage the subscription in the billing portal
 **created_at** | *timestamp* | Timestamp when created
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Subscription Addon Object
 
@@ -253,7 +258,8 @@ client.Subscription.create(
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -279,7 +285,8 @@ client.Subscription.create(
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -305,7 +312,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -331,7 +339,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -353,6 +362,7 @@ Parameter | Type | Description
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a subscription
 
@@ -399,7 +409,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -425,7 +436,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -451,7 +463,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -477,7 +490,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -537,7 +551,8 @@ subscription.save()
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -563,7 +578,8 @@ subscription.save()
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -589,7 +605,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -615,7 +632,8 @@ Invoiced\Subscription JSON: {
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -636,6 +654,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
 **prorate** | *boolean* | Prorate changes to plan, quantities, or addons, defaults to *true*
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Cancel a subscription
 
@@ -713,7 +732,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
   },
   { ... },
   { ... }
@@ -743,7 +763,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
   },
   #<Invoiced::Subscription:0x3fdbf95e4d09 id=596> JSON: { ... },
   #<Invoiced::Subscription:0x3fdbf95e4d10 id=597> JSON: { ... }
@@ -773,7 +794,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
   },
   Invoiced\Subscription JSON: { ... },
   Invoiced\Subscription JSON: { ... }
@@ -803,7 +825,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "discounts": [],
     "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
   },
   <Subscription id=596 at 0x3fdbf95e4d08> JSON: { ... },
   <Subscription id=597 at 0x3fdbf95e4d08> JSON: { ... }

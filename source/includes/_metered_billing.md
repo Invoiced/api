@@ -48,7 +48,8 @@ customer.line_items().create(
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -65,7 +66,8 @@ customer.line_items().create(
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -82,7 +84,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -99,7 +102,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -123,6 +127,7 @@ Parameter | Type | Description
 **discounts** | *array* | Line item Discounts
 **taxable** | *boolean* | Excludes amount from invoice taxes when `false`, defaults to `true
 **taxes** | *array* | Line item Taxes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a pending line item
 
@@ -163,7 +168,8 @@ line_item = customer.line_items().retrieve("{LINE_ITEM_ID}")
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -180,7 +186,8 @@ line_item = customer.line_items().retrieve("{LINE_ITEM_ID}")
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -197,7 +204,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -214,7 +222,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -265,7 +274,8 @@ line_item.save()
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -282,7 +292,8 @@ line_item.save()
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -299,7 +310,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -316,7 +328,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -339,6 +352,7 @@ Parameter | Type | Description
 **discounts** | *array* | Line item Discounts
 **taxable** | *boolean* | Excludes amount from invoice taxes when `false`, defaults to `true
 **taxes** | *array* | Line item Taxes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Trigger an invoice
 
@@ -398,7 +412,8 @@ invoice = customer.invoice()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -412,7 +427,8 @@ invoice = customer.invoice()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -431,7 +447,8 @@ invoice = customer.invoice()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -469,7 +486,8 @@ invoice = customer.invoice()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -483,7 +501,8 @@ invoice = customer.invoice()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -502,7 +521,8 @@ invoice = customer.invoice()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -540,7 +560,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -554,7 +575,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -573,7 +595,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -611,7 +634,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -625,7 +649,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -644,7 +669,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -728,7 +754,8 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "discountable": true,
     "discounts": [],
     "taxable": true,
-    "taxes": []
+    "taxes": [],
+    "metadata": {}
   },
   { ... },
   { ... }
@@ -749,7 +776,8 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "discountable": true,
     "discounts": [],
     "taxable": true,
-    "taxes": []
+    "taxes": [],
+    "metadata": {}
   },
   #<Invoiced::LineItem:0x3fdbf95e4d09 id=9> JSON: { ... },
   #<Invoiced::LineItem:0x3fdbf95e4d10 id=10> JSON: { ... }
@@ -770,7 +798,8 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "discountable": true,
     "discounts": [],
     "taxable": true,
-    "taxes": []
+    "taxes": [],
+    "metadata": {}
   },
   Invoiced\LineItem JSON: { ... },
   Invoiced\LineItem JSON: { ... }
@@ -791,7 +820,8 @@ line_items, metadata = customer.line_items().list(per_page=3)
     "discountable": true,
     "discounts": [],
     "taxable": true,
-    "taxes": []
+    "taxes": [],
+    "metadata": {}
   },
   <LineItem id=9 at 0x3fdbf95e4d08> JSON: { ... },
   <LineItem id=10 at 0x3fdbf95e4d08> JSON: { ... }

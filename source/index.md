@@ -169,9 +169,204 @@ When traversing the pages, we recommend using the `Link` and `X-Total-Count` hea
 
 Any future changes to the API will be versioned in order to maintain backwards compatibility with existing integrations.
 
+# Metadata
+
+```shell
+curl "https://api.invoiced.com/customers" \
+  -u {API_KEY}: \
+  -d name="Acme" \
+  -d metadata[icp_number]="1234567890" \
+  -d metadata[account_rep]="Jan"
+```
+
+```ruby
+invoiced.Customer.create(
+  :name => "Acme",
+  :metadata => {
+    :icp_number => "1234567890",
+    :account_rep => "Jan"
+  }
+)
+```
+
+```php
+<?php
+
+$invoiced->Customer->create([
+  'name' => "Acme",
+  'metadata' => [
+    'icp_number' => "1234567890",
+    'account_rep' => "Jan"
+  ]
+]);
+```
+
+```python
+client.Customer.create(
+  name="Acme",
+  metadata={
+    'icp_number': "1234567890",
+    'account_rep': "Jan"
+  }
+)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": null,
+  "collection_mode": "manual",
+  "payment_terms": null,
+  "payment_source": null,
+  "taxes": [],
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}
+```
+
+```ruby
+#<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": null,
+  "collection_mode": "manual",
+  "payment_terms": null,
+  "payment_source": null,
+  "taxes": [],
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}
+```
+
+```php
+Invoiced\Customer JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": null,
+  "collection_mode": "manual",
+  "payment_terms": null,
+  "payment_source": null,
+  "taxes": [],
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}
+```
+
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": null,
+  "collection_mode": "manual",
+  "payment_terms": null,
+  "payment_source": null,
+  "taxes": [],
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}
+```
+
+Most Invoices objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
+
+The use cases for metadata are many. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and on the dashboard. Customers will not see this data unless you choose to display it.
+
+Metadata can include up to **10 keys per object**. Each key can be up to 40 characters long and values may be up to 255 characters long.
+
 # Special Parameters
 
 ### Expanding Relations
+
+```shell
+curl "https://api.invoiced.com/invoices/:id?expand=customer" \
+  -u {API_KEY}:
+```
+
+```ruby
+invoice = invoiced.Invoice.retrieve("{INVOICE_ID}", {
+  :expand => "customer"
+})
+```
+
+```php
+<?php
+
+$invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}", [
+  'expand' => "customer"
+]);
+```
+
+```python
+invoice = client.Invoice.retrieve("{INVOICE_ID}", {
+  'expand': "customer"
+})
+```
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
 

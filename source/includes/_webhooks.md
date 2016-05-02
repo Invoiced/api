@@ -34,7 +34,8 @@ Webhooks are currently in beta.
             "status": "succeeded",
             "theme": null,
             "type": "payment",
-            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf"
+            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf",
+            "metadata": {}
         }
     }
 }
@@ -64,7 +65,8 @@ Webhooks are currently in beta.
             "status": "succeeded",
             "theme": null,
             "type": "payment",
-            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf"
+            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf",
+            "metadata": {}
         }
     }
 }
@@ -94,7 +96,8 @@ Invoiced\Event JSON: {
             "status": "succeeded",
             "theme": null,
             "type": "payment",
-            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf"
+            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf",
+            "metadata": {}
         }
     }
 }
@@ -124,7 +127,8 @@ Invoiced\Event JSON: {
             "status": "succeeded",
             "theme": null,
             "type": "payment",
-            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf"
+            "pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf",
+            "metadata": {}
         }
     }
 }

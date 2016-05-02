@@ -39,7 +39,8 @@ We currently support the following payment methods on transactions:
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -61,7 +62,8 @@ We currently support the following payment methods on transactions:
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -83,7 +85,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -105,7 +108,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -129,6 +133,7 @@ Parameter | Type | Description
 **parent_transaction** | *integer* | ID of the original transaction for refunds
 **pdf_url** | *string* | URL to download the invoice as a PDF
 **created_at** | *timestamp* | Timestamp when created
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Create a transaction
 
@@ -190,7 +195,8 @@ client.Transaction.create(
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -212,7 +218,8 @@ client.Transaction.create(
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -234,7 +241,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -256,7 +264,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -282,6 +291,7 @@ Parameter | Type | Description
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a transaction
 
@@ -324,7 +334,8 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -346,7 +357,8 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -368,7 +380,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -390,7 +403,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -446,7 +460,8 @@ transaction.save()
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -468,7 +483,8 @@ transaction.save()
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -490,7 +506,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -512,7 +529,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -535,6 +553,7 @@ Parameter | Type | Description
 **amount** | *number* | Transaction amount
 **fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Send a receipt
 
@@ -705,7 +724,8 @@ refund = transaction.refund(amount=400)
 	"sent": false,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -727,7 +747,8 @@ refund = transaction.refund(amount=400)
 	"sent": false,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -749,7 +770,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -771,7 +793,8 @@ Invoiced\Transaction JSON: {
 	"sent": false,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
 }
 ```
 
@@ -867,7 +890,8 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
   },
   { ... },
   { ... }
@@ -893,7 +917,8 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
   },
   #<Invoiced::Transaction:0x3fdbf95e4d09 id=20940> JSON: { ... },
   #<Invoiced::Transaction:0x3fdbf95e4d10 id=20941> JSON: { ... }
@@ -919,7 +944,8 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
   },
   Invoiced\Transaction JSON: { ... },
   Invoiced\Transaction JSON: { ... }
@@ -945,7 +971,8 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"sent": false,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628
+	"created_at": 1415228628,
+    "metadata": {}
   },
   <Transaction id=20940 at 0x3fdbf95e4d08> JSON: { ... },
   <Transaction id=20941 at 0x3fdbf95e4d08> JSON: { ... }

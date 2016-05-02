@@ -42,7 +42,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -56,7 +57,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -75,7 +77,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -113,7 +116,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -127,7 +131,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -146,7 +151,8 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -184,7 +190,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -198,7 +205,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -217,7 +225,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -255,7 +264,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -269,7 +279,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -288,7 +299,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -325,6 +337,7 @@ Parameter | Type | Description
 **payment_url** | *string* | URL for the invoice payment page
 **pdf_url** | *string* | URL to download the invoice as a PDF
 **created_at** | *timestamp* | Timestamp when created
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Line Item Object
 
@@ -343,7 +356,8 @@ Parameter | Type | Description
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -360,7 +374,8 @@ Parameter | Type | Description
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -377,7 +392,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -394,7 +410,8 @@ Invoiced\LineItem JSON: {
   "discountable": true,
   "discounts": [],
   "taxable": true,
-  "taxes": []
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
@@ -413,6 +430,7 @@ Parameter | Type | Description
 **taxable** | *boolean* | Excludes amount from invoice taxes when `false`
 **taxes** | *array* | Line item Taxes
 **plan** | *string* | Plan ID, only present when type is `plan`
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Discount Object
 
@@ -629,7 +647,8 @@ client.Invoice.create(
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -643,7 +662,8 @@ client.Invoice.create(
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -662,7 +682,8 @@ client.Invoice.create(
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -700,7 +721,8 @@ client.Invoice.create(
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -714,7 +736,8 @@ client.Invoice.create(
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -733,7 +756,8 @@ client.Invoice.create(
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -771,7 +795,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -785,7 +810,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -804,7 +830,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -842,7 +869,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -856,7 +884,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -875,7 +904,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -905,6 +935,8 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**tags** | *array* | Invoice tags
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve an invoice
 
@@ -963,7 +995,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -977,7 +1010,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -996,7 +1030,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1034,7 +1069,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1048,7 +1084,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1067,7 +1104,8 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1105,7 +1143,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1119,7 +1158,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1138,7 +1178,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1176,7 +1217,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1190,7 +1232,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1209,7 +1252,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1294,7 +1338,8 @@ invoice.save()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1308,7 +1353,8 @@ invoice.save()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": "The order was delivered on Jul 20, 2015",
@@ -1327,7 +1373,8 @@ invoice.save()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1365,7 +1412,8 @@ invoice.save()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1379,7 +1427,8 @@ invoice.save()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1398,7 +1447,8 @@ invoice.save()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1436,7 +1486,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1450,7 +1501,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1469,7 +1521,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1507,7 +1560,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
@@ -1521,7 +1575,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1540,7 +1595,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1568,6 +1624,8 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**tags** | *array* | Invoice tags
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Send an invoice
 
@@ -1754,7 +1812,8 @@ invoice.pay()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1773,7 +1832,8 @@ invoice.pay()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885
+  "created_at": 1415229885,
+  "metadata": {}
 }
 ```
 
@@ -1811,7 +1871,8 @@ invoice.pay()
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1830,7 +1891,8 @@ invoice.pay()
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885
+  "created_at": 1415229885,
+  "metadata": {}
 }
 ```
 
@@ -1868,7 +1930,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1887,7 +1950,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885
+  "created_at": 1415229885,
+  "metadata": {}
 }
 ```
 
@@ -1925,7 +1989,8 @@ Invoiced\Invoice JSON: {
       "discountable": true,
       "discounts": [],
       "taxable": true,
-      "taxes": []
+      "taxes": [],
+      "metadata": {}
     }
   ],
   "notes": null,
@@ -1944,7 +2009,8 @@ Invoiced\Invoice JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885
+  "created_at": 1415229885,
+  "metadata": {}
 }
 ```
 
@@ -2046,7 +2112,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       },
       {
         "id": 8,
@@ -2060,7 +2127,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       }
     ],
     "notes": null,
@@ -2078,7 +2146,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   },
   { ... },
   { ... }
@@ -2120,7 +2189,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       },
       {
         "id": 8,
@@ -2134,7 +2204,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       }
     ],
     "notes": null,
@@ -2152,7 +2223,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   },
   #<Invoiced::Invoice:0x3fdbf95e4d09 id=15445> JSON: { ... },
   #<Invoiced::Invoice:0x3fdbf95e4d10 id=15446> JSON: { ... }
@@ -2194,7 +2266,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       },
       {
         "id": 8,
@@ -2208,7 +2281,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       }
     ],
     "notes": null,
@@ -2226,7 +2300,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   },
   Invoiced\Invoice JSON: { ... },
   Invoiced\Invoice JSON: { ... }
@@ -2268,7 +2343,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       },
       {
         "id": 8,
@@ -2282,7 +2358,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
         "discountable": true,
         "discounts": [],
         "taxable": true,
-        "taxes": []
+        "taxes": [],
+        "metadata": {}
       }
     ],
     "notes": null,
@@ -2300,7 +2377,8 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   },
   <Invoice id=15445 at 0x3fdbf95e4d08> JSON: { ... },
   <Invoice id=15446 at 0x3fdbf95e4d08> JSON: { ... }

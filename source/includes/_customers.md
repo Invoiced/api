@@ -38,7 +38,8 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -72,7 +73,8 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -106,7 +108,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -140,7 +143,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -167,6 +171,7 @@ Parameter | Type | Description
 **notes** | *string* | Private customer notes
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Card Object
 
@@ -360,7 +365,8 @@ client.Customer.create(
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -386,7 +392,8 @@ client.Customer.create(
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -412,7 +419,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -438,7 +446,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -470,6 +479,7 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a customer
 
@@ -516,7 +526,8 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -542,7 +553,8 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -568,7 +580,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -594,7 +607,8 @@ Invoiced\Customer JSON: {
   "phone": null,
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -682,7 +696,8 @@ customer.save()
   "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -708,7 +723,8 @@ customer.save()
   "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -734,7 +750,8 @@ Invoiced\Customer JSON: {
   "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -760,7 +777,8 @@ Invoiced\Customer JSON: {
   "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -792,6 +810,7 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## List customer subscriptions
 
@@ -835,7 +854,8 @@ subscriptions, metadata = customer.subscriptions()
         }
       ],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
-      "created_at": 1415230041
+      "created_at": 1415230041,
+      "metadata": {}
   },
   {
       "id": 594,
@@ -849,7 +869,8 @@ subscriptions, metadata = customer.subscriptions()
       "status": "active",
       "addons": [],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
-      "created_at": 1425572798
+      "created_at": 1425572798,
+      "metadata": {}
   }
 ]
 ```
@@ -873,7 +894,8 @@ subscriptions, metadata = customer.subscriptions()
         }
       ],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
-      "created_at": 1415230041
+      "created_at": 1415230041,
+      "metadata": {}
   },
   #<Invoiced::Subscription:0x3fdbf95as4d08 id=594> JSON: {
       "id": 594,
@@ -887,7 +909,8 @@ subscriptions, metadata = customer.subscriptions()
       "status": "active",
       "addons": [],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
-      "created_at": 1425572798
+      "created_at": 1425572798,
+      "metadata": {}
   }
 ]
 ```
@@ -911,7 +934,8 @@ subscriptions, metadata = customer.subscriptions()
         }
       ],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
-      "created_at": 1415230041
+      "created_at": 1415230041,
+      "metadata": {}
   },
   Invoiced\Subscription JSON: {
       "id": 594,
@@ -925,7 +949,8 @@ subscriptions, metadata = customer.subscriptions()
       "status": "active",
       "addons": [],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
-      "created_at": 1425572798
+      "created_at": 1425572798,
+      "metadata": {}
   }
 ]
 ```
@@ -949,7 +974,8 @@ subscriptions, metadata = customer.subscriptions()
         }
       ],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ClfLz70YiFSgu5E2dA5qrwXX",
-      "created_at": 1415230041
+      "created_at": 1415230041,
+      "metadata": {}
   },
   <Subscription id=594 at 0x3fdbf95e4d08> JSON: {
       "id": 594,
@@ -963,7 +989,8 @@ subscriptions, metadata = customer.subscriptions()
       "status": "active",
       "addons": [],
       "url": "https://dundermifflin.invoiced.com/subscriptions/ir5n8vGRTcsJyBNS8lzR6gXX",
-      "created_at": 1425572798
+      "created_at": 1425572798,
+      "metadata": {}
   }
 ]
 ```
@@ -1245,7 +1272,8 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "phone": "(820) 297-2983",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-    "created_at": 1415222128
+    "created_at": 1415222128,
+    "metadata": {}
   },
   { ... },
   { ... }
@@ -1275,7 +1303,8 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "phone": "(820) 297-2983",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-    "created_at": 1415222128
+    "created_at": 1415222128,
+    "metadata": {}
   },
   #<Invoiced::Customer:0x3fdbf95e4d09 id=15445> JSON: { ... },
   #<Invoiced::Customer:0x3fdbf95e4d10 id=15446> JSON: { ... }
@@ -1305,7 +1334,8 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "phone": "(820) 297-2983",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-    "created_at": 1415222128
+    "created_at": 1415222128,
+    "metadata": {}
   },
   Invoiced\Customer JSON: { ... },
   Invoiced\Customer JSON: { ... }
@@ -1335,7 +1365,8 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "phone": "(820) 297-2983",
     "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-    "created_at": 1415222128
+    "created_at": 1415222128,
+    "metadata": {}
   },
   <Customer id=15445 at 0x3fdbf95e4d08> JSON: { ... },
   <Customer id=15446 at 0x3fdbf95e4d08> JSON: { ... }
