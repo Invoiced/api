@@ -1034,6 +1034,16 @@ customer.balance()
 ```shell
 {
   "available_credits": 50,
+  "history": [
+    {
+      "timestamp": 1464041624,
+      "balance": 50
+    },
+    {
+      "timestamp": 1464040550,
+      "balance": 100
+    }
+  ],
   "past_due": false,
   "total_outstanding": 470
 }
@@ -1041,15 +1051,35 @@ customer.balance()
 
 ```ruby
 {
-  :available_credits => 50,
-  :past_due => false,
-  :total_outstanding => 470
+  "available_credits": 50,
+  "history": [
+    {
+      "timestamp": 1464041624,
+      "balance": 50
+    },
+    {
+      "timestamp": 1464040550,
+      "balance": 100
+    }
+  ],
+  "past_due": false,
+  "total_outstanding": 470
 }
 ```
 
 ```php
-stdClass {
+{
   "available_credits": 50,
+  "history": [
+    {
+      "timestamp": 1464041624,
+      "balance": 50
+    },
+    {
+      "timestamp": 1464040550,
+      "balance": 100
+    }
+  ],
   "past_due": false,
   "total_outstanding": 470
 }
@@ -1057,9 +1087,19 @@ stdClass {
 
 ```python
 {
-  :available_credits => 50,
-  :past_due => false,
-  :total_outstanding => 470
+  "available_credits": 50,
+  "history": [
+    {
+      "timestamp": 1464041624,
+      "balance": 50
+    },
+    {
+      "timestamp": 1464040550,
+      "balance": 100
+    }
+  ],
+  "past_due": false,
+  "total_outstanding": 470
 }
 ```
 

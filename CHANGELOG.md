@@ -3,6 +3,7 @@ Changelog
 
 ### May 26, 2016
 - Can filter customers with/without a payment source and credit balance
+- Added `history` to customer balance endpoint
 
 ### May 2, 2016
 - Objects now support a key-value metadata store for sending additional information into Invoiced
