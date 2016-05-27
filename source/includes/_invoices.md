@@ -15,7 +15,6 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -89,7 +88,6 @@ Invoices can be marked as paid with Transactions. Once the sum of all Transactio
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -163,7 +161,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -237,7 +234,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -313,7 +309,6 @@ Parameter | Type | Description
 **collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
-**sent** | *boolean* | Indicates whether the invoice has been sent
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
 **paid** | *boolean* | Indicates whether an invoice has been paid in full
 **status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`
@@ -620,7 +615,6 @@ client.Invoice.create(
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -694,7 +688,6 @@ client.Invoice.create(
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -768,7 +761,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -842,7 +834,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -928,7 +919,6 @@ Parameter | Type | Description
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
-**sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
 **items** | *array* | Collection of Line Items
@@ -968,7 +958,6 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1042,7 +1031,6 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}")
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1116,7 +1104,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1190,7 +1177,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1311,7 +1297,6 @@ invoice.save()
   "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "sent",
@@ -1385,7 +1370,6 @@ invoice.save()
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1459,7 +1443,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1533,7 +1516,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
@@ -1617,7 +1599,6 @@ Parameter | Type | Description
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
-**sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
 **items** | *array* | Collection of Line Items
@@ -1785,7 +1766,6 @@ invoice.pay()
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": true,
   "status": "paid",
@@ -1844,7 +1824,6 @@ invoice.pay()
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": true,
   "status": "paid",
@@ -1903,7 +1882,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": true,
   "status": "paid",
@@ -1962,7 +1940,6 @@ Invoiced\Invoice JSON: {
   "name": null,
   "currency": "usd",
   "draft": false,
-  "sent": false,
   "closed": false,
   "paid": true,
   "status": "paid",
@@ -2085,7 +2062,6 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "name": null,
     "currency": "usd",
     "draft": false,
-    "sent": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",
@@ -2162,7 +2138,6 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "name": null,
     "currency": "usd",
     "draft": false,
-    "sent": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",
@@ -2239,7 +2214,6 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "name": null,
     "currency": "usd",
     "draft": false,
-    "sent": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",
@@ -2316,7 +2290,6 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
     "name": null,
     "currency": "usd",
     "draft": false,
-    "sent": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",

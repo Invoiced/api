@@ -5,6 +5,7 @@ Changelog
 - Removed customer subscriptions endpoint. Recommend using list subscriptions instead with a filter for the customer.
 - Added endpoints for managing customer contacts
 - Removed `sent` property on transactions
+- Removed `sent` property on invoices
 
 ### May 26, 2016
 - Can filter customers with/without a payment source and credit balance
