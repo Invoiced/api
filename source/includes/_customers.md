@@ -907,7 +907,7 @@ customer.balance()
 }
 ```
 
-This endpoint calculates the customer's current balance.
+This endpoint returns the customer's current credit balance, credit balance history, and the current amount outstanding.
 
 ### HTTP Request
 
