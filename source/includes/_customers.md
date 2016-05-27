@@ -297,6 +297,90 @@ Parameter | Type | Description
 **verified** | *boolean* | Whether the bank account has been verified with instant verification or micro-deposits
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 
+## Contact Object
+
+Contacts can be attached to customers. A contact could represent an additional email recipient for a customer, or perhaps an address in addition to the billing address, like a shipping address.
+
+### Attributes
+
+```shell
+{
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```php
+Invoiced\Contact JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The contact's unique ID
+**name** | *string* | Contact name
+**email** | *string* | Email address
+**primary** | *boolean* | When true the contact will be copied on any account communications
+**address1** | *string* | First address line
+**address2** | *string* | Optional second address line
+**city** | *string* | City
+**state** | *string* | State or province
+**postal_code** | *string* | Zip or postal code
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+**created_at** | *timestamp* | Timestamp when created
+
 ## Create a customer
 
 ```shell
@@ -1039,6 +1123,496 @@ Parameter | Type | Description
 <aside class="info">
 A successful response means that your email has been added to the send queue.
 </aside>
+
+## Create a contact
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts" \
+  -u {API_KEY}: \
+  -d name="Nancy Talty" \
+  -d email="nancy.talty@example.com"
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+customer.contacts.create(
+  :name => "Nancy Talty",
+  :email => "nancy.talty@example.com"
+)
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+$customer->contacts()->create([
+  'name' => "Nancy Talty",
+  'email' => "nancy.talty@example.com"
+]);
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+customer.contacts().create(
+  name="Nancy Talty",
+  email="nancy.talty@example.com"
+)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```php
+Invoiced\Contact JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+Create a new contact with this endpoint.
+
+### HTTP Request
+
+`POST /customers/:customer_id/contacts`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**name** | *string* | Contact name
+**email** | *string* | Email address
+**primary** | *boolean* | When true the contact will be copied on any account communications
+**address1** | *string* | First address line
+**address2** | *string* | Optional second address line
+**city** | *string* | City
+**state** | *string* | State or province
+**postal_code** | *string* | Zip or postal code
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+## Retrieve a contact
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+contact = customer.contacts.retrieve("{CONTACT_ID}")
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+$contact = $customer->contacts()->retrieve("{CONTACT_ID}");
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+contact = customer.contacts().retrieve("{CONTACT_ID}")
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```php
+Invoiced\Contact JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+This endpoint retrieves a specific contact.
+
+### HTTP Request
+
+`GET /customers/:customer_id/contacts/:id`
+
+## Update a contact
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}: \
+  -d address1="507 Grove Avenue" \
+  -d city="Oklahoma City" \
+  -d state="OK" \
+  -d postal_code="73102" \
+  -X PATCH
+```
+
+```ruby
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postal_code = "73102"
+contact.save
+```
+
+```php
+<?php
+
+contact->address1 = "507 Grove Avenue"
+contact->city = "Oklahoma City"
+contact->state = "OK"
+contact->postal_code = "73102"
+$contact->save();
+```
+
+```python
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postal_code = "73102"
+contact.save()
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": "507 Grove Avenue",
+  "address2": null,
+  "city": "Oklahoma City",
+  "state": "OK",
+  "postal_code": "73102",
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": "507 Grove Avenue",
+  "address2": null,
+  "city": "Oklahoma City",
+  "state": "OK",
+  "postal_code": "73102",
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```php
+Invoiced\Contact JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": "507 Grove Avenue",
+  "address2": null,
+  "city": "Oklahoma City",
+  "state": "OK",
+  "postal_code": "73102",
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": "507 Grove Avenue",
+  "address2": null,
+  "city": "Oklahoma City",
+  "state": "OK",
+  "postal_code": "73102",
+  "country": null,
+  "created_at": 1463510889
+}
+```
+
+Use this endpoint to update a contact.
+
+### HTTP Request
+
+`PATCH /customers/:customer_id/contacts/:id`
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**name** | *string* | Contact name
+**email** | *string* | Email address
+**primary** | *boolean* | When true the contact will be copied on any account communications
+**address1** | *string* | First address line
+**address2** | *string* | Optional second address line
+**city** | *string* | City
+**state** | *string* | State or province
+**postal_code** | *string* | Zip or postal code
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+## Delete a contact
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}: \
+  -X DELETE
+```
+
+```ruby
+contact.delete
+```
+
+```php
+<?php
+
+$contact->delete();
+```
+
+```python
+contact.delete()
+```
+
+> The above command returns `204 No Content`
+
+This endpoint deletes a specific contact.
+
+### HTTP Request
+
+`DELETE /customers/:customer_id/contacts/:id`
+
+## List all contacts
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts" \
+  -u {API_KEY}:
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+contacts, metadata = customer.contacts.list(:per_page => 3)
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+list($contacts, $metadata) = $customer->contacts()->all(['per_page' => 3]);
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+contacts, metadata = customer.contacts().list(per_page=3)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  {
+    "id": 10403,
+    "name": "Nancy Talty",
+    "email": "nancy.talty@example.com",
+    "primary": true,
+    "address1": null,
+    "address2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "created_at": 1463510889
+  },
+  { ... },
+  { ... }
+]
+```
+
+```ruby
+[
+  #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
+    "id": 10403,
+    "name": "Nancy Talty",
+    "email": "nancy.talty@example.com",
+    "primary": true,
+    "address1": null,
+    "address2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "created_at": 1463510889
+  },
+  #<Invoiced::Contact:0x3fdbf95e4d09 id=10404> JSON: { ... },
+  #<Invoiced::Contact:0x3fdbf95e4d10 id=10405> JSON: { ... }
+]
+```
+
+```php
+[
+  Invoiced\Contact JSON: {
+    "id": 10403,
+    "name": "Nancy Talty",
+    "email": "nancy.talty@example.com",
+    "primary": true,
+    "address1": null,
+    "address2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "created_at": 1463510889
+  },
+  Invoiced\Contact JSON: { ... },
+  Invoiced\Contact JSON: { ... }
+]
+```
+
+```python
+[
+  <Contact id=10403 at 0x3fdbf95e4d08> JSON: {
+    "id": 10403,
+    "name": "Nancy Talty",
+    "email": "nancy.talty@example.com",
+    "primary": true,
+    "address1": null,
+    "address2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "created_at": 1463510889
+  },
+  <Contact id=10404 at 0x3fdbf95e4d08> JSON: { ... },
+  <Contact id=10405 at 0x3fdbf95e4d08> JSON: { ... }
+]
+```
+
+This endpoint retrieves all contacts.
+
+### HTTP Request
+
+`GET /customers/:customer_id/contacts`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+**sort** *string* | Column to sort by, i.e. `name asc`
+**filter** *object* | Filter object
 
 ## Delete a customer
 

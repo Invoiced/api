@@ -238,7 +238,7 @@ This endpoint retrieves a specific pending line item.
 ```shell
 curl "https://api.invoiced.com/customers/:customer_id/line_items/:id" \
   -u {API_KEY}: \
-  -d quantity=2
+  -d quantity=2 \
   -X PATCH
 ```
 
