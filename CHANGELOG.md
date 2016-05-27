@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### May 27, 2016
+- Removed customer subscriptions endpoint. Recommend using list subscriptions instead with a filter for the customer.
+
 ### May 26, 2016
 - Can filter customers with/without a payment source and credit balance
 - Added `history` to customer balance endpoint
