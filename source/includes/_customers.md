@@ -37,7 +37,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -72,7 +72,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -107,7 +107,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -142,7 +142,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -448,7 +448,7 @@ client.Customer.create(
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -475,7 +475,7 @@ client.Customer.create(
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -502,7 +502,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -529,7 +529,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -609,7 +609,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -636,7 +636,7 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -663,7 +663,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -690,7 +690,7 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -779,7 +779,7 @@ customer.save()
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -806,7 +806,7 @@ customer.save()
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -833,7 +833,7 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -860,7 +860,7 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
 }
@@ -1689,7 +1689,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
-    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
   },
@@ -1720,7 +1720,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
-    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
   },
@@ -1751,7 +1751,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
-    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
   },
@@ -1782,7 +1782,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
-    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
   },
