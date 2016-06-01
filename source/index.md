@@ -17,6 +17,7 @@ includes:
   - subscriptions
   - metered_billing
   - webhooks
+  - files
 
 search: true
 ---

@@ -927,6 +927,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **tags** | *array* | Invoice tags
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice
 
 ## Retrieve an invoice
 
@@ -1607,6 +1608,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **tags** | *array* | Invoice tags
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 
 ## Send an invoice
 
@@ -2000,6 +2002,107 @@ When an invoice is automatically collected we will perform the charge automatica
 <aside class="warning">
 We can only collect on invoices in `auto` collection mode with a customer that has a valid payment source attached.
 </aside>
+
+## List invoice attachments
+
+```shell
+curl "https://api.invoiced.com/invoices/:id/attachments" \
+  -u {API_KEY}:
+```
+
+```ruby
+attachments, metadata = invoice.attachments
+```
+
+```php
+<?php
+
+list($attachments, $metadata) = $invoice->attachments();
+```
+
+```python
+attachments, metadata = invoice.attachments()
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  {
+    "id": 13,
+    "file": {
+      "id": 13,
+      "object": "file",
+      "name": "logo-invoice.png",
+      "size": 6936,
+      "type": "image/png",
+      "url": "https://invoiced.com/img/logo-invoice.png",
+      "created_at": 1464625855
+    },
+    "created_at": 1464625855
+  }
+]
+```
+
+```ruby
+[
+  #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: {
+    "id": 13,
+    "file": {
+      "id": 13,
+      "object": "file",
+      "name": "logo-invoice.png",
+      "size": 6936,
+      "type": "image/png",
+      "url": "https://invoiced.com/img/logo-invoice.png",
+      "created_at": 1464625855
+    },
+    "created_at": 1464625855
+  }
+]
+```
+
+```php
+[
+  Invoiced\Attachment JSON: {
+    "id": 13,
+    "file": {
+      "id": 13,
+      "object": "file",
+      "name": "logo-invoice.png",
+      "size": 6936,
+      "type": "image/png",
+      "url": "https://invoiced.com/img/logo-invoice.png",
+      "created_at": 1464625855
+    },
+    "created_at": 1464625855
+  }
+]
+```
+
+```python
+[
+  <Attachment id=13 at 0x3ff10dd39db4> JSON: {
+    "id": 13,
+    "file": {
+      "id": 13,
+      "object": "file",
+      "name": "logo-invoice.png",
+      "size": 6936,
+      "type": "image/png",
+      "url": "https://invoiced.com/img/logo-invoice.png",
+      "created_at": 1464625855
+    },
+    "created_at": 1464625855
+  }
+]
+```
+
+This endpoint retrieves a list of files attached to a specific invoice.
+
+### HTTP Request
+
+`POST /invoices/:id/attachments`
 
 ## Delete an invoice
 

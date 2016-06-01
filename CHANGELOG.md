@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### June 1, 2016
+- Added endpoints for creating and managing file attachments
+
 ### May 27, 2016
 - Removed customer subscriptions endpoint. Recommend using list subscriptions instead with a filter for the customer.
 - Added endpoints for managing customer contacts
