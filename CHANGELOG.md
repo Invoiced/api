@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### June 6, 2016
+- Subscriptions now have `cancel_at_period_end` and `canceled_at` properties
+
 ### June 1, 2016
 - Added endpoints for creating and managing file attachments
 

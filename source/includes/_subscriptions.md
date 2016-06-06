@@ -18,6 +18,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -45,6 +47,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -72,6 +76,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -99,6 +105,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -126,6 +134,8 @@ Parameter | Type | Description
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
 **period_start** | *timestamp* | Start of the current billing period
 **period_end** | *timestamp* | End of the current billing period
+**cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
+**canceled_at** | *timestamp* | Timestamp the subscription was canceled
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs
@@ -246,6 +256,8 @@ client.Subscription.create(
     "start_date": 1420391704,
     "period_start": null,
     "period_end": 1420391704,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -273,6 +285,8 @@ client.Subscription.create(
     "start_date": 1420391704,
     "period_start": null,
     "period_end": 1420391704,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -300,6 +314,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": null,
     "period_end": 1420391704,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -327,6 +343,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": null,
     "period_end": 1420391704,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -362,6 +380,7 @@ Parameter | Type | Description
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
+**cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a subscription
@@ -397,6 +416,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -424,6 +445,8 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -451,6 +474,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -478,6 +503,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -539,6 +566,8 @@ subscription.save()
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -566,6 +595,8 @@ subscription.save()
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -593,6 +624,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -620,6 +653,8 @@ Invoiced\Subscription JSON: {
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -653,6 +688,7 @@ Parameter | Type | Description
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
+**cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **prorate** | *boolean* | Prorate changes to plan, quantities, or addons, defaults to *true*
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -720,6 +756,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -751,6 +789,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -782,6 +822,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
@@ -813,6 +855,8 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
