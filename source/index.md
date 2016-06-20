@@ -8,7 +8,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='mailto:support@invoiced.com'>Contact Us</a>
+  - <a href="mailto:support@invoiced.com">Contact Us</a>
 
 includes:
   - customers
@@ -377,32 +377,43 @@ The `expand` parameter works for any response that has relational properties.
 
 ### Filter
 
+> Example retrieving a list of outstanding invoices for a customer:
+
 ```shell
-"filter": {
-	"paid": false,
-	"customer": 1234
-}
+curl "https://api.invoiced.com/invoices?filter%5Bpaid%5D=0&filter%5Bclosed%5D=0&filter%5Bcustomer%5D=1234" \
+  -u {API_KEY}:
 ```
 
 ```ruby
-:filter => {
-  :paid => false,
-  :customer => 1234
-}
+invoice = invoiced.Invoice.list(
+  :filter => {
+    :paid => false,
+    :closed => false,
+    :customer => 1234
+  }
+)
 ```
 
 ```php
-"filter" => [
-  "paid" => false,
-  "customer" => 1234
-]
+<?php
+
+$invoice = $invoiced->Invoice->all([
+  'filter' => [
+    'paid' => false,
+    'closed' => false,
+    'customer' => 1234
+  ]
+]);
 ```
 
 ```python
-"filter": {
-  "paid": False,
-  "customer": 1234
-}
+invoice = client.Invoice.list(
+  filter={
+    'paid': False,
+    'closed': False,
+    'customer': 1234
+  }
+)
 ```
 
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
