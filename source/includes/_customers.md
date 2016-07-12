@@ -1803,5 +1803,6 @@ Parameter | Description
 --------- | -----------
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
+**metadata** *object* | Metadata filter object
 **payment_source** *boolean* | When set only returns customers with (or without) a payment source
 **balance** *boolean* | When set only returns customers with (or without) a credit balance

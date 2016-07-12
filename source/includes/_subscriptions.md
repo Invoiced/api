@@ -889,3 +889,4 @@ Parameter | Description
 --------- | -----------
 **sort** *string* | Column to sort by, i.e. `period_end asc`
 **filter** *object* | Filter object
+**metadata** *object* | Metadata filter object

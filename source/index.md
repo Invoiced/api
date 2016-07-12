@@ -385,7 +385,7 @@ curl "https://api.invoiced.com/invoices?filter%5Bpaid%5D=0&filter%5Bclosed%5D=0&
 ```
 
 ```ruby
-invoice = invoiced.Invoice.list(
+invoices = invoiced.Invoice.list(
   :filter => {
     :paid => false,
     :closed => false,
@@ -397,7 +397,7 @@ invoice = invoiced.Invoice.list(
 ```php
 <?php
 
-$invoice = $invoiced->Invoice->all([
+$invoices = $invoiced->Invoice->all([
   'filter' => [
     'paid' => false,
     'closed' => false,
@@ -407,7 +407,7 @@ $invoice = $invoiced->Invoice->all([
 ```
 
 ```python
-invoice = client.Invoice.list(
+invoices = client.Invoice.list(
   filter={
     'paid': False,
     'closed': False,
@@ -418,4 +418,43 @@ invoice = client.Invoice.list(
 
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
 
-The `filter` parameter is an object whose keys are the properties that should be matched:
+The `filter` parameter is an object whose keys are the properties that should be matched.
+
+### Metadata Filter
+
+> Example retrieving customers with a matching `account-rep` metadata value:
+
+```shell
+curl "https://api.invoiced.com/customers?metadata%5Baccount-rep%5D=Jan" \
+  -u {API_KEY}:
+```
+
+```ruby
+customer = invoiced.Customer.list(
+  :metadata => {
+    'account-rep' => "Jan"
+  }
+)
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->all([
+  'metadata' => [
+    'account-rep' => "Jan"
+  ]
+]);
+```
+
+```python
+customer = client.Customer.list(
+  metadata={
+    'account-rep': "Jan"
+  }
+)
+```
+
+The `metadata` parameter behaves in a similar fashion to the `filter` parameter. It allows you to search entities that have an exactly matching metadata value for each constraint given. It can be used on any of the list endpoints for objects that support metadata.
+
+The `metadata` parameter is an object whose keys should exactly match the metadata of the objects returned. If an object does not have a metadata value for a given key then the object will not be included in the result set, with no error being thrown.

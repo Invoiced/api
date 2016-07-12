@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### July 12, 2016
+- Added metadata filtering
+
 ### June 6, 2016
 - Subscriptions now have `cancel_at_period_end` and `canceled_at` properties
 

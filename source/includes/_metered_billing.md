@@ -836,3 +836,4 @@ Parameter | Description
 --------- | -----------
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
+**metadata** *object* | Metadata filter object
