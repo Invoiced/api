@@ -1,6 +1,6 @@
 # Customers
 
-Customers represent the entity you are billing, whether this is an organization or a individual. Each customer has a collection mode, automatic or manual. In automatic collection mode any invoices will be charged to your customer's payment source. Currently we only support debit and credit cards as payment sources.
+Customers represent the entity you are billing, whether this is an organization or a individual. Each customer has a collection mode, automatic or manual. In automatic collection mode any invoices will be charged to your customer's payment source. Currently we support debit / credit cards and bank accounts (via ACH) as payment sources.
 
 Conversely, manual collection mode will let your customers pay each invoice issued with one of the payment methods you accept.
 
