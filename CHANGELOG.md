@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### July 16, 2016
+- Added `payment_source` to transactions
+
 ### July 12, 2016
 - Added metadata filtering
 
