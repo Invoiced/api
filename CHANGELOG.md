@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### August 10, 2016
+- Added `invoice.paid` event
+
 ### July 16, 2016
 - Added `payment_source` to transactions
 

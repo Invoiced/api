@@ -150,6 +150,7 @@ Events were named using the `object.action` pattern where `object` represents th
 - `invoice.created`
 - `invoice.updated`
 - `invoice.deleted`
+- `invoice.paid`
 - `subscription.created`
 - `subscription.updated`
 - `subscription.deleted`
