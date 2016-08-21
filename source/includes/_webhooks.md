@@ -2,10 +2,6 @@
 
 Webhooks are HTTP callbacks that notify your systems when important events happen within your Invoiced account. Here you can find a reference to event objects. Please see the [Webhooks Guide](https://invoiced.com/docs/dev/webhooks) to learn more about webhooks.
 
-<aside class="info">
-Webhooks are currently in beta.
-</aside>
-
 ## Event Object
 
 ### Attributes
