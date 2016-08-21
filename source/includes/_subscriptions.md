@@ -136,7 +136,7 @@ Parameter | Type | Description
 **period_end** | *timestamp* | End of the current billing period
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **canceled_at** | *timestamp* | Timestamp the subscription was canceled
-**status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`
+**status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`, `canceled`
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
@@ -714,7 +714,123 @@ $subscription->cancel();
 subscription.cancel()
 ```
 
-> The above command returns `204 No Content`
+> The above command returns JSON structured like this:
+
+```shell
+{
+    "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "cycles": null,
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": null,
+    "period_end": null,
+    "cancel_at_period_end": false,
+    "canceled_at": 1449162904,
+    "status": "canceled",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "discounts": [],
+    "taxes": [],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+    "metadata": {}
+}
+```
+
+```ruby
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "cycles": null,
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": null,
+    "period_end": null,
+    "cancel_at_period_end": false,
+    "canceled_at": 1449162904,
+    "status": "canceled",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "discounts": [],
+    "taxes": [],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+    "metadata": {}
+}
+```
+
+```php
+Invoiced\Subscription JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "cycles": null,
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": null,
+    "period_end": null,
+    "cancel_at_period_end": false,
+    "canceled_at": 1449162904,
+    "status": "canceled",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "discounts": [],
+    "taxes": [],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+    "metadata": {}
+}
+```
+
+```python
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "cycles": null,
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": null,
+    "period_end": null,
+    "cancel_at_period_end": false,
+    "canceled_at": 1449162904,
+    "status": "canceled",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "discounts": [],
+    "taxes": [],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+    "metadata": {}
+}
+```
 
 This endpoint cancels a subscription.
 
@@ -877,7 +993,7 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
 ]
 ```
 
-This endpoint retrieves all subscriptions.
+This endpoint retrieves all subscriptions. Unless specified, this endpoint will only return subscriptions that have an upcoming renewal.
 
 ### HTTP Request
 
@@ -890,3 +1006,5 @@ Parameter | Description
 **sort** *string* | Column to sort by, i.e. `period_end asc`
 **filter** *object* | Filter object
 **metadata** *object* | Metadata filter object
+**canceled** *boolean* | When true returns only canceled subscriptions
+**finished** *boolean* | When true returns only finished subscriptions

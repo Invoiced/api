@@ -1,6 +1,11 @@
 Changelog
 =========
 
+### August 20, 2016
+- Subscriptions can now have a `canceled` status
+- Canceling a subscription returns the updated object instead of a 204
+- Canceled or finished subscriptions can now be retrieved in the list subscriptions endpoint
+
 ### August 10, 2016
 - Added `invoice.paid` event
 
