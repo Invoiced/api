@@ -16,7 +16,7 @@ includes:
   - transactions
   - subscriptions
   - metered_billing
-  - webhooks
+  - events
   - files
 
 search: true
