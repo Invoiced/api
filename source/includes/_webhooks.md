@@ -10,6 +10,7 @@ Webhooks are HTTP callbacks that notify your systems when important events happe
 {
     "id": 1228003,
     "type": "transaction.created",
+    "timestamp": 1451500772,
     "data": {
         "object": {
             "amount": 55,
@@ -41,6 +42,7 @@ Webhooks are HTTP callbacks that notify your systems when important events happe
 #<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: {
     "id": 1228003,
     "type": "transaction.created",
+    "timestamp": 1451500772,
     "data": {
         "object": {
             "amount": 55,
@@ -72,6 +74,7 @@ Webhooks are HTTP callbacks that notify your systems when important events happe
 Invoiced\Event JSON: {
     "id": 1228003,
     "type": "transaction.created",
+    "timestamp": 1451500772,
     "data": {
         "object": {
             "amount": 55,
@@ -103,6 +106,7 @@ Invoiced\Event JSON: {
 <Event id=1228003 at 0x3fdbf95e4d08> JSON: {
     "id": 1228003,
     "type": "transaction.created",
+    "timestamp": 1451500772,
     "data": {
         "object": {
             "amount": 55,

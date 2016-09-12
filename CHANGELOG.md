@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### September 12, 2016
+- Added `timestamp` property to events
+
 ### August 20, 2016
 - Subscriptions can now have a `canceled` status
 - Canceling a subscription returns the updated object instead of a 204
