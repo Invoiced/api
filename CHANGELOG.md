@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### September 23, 2016
+- Removed the `fee` property from transactions
+
 ### September 12, 2016
 - Added endpoint to retrieve events
 - Added `timestamp` property to events

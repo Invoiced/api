@@ -35,7 +35,6 @@ We currently support the following payment methods on transactions:
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -58,7 +57,6 @@ We currently support the following payment methods on transactions:
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -81,7 +79,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -104,7 +101,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -127,7 +123,6 @@ Parameter | Type | Description
 **payment_source** | *object* | Payment source used for transaction, if any
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
-**fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
 **failure_reason** | *string* | Failure message from the payment gateway (only available when `status` = `failed`)
 **parent_transaction** | *integer* | ID of the original transaction for refunds
@@ -191,7 +186,6 @@ client.Transaction.create(
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -214,7 +208,6 @@ client.Transaction.create(
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -237,7 +230,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -260,7 +252,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -289,7 +280,6 @@ Parameter | Type | Description
 **gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
-**fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -330,7 +320,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -353,7 +342,6 @@ transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -376,7 +364,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -399,7 +386,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -456,7 +442,6 @@ transaction.save()
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": "Check was received by Jan",
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -479,7 +464,6 @@ transaction.save()
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": "Check was received by Jan",
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -502,7 +486,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": "Check was received by Jan",
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -525,7 +508,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": "Check was received by Jan",
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -551,7 +533,6 @@ Parameter | Type | Description
 **gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Transaction amount
-**fee** | *number* | Processing fees
 **notes** | *string* | Internal notes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -720,7 +701,6 @@ refund = transaction.refund(amount=400)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 400,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
@@ -743,7 +723,6 @@ refund = transaction.refund(amount=400)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 400,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
@@ -766,7 +745,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 400,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
@@ -789,7 +767,6 @@ Invoiced\Transaction JSON: {
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 400,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": 20939,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
@@ -886,7 +863,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -913,7 +889,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -940,7 +915,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -967,7 +941,6 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 	"payment_source": null,
 	"currency": "usd",
 	"amount": 800,
-	"fee": 0,
 	"notes": null,
 	"parent_transaction": null,
 	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
