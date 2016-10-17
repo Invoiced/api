@@ -109,6 +109,22 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```java
+ com.invoiced.entity.Transaction@4ed0a875 JSON: {
+      "id" : 20939,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "payment",
+      "method" : "check",
+      "status" : "succeeded",
+      "currency" : "usd",
+      "amount" : 800.0,
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "created_at" : 1415228628
+    }
+    ```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The transaction's unique ID
@@ -168,6 +184,15 @@ client.Transaction.create(
   gateway_id="1450",
   amount=800
 )
+```
+
+```java
+Transaction transaction = invoiced.newTransaction();
+transaction.invoice = 44648;
+transaction.method = "check";
+transaction.gatewayId = "1450";
+transaction.amount = 800;
+transaction.create();
 ```
 
 > The above command returns JSON structured like this:
@@ -260,6 +285,23 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```java
+ com.invoiced.entity.Transaction@4ed0a875 JSON: {
+      "id" : 20939,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "payment",
+      "method" : "check",
+      "status" : "succeeded",
+      "gateway_id" : "1450",
+      "currency" : "usd",
+      "amount" : 800.0,
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "created_at" : 1415228628
+    }
+```
+
 Create a new transaction with this endpoint.
 
 ### HTTP Request
@@ -304,6 +346,10 @@ $transaction = $invoiced->Transaction->retrieve("{TRANSACTION_ID}");
 transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
 ```
 
+```java
+Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -392,6 +438,23 @@ Invoiced\Transaction JSON: {
 	"created_at": 1415228628,
     "metadata": {}
 }
+```
+
+```
+ com.invoiced.entity.Transaction@4ed0a875 JSON: {
+      "id" : 20939,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "payment",
+      "method" : "check",
+      "status" : "succeeded",
+      "gateway_id" : "1450",
+      "currency" : "usd",
+      "amount" : 800.0,
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "created_at" : 1415228628
+    }
 ```
 
 This endpoint retrieves a specific transaction.
@@ -426,6 +489,11 @@ transaction.notes = "Check was received by Jan"
 transaction.save()
 ```
 
+```java
+transaction.notes = "Check was received by Jan";
+transaction.save();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -514,6 +582,23 @@ Invoiced\Transaction JSON: {
 	"created_at": 1415228628,
     "metadata": {}
 }
+```
+```java
+ com.invoiced.entity.Transaction@4ed0a875 JSON: {
+      "id" : 20939,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "payment",
+      "method" : "check",
+      "status" : "succeeded",
+      "gateway_id" : "1450",
+      "currency" : "usd",
+      "amount" : 800.0,
+      "notes": "Check was received by Jan",
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "created_at" : 1415228628
+    }
 ```
 
 Use this endpoint to update a transaction.
@@ -557,6 +642,18 @@ $emails = $transaction->send();
 ```python
 emails = transaction.send()
 ```
+
+```java
+EmailRequest emailRequest = new EmailRequest();
+EmailRecipient[] emailRecipients = new EmailRecipient[1];
+emailRecipients[0] = new EmailRecipient();
+emailRecipients[0].name = "Client";
+emailRecipients[0].email = "client@example.com";
+emailRequest.to = emailRecipients;
+emailRequest.subject = "Receipt for your recent payment to Dunder Mifflin, Inc.";
+emailRequest.message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!";
+Email[] emails = transaction.send(emailRequest);
+``
 
 > The above command returns JSON structured like this:
 
@@ -644,6 +741,23 @@ emails = transaction.send()
 ]
 ```
 
+```java
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+[com.invoiced.entity.Email@12497547 JSON: {
+      "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
+      "state" : "sent",
+      "email" : "client@example.com",
+      "template" : "payment_receipt_email",
+      "subject" : "Receipt for your recent payment to Dunder Mifflin, Inc.",
+      "message" : "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+      "opens" : 0,
+      "clicks" : 0,
+      "created_at" : 1436890047
+    },
+com.invoiced.entity.Email@12497547 JSON: {...},
+com.invoiced.entity.Email@12497547 JSON: {...}]
+```
+
 This endpoint sends a PDF receipt to the customer.
 
 ### HTTP Request
@@ -684,6 +798,10 @@ $refund = $transaction->refund(['amount' => 400]);
 ```python
 refund = transaction.refund(amount=400)
 ```
+
+```java
+Transaction refund = transaction.refund(400);
+``
 
 > The above command returns JSON structured like this:
 
@@ -775,6 +893,23 @@ Invoiced\Transaction JSON: {
 }
 ```
 
+```java
+    com.invoiced.entity.Transaction@424ba398 JSON: {
+      "id" : 20952,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "refund",
+      "method" : "check",
+      "status" : "succeeded",
+      "currency" : "usd",
+      "amount" : 400.0,
+      "parent_transaction" : 20939,
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+      "created_at" : 1415228628
+    }
+```
+
 You can issue a refund for `charge` and `payment` transactions. When a refund is issued for a `charge` transaction we will attempt to initiate the refund over the payment gateway it happened on.
 
 Of course, when refunding `payment` transactions you would have to return the money to your customer. This endpoint simply provides a means to track any refunds that you issue for offline payments.
@@ -817,6 +952,10 @@ $transaction->delete();
 transaction.delete()
 ```
 
+```java
+transaction.delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific transaction.
@@ -844,6 +983,10 @@ list($transactions, $metadata) = $invoiced->Transaction->all(['per_page' => 3]);
 
 ```python
 transactions, metadata = invoiced.Transaction.list(per_page=3)
+```
+
+```java
+EntityList<Transaction> transactions = invoiced.newTransaction().listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -951,6 +1094,23 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
   <Transaction id=20941 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
+
+```java
+ [com.invoiced.entity.Transaction@52638766 JSON: {
+      "id" : 20939,
+      "customer" : 15460,
+      "invoice" : 44648,
+      "date" : 1410843600,
+      "type" : "payment",
+      "method" : "check",
+      "status" : "succeeded",
+      "currency" : "usd",
+      "amount" : 800.0,
+      "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+      "created_at" : 1415228628
+    }, com.invoiced.entity.Transaction@5c01c09f JSON: {...
+    }, com.invoiced.entity.Transaction@5c01a09f JSON: {...
+    }]
 
 This endpoint retrieves all transactions.
 

@@ -132,6 +132,36 @@ Invoiced\Event JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Event@1c5119e JSON: {
+      "id" : 1228003,
+      "type" : "transaction.created",
+      "timestamp" : 1451500772,
+      "data" : {
+        "object" : {
+          "date" : 1451500771,
+          "amount" : 55,
+          "metadata" : { },
+          "notes" : null,
+          "method" : "other",
+          "parent_transaction" : null,
+          "created_at" : 1451500772,
+          "pdf_url" : "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+          "type" : "payment",
+          "gateway_id" : null,
+          "currency" : "usd",
+          "theme" : null,
+          "payment_source" : null,
+          "id" : 212047,
+          "invoice" : 196539,
+          "gateway" : null,
+          "customer" : 15455,
+          "status" : "succeeded"
+        }
+      }
+    }
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The event's unique ID
@@ -181,6 +211,10 @@ list($events, $metadata) = $invoiced->Event->all(['per_page' => 3]);
 
 ```python
 events, metadata = invoiced.Event.list(per_page=3)
+```
+
+```java
+EntityList<Event> events = connection.newEvent().listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -323,6 +357,39 @@ events, metadata = invoiced.Event.list(per_page=3)
   <Event id=1228004 at 0x3fdbf95e4d08> JSON: { ... },
   <Event id=1228005 at 0x3fdbf95e4d08> JSON: { ... }
 ]
+```
+
+```java
+[com.invoiced.entity.Event@1c5119e JSON: {
+      "id" : 1228003,
+      "type" : "transaction.created",
+      "timestamp" : 1451500772,
+      "data" : {
+        "object" : {
+          "date" : 1451500771,
+          "amount" : 55,
+          "metadata" : { },
+          "notes" : null,
+          "method" : "other",
+          "parent_transaction" : null,
+          "created_at" : 1451500772,
+          "pdf_url" : "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+          "type" : "payment",
+          "gateway_id" : null,
+          "currency" : "usd",
+          "theme" : null,
+          "payment_source" : null,
+          "id" : 212047,
+          "invoice" : 196539,
+          "gateway" : null,
+          "customer" : 15455,
+          "status" : "succeeded"
+        }
+      }
+    }, 
+    com.invoiced.entity.Event@2d7f0598 JSON: {...},
+    com.invoiced.entity.Event@3d7f0598 JSON: {...}
+] 
 ```
 
 This endpoint retrieves all events in reverse chronological order. You can also retrieve events related to a specific object.

@@ -6,6 +6,7 @@ language_tabs:
   - ruby
   - php
   - python
+  - java
 
 toc_footers:
   - <a href="mailto:support@invoiced.com">Contact Us</a>
@@ -53,6 +54,7 @@ We have client libraries available in several languages. If you don't see your l
 - [PHP](https://github.com/Invoiced/invoiced-php)
 - [Python](https://github.com/Invoiced/invoiced-python)
 - [Go](https://github.com/Invoiced/invoiced-go)
+- [Java](https://github.com/Invoiced/invoiced-java)
 
 ### Getting Help or Contributing
 
@@ -95,6 +97,12 @@ import invoiced
 client = invoiced.Client("{YOUR_API_KEY}")
 ```
 
+```java
+import com.invoiced.entity.Connection;
+
+Connection invoiced = new Connection("{YOUR_API_KEY}",false);
+```
+
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
 
 <aside class="notice">
@@ -123,6 +131,12 @@ $invoiced = new Invoiced\Client("{YOUR_SANDBOX_API_KEY}", true);
 import invoiced
 
 client = invoiced.Client("{YOUR_SANDBOX_API_KEY}", True)
+```
+
+```java
+import com.invoiced.entity.Connection;
+
+Connection invoiced = new Connection("{YOUR_API_KEY}",true);
 ```
 
 You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com) and request an API key there. The steps for requesting an API key are the same as production.

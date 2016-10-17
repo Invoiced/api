@@ -122,6 +122,29 @@ Invoiced\Subscription JSON: {
     "created_at": 1420391704,
     "metadata": {}
 }
+``` 
+```java
+ com.invoiced.entity.Subscription@74f0915b JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "starter",
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "status": "active",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+}
 ```
 
 Parameter | Type | Description
@@ -177,6 +200,15 @@ Invoiced\SubscriptionAddon JSON: {
 
 ```python
 <SubscriptionAddon id=3 at 0x3fdbf95e4d08> JSON: {
+    "id": 3,
+    "catalog_item": "ipad-license",
+    "quantity": 11,
+    "created_at": 1420391704
+}
+```
+
+```java
+ com.invoiced.entity.SubscriptionAddOn@6ec9001c JSON: {
     "id": 3,
     "catalog_item": "ipad-license",
     "quantity": 11,
@@ -244,6 +276,17 @@ client.Subscription.create(
 )
 ```
 
+```java
+Subscription subscription = invoiced.newSubscription();
+subscription.customer = 15444;
+subscription.plan = "starter";
+subscription.addons = new SubscriptionAddOn[1];
+subscription.addons[0] = new SubscriptionAddOn();
+subscription.addons[0].catalogItem = "ipad-license";
+subscription.addons[0].quantity = 11;
+subscription.create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -359,6 +402,29 @@ Invoiced\Subscription JSON: {
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.Subscription@46bbce72 JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "starter",
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_end": 1420391704,
+    "cancel_at_period_end": false,
+    "status": "active",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704
 }
 ```
 
@@ -404,6 +470,10 @@ $subscription = $invoiced->Subscription->retrieve("{SUBSCRIPTION_ID}");
 subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
 ```
 
+```java
+Subscription subscription = invoiced.newSubscription().subscription.retrieve({SUBSCRIPTION_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -519,6 +589,30 @@ Invoiced\Subscription JSON: {
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.Subscription@46bbce72 JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "starter",
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "status": "active",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704
 }
 ```
 
@@ -554,6 +648,11 @@ subscription.plan = "pro"
 subscription.save()
 ```
 
+```java
+subscription.plan = "pro";
+subscription.save();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -666,6 +765,31 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+    "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.Subscription@46bbce72 JSON: {
+    "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "quantity": 1,
+    "start_date": 1420391704,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "status": "active",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -714,6 +838,10 @@ $subscription->cancel();
 subscription.cancel()
 ```
 
+```java
+subscription.cancel();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -832,6 +960,29 @@ Invoiced\Subscription JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Subscription@46bbce72 JSON: {
+     "id": 595,
+    "customer": 15444,
+    "plan": "pro",
+    "quantity": 1,
+    "start_date": 1420391704,
+    "cancel_at_period_end": false,
+    "canceled_at": 1449162904,
+    "status": "canceled",
+    "addons": [
+        {
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
+        }
+    ],
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704,
+}
+```
+
 This endpoint cancels a subscription.
 
 ### HTTP Request
@@ -857,6 +1008,10 @@ list($subscriptions, $metadata) = $invoiced->Subscription->all(['per_page' => 3]
 
 ```python
 subscriptions, metadata = invoiced.Subscription.list(per_page=3)
+```
+
+```java
+EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -992,6 +1147,29 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
   <Subscription id=597 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
+
+```java
+ [com.invoiced.entity.Subscription@20b4fc7b JSON: {
+      "id" : 595,
+      "customer" : 15444,
+      "plan" : "starter",
+      "start_date" : 1420391704,
+      "quantity" : 1,
+      "period_start" : 1446657304,
+      "period_end" : 1449249304,
+      "status" : "active",
+      "addons" : [ {
+        "id" : 3,
+        "catalog_item" : "ipad-license",
+        "quantity" : 11,
+        "created_at" : 1420391704
+      } ],
+      "url" : "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+      "created_at" : 1420391704
+    }, com.invoiced.entity.Subscription@73f93614 JSON: {
+     ...},com.invoiced.entity.Subscription@73f9514 JSON: {
+     ...}]
+    ```
 
 This endpoint retrieves all subscriptions. Unless specified, this endpoint will only return subscriptions that have an upcoming renewal.
 

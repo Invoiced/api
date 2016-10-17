@@ -1,5 +1,7 @@
 Changelog
 =========
+### October 19, 2016
+- Added `invoiced-java` documentation
 
 ### September 23, 2016
 - Removed the `fee` property from transactions

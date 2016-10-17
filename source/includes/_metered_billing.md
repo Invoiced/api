@@ -33,6 +33,13 @@ customer.line_items().create(
 )
 ```
 
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+PendingLineItem pli = customer.newPendingLineItem();
+pli.catalogItem = "delivery";
+pli.create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -104,6 +111,21 @@ Invoiced\LineItem JSON: {
   "taxable": true,
   "taxes": [],
   "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
+  "id": 8,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
+  "discountable": true,
+  "taxable": true,
 }
 ```
 
@@ -153,6 +175,11 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 line_item = customer.line_items().retrieve("{LINE_ITEM_ID}")
 ```
 
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -224,6 +251,21 @@ Invoiced\LineItem JSON: {
   "taxable": true,
   "taxes": [],
   "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
+  "id": 8,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
+  "discountable": true,
+  "taxable": true,
 }
 ```
 
@@ -259,6 +301,12 @@ line_item.quantity = 2
 line_item.save()
 ```
 
+```java
+PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
+pli.quantity = 2;
+pli.save();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -330,6 +378,21 @@ Invoiced\LineItem JSON: {
   "taxable": true,
   "taxes": [],
   "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
+  "id": 8,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "description": "",
+  "quantity": 2,
+  "unit_cost": 10,
+  "amount": 20,
+  "discountable": true,
+  "taxable": true
 }
 ```
 
@@ -374,6 +437,10 @@ $invoice = $customer->invoice();
 
 ```python
 invoice = customer.invoice()
+```
+
+```java
+Invoice invoice = customer.invoice();
 ```
 
 > The above command returns JSON structured like this:
@@ -670,6 +737,63 @@ Invoiced\Invoice JSON: {
 }
 ```
 
+```java 
+com.invoiced.entity.Invoice@3df85de JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "taxable": true,
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "taxable": true,
+    }
+  ],
+  "subtotal": 55,
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+}
+```
+
 This endpoint generates an invoice for a customer with its pending line items.
 
 ### HTTP Request
@@ -702,6 +826,11 @@ $lineItem->delete();
 line_item.delete()
 ```
 
+```java
+PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
+pli.delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific pending line item.
@@ -732,6 +861,11 @@ list($lineItems, $metadata) = $customer->lineItems()->all(['per_page' => 3]);
 ```python
 customer = client.Customer.retrieve("{CUSTOMER_ID}")
 line_items, metadata = customer.line_items().list(per_page=3)
+```
+
+```java
+PendingLineItem pli = customer.newPendingLineItem();
+EntityList<PendingLineItem> plis = pli.listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -822,6 +956,22 @@ line_items, metadata = customer.line_items().list(per_page=3)
   <LineItem id=9 at 0x3fdbf95e4d08> JSON: { ... },
   <LineItem id=10 at 0x3fdbf95e4d08> JSON: { ... }
 ]
+```
+
+```java
+[com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: {
+      "id" : 8,
+      "catalog_item" : "delivery",
+      "type" : "service",
+      "name" : "Delivery",
+      "quantity" : 1.0,
+      "amount" : 10.0,
+      "unit_cost" : 10.0,
+      "discountable" : true,
+      "taxable" : true
+    }, 
+    com.invoiced.entity.PendingLineItem@4e7a0117 JSON: {...},
+    com.invoiced.entity.PendingLineItem@4e7a01a7 JSON: {...}]
 ```
 
 This endpoint retrieves all pending line items.

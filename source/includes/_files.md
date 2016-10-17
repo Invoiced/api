@@ -56,6 +56,18 @@ Invoiced\File JSON: {
 }
 ```
 
+```java
+ com.invoiced.entity.File@192cafae JSON: {
+  "id" : 13,
+  "name" : "logo-invoice.png",
+  "object" : "file",
+  "size" : 6936,
+  "type" : "image/png",
+  "url" : "https://invoiced.com/img/logo-invoice.png",
+  "created_at" : 1464625855
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The file's unique ID
@@ -106,6 +118,15 @@ client.File.create(
 )
 ```
 
+```java
+File file = invoiced.newFile();
+file.url = "https://invoiced.com/img/logo-invoice.png";
+file.size = 6936;
+file.name = "logo-invoice.png";
+file.type = "image/png";
+file.create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -153,6 +174,18 @@ Invoiced\File JSON: {
   "type": "image/png",
   "url": "https://invoiced.com/img/logo-invoice.png",
   "created_at": 1464625855
+}
+```
+
+```java
+com.invoiced.entity.File@106505f5 JSON: {
+  "id": 13,
+  "object": "file",
+  "name": "logo-invoice.png",
+  "size": 6936,
+  "type": "image/png",
+  "url": "https://invoiced.com/img/logo-invoice.png",
+  "created_at": 1464625855  
 }
 ```
 
@@ -192,6 +225,10 @@ $file = $invoiced->File->retrieve("{FILE_ID}");
 file = client.File.retrieve("{FILE_ID}")
 ```
 
+```java
+File file = invoiced.newFile().retrieve({FILE_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -242,6 +279,18 @@ Invoiced\File JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.File@106505f5 JSON: {
+  "id": 13,
+  "object": "file",
+  "name": "logo-invoice.png",
+  "size": 6936,
+  "type": "image/png",
+  "url": "https://invoiced.com/img/logo-invoice.png",
+  "created_at": 1464625855  
+}
+```
+
 This endpoint retrieves a specific file.
 
 ### HTTP Request
@@ -268,6 +317,10 @@ $file->delete();
 
 ```python
 file.delete()
+```
+
+```java
+file.delete();
 ```
 
 > The above command returns `204 No Content`

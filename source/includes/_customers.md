@@ -148,6 +148,30 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Customer@d72919f JSON: {  
+  "id": 15444,
+  "name": "Acme",
+  "number": "CUST-0001",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "auto",
+  "payment_source": {
+    "id": 850,
+    "object": "card",
+    "brand": "Visa",
+    "last4": "4242",
+    "exp_month": 2,
+    "exp_year": 20,
+    "funding": "credit"
+  },
+  "type": "company",
+  "country": "US",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+  "created_at": 1415222128
+  }
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
@@ -225,6 +249,19 @@ Invoiced\Card JSON: {
 }
 ```
 
+```java
+//PaymentSource can be used for both Card Object and Bank Account Object
+com.invoiced.entity.PaymentSource@2fdf31f4 JSON: {
+      "id" : 850,
+      "object" : "card",
+      "brand" : "Visa",
+      "last4" : "4242",
+      "exp_month" : 2,
+      "exp_year" : 20,
+      "funding" : "credit"
+    }
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The card's unique ID
@@ -285,6 +322,19 @@ Invoiced\BankAccount JSON: {
   "verified": true,
   "currency": "usd"
 }
+```
+
+```java
+//PaymentSource can be used for both Card Object and Bank Account Object
+com.invoiced.entity.PaymentSource@3fdf31f4 JSON: {
+    "id": 4321,
+    "object": "card",
+    "bank_name": "Wells Fargo",
+    "last4": "7890",
+    "routing_number": "110000000",
+    "verified": true,
+    "currency": "usd"
+    }
 ```
 
 Parameter | Type | Description
@@ -367,6 +417,16 @@ Invoiced\Contact JSON: {
 }
 ```
 
+```java
+ com.invoiced.entity.Contact@3a0fa320 JSON: {
+  "id" : 10403,
+  "name" : "Nancy Talty",
+  "email" : "nancy.talty@example.com",
+  "primary" : true,
+  "created_at" : 1463510889
+}
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The contact's unique ID
@@ -423,6 +483,16 @@ client.Customer.create(
   payment_terms="NET 30",
   type="company"
 )
+```
+
+```java
+Customer customer = invoiced.newCustomer();
+customer.name = "Acme";
+customer.email = "billing@acmecorp.com";
+customer.collectionMode = "manual";
+customer.paymentTerms = "NET 30";
+customer.type = "company";
+customer.create();
 ```
 
 > The above command returns JSON structured like this:
@@ -535,6 +605,21 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Customer@cb8fd57 JSON :{
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "type": "company",
+  "country": "US",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+  "created_at": 1415222128
+}
+```
+
 Create a new customer profile with this endpoint.
 
 ### HTTP Request
@@ -584,6 +669,11 @@ $customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
 
 ```python
 customer = client.Customer.retrieve("{CUSTOMER_ID}")
+```
+
+```java
+Customer customer = invoiced.newCustomer();
+Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -693,6 +783,21 @@ Invoiced\Customer JSON: {
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
+}
+```
+
+```java
+com.invoiced.entity.Customer@cb8fd58 JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 30",
+  "type": "company",
+  "country": "US",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+  "created_at": 1415222128  
 }
 ```
 
@@ -756,6 +861,17 @@ customer.phone = "(820) 297-2983"
 customer.save()
 ```
 
+```java
+customer.paymentTerms = "NET 14";
+customer.attentionTo = "Sarah Fisher";
+customer.address1 = "342 Amber St";
+customer.city = "Hill Valley";
+customer.state = "CA";
+customer.postalCode = "94523";
+customer.taxId = "893-934835";
+customer.phone = "(820) 297-2983";
+customer.save();
+```
 > The above command returns JSON structured like this:
 
 ```shell
@@ -866,6 +982,29 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Customer@cb8fd59 JSON: {
+  "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "email": "billing@acmecorp.com",
+  "collection_mode": "manual",
+  "payment_terms": "NET 14",
+  "type": "company",
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
+  "address2": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
+  "country": "US",
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+  "created_at": 1415222128,
+}
+```
+
 Use this endpoint to update a customer profile.
 
 ### HTTP Request
@@ -915,6 +1054,10 @@ $customer->balance();
 
 ```python
 customer.balance()
+```
+
+```java
+Balance balance = customer.getBalance();
 ```
 
 > The above command returns JSON structured like this:
@@ -991,6 +1134,24 @@ customer.balance()
 }
 ```
 
+```java
+com.invoiced.entity.Balance@cb8fd60 JSON: {
+ "available_credits": 50,
+  "history": [
+    {
+      "timestamp": 1464041624,
+      "balance": 50
+    },
+    {
+      "timestamp": 1464040550,
+      "balance": 100
+    }
+  ],
+  "past_due": false,
+  "total_outstanding": 470
+}
+```
+
 This endpoint returns the customer's current credit balance, credit balance history, and the current amount outstanding.
 
 ### HTTP Request
@@ -1017,6 +1178,18 @@ $emails = $customer->sendStatement();
 
 ```python
 emails = customer.send_statement()
+```
+
+```java
+EmailRequest emailRequest = new EmailRequest();
+EmailRecipient[] emailRecipients = new EmailRecipient[1];
+emailRecipients[0] = new EmailRecipient();
+emailRecipients[0].name = "Client";
+emailRecipients[0].email = "client@example.com";
+emailRequest.to = emailRecipients;
+emailRequest.subject = "Statement from Dunder Mifflin, Inc.";
+emailRequest.message = "Dear Client, we have attached your latest account statement. Thank you!";
+Email[] emails = customer.sendStatement(emailRequest);
 ```
 
 > The above command returns JSON structured like this:
@@ -1104,6 +1277,23 @@ emails = customer.send_statement()
   <Email id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731 at 0x3fdbffge4d10> JSON: { ... }
 ]
 ```
+```java
+////To pretty print a array of Objects use Arrays.toString(Object[]);
+    [com.invoiced.entity.Email@1bfbb8ee JSON: {
+      "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
+      "state" : "sent",
+      "email" : "client@example.com",
+      "template" : "statement_email",
+      "subject" : "Statement from Dunder Mifflin, Inc.",
+      "message" : "Dear Client, we have attached your latest account statement. Thank you!",
+      "opens" : 0,
+      "clicks" : 0,
+      "created_at" : 1436890047
+    }, 
+    com.invoiced.entity.Email@2afbb8ee JSON: {...},
+    com.invoiced.entity.Email@3bfbb8ee JSON: {...}
+    ]
+```
 
 This endpoint sends a PDF account statement to a customer.
 
@@ -1159,6 +1349,14 @@ customer.contacts().create(
 )
 ```
 
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+Contact contact = customer.newContact();
+contact.name = "Nancy Talty";
+contact.email = "nancy.talty@example.com";
+contact.create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1221,6 +1419,16 @@ Invoiced\Contact JSON: {
   "state": null,
   "postal_code": null,
   "country": null,
+  "created_at": 1463510889
+}
+```
+
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
   "created_at": 1463510889
 }
 ```
@@ -1269,6 +1477,11 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 contact = customer.contacts().retrieve("{CONTACT_ID}")
 ```
 
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+Contact contact = customer.newContact().retrieve({CONTACT_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1335,6 +1548,17 @@ Invoiced\Contact JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "created_at": 1463510889
+}
+```
+
+
 This endpoint retrieves a specific contact.
 
 ### HTTP Request
@@ -1376,6 +1600,14 @@ contact.address1 = "507 Grove Avenue"
 contact.city = "Oklahoma City"
 contact.state = "OK"
 contact.postal_code = "73102"
+contact.save()
+```
+
+```java 
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postalCode = "73102"
 contact.save()
 ```
 
@@ -1445,6 +1677,20 @@ Invoiced\Contact JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: {
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "address1": "507 Grove Avenue",
+  "city": "Oklahoma City",
+  "state": "OK",
+  "postal_code": "73102",
+  "created_at": 1463510889
+}
+```
+
 Use this endpoint to update a contact.
 
 ### HTTP Request
@@ -1487,6 +1733,10 @@ $contact->delete();
 contact.delete()
 ```
 
+```java
+contact.delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific contact.
@@ -1517,6 +1767,11 @@ list($contacts, $metadata) = $customer->contacts()->all(['per_page' => 3]);
 ```python
 customer = client.Customer.retrieve("{CUSTOMER_ID}")
 contacts, metadata = customer.contacts().list(per_page=3)
+```
+
+```java
+Customer customer = conn.newCustomer().retrieve({CUSTOMER_ID});
+EntityList<Contact> contacts = customer.newContact().listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -1601,6 +1856,25 @@ contacts, metadata = customer.contacts().list(per_page=3)
 ]
 ```
 
+```java
+ [com.invoiced.entity.Contact@1701e31a, com.invoiced.entity.Contact@409eec80, com.invoiced.entity.Contact@409eec90] JSON: [
+  { "id": 10403,
+    "name": "Nancy Talty",
+    "email": "nancy.talty@example.com",
+    "primary": true,
+    "address1": null,
+    "address2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "created_at": 1463510889
+  },
+  {...},
+  {...}
+ ]
+```
+
 This endpoint retrieves all contacts.
 
 ### HTTP Request
@@ -1636,6 +1910,10 @@ $customer->delete();
 customer.delete()
 ```
 
+```java
+customer.delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific customer.
@@ -1663,6 +1941,10 @@ list($customers, $metadata) = $invoiced->Customer->all(['per_page' => 3]);
 
 ```python
 customers, metadata = invoiced.Customer.list(per_page=3)
+```
+
+```java
+EntityList<Customer> customers = connection.newCustomer().listAll(null);
 ```
 
 > The above command returns JSON structured like this:
@@ -1789,6 +2071,33 @@ customers, metadata = invoiced.Customer.list(per_page=3)
   <Customer id=15445 at 0x3fdbf95e4d08> JSON: { ... },
   <Customer id=15446 at 0x3fdbf95e4d08> JSON: { ... }
 ]
+```
+
+```
+ [com.invoiced.entity.Customer@1701d31a, com.invoiced.entity.Customer@409cec80, com.invoiced.entity.Customer@409cec90] JSON: [
+  {
+    "id": 15444,
+    "number": "CUST-0001",
+    "name": "Acme",
+    "email": "billing@acmecorp.com",
+    "collection_mode": "manual",
+    "payment_terms": "NET 30",
+    "type": "company",
+    "attention_to": "Sarah Fisher",
+    "address1": "342 Amber St",
+    "city": "Hill Valley",
+    "state": "CA",
+    "postal_code": "94523",
+    "country": "US",
+    "tax_id": "893-934835",
+    "phone": "(820) 297-2983",
+    "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+    "created_at": 1415222128
+  },
+  { ... },
+  { ... }
+]
+
 ```
 
 This endpoint retrieves all customers.
