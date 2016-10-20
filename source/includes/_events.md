@@ -360,35 +360,37 @@ EntityList<Event> events = connection.newEvent().listAll();
 ```
 
 ```java
-[com.invoiced.entity.Event@1c5119e JSON: {
-      "id" : 1228003,
-      "type" : "transaction.created",
-      "timestamp" : 1451500772,
-      "data" : {
-        "object" : {
-          "date" : 1451500771,
-          "amount" : 55,
-          "metadata" : { },
-          "notes" : null,
-          "method" : "other",
-          "parent_transaction" : null,
-          "created_at" : 1451500772,
-          "pdf_url" : "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-          "type" : "payment",
-          "gateway_id" : null,
-          "currency" : "usd",
-          "theme" : null,
-          "payment_source" : null,
-          "id" : 212047,
-          "invoice" : 196539,
-          "gateway" : null,
-          "customer" : 15455,
-          "status" : "succeeded"
+[
+  com.invoiced.entity.Event@1c5119e JSON: {
+    "id" : 1228003,
+    "type" : "transaction.created",
+    "timestamp" : 1451500772,
+     "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "currency": "usd",
+            "customer": 15455,
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": 196539,
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "parent_transaction": null,
+            "status": "succeeded",
+            "theme": null,
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
         }
-      }
-    }, 
-    com.invoiced.entity.Event@2d7f0598 JSON: {...},
-    com.invoiced.entity.Event@3d7f0598 JSON: {...}
+    }
+  }, 
+  com.invoiced.entity.Event@2d7f0598 JSON: {...},
+  com.invoiced.entity.Event@3d7f0598 JSON: {...}
 ] 
 ```
 

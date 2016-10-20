@@ -2052,17 +2052,18 @@ Email[] emails = invoice.send(emailRequest);
 ```
 
 ```java
-  [com.invoiced.entity.Email@2ce1cfd8 JSON: {
-      "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
-      "state" : "sent",
-      "email" : "client@example.com",
-      "template" : "new_invoice_email",
-      "subject" : "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-      "message" : "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-      "created_at" : 1436890047
+[
+  com.invoiced.entity.Email@2ce1cfd8 JSON: {
+    "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state" : "sent",
+    "email" : "client@example.com",
+    "template" : "new_invoice_email",
+    "subject" : "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message" : "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "created_at" : 1436890047
     },
-    com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
-    com.invoiced.entity.Email@4ce1cfd8 JSON: {...}]
+  com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
+  com.invoiced.entity.Email@4ce1cfd8 JSON: {...}]
 ```
 
 This endpoint sends an invoice to your customer.
@@ -2902,56 +2903,57 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 ```
 
 ```java
- [com.invoiced.entity.Invoice@c509a57 JSON: {
-      "id" : 46225,
-      "customer" : 15444,
-      "number" : "INV-0016",
-      "collection_mode" : "manual",
-      "currency" : "usd",
-      "draft" : false,
-      "closed" : false,
-      "paid" : false,
-      "status" : "not_sent",
-      "sent" : false,
-      "chase" : false,
-      "date" : 1416290400,
-      "due_date" : 1417500000,
-      "payment_terms" : "NET 14",
-      "items" : [ {
-        "id" : 7,
-        "type" : "product",
-        "name" : "Copy Paper, Case",
-        "quantity" : 1.0,
-        "unit_cost" : 45.0,
-        "amount" : 45.0,
-        "discountable" : true,
-        "taxable" : true
-      }, {
-        "id" : 8,
-        "catalog_item" : "delivery",
-        "type" : "service",
-        "name" : "Delivery",
-        "quantity" : 1.0,
-        "unit_cost" : 10.0,
-        "amount" : 10.0,
-        "discountable" : true,
-        "taxable" : true
-      } ],
-      "subtotal" : 55.0,
-      "taxes" : [ {
-        "id" : 20554,
-        "amount" : 3.85
-      } ],
-      "total" : 51.15,
-      "balance" : 51.15,
-      "url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-      "payment_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-      "pdf_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-      "created_at" : 1415229884
-    }, 
-    com.invoiced.entity.Invoice@20301171 JSON: {...},
-    com.invoiced.entity.Invoice@30301171 JSON: {...}
-    ]
+[
+  com.invoiced.entity.Invoice@c509a57 JSON: {
+    "id" : 46225,
+    "customer" : 15444,
+    "number" : "INV-0016",
+    "collection_mode" : "manual",
+    "currency" : "usd",
+    "draft" : false,
+    "closed" : false,
+    "paid" : false,
+    "status" : "not_sent",
+    "sent" : false,
+    "chase" : false,
+    "date" : 1416290400,
+    "due_date" : 1417500000,
+    "payment_terms" : "NET 14",
+    "items" : [ {
+      "id" : 7,
+      "type" : "product",
+      "name" : "Copy Paper, Case",
+      "quantity" : 1.0,
+      "unit_cost" : 45.0,
+      "amount" : 45.0,
+      "discountable" : true,
+      "taxable" : true
+    }, {
+      "id" : 8,
+      "catalog_item" : "delivery",
+      "type" : "service",
+      "name" : "Delivery",
+      "quantity" : 1.0,
+      "unit_cost" : 10.0,
+      "amount" : 10.0,
+      "discountable" : true,
+      "taxable" : true
+    } ],
+    "subtotal" : 55.0,
+    "taxes" : [ {
+      "id" : 20554,
+      "amount" : 3.85
+    } ],
+    "total" : 51.15,
+    "balance" : 51.15,
+    "url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "payment_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+    "pdf_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at" : 1415229884
+  }, 
+  com.invoiced.entity.Invoice@20301171 JSON: {...},
+  com.invoiced.entity.Invoice@30301171 JSON: {...}
+]
 ```
 
 This endpoint retrieves all invoices.

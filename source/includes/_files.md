@@ -57,7 +57,7 @@ Invoiced\File JSON: {
 ```
 
 ```java
- com.invoiced.entity.File@192cafae JSON: {
+com.invoiced.entity.File@192cafae JSON: {
   "id" : 13,
   "name" : "logo-invoice.png",
   "object" : "file",

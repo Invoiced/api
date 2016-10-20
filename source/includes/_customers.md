@@ -252,14 +252,14 @@ Invoiced\Card JSON: {
 ```java
 //PaymentSource can be used for both Card Object and Bank Account Object
 com.invoiced.entity.PaymentSource@2fdf31f4 JSON: {
-      "id" : 850,
-      "object" : "card",
-      "brand" : "Visa",
-      "last4" : "4242",
-      "exp_month" : 2,
-      "exp_year" : 20,
-      "funding" : "credit"
-    }
+  "id" : 850,
+  "object" : "card",
+  "brand" : "Visa",
+  "last4" : "4242",
+  "exp_month" : 2,
+  "exp_year" : 20,
+  "funding" : "credit"
+}
 ```
 
 Parameter | Type | Description
@@ -327,14 +327,14 @@ Invoiced\BankAccount JSON: {
 ```java
 //PaymentSource can be used for both Card Object and Bank Account Object
 com.invoiced.entity.PaymentSource@3fdf31f4 JSON: {
-    "id": 4321,
-    "object": "card",
-    "bank_name": "Wells Fargo",
-    "last4": "7890",
-    "routing_number": "110000000",
-    "verified": true,
-    "currency": "usd"
-    }
+  "id": 4321,
+  "object": "card",
+  "bank_name": "Wells Fargo",
+  "last4": "7890",
+  "routing_number": "110000000",
+  "verified": true,
+  "currency": "usd"
+}
 ```
 
 Parameter | Type | Description
@@ -418,7 +418,7 @@ Invoiced\Contact JSON: {
 ```
 
 ```java
- com.invoiced.entity.Contact@3a0fa320 JSON: {
+com.invoiced.entity.Contact@3a0fa320 JSON: {
   "id" : 10403,
   "name" : "Nancy Talty",
   "email" : "nancy.talty@example.com",
@@ -1278,21 +1278,22 @@ Email[] emails = customer.sendStatement(emailRequest);
 ]
 ```
 ```java
-////To pretty print a array of Objects use Arrays.toString(Object[]);
-    [com.invoiced.entity.Email@1bfbb8ee JSON: {
-      "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
-      "state" : "sent",
-      "email" : "client@example.com",
-      "template" : "statement_email",
-      "subject" : "Statement from Dunder Mifflin, Inc.",
-      "message" : "Dear Client, we have attached your latest account statement. Thank you!",
-      "opens" : 0,
-      "clicks" : 0,
-      "created_at" : 1436890047
-    }, 
-    com.invoiced.entity.Email@2afbb8ee JSON: {...},
-    com.invoiced.entity.Email@3bfbb8ee JSON: {...}
-    ]
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+[
+  com.invoiced.entity.Email@1bfbb8ee JSON: {
+    "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state" : "sent",
+    "email" : "client@example.com",
+    "template" : "statement_email",
+    "subject" : "Statement from Dunder Mifflin, Inc.",
+    "message" : "Dear Client, we have attached your latest account statement. Thank you!",
+    "opens" : 0,
+    "clicks" : 0,
+    "created_at" : 1436890047
+  }, 
+  com.invoiced.entity.Email@2afbb8ee JSON: {...},
+  com.invoiced.entity.Email@3bfbb8ee JSON: {...}
+]
 ```
 
 This endpoint sends a PDF account statement to a customer.
@@ -1857,8 +1858,9 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 ```
 
 ```java
- [com.invoiced.entity.Contact@1701e31a, com.invoiced.entity.Contact@409eec80, com.invoiced.entity.Contact@409eec90] JSON: [
-  { "id": 10403,
+[
+  com.invoiced.entity.Contact@1701e31a JSON: { 
+    "id": 10403,
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1870,9 +1872,9 @@ EntityList<Contact> contacts = customer.newContact().listAll();
     "country": null,
     "created_at": 1463510889
   },
-  {...},
-  {...}
- ]
+  com.invoiced.entity.Contact@2701e31a JSON: {...},
+  com.invoiced.entity.Contact@3701e31a JSON: {...}
+]
 ```
 
 This endpoint retrieves all contacts.
@@ -2073,9 +2075,9 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 ]
 ```
 
-```
- [com.invoiced.entity.Customer@1701d31a, com.invoiced.entity.Customer@409cec80, com.invoiced.entity.Customer@409cec90] JSON: [
-  {
+```java
+[
+  com.invoiced.entity.Customer@1701d31a JSON: {
     "id": 15444,
     "number": "CUST-0001",
     "name": "Acme",
@@ -2094,8 +2096,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128
   },
-  { ... },
-  { ... }
+  com.invoiced.entity.Customer@2701d31a JSON: { ... },
+  com.invoiced.entity.Customer@3701d31a JSON: { ... }
 ]
 
 ```

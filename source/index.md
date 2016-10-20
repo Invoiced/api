@@ -227,12 +227,12 @@ client.Customer.create(
 ```
 
 ```java 
-HashMap<String, Object> metaData = new HashMap<String, Object>();
-metaData.put("icp_number", "1234567890");
-metaData.put("account_rep","Jan");
+HashMap<String, Object> params = new HashMap<String, Object>();
+params.put("icp_number", "1234567890");
+params.put("account_rep","Jan");
 Customer customer = invoiced.newCustomer();
 customer.name = "Acme";
-customer.metaData = metaData;
+customer.metaData = params;
 customer.create();
 ```
 
@@ -360,7 +360,7 @@ Invoiced\Customer JSON: {
 
 ```java
 com.invoiced.entity.Customer@cb8fd59 JSON: {
-     "id": 15444,
+  "id": 15444,
   "number": "CUST-0001",
   "name": "Acme",
   "collection_mode": "manual",
@@ -411,9 +411,9 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}", {
 ```
 
 ```java
-HashMap<String, Object> queryParameters = new HashMap<String, Object>();
-queryParameters.put("expand", "customer");
-Invoice invoice = invoiced.newInvoice().retrieve("{INVOICE_ID}", queryParameters);
+HashMap<String, Object> params = new HashMap<String, Object>();
+params.put("expand", "customer");
+Invoice invoice = invoiced.newInvoice().retrieve("{INVOICE_ID}", params);
 ```
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
@@ -464,10 +464,10 @@ invoices = client.Invoice.list(
 ```
 
 ```java
-HashMap<String, Object> filter = new HashMap<String, Object>();
-filter.put("filter[paid]", false);
-filter.put("filter[closed]", false);
-filter.put("filter[customer]", 1234);
+HashMap<String, Object> params = new HashMap<String, Object>();
+params.put("filter[paid]", false);
+params.put("filter[closed]", false);
+params.put("filter[customer]", 1234);
 EntityList<Invoice> invoices = invoiced.newInvoice().listAll(filter);
 ```
 
@@ -511,9 +511,9 @@ customer = client.Customer.list(
 ```
 
 ```java
-HashMap<String, Object> metaData = new HashMap<String, Object>();
-metaData.put("metadata[account-rep]", "Jan");
-EntityList<Customer> customers = invoiced.newCustomer().listAll(metaData);
+HashMap<String, Object> params = new HashMap<String, Object>();
+params.put("metadata[account-rep]", "Jan");
+EntityList<Customer> customers = invoiced.newCustomer().listAll(params);
 ```
 
 The `metadata` parameter behaves in a similar fashion to the `filter` parameter. It allows you to search entities that have an exactly matching metadata value for each constraint given. It can be used on any of the list endpoints for objects that support metadata.

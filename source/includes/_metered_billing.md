@@ -959,19 +959,20 @@ EntityList<PendingLineItem> plis = pli.listAll();
 ```
 
 ```java
-[com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: {
-      "id" : 8,
-      "catalog_item" : "delivery",
-      "type" : "service",
-      "name" : "Delivery",
-      "quantity" : 1.0,
-      "amount" : 10.0,
-      "unit_cost" : 10.0,
-      "discountable" : true,
-      "taxable" : true
-    }, 
-    com.invoiced.entity.PendingLineItem@4e7a0117 JSON: {...},
-    com.invoiced.entity.PendingLineItem@4e7a01a7 JSON: {...}]
+[
+  com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: {
+    "id" : 8,
+    "catalog_item" : "delivery",
+    "type" : "service",
+    "name" : "Delivery",
+    "quantity" : 1.0,
+    "amount" : 10.0,
+    "unit_cost" : 10.0,
+    "discountable" : true,
+    "taxable" : true
+  }, 
+  com.invoiced.entity.PendingLineItem@4e7a0117 JSON: {...},
+  com.invoiced.entity.PendingLineItem@4e7a01a7 JSON: {...}]
 ```
 
 This endpoint retrieves all pending line items.
