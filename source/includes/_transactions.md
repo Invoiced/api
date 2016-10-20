@@ -986,7 +986,7 @@ transactions, metadata = invoiced.Transaction.list(per_page=3)
 ```
 
 ```java
-EntityList<Transaction> transactions = invoiced.newTransaction().listAll(null);
+EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -1111,7 +1111,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll(null);
     }, com.invoiced.entity.Transaction@5c01c09f JSON: {...
     }, com.invoiced.entity.Transaction@5c01a09f JSON: {...
     }]
-
+```
 This endpoint retrieves all transactions.
 
 ### HTTP Request

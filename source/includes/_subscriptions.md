@@ -1011,7 +1011,7 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
 ```
 
 ```java
-EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll(null);
+EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 ```
 
 > The above command returns JSON structured like this:

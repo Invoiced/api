@@ -1,6 +1,6 @@
 # Invoices
 
-An invoice representeds a balance owed to you by a Customer. Each invoice has a collection of line items that detail the products or services that are now due. An invoice can be in one of many different states depending on the due date, payments, and whether it was sent to or viewed by the customer.
+An invoice represents a balance owed to you by a Customer. Each invoice has a collection of line items that detail the products or services that are now due. An invoice can be in one of many different states depending on the due date, payments, and whether it was sent to or viewed by the customer.
 
 Invoices can be marked as paid with Transactions. Once the sum of all Transactions for an invoice is greater than or equal to the total then the invoice will be considered paid in full.
 
@@ -2592,7 +2592,7 @@ invoices, metadata = invoiced.Invoice.list(per_page=3)
 ```
 
 ```java
-EntityList<Invoice> invoices = conn.newInvoice().listAll(null);
+EntityList<Invoice> invoices = conn.newInvoice().listAll();
 ```
 
 > The above command returns JSON structured like this:

@@ -865,7 +865,7 @@ line_items, metadata = customer.line_items().list(per_page=3)
 
 ```java
 PendingLineItem pli = customer.newPendingLineItem();
-EntityList<PendingLineItem> plis = pli.listAll(null);
+EntityList<PendingLineItem> plis = pli.listAll();
 ```
 
 > The above command returns JSON structured like this:

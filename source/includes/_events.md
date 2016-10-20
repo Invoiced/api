@@ -214,7 +214,7 @@ events, metadata = invoiced.Event.list(per_page=3)
 ```
 
 ```java
-EntityList<Event> events = connection.newEvent().listAll(null);
+EntityList<Event> events = connection.newEvent().listAll();
 ```
 
 > The above command returns JSON structured like this:

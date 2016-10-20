@@ -226,6 +226,16 @@ client.Customer.create(
 )
 ```
 
+```java 
+HashMap<String, Object> metaData = new HashMap<String, Object>();
+metaData.put("icp_number", "1234567890");
+metaData.put("account_rep","Jan");
+Customer customer = invoiced.newCustomer();
+customer.name = "Acme";
+customer.metaData = metaData;
+customer.create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -348,6 +358,23 @@ Invoiced\Customer JSON: {
 }
 ```
 
+```java
+com.invoiced.entity.Customer@cb8fd59 JSON: {
+     "id": 15444,
+  "number": "CUST-0001",
+  "name": "Acme",
+  "collection_mode": "manual",
+  "type": "company",
+  "country": "US",
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}
+```
+
 Most Invoices objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
 
 The use cases for metadata are many. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and on the dashboard. Customers will not see this data unless you choose to display it.
@@ -381,6 +408,12 @@ $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}", [
 invoice = client.Invoice.retrieve("{INVOICE_ID}", {
   'expand': "customer"
 })
+```
+
+```java
+HashMap<String, Object> queryParameters = new HashMap<String, Object>();
+queryParameters.put("expand", "customer");
+Invoice invoice = invoiced.newInvoice().retrieve("{INVOICE_ID}", queryParameters);
 ```
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
@@ -430,6 +463,14 @@ invoices = client.Invoice.list(
 )
 ```
 
+```java
+HashMap<String, Object> filter = new HashMap<String, Object>();
+filter.put("filter[paid]", false);
+filter.put("filter[closed]", false);
+filter.put("filter[customer]", 1234);
+EntityList<Invoice> invoices = invoiced.newInvoice().listAll(filter);
+```
+
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
 
 The `filter` parameter is an object whose keys are the properties that should be matched.
@@ -467,6 +508,12 @@ customer = client.Customer.list(
     'account-rep': "Jan"
   }
 )
+```
+
+```java
+HashMap<String, Object> metaData = new HashMap<String, Object>();
+metaData.put("metadata[account-rep]", "Jan");
+EntityList<Customer> customers = invoiced.newCustomer().listAll(metaData);
 ```
 
 The `metadata` parameter behaves in a similar fashion to the `filter` parameter. It allows you to search entities that have an exactly matching metadata value for each constraint given. It can be used on any of the list endpoints for objects that support metadata.

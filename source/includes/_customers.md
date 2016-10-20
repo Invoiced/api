@@ -1771,7 +1771,7 @@ contacts, metadata = customer.contacts().list(per_page=3)
 
 ```java
 Customer customer = conn.newCustomer().retrieve({CUSTOMER_ID});
-EntityList<Contact> contacts = customer.newContact().listAll(null);
+EntityList<Contact> contacts = customer.newContact().listAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -1944,7 +1944,7 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 ```
 
 ```java
-EntityList<Customer> customers = connection.newCustomer().listAll(null);
+EntityList<Customer> customers = connection.newCustomer().listAll();
 ```
 
 > The above command returns JSON structured like this:
