@@ -302,7 +302,7 @@ Invoiced\Invoice JSON: {
 
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
-    "id": 46225,
+  "id": 46225,
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -2063,7 +2063,8 @@ Email[] emails = invoice.send(emailRequest);
     "created_at" : 1436890047
     },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
-  com.invoiced.entity.Email@4ce1cfd8 JSON: {...}]
+  com.invoiced.entity.Email@4ce1cfd8 JSON: {...}
+]
 ```
 
 This endpoint sends an invoice to your customer.

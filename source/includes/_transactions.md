@@ -757,7 +757,7 @@ Email[] emails = transaction.send(emailRequest);
   },
   com.invoiced.entity.Email@12497547 JSON: {...},
   com.invoiced.entity.Email@12497547 JSON: {...}
-  ]
+]
 ```
 
 This endpoint sends a PDF receipt to the customer.
@@ -1112,7 +1112,8 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
     "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at" : 1415228628
     }, 
-  com.invoiced.entity.Transaction@5c01c09f JSON: {...}, com.invoiced.entity.Transaction@5c01a09f JSON: {...}
+  com.invoiced.entity.Transaction@5c01c09f JSON: {...},
+  com.invoiced.entity.Transaction@5c01a09f JSON: {...}
 ]
 ```
 This endpoint retrieves all transactions.
