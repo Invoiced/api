@@ -161,8 +161,8 @@ Parameter | Type | Description
 **canceled_at** | *timestamp* | Timestamp the subscription was canceled
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`, `canceled`
 **addons** | *array* | Collection of Subscription Addons
-**discounts** | *array* | Collection of Coupon IDs
-**taxes** | *array* | Collection of Tax Rate IDs
+**discounts** | *array* | Collection of Coupon Objects
+**taxes** | *array* | Collection of Tax Rate Objects
 **url** | *string* | URL to manage the subscription in the billing portal
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
