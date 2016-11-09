@@ -111,17 +111,17 @@ Invoiced\Transaction JSON: {
 
 ```java
 com.invoiced.entity.Transaction@4ed0a875 JSON: {
-    "id" : 20939,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "payment",
-    "method" : "check",
-    "status" : "succeeded",
-    "currency" : "usd",
-    "amount" : 800.0,
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415228628
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "currency": "usd",
+    "amount": 800.0,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
 }
 ```
 
@@ -287,18 +287,18 @@ Invoiced\Transaction JSON: {
 
 ```java
 com.invoiced.entity.Transaction@4ed0a875 JSON: {
-    "id" : 20939,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "payment",
-    "method" : "check",
-    "status" : "succeeded",
-    "gateway_id" : "1450",
-    "currency" : "usd",
-    "amount" : 800.0,
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415228628
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway_id": "1450",
+    "currency": "usd",
+    "amount": 800.0,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
 }
 ```
 
@@ -442,18 +442,18 @@ Invoiced\Transaction JSON: {
 
 ```java
 com.invoiced.entity.Transaction@4ed0a875 JSON: {
-    "id" : 20939,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "payment",
-    "method" : "check",
-    "status" : "succeeded",
-    "gateway_id" : "1450",
-    "currency" : "usd",
-    "amount" : 800.0,
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415228628
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway_id": "1450",
+    "currency": "usd",
+    "amount": 800.0,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
 }
 ```
 
@@ -585,19 +585,19 @@ Invoiced\Transaction JSON: {
 ```
 ```java
 com.invoiced.entity.Transaction@4ed0a875 JSON: {
-    "id" : 20939,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "payment",
-    "method" : "check",
-    "status" : "succeeded",
-    "gateway_id" : "1450",
-    "currency" : "usd",
-    "amount" : 800.0,
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "gateway_id": "1450",
+    "currency": "usd",
+    "amount": 800.0,
     "notes": "Check was received by Jan",
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415228628
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
 }
 ```
 
@@ -745,15 +745,15 @@ Email[] emails = transaction.send(emailRequest);
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 [
   com.invoiced.entity.Email@12497547 JSON: {
-    "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "state" : "sent",
-    "email" : "client@example.com",
-    "template" : "payment_receipt_email",
-    "subject" : "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message" : "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens" : 0,
-    "clicks" : 0,
-    "created_at" : 1436890047
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+    "opens": 0,
+    "clicks": 0,
+    "created_at": 1436890047
   },
   com.invoiced.entity.Email@12497547 JSON: {...},
   com.invoiced.entity.Email@12497547 JSON: {...}
@@ -897,18 +897,18 @@ Invoiced\Transaction JSON: {
 
 ```java
 com.invoiced.entity.Transaction@424ba398 JSON: {
-    "id" : 20952,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "refund",
-    "method" : "check",
-    "status" : "succeeded",
-    "currency" : "usd",
-    "amount" : 400.0,
-    "parent_transaction" : 20939,
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-    "created_at" : 1415228628
+    "id": 20952,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "refund",
+    "method": "check",
+    "status": "succeeded",
+    "currency": "usd",
+    "amount": 400.0,
+    "parent_transaction": 20939,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
+    "created_at": 1415228628
 }
 ```
 
@@ -1100,17 +1100,17 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 ```java
 [
   com.invoiced.entity.Transaction@52638766 JSON: {
-    "id" : 20939,
-    "customer" : 15460,
-    "invoice" : 44648,
-    "date" : 1410843600,
-    "type" : "payment",
-    "method" : "check",
-    "status" : "succeeded",
-    "currency" : "usd",
-    "amount" : 800.0,
-    "pdf_url" : "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415228628
+    "id": 20939,
+    "customer": 15460,
+    "invoice": 44648,
+    "date": 1410843600,
+    "type": "payment",
+    "method": "check",
+    "status": "succeeded",
+    "currency": "usd",
+    "amount": 800.0,
+    "pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415228628
     }, 
   com.invoiced.entity.Transaction@5c01c09f JSON: {...},
   com.invoiced.entity.Transaction@5c01a09f JSON: {...}

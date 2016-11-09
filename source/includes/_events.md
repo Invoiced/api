@@ -134,29 +134,29 @@ Invoiced\Event JSON: {
 
 ```java
 com.invoiced.entity.Event@1c5119e JSON: {
-      "id" : 1228003,
-      "type" : "transaction.created",
-      "timestamp" : 1451500772,
-      "data" : {
-        "object" : {
-          "date" : 1451500771,
-          "amount" : 55,
-          "metadata" : { },
-          "notes" : null,
-          "method" : "other",
-          "parent_transaction" : null,
-          "created_at" : 1451500772,
-          "pdf_url" : "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-          "type" : "payment",
-          "gateway_id" : null,
-          "currency" : "usd",
-          "theme" : null,
-          "payment_source" : null,
-          "id" : 212047,
-          "invoice" : 196539,
-          "gateway" : null,
-          "customer" : 15455,
-          "status" : "succeeded"
+      "id": 1228003,
+      "type": "transaction.created",
+      "timestamp": 1451500772,
+      "data": {
+        "object": {
+          "date": 1451500771,
+          "amount": 55,
+          "metadata": { },
+          "notes": null,
+          "method": "other",
+          "parent_transaction": null,
+          "created_at": 1451500772,
+          "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+          "type": "payment",
+          "gateway_id": null,
+          "currency": "usd",
+          "theme": null,
+          "payment_source": null,
+          "id": 212047,
+          "invoice": 196539,
+          "gateway": null,
+          "customer": 15455,
+          "status": "succeeded"
         }
       }
     }
@@ -362,9 +362,9 @@ EntityList<Event> events = connection.newEvent().listAll();
 ```java
 [
   com.invoiced.entity.Event@1c5119e JSON: {
-    "id" : 1228003,
-    "type" : "transaction.created",
-    "timestamp" : 1451500772,
+    "id": 1228003,
+    "type": "transaction.created",
+    "timestamp": 1451500772,
      "data": {
         "object": {
             "amount": 55,

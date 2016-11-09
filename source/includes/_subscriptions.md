@@ -1151,24 +1151,24 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 ```java
 [
   com.invoiced.entity.Subscription@20b4fc7b JSON: {
-    "id" : 595,
-    "customer" : 15444,
-    "plan" : "starter",
-    "start_date" : 1420391704,
-    "quantity" : 1,
-    "period_start" : 1446657304,
-    "period_end" : 1449249304,
-    "status" : "active",
-    "addons" : [ 
+    "id": 595,
+    "customer": 15444,
+    "plan": "starter",
+    "start_date": 1420391704,
+    "quantity": 1,
+    "period_start": 1446657304,
+    "period_end": 1449249304,
+    "status": "active",
+    "addons": [ 
         {
-            "id" : 3,
-            "catalog_item" : "ipad-license",
-            "quantity" : 11,
-            "created_at" : 1420391704
+            "id": 3,
+            "catalog_item": "ipad-license",
+            "quantity": 11,
+            "created_at": 1420391704
         } 
     ],
-    "url" : "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at" : 1420391704
+    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+    "created_at": 1420391704
     }, 
     com.invoiced.entity.Subscription@73f93614 JSON: {...},
     com.invoiced.entity.Subscription@735f9514 JSON: {...}

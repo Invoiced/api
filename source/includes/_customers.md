@@ -252,13 +252,13 @@ Invoiced\Card JSON: {
 ```java
 //PaymentSource can be used for both Card Object and Bank Account Object
 com.invoiced.entity.PaymentSource@2fdf31f4 JSON: {
-  "id" : 850,
-  "object" : "card",
-  "brand" : "Visa",
-  "last4" : "4242",
-  "exp_month" : 2,
-  "exp_year" : 20,
-  "funding" : "credit"
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": "4242",
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
 }
 ```
 
@@ -419,11 +419,11 @@ Invoiced\Contact JSON: {
 
 ```java
 com.invoiced.entity.Contact@3a0fa320 JSON: {
-  "id" : 10403,
-  "name" : "Nancy Talty",
-  "email" : "nancy.talty@example.com",
-  "primary" : true,
-  "created_at" : 1463510889
+  "id": 10403,
+  "name": "Nancy Talty",
+  "email": "nancy.talty@example.com",
+  "primary": true,
+  "created_at": 1463510889
 }
 ```
 
@@ -1281,15 +1281,15 @@ Email[] emails = customer.sendStatement(emailRequest);
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 [
   com.invoiced.entity.Email@1bfbb8ee JSON: {
-    "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "state" : "sent",
-    "email" : "client@example.com",
-    "template" : "statement_email",
-    "subject" : "Statement from Dunder Mifflin, Inc.",
-    "message" : "Dear Client, we have attached your latest account statement. Thank you!",
-    "opens" : 0,
-    "clicks" : 0,
-    "created_at" : 1436890047
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "email": "client@example.com",
+    "template": "statement_email",
+    "subject": "Statement from Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached your latest account statement. Thank you!",
+    "opens": 0,
+    "clicks": 0,
+    "created_at": 1436890047
   }, 
   com.invoiced.entity.Email@2afbb8ee JSON: {...},
   com.invoiced.entity.Email@3bfbb8ee JSON: {...}

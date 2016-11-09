@@ -58,13 +58,13 @@ Invoiced\File JSON: {
 
 ```java
 com.invoiced.entity.File@192cafae JSON: {
-  "id" : 13,
-  "name" : "logo-invoice.png",
-  "object" : "file",
-  "size" : 6936,
-  "type" : "image/png",
-  "url" : "https://invoiced.com/img/logo-invoice.png",
-  "created_at" : 1464625855
+  "id": 13,
+  "name": "logo-invoice.png",
+  "object": "file",
+  "size": 6936,
+  "type": "image/png",
+  "url": "https://invoiced.com/img/logo-invoice.png",
+  "created_at": 1464625855
 }
 ```
 

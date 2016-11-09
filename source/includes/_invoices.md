@@ -470,15 +470,15 @@ Invoiced\LineItem JSON: {
 
 ```java
  com.invoiced.entity.LineItem@1b13d4f3 JSON: {
-  "id" : 8,
-  "catalog_item" : "delivery",
-  "type" : "service",
-  "name" : "Delivery",
-  "quantity" : 1.0,
-  "unit_cost" : 10.0,
-  "amount" : 10.0,
-  "discountable" : true,
-  "taxable" : false
+  "id": 8,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "quantity": 1.0,
+  "unit_cost": 10.0,
+  "amount": 10.0,
+  "discountable": true,
+  "taxable": false
 }
 ```
 
@@ -543,8 +543,8 @@ Invoiced\Discount JSON: {
 
 ```java
  com.invoiced.entity.Discount@2abc1f10 JSON: {
-  "id" : 20553,
-  "amount" : 5.0
+  "id": 20553,
+  "amount": 5.0
 }
 ```
 
@@ -595,8 +595,8 @@ Invoiced\Tax JSON: {
 
 ```java
 com.invoiced.entity.Tax@31d5f331 JSON: {
-  "id" : 20554,
-  "amount" : 3.85
+  "id": 20554,
+  "amount": 3.85
 }
 ```
 
@@ -2054,13 +2054,13 @@ Email[] emails = invoice.send(emailRequest);
 ```java
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: {
-    "id" : "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "state" : "sent",
-    "email" : "client@example.com",
-    "template" : "new_invoice_email",
-    "subject" : "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message" : "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "created_at" : 1436890047
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "state": "sent",
+    "email": "client@example.com",
+    "template": "new_invoice_email",
+    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "created_at": 1436890047
     },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
   com.invoiced.entity.Email@4ce1cfd8 JSON: {...}
@@ -2515,17 +2515,17 @@ Attachment[] attachments = invoice.listAttachments();
 ```java
 [
   com.invoiced.entity.Attachment@1759eafd JSON: {
-    id" : 13,
-    "file" : {
-      "id" : 13,
-      "name" : "logo-invoice.png",
-      "object" : "file",
-      "size" : 6936,
-      "type" : "image/png",
-      "url" : "https://invoiced.com/img/logo-invoice.png",
-      "created_at" : 1464625855
+    id": 13,
+    "file": {
+      "id": 13,
+      "name": "logo-invoice.png",
+      "object": "file",
+      "size": 6936,
+      "type": "image/png",
+      "url": "https://invoiced.com/img/logo-invoice.png",
+      "created_at": 1464625855
       },
-      "created_at" : 1464625855
+      "created_at": 1464625855
     }, 
     com.invoiced.entity.Attachment@1759eafd JSON: {...},
     com.invoiced.entity.Attachment@1759eafd JSON: {...}
@@ -2906,51 +2906,51 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 ```java
 [
   com.invoiced.entity.Invoice@c509a57 JSON: {
-    "id" : 46225,
-    "customer" : 15444,
-    "number" : "INV-0016",
-    "collection_mode" : "manual",
-    "currency" : "usd",
-    "draft" : false,
-    "closed" : false,
-    "paid" : false,
-    "status" : "not_sent",
-    "sent" : false,
-    "chase" : false,
-    "date" : 1416290400,
-    "due_date" : 1417500000,
-    "payment_terms" : "NET 14",
-    "items" : [ {
-      "id" : 7,
-      "type" : "product",
-      "name" : "Copy Paper, Case",
-      "quantity" : 1.0,
-      "unit_cost" : 45.0,
-      "amount" : 45.0,
-      "discountable" : true,
-      "taxable" : true
+    "id": 46225,
+    "customer": 15444,
+    "number": "INV-0016",
+    "collection_mode": "manual",
+    "currency": "usd",
+    "draft": false,
+    "closed": false,
+    "paid": false,
+    "status": "not_sent",
+    "sent": false,
+    "chase": false,
+    "date": 1416290400,
+    "due_date": 1417500000,
+    "payment_terms": "NET 14",
+    "items": [ {
+      "id": 7,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "quantity": 1.0,
+      "unit_cost": 45.0,
+      "amount": 45.0,
+      "discountable": true,
+      "taxable": true
     }, {
-      "id" : 8,
-      "catalog_item" : "delivery",
-      "type" : "service",
-      "name" : "Delivery",
-      "quantity" : 1.0,
-      "unit_cost" : 10.0,
-      "amount" : 10.0,
-      "discountable" : true,
-      "taxable" : true
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "quantity": 1.0,
+      "unit_cost": 10.0,
+      "amount": 10.0,
+      "discountable": true,
+      "taxable": true
     } ],
-    "subtotal" : 55.0,
-    "taxes" : [ {
-      "id" : 20554,
-      "amount" : 3.85
+    "subtotal": 55.0,
+    "taxes": [ {
+      "id": 20554,
+      "amount": 3.85
     } ],
-    "total" : 51.15,
-    "balance" : 51.15,
-    "url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "payment_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-    "pdf_url" : "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at" : 1415229884
+    "total": 51.15,
+    "balance": 51.15,
+    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "created_at": 1415229884
   }, 
   com.invoiced.entity.Invoice@20301171 JSON: {...},
   com.invoiced.entity.Invoice@30301171 JSON: {...}
