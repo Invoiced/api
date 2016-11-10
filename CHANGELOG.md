@@ -1,5 +1,8 @@
 Changelog
 =========
+### November 10, 2016
+- Added pricing objects: Catalog Items, Plans, Tax Rates, and Coupons
+
 ### October 19, 2016
 - Added `invoiced-java` documentation
 

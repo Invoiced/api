@@ -17,6 +17,7 @@ includes:
   - transactions
   - subscriptions
   - metered_billing
+  - pricing
   - events
   - files
 
