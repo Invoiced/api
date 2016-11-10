@@ -279,7 +279,7 @@ Parameter | Type | Description
 ```shell
 {
   "id": 4321,
-  "object": "card",
+  "object": "bank_account",
   "bank_name": "Wells Fargo",
   "last4": "7890",
   "routing_number": "110000000",
@@ -291,7 +291,7 @@ Parameter | Type | Description
 ```ruby
 #<Invoiced::BankAccount:0x3fdbf95e4d08 id=4321> JSON: {
   "id": 4321,
-  "object": "card",
+  "object": "bank_account",
   "bank_name": "Wells Fargo",
   "last4": "7890",
   "routing_number": "110000000",
@@ -303,7 +303,7 @@ Parameter | Type | Description
 ```php
 Invoiced\BankAccount JSON: {
   "id": 4321,
-  "object": "card",
+  "object": "bank_account",
   "bank_name": "Wells Fargo",
   "last4": "7890",
   "routing_number": "110000000",
@@ -315,7 +315,7 @@ Invoiced\BankAccount JSON: {
 ```python
 <BankAccount id=4321 at 0x3fdbf95e4d08> JSON: {
   "id": 4321,
-  "object": "card",
+  "object": "bank_account",
   "bank_name": "Wells Fargo",
   "last4": "7890",
   "routing_number": "110000000",
@@ -328,7 +328,7 @@ Invoiced\BankAccount JSON: {
 //PaymentSource can be used for both Card Object and Bank Account Object
 com.invoiced.entity.PaymentSource@3fdf31f4 JSON: {
   "id": 4321,
-  "object": "card",
+  "object": "bank_account",
   "bank_name": "Wells Fargo",
   "last4": "7890",
   "routing_number": "110000000",
