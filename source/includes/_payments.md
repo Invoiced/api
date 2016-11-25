@@ -1,10 +1,15 @@
-# Transactions
+# Payments
 
-Transactions can represent a `charge`, `payment`, `refund`, or `adjustment`.
+On Invoiced we use the Transaction concept to represent any monetary value that is transferred between a merchant and customer. In our world, if an invoice describes a balance owed by a customer then a transaction represents the payment of that balance. Transactions can also describe other types of value transfer beyond payments, like refunds and credits.
 
-We record `charge` and `refund` transactions for you that happen through Invoiced. The `payment` transaction type is designated for recording offline payments like checks. Finally, an `adjustment` transaction represents any additional credit or debits to a customer's balance.
+A transaction can be one of these types:
 
-Most transactions will be associated with an invoice, however, not all. For example, if you wanted to credit your customer for $20 you would create an `adjustment` transaction for -$20 using the customer ID only instead of the invoice ID.
+- `charge`: an electronic charge or payment
+- `payment`: offline payment received from the customer, i.e. a check
+- `refund`: money refunded to the customer
+- `adjustment`: a debit or credit to the customer's credit balance
+
+We automatically record `charge` and `refund` transactions that happen through Invoiced for you. Most transactions will be associated with an invoice, however, not all.
 
 We currently support the following payment methods on transactions:
 
@@ -16,6 +21,8 @@ We currently support the following payment methods on transactions:
 - `check`
 - `cash`
 - `other`
+
+`adjustment` transactions will always use the `balance` payment method. Since our system is designed from the perspective of the merchant, a negative adjustment represents a credit to the customer and a positive adjustment represents a charge to the customer. For example, if you wanted to credit your customer for $20 then you would create an `adjustment` transaction for -$20. Furthermore, adjustments do not have an invoice associated.
 
 ## Transaction Object
 

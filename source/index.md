@@ -14,7 +14,7 @@ toc_footers:
 includes:
   - customers
   - invoices
-  - transactions
+  - payments
   - subscriptions
   - metered_billing
   - pricing
