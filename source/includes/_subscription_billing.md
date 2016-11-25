@@ -1,4 +1,4 @@
-# Subscriptions
+# Subscription Billing
 
 Subscriptions allow you to set up recurring billing for your customers. Creating a Subscription will bill a customer according to a given Plan. Addons let you bill for additonal catalog items that get added onto the base plan price.
 
