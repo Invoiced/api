@@ -13,7 +13,7 @@ toc_footers:
 
 includes:
   - customers
-  - invoices
+  - invoicing
   - payments
   - subscriptions
   - metered_billing
