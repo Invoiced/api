@@ -2536,7 +2536,7 @@ This endpoint retrieves a list of files attached to a specific invoice.
 
 ### HTTP Request
 
-`POST /invoices/:id/attachments`
+`GET /invoices/:id/attachments`
 
 ## Delete an invoice
 
