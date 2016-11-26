@@ -1,5 +1,8 @@
 Changelog
 =========
+### November 26, 2016
+- Added payment plan endpoints
+
 ### November 10, 2016
 - Added pricing objects: Catalog Items, Plans, Tax Rates, and Coupons
 
