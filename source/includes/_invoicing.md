@@ -2515,7 +2515,7 @@ Attachment[] attachments = invoice.listAttachments();
 ```java
 [
   com.invoiced.entity.Attachment@1759eafd JSON: {
-    id": 13,
+    "id": 13,
     "file": {
       "id": 13,
       "name": "logo-invoice.png",
