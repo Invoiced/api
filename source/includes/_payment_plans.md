@@ -226,6 +226,7 @@ Parameter | Type | Description
 ```shell
 curl "https://api.invoiced.com/invoices/:invoice_id/payment_plan" \
   -u {API_KEY}: \
+  -X PUT \
   -d installments[0][date]=1480572000 \
   -d installments[0][amount]=500 \
   -d installments[1][date]=1481176800 \
@@ -539,7 +540,7 @@ com.invoiced.entity.PaymentPlan@754f2c43 JSON: {
 
 ### HTTP Request
 
-`POST /invoices/:id/payment_plan`
+`PUT /invoices/:id/payment_plan`
 
 ### Attributes
 
