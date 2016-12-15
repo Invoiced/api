@@ -72,7 +72,6 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -145,7 +144,6 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -218,7 +216,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -291,7 +288,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -385,7 +381,6 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
 **balance** | *number* | Balance owed
-**tags** | *array* | Invoice tags
 **url** | *string* | URL to view the invoice in the billing portal
 **payment_url** | *string* | URL for the invoice payment page
 **pdf_url** | *string* | URL to download the invoice as a PDF
@@ -778,7 +773,6 @@ invoice.create();
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -851,7 +845,6 @@ invoice.create();
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -924,7 +917,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -997,7 +989,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1087,7 +1078,6 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
-**tags** | *array* | Invoice tags
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice
 
@@ -1182,7 +1172,6 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1255,7 +1244,6 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1328,7 +1316,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1401,7 +1388,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1474,7 +1460,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1601,7 +1586,6 @@ invoice.save();
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1674,7 +1658,6 @@ invoice.save();
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1747,7 +1730,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1820,7 +1802,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1893,7 +1874,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   ],
   "total": 51.15,
   "balance": 51.15,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
@@ -1925,7 +1905,6 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
-**tags** | *array* | Invoice tags
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 
@@ -2163,7 +2142,6 @@ invoice.pay();
   ],
   "total": 228.85,
   "balance": 228.85,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
@@ -2221,7 +2199,6 @@ invoice.pay();
   ],
   "total": 228.85,
   "balance": 228.85,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
@@ -2279,7 +2256,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 228.85,
   "balance": 228.85,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
@@ -2337,7 +2313,6 @@ Invoiced\Invoice JSON: {
   ],
   "total": 228.85,
   "balance": 228.85,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
@@ -2394,7 +2369,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   ],
   "total": 228.85,
   "balance": 228.85,
-  "tags": [],
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
@@ -2664,7 +2638,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     ],
     "total": 51.15,
     "balance": 51.15,
-    "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2740,7 +2713,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     ],
     "total": 51.15,
     "balance": 51.15,
-    "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2816,7 +2788,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     ],
     "total": 51.15,
     "balance": 51.15,
-    "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2892,7 +2863,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     ],
     "total": 51.15,
     "balance": 51.15,
-    "tags": [],
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2972,4 +2942,3 @@ Parameter | Description
 **metadata** *object* | Metadata filter object
 **start_date** *timestamp* | Restricts the results to invoices *on or after* the given timestamp
 **end_date** *timestamp* | Restricts the results to invoices *on or before* the given timestamp
-**tags** *array* | When set only returns invoices that match ANY of these tags. Can be an array or comma-separated list.
