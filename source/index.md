@@ -19,6 +19,7 @@ includes:
   - metered_billing
   - payment_plans
   - credit_notes
+  - estimates
   - pricing
   - events
   - files

@@ -1,6 +1,7 @@
 Changelog
 =========
 ### January 12, 2017
+- Added estimates
 - Added credit notes
 
 ### December 15, 2016

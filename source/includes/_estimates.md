@@ -1,12 +1,8 @@
-# Credit Notes
+# Estimates
 
-A credit note represents a balance you owe to a [Customer](#customer-object). Like invoices, each credit note has a collection of line items that detail the products or services that are being credited to the customer. You can think of credit notes as negative invoices, however, all of the amounts should be positive.
+An estimate provides a quote to a [Customer](#customer-object). Like invoices, each estimate has a collection of line items that detail the products or services. Estimates, unlike invoices, do not have a balance owed until converted to an invoice.
 
-Credit notes must be issued against an existing invoice. The credit note will be applied to the balance on the invoice first. Any remaining balance should be credited to the customer.
-
-Credit notes with a balance can be marked as paid by issuing a credit for the credit note using [Transactions](#transaction-object). Once the sum of all transactions for a credit note is greater than or equal to the total then the credit note will be considered paid in full.
-
-## Credit Note Object
+## Estimate Object
 
 ### Attributes
 
@@ -14,15 +10,16 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
 {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -66,27 +63,27 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```ruby
-#<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -130,27 +127,27 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```php
-Invoiced\CreditNote JSON: {
+Invoiced\Estimate JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -194,27 +191,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```python
-<CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -258,28 +255,28 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```java
-com.invoiced.entity.CreditNote@e48fa2a JSON: {
+com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "not_sent",
   "chase": false,
-  "number": "CN-0016",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -313,45 +310,44 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**id** | *integer* | The credit note's unique ID
+**id** | *integer* | The estimate's unique ID
 **customer** | *integer* | Customer ID
 **invoice** | *integer* | Invoice ID
-**name** | *string* | Credit note name for internal use, defaults to "Credit Note"
-**number** | *string* | The reference number assigned to the credit note for use in the dashboard
+**name** | *string* | Estimate name for internal use, defaults to "Estimate"
+**number** | *string* | The reference number assigned to the estimate for use in the dashboard
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
-**draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the credit note is a draft
-**closed** | *boolean* | When true, a credit note is closed and considered bad debt. No further payments are allowed.
-**paid** | *boolean* | Indicates whether a credit note has been paid in full
-**status** | *string* | Credit note state, one of `draft`, `open`, `paid`, `closed`
-**date** | *timestamp* | Credit note date
+**draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
+**closed** | *boolean* | When true, an estimate is closed and considered bad debt. No further payments are allowed.
+**paid** | *boolean* | Indicates whether an estimate has been paid in full
+**status** | *string* | Estimate state, one of `draft`, `not_sent`, `sent`, `approved`, `invoiced`, `declined`
+**date** | *timestamp* | Estimate date
+**payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
 **items** | *array* | Collection of Line Items
-**notes** | *string* | Additional notes displayed on credit note
+**notes** | *string* | Additional notes displayed on estimate
 **subtotal** | *number* | Subtotal
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
-**balance** | *number* | Balance owed
-**url** | *string* | URL to view the credit note in the billing portal
-**pdf_url** | *string* | URL to download the credit note as a PDF
+**url** | *string* | URL to view the estimate in the billing portal
+**pdf_url** | *string* | URL to download the estimate as a PDF
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
-## Create a credit note
+## Create an estimate
 
 ```shell
-curl "https://api.invoiced.com/credit_notes" \
+curl "https://api.invoiced.com/estimates" \
   -u {API_KEY}: \
   -d customer=15444 \
-  -d invoice=46225 \
+  -d payment_terms="NET 14" \
   -d items[0][name]="Copy paper, Case" \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=45 \
@@ -361,9 +357,9 @@ curl "https://api.invoiced.com/credit_notes" \
 ```
 
 ```ruby
-invoiced.CreditNote.create(
+invoiced.Estimate.create(
   :customer => 15444,
-  :invoice => 46225,
+  :payment_terms => "NET 14",
   :items => [
     {
       :name => "Copy paper, Case",
@@ -386,9 +382,9 @@ invoiced.CreditNote.create(
 ```php
 <?php
 
-$creditNote = $invoiced->CreditNote->create([
+$estimate = $invoiced->Estimate->create([
   'customer' => 15444,
-  'invoice' => 46225,
+  'payment_terms' => "NET 14",
   'items' => [
     [
       'name' => "Copy paper, Case",
@@ -409,9 +405,9 @@ $creditNote = $invoiced->CreditNote->create([
 ```
 
 ```python
-client.CreditNote.create(
+client.Estimate.create(
   customer=15444,
-  invoice=46225,
+  payment_terms="NET 14",
   items=[
     {
       'name': "Copy paper, Case",
@@ -432,9 +428,9 @@ client.CreditNote.create(
 ```
 
 ```java
-CreditNote creditNote = invoiced.newCreditNote();
-creditNote.customer = 15444L;
-creditNote.invoice = 46225L;
+Estimate estimate = invoiced.newEstimate();
+estimate.customer = 15444L;
+estimate.paymentTerms = "NET 14";
 LineItem[] items = new LineItem[2];
 items[0] = new LineItem();
 items[0].name = "Copy paper, Case";
@@ -446,9 +442,9 @@ items[1].quantity = 1D;
 Tax[] taxes = new Tax[1];
 taxes[0] = new Tax();
 taxes[0].amount = 3.85D;
-creditNote.items = items;
-creditNote.taxes = taxes;
-creditNote.create();
+estimate.items = items;
+estimate.taxes = taxes;
+estimate.create();
 ```
 
 > The above command returns JSON structured like this:
@@ -457,15 +453,16 @@ creditNote.create();
 {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -509,27 +506,27 @@ creditNote.create();
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```ruby
-#<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -573,27 +570,27 @@ creditNote.create();
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```php
-Invoiced\CreditNote JSON: {
+Invoiced\Estimate JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -637,27 +634,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```python
-<CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -701,27 +698,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```java
-com.invoiced.entity.CreditNote@e48fa2a JSON: {
+com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "not_sent",
   "chase": false,
-  "number": "CN-0016",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -754,18 +751,17 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884
 }
 ```
 
-Create a new credit note with this endpoint.
+Create a new estimate with this endpoint.
 
 ### HTTP Request
 
-`POST /credit_notes`
+`POST /estimates`
 
 ### Attributes
 
@@ -773,42 +769,43 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **customer** | *integer* | Customer ID - **required**
 **invoice** | *integer* | Invoice ID
-**name** | *string* | Credit note name for internal use, defaults to "Credit Note"
-**number** | *string* | The reference number assigned to the credit note, defaults to next # in auto-numbering sequence
+**name** | *string* | Estimate name for internal use, defaults to "Estimate"
+**number** | *string* | The reference number assigned to the estimate, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
-**date** | *timestamp* | Credit note date - defaults to current timestamp
-**draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the credit note is a draft
-**closed** | *boolean* | Marks a credit note as closed
+**date** | *timestamp* | Estimate date - defaults to current timestamp
+**payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
+**draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
+**closed** | *boolean* | Marks an estimate as closed
 **items** | *array* | Collection of Line Items
-**notes** | *string* | Additional notes displayed on credit note
+**notes** | *string* | Additional notes displayed on estimate
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
-**attachments** | *array* | A list of [File](#file-object) IDs to attach to the credit note
+**attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate
 
-## Retrieve a credit note
+## Retrieve an estimate
 
 ```shell
-curl "https://api.invoiced.com/credit_notes/:id" \
+curl "https://api.invoiced.com/estimates/:id" \
   -u {API_KEY}:
 ```
 
 ```ruby
-creditNote = invoiced.CreditNote.retrieve("{CNOICE_ID}")
+estimate = invoiced.Estimate.retrieve("{ESTOICE_ID}")
 ```
 
 ```php
 <?php
 
-$creditNote = $invoiced->CreditNote->retrieve("{CNOICE_ID}");
+$estimate = $invoiced->Estimate->retrieve("{ESTOICE_ID}");
 ```
 
 ```python
-creditNote = client.CreditNote.retrieve("{CNOICE_ID}")
+estimate = client.Estimate.retrieve("{ESTOICE_ID}")
 ```
 
 ```java
-CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
+Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -817,15 +814,16 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
 {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -869,27 +867,27 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```ruby
-#<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -933,27 +931,27 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```php
-Invoiced\CreditNote JSON: {
+Invoiced\Estimate JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -997,27 +995,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```python
-<CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1061,27 +1059,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```java
-com.invoiced.entity.CreditNote@e48fa2a JSON: {
+com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1125,19 +1123,18 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
-This endpoint retrieves a specific credit note.
+This endpoint retrieves a specific estimate.
 
 ### HTTP Request
 
-`GET /credit_notes/:id`
+`GET /estimates/:id`
 
 ### Query Parameters
 
@@ -1145,10 +1142,10 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **expand** | *string* | Properties to expand
 
-## Update a credit note
+## Update an estimate
 
 ```shell
-curl "https://api.invoiced.com/credit_notes/:id" \
+curl "https://api.invoiced.com/estimates/:id" \
   -u {API_KEY}: \
   -X PATCH \
   -d sent=1 \
@@ -1156,33 +1153,33 @@ curl "https://api.invoiced.com/credit_notes/:id" \
 ```
 
 ```ruby
-creditNote.name = "July Paper Delivery"
-creditNote.notes = "The order was delivered on Jul 20, 2015"
-creditNote.sent = true
-creditNote.save
+estimate.name = "July Paper Delivery"
+estimate.notes = "The order was delivered on Jul 20, 2015"
+estimate.sent = true
+estimate.save
 ```
 
 ```php
 <?php
 
-$creditNote->name = "July Paper Delivery";
-$creditNote->notes = "The order was delivered on Jul 20, 2015";
-$creditNote->sent = true;
-$creditNote->save();
+$estimate->name = "July Paper Delivery";
+$estimate->notes = "The order was delivered on Jul 20, 2015";
+$estimate->sent = true;
+$estimate->save();
 ```
 
 ```python
-creditNote.name = "July Paper Delivery"
-creditNote.notes = "The order was delivered on Jul 20, 2015"
-creditNote.sent = True
-creditNote.save()
+estimate.name = "July Paper Delivery"
+estimate.notes = "The order was delivered on Jul 20, 2015"
+estimate.sent = True
+estimate.save()
 ```
 
 ```java
-creditNote.name =  "July Paper Delivery";
-creditNote.notes = "The order was delivered on Jul 20, 2015";
-creditNote.sent = true;
-creditNote.save();
+estimate.name =  "July Paper Delivery";
+estimate.notes = "The order was delivered on Jul 20, 2015";
+estimate.sent = true;
+estimate.save();
 ```
 
 > The above command returns JSON structured like this:
@@ -1191,15 +1188,16 @@ creditNote.save();
 {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "sent",
-  "number": "CN-0016",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1243,27 +1241,27 @@ creditNote.save();
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```ruby
-#<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1307,27 +1305,27 @@ creditNote.save();
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```php
-Invoiced\CreditNote JSON: {
+Invoiced\Estimate JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1371,27 +1369,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```python
-<CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1435,27 +1433,27 @@ Invoiced\CreditNote JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
 ```java
-com.invoiced.entity.CreditNote@e48fa2a JSON: {
+com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
   "customer": 15444,
-  "invoice": 46225,
+  "invoice": null,
   "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
-  "number": "CN-0016",
+  "status": "not_sent",
+  "number": "EST-0016",
   "date": 1416290400,
+  "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
@@ -1499,57 +1497,57 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
   "metadata": {}
 }
 ```
 
-Use this endpoint to update a credit note.
+Use this endpoint to update an estimate.
 
 ### HTTP Request
 
-`PATCH /credit_notes/:id`
+`PATCH /estimates/:id`
 
 ### Attributes
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**name** | *string* | Credit note name for internal use, defaults to "Credit Note"
-**number** | *string* | The reference number assigned to the credit note, defaults to next # in auto-numbering sequence
+**name** | *string* | Estimate name for internal use, defaults to "Estimate"
+**number** | *string* | The reference number assigned to the estimate, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
-**date** | *timestamp* | Credit note date - defaults to current timestamp
-**draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the invoice is a draft
-**closed** | *boolean* | Marks a credit note as closed
+**date** | *timestamp* | Estimate date - defaults to current timestamp
+**payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
+**draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the invoice is a draft
+**closed** | *boolean* | Marks an estimate as closed
 **items** | *array* | Collection of Line Items
-**notes** | *string* | Additional notes displayed on credit note
+**notes** | *string* | Additional notes displayed on estimate
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
-**attachments** | *array* | A list of [File](#file-object) IDs to attach to the credit note. Replaces existing attachments. Not providing this keeps existing attachments.
+**attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate. Replaces existing attachments. Not providing this keeps existing attachments.
 
-## Send a credit note
+## Send an estimate
 
 ```shell
-curl "https://api.invoiced.com/credit_notes/:id/emails" \
+curl "https://api.invoiced.com/estimates/:id/emails" \
   -u {API_KEY}: \
   -X POST
 ```
 
 ```ruby
-emails = creditNote.send
+emails = estimate.send
 ```
 
 ```php
 <?php
 
-$emails = $creditNote->send();
+$emails = $estimate->send();
 ```
 
 ```python
-emails = creditNote.send()
+emails = estimate.send()
 ```
 
 ```java
@@ -1560,10 +1558,10 @@ emailRecipients[0].name = "Client";
 emailRecipients[0].email = "client@example.com";
 
 emailRequest.to = emailRecipients;
-emailRequest.subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
-emailRequest.message = "Dear Client, a new credite note for $51.15 has been created on your account. Thank you!";
+emailRequest.subject = "New Estimate from Dunder Mifflin, Inc.: EST-0016";
+emailRequest.message = "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!";
 
-Email[] emails = creditNote.send(emailRequest);
+Email[] emails = estimate.send(emailRequest);
 ```
 
 > The above command returns JSON structured like this:
@@ -1575,11 +1573,11 @@ Email[] emails = creditNote.send(emailRequest);
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
-    "template": "credit_note_email",
-    "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
-    "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
+    "template": "estimate_email",
+    "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+    "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+    "not_sents": 0,
+    "not_sents_detail": [],
     "clicks": 0,
     "clicks_detail": [],
     "created_at": 1436890047
@@ -1596,11 +1594,11 @@ Email[] emails = creditNote.send(emailRequest);
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
-    "template": "credit_note_email",
-    "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
-    "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
+    "template": "estimate_email",
+    "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+    "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+    "not_sents": 0,
+    "not_sents_detail": [],
     "clicks": 0,
     "clicks_detail": [],
     "created_at": 1436890047
@@ -1617,11 +1615,11 @@ Email[] emails = creditNote.send(emailRequest);
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
-    "template": "credit_note_email",
-    "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
-    "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
+    "template": "estimate_email",
+    "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+    "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+    "not_sents": 0,
+    "not_sents_detail": [],
     "clicks": 0,
     "clicks_detail": [],
     "created_at": 1436890047
@@ -1638,11 +1636,11 @@ Email[] emails = creditNote.send(emailRequest);
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
-    "template": "credit_note_email",
-    "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
-    "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
+    "template": "estimate_email",
+    "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+    "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+    "not_sents": 0,
+    "not_sents_detail": [],
     "clicks": 0,
     "clicks_detail": [],
     "created_at": 1436890047
@@ -1658,9 +1656,9 @@ Email[] emails = creditNote.send(emailRequest);
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
     "state": "sent",
     "email": "client@example.com",
-    "template": "credit_note_email",
-    "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
-    "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
+    "template": "estimate_email",
+    "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+    "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
     "created_at": 1436890047
     },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
@@ -1668,11 +1666,11 @@ Email[] emails = creditNote.send(emailRequest);
 ]
 ```
 
-This endpoint sends a credit note to your customer.
+This endpoint sends an estimate to your customer.
 
 ### HTTP Request
 
-`POST /credit_notes/:id/emails`
+`POST /estimates/:id/emails`
 
 ### Request Parameters
 
@@ -1681,35 +1679,414 @@ Parameter | Type | Description
 **to** | *array* | Optional array of recipients like:<br/>`[{"name": "Client", "email": "client@example.com"}]`
 **bcc** | *string* | Optional comma-separated list of email addresses to be blind carbon copied
 **subject** | *string* | Optional subject
-**message** | *string* | Optional message body, otherwise the appropriate credit note template is used
+**message** | *string* | Optional message body, otherwise the appropriate estimate template is used
 
 <aside class="info">
 A successful response means that your email has been added to the send queue.
 </aside>
 
-## List credit note attachments
+## Generate an invoice
 
 ```shell
-curl "https://api.invoiced.com/credit_notes/:id/attachments" \
-  -u {API_KEY}:
+curl "https://api.invoiced.com/estimates/:estimate_id/invoices" \
+  -u {API_KEY}: \
+  -X POST
 ```
 
 ```ruby
-attachments, metadata = creditNote.attachments
+invoice = estimate.invoice
 ```
 
 ```php
 <?php
 
-list($attachments, $metadata) = $creditNote->attachments();
+$invoice = $estimate->invoice();
 ```
 
 ```python
-attachments, metadata = creditNote.attachments()
+invoice = estimate.invoice()
 ```
 
 ```java
-Attachment[] attachments = creditNote.listAttachments();
+Invoice invoice = estimate.invoice();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {}
+}
+```
+
+```ruby
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {}
+}
+```
+
+```php
+Invoiced\Invoice JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {}
+}
+```
+
+```python
+<Invoice id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "name": null,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "next_chase_on": null,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {}
+}
+```
+
+```java 
+com.invoiced.entity.Invoice@3df85de JSON: {
+  "id": 46225,
+  "customer": 15444,
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "chase": false,
+  "collection_mode": "manual",
+  "attempt_count": 0,
+  "number": "INV-0016",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "taxable": true,
+    },
+    {
+      "id": 8,
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": "",
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "taxable": true,
+    }
+  ],
+  "subtotal": 55,
+  "taxes": [
+    {
+      "id": 20554,
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+}
+```
+
+This endpoint generates an invoice from an estimate.
+
+### HTTP Request
+
+`POST /estimates/:estimate_id/invoices`
+
+## List estimate attachments
+
+```shell
+curl "https://api.invoiced.com/estimates/:id/attachments" \
+  -u {API_KEY}:
+```
+
+```ruby
+attachments, metadata = estimate.attachments
+```
+
+```php
+<?php
+
+list($attachments, $metadata) = $estimate->attachments();
+```
+
+```python
+attachments, metadata = estimate.attachments()
+```
+
+```java
+Attachment[] attachments = estimate.listAttachments();
 ```
 
 > The above command returns JSON structured like this:
@@ -1806,69 +2183,69 @@ Attachment[] attachments = creditNote.listAttachments();
 ]
 ```
 
-This endpoint retrieves a list of files attached to a specific credit note.
+This endpoint retrieves a list of files attached to a specific estimate.
 
 ### HTTP Request
 
-`GET /credit_notes/:id/attachments`
+`GET /estimates/:id/attachments`
 
-## Delete a credit note
+## Delete an estimate
 
 ```shell
-curl "https://api.invoiced.com/credit_notes/:id" \
+curl "https://api.invoiced.com/estimates/:id" \
   -u {API_KEY}: \
   -X DELETE
 ```
 
 ```ruby
-creditNote.delete
+estimate.delete
 ```
 
 ```php
 <?php
 
-$creditNote->delete();
+$estimate->delete();
 ```
 
 ```python
-creditNote.delete()
+estimate.delete()
 ```
 
 ```java
-creditNote.delete();
+estimate.delete();
 ```
 
 > The above command returns `204 No Content`
 
-This endpoint deletes a specific credit note.
+This endpoint deletes a specific estimate.
 
 ### HTTP Request
 
-`DELETE /credit_notes/:id`
+`DELETE /estimates/:id`
 
-## List all credit notes
+## List all estimates
 
 ```shell
-curl "https://api.invoiced.com/credit_notes" \
+curl "https://api.invoiced.com/estimates" \
   -u {API_KEY}:
 ```
 
 ```ruby
-creditNotes, metadata = invoiced.CreditNote.list(:per_page => 3)
+estimates, metadata = invoiced.Estimate.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-list($creditNotes, $metadata) = $invoiced->CreditNote->all(['per_page' => 3]);
+list($estimates, $metadata) = $invoiced->Estimate->all(['per_page' => 3]);
 ```
 
 ```python
-creditNotes, metadata = invoiced.CreditNote.list(per_page=3)
+estimates, metadata = invoiced.Estimate.list(per_page=3)
 ```
 
 ```java
-EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
+EntityList<Estimate> estimates = conn.newEstimate().listAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -1878,15 +2255,16 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
   {
     "id": 2048,
     "customer": 15444,
-    "invoice": 46225,
+    "invoice": null,
     "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
-    "status": "open",
-    "number": "CN-0016",
+    "status": "not_sent",
+    "number": "EST-0016",
     "date": 1416290400,
+    "payment_terms": "NET 14",
     "items": [
       {
         "id": 7,
@@ -1930,9 +2308,8 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       }
     ],
     "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
     "metadata": {}
   },
@@ -1943,18 +2320,19 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 
 ```ruby
 [
-  #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
+  #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
     "id": 2048,
     "customer": 15444,
-    "invoice": 46225,
+    "invoice": null,
     "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
-    "status": "open",
-    "number": "CN-0016",
+    "status": "not_sent",
+    "number": "EST-0016",
     "date": 1416290400,
+    "payment_terms": "NET 14",
     "items": [
       {
         "id": 7,
@@ -1998,31 +2376,31 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       }
     ],
     "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
     "metadata": {}
   },
-  #<Invoiced::CreditNote:0x3fdbf95e4d09 id=15445> JSON: { ... },
-  #<Invoiced::CreditNote:0x3fdbf95e4d10 id=15446> JSON: { ... }
+  #<Invoiced::Estimate:0x3fdbf95e4d09 id=15445> JSON: { ... },
+  #<Invoiced::Estimate:0x3fdbf95e4d10 id=15446> JSON: { ... }
 ]
 ```
 
 ```php
 [
-  Invoiced\CreditNote JSON: {
+  Invoiced\Estimate JSON: {
     "id": 2048,
     "customer": 15444,
-    "invoice": 46225,
+    "invoice": null,
     "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
-    "status": "open",
-    "number": "CN-0016",
+    "status": "not_sent",
+    "number": "EST-0016",
     "date": 1416290400,
+    "payment_terms": "NET 14",
     "items": [
       {
         "id": 7,
@@ -2066,31 +2444,31 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       }
     ],
     "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
     "metadata": {}
   },
-  Invoiced\CreditNote JSON: { ... },
-  Invoiced\CreditNote JSON: { ... }
+  Invoiced\Estimate JSON: { ... },
+  Invoiced\Estimate JSON: { ... }
 ]
 ```
 
 ```python
 [
-  <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
+  <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
     "id": 2048,
     "customer": 15444,
-    "invoice": 46225,
+    "invoice": null,
     "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
-    "status": "open",
-    "number": "CN-0016",
+    "status": "not_sent",
+    "number": "EST-0016",
     "date": 1416290400,
+    "payment_terms": "NET 14",
     "items": [
       {
         "id": 7,
@@ -2134,32 +2512,32 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       }
     ],
     "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
     "metadata": {}
   },
-  <CreditNote id=15445 at 0x3fdbf95e4d08> JSON: { ... },
-  <CreditNote id=15446 at 0x3fdbf95e4d08> JSON: { ... }
+  <Estimate id=15445 at 0x3fdbf95e4d08> JSON: { ... },
+  <Estimate id=15446 at 0x3fdbf95e4d08> JSON: { ... }
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.CreditNote@c509a57 JSON: {
+  com.invoiced.entity.Estimate@c509a57 JSON: {
     "id": 2048,
     "customer": 15444,
-    "invoice": 46225,
-    "number": "CN-0016",
+    "invoice": null,
+    "number": "EST-0016",
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
-    "status": "open",
+    "status": "not_sent",
     "sent": false,
     "chase": false,
     "date": 1416290400,
+    "payment_terms": "NET 14",
     "items": [ {
       "id": 7,
       "type": "product",
@@ -2186,21 +2564,20 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       "amount": 3.85
     } ],
     "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+    "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+    "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884
   }, 
-  com.invoiced.entity.CreditNote@20301171 JSON: {...},
-  com.invoiced.entity.CreditNote@30301171 JSON: {...}
+  com.invoiced.entity.Estimate@20301171 JSON: {...},
+  com.invoiced.entity.Estimate@30301171 JSON: {...}
 ]
 ```
 
-This endpoint retrieves all credit notes.
+This endpoint retrieves all estimates.
 
 ### HTTP Request
 
-`GET /credit_notes`
+`GET /estimates`
 
 ### Query Parameters
 
@@ -2209,5 +2586,5 @@ Parameter | Description
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
 **metadata** *object* | Metadata filter object
-**start_date** *timestamp* | Restricts the results to credit notes *on or after* the given timestamp
-**end_date** *timestamp* | Restricts the results to credit notes *on or before* the given timestamp
+**start_date** *timestamp* | Restricts the results to estimates *on or after* the given timestamp
+**end_date** *timestamp* | Restricts the results to estimates *on or before* the given timestamp
