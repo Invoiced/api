@@ -1688,7 +1688,7 @@ A successful response means that your email has been added to the send queue.
 ## Generate an invoice
 
 ```shell
-curl "https://api.invoiced.com/estimates/:estimate_id/invoices" \
+curl "https://api.invoiced.com/estimates/:estimate_id/invoice" \
   -u {API_KEY}: \
   -X POST
 ```
@@ -2062,7 +2062,7 @@ This endpoint generates an invoice from an estimate.
 
 ### HTTP Request
 
-`POST /estimates/:estimate_id/invoices`
+`POST /estimates/:estimate_id/invoice`
 
 ## List estimate attachments
 
