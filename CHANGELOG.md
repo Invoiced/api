@@ -1,5 +1,8 @@
 Changelog
 =========
+### January 12, 2017
+- Added credit notes
+
 ### December 15, 2016
 - Removed `tags` property on invoices. Please use `metadata` instead.
 

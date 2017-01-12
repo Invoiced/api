@@ -9,7 +9,7 @@ A transaction can be one of these types:
 - `refund`: money refunded to the customer
 - `adjustment`: a debit or credit to the customer's credit balance
 
-We automatically record `charge` and `refund` transactions that happen through Invoiced for you. Most transactions will be associated with an invoice, however, not all.
+We automatically record `charge` and `refund` transactions that happen through Invoiced for you. Transactions can be associated with a document, like an invoice or credit note, however not all transactions will reference a document.
 
 We currently support the following payment methods on transactions:
 
@@ -22,7 +22,7 @@ We currently support the following payment methods on transactions:
 - `cash`
 - `other`
 
-`adjustment` transactions will always use the `balance` payment method. Since our system is designed from the perspective of the merchant, a negative adjustment represents a credit to the customer and a positive adjustment represents a charge to the customer. For example, if you wanted to credit your customer for $20 then you would create an `adjustment` transaction for -$20. Furthermore, adjustments do not have an invoice associated.
+`adjustment` transactions will always use the `balance` payment method. Since our system is designed from the perspective of the merchant, a negative adjustment represents a credit to the customer and a positive adjustment represents a charge to the customer. For example, if you wanted to credit your customer for $20 then you would create an `adjustment` transaction for -$20. Furthermore, adjustments can have a credit note associated.
 
 ## Transaction Object
 
@@ -33,6 +33,7 @@ We currently support the following payment methods on transactions:
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -55,6 +56,7 @@ We currently support the following payment methods on transactions:
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -77,6 +79,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -99,6 +102,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -121,6 +125,7 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: {
     "id": 20939,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "payment",
     "method": "check",
@@ -137,6 +142,7 @@ Parameter | Type | Description
 **id** | *integer* | The transaction's unique ID
 **customer** | *integer* | Associated Customer
 **invoice** | *integer* | Associated Invoice, if any
+**credit_note** | *integer* | Associated Credit Note, if any
 **date** | *timestamp* | Transaction date
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment`
 **method** | *string* | Payment instrument used to facilitate transaction
@@ -209,6 +215,7 @@ transaction.create();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -231,6 +238,7 @@ transaction.create();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -253,6 +261,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -275,6 +284,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -297,6 +307,7 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: {
     "id": 20939,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "payment",
     "method": "check",
@@ -321,6 +332,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **customer** | *integer* | Customer ID, required if invoice ID is not supplied
 **invoice** | *integer* | Invoice ID, if any
+**credit_note** | *integer* | Associated Credit Note, if any
 **type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment` - **required**
 **date** | *timestamp* | Transaction date, defaults to current timestamp
 **method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
@@ -364,6 +376,7 @@ Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -386,6 +399,7 @@ Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -408,6 +422,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -430,6 +445,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -452,6 +468,7 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: {
     "id": 20939,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "payment",
     "method": "check",
@@ -508,6 +525,7 @@ transaction.save();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -530,6 +548,7 @@ transaction.save();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -552,6 +571,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -574,6 +594,7 @@ Invoiced\Transaction JSON: {
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -595,6 +616,7 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: {
     "id": 20939,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "payment",
     "method": "check",
@@ -819,6 +841,7 @@ Transaction refund = transaction.refund(400);
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -841,6 +864,7 @@ Transaction refund = transaction.refund(400);
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -863,6 +887,7 @@ Invoiced\Transaction JSON: {
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -885,6 +910,7 @@ Invoiced\Transaction JSON: {
 	"id": 20952,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "refund",
 	"method": "check",
@@ -907,6 +933,7 @@ com.invoiced.entity.Transaction@424ba398 JSON: {
     "id": 20952,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "refund",
     "method": "check",
@@ -1006,6 +1033,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -1032,6 +1060,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -1058,6 +1087,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -1084,6 +1114,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 	"id": 20939,
 	"customer": 15460,
 	"invoice": 44648,
+	"credit_note": null,
 	"date": 1410843600,
 	"type": "payment",
 	"method": "check",
@@ -1110,6 +1141,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
     "id": 20939,
     "customer": 15460,
     "invoice": 44648,
+	"credit_note": null,
     "date": 1410843600,
     "type": "payment",
     "method": "check",

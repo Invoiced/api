@@ -18,6 +18,7 @@ includes:
   - subscription_billing
   - metered_billing
   - payment_plans
+  - credit_notes
   - pricing
   - events
   - files
