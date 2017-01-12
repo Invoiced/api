@@ -1694,7 +1694,7 @@ curl "https://api.invoiced.com/estimates/:estimate_id/invoice" \
 ```
 
 ```ruby
-invoice = estimate.invoice
+invoice = estimate.generate_invoice
 ```
 
 ```php
