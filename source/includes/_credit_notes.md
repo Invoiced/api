@@ -1,6 +1,6 @@
 # Credit Notes
 
-A credit note represents a balance you owe to a [Customer](#customer-object). Like invoices, each credit has a collection of line items that detail the products or services that are being credited to the customer. You can think of credit notes as negative invoices, however, all of the amounts should be positive.
+A credit note represents a balance you owe to a [Customer](#customer-object). Like invoices, each credit note has a collection of line items that detail the products or services that are being credited to the customer. You can think of credit notes as negative invoices, however, all of the amounts should be positive.
 
 Credit notes must be issued against an existing invoice. The credit note will be applied to the balance on the invoice first. Any remaining balance should be credited to the customer.
 
