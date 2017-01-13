@@ -29,14 +29,17 @@ search: true
 
 # Introduction
 
-Invoiced is an API for businesses to invoice and get paid.
+Hello! Invoiced is an API for billing customers and getting paid.
 
-Our [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API was designed to supercharge the billing component of your workflow, application, or backoffice systems while making the integration process as painless as possible. Through the API you can create and send invoices, record payments, manage subscription billing, and much more.
+Our API was designed to handle all of the billing needs for your business or application while making the integration process as painless as possible. Through the API we can help you seamlessly manage invoicing, payments, subscription billing, metered billing, estimates, pricing, and much more.
+
+We designed the Invoiced API around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles.
 
 Here's a few pages that might be helpful in addition to this API reference.
 
 - [Sign up for Invoiced](https://invoiced.com/signup)
 - [Developer Documentation](https://invoiced.com/docs/dev)
+- [Invoiced Sandbox](https://sandbox.invoiced.com/)
 
 ### API Endpoint
 
