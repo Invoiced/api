@@ -564,7 +564,7 @@ payment_plan = invoice.payment_plan.retrieve()
 <?php
 
 $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
-$paymentPlan = $invoice->paymentPlan()->retrieve();
+$paymentPlan = $invoice->paymentPlan()->get();
 ```
 
 ```python
