@@ -15,6 +15,7 @@ includes:
   - customers
   - invoicing
   - payments
+  - payment_sources
   - subscription_billing
   - metered_billing
   - payment_plans
