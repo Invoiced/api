@@ -249,6 +249,7 @@ customer.create();
 ```shell
 {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": null,
@@ -279,6 +280,7 @@ customer.create();
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": null,
@@ -309,6 +311,7 @@ customer.create();
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": null,
@@ -339,6 +342,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": null,
@@ -369,11 +373,25 @@ Invoiced\Customer JSON: {
 ```java
 com.invoiced.entity.Customer@cb8fd59 JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
+  "email": null,
   "collection_mode": "manual",
+  "payment_terms": null,
+  "payment_source": null,
+  "taxes": [],
   "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
   "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
   "created_at": 1415222128,
   "metadata": {

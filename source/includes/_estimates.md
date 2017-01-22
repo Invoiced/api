@@ -9,6 +9,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
 ```shell
 {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -23,6 +24,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -38,10 +40,11 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -58,6 +61,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -73,6 +77,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
 ```ruby
 #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -87,6 +92,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -102,10 +108,11 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -122,6 +129,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -137,6 +145,7 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
 ```php
 Invoiced\Estimate JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -151,6 +160,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -166,10 +176,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -186,6 +197,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -201,6 +213,7 @@ Invoiced\Estimate JSON: {
 ```python
 <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -215,6 +228,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -230,10 +244,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -250,6 +265,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -265,6 +281,7 @@ Invoiced\Estimate JSON: {
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -273,38 +290,50 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -313,12 +342,14 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The estimate's unique ID
+**object** | *string* | Object type, `estimate`
 **customer** | *integer* | Customer ID
 **invoice** | *integer* | Invoice ID
 **name** | *string* | Estimate name for internal use, defaults to "Estimate"
@@ -452,6 +483,7 @@ estimate.create();
 ```shell
 {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -466,6 +498,7 @@ estimate.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -481,10 +514,11 @@ estimate.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -501,6 +535,7 @@ estimate.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -516,6 +551,7 @@ estimate.create();
 ```ruby
 #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -530,6 +566,7 @@ estimate.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -545,10 +582,11 @@ estimate.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -565,6 +603,7 @@ estimate.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -580,6 +619,7 @@ estimate.create();
 ```php
 Invoiced\Estimate JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -594,6 +634,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -609,10 +650,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -629,6 +671,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -644,6 +687,7 @@ Invoiced\Estimate JSON: {
 ```python
 <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -658,6 +702,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -673,10 +718,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -693,6 +739,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -708,44 +755,59 @@ Invoiced\Estimate JSON: {
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
+  "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -753,7 +815,8 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "total": 51.15,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -813,6 +876,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
 ```shell
 {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -827,6 +891,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -842,10 +907,11 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -862,6 +928,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -877,6 +944,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
 ```ruby
 #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -891,6 +959,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -906,10 +975,11 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -926,6 +996,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -941,6 +1012,7 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
 ```php
 Invoiced\Estimate JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -955,6 +1027,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -970,10 +1043,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -990,6 +1064,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1005,6 +1080,7 @@ Invoiced\Estimate JSON: {
 ```python
 <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -1019,6 +1095,7 @@ Invoiced\Estimate JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1034,10 +1111,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1054,6 +1132,7 @@ Invoiced\Estimate JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1069,6 +1148,7 @@ Invoiced\Estimate JSON: {
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": null,
@@ -1083,6 +1163,7 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1098,10 +1179,11 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1118,6 +1200,7 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1187,6 +1270,7 @@ estimate.save();
 ```shell
 {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
   "name": "July Paper Delivery",
@@ -1201,6 +1285,7 @@ estimate.save();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1216,10 +1301,11 @@ estimate.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1236,6 +1322,7 @@ estimate.save();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1251,20 +1338,22 @@ estimate.save();
 ```ruby
 #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1280,10 +1369,11 @@ estimate.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1294,12 +1384,13 @@ estimate.save();
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1315,20 +1406,22 @@ estimate.save();
 ```php
 Invoiced\Estimate JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1344,10 +1437,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1358,12 +1452,13 @@ Invoiced\Estimate JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1379,20 +1474,22 @@ Invoiced\Estimate JSON: {
 ```python
 <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1408,10 +1505,11 @@ Invoiced\Estimate JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1422,12 +1520,13 @@ Invoiced\Estimate JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1443,20 +1542,22 @@ Invoiced\Estimate JSON: {
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: {
   "id": 2048,
+  "object": "estimate",
   "customer": 15444,
   "invoice": null,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1472,10 +1573,11 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1486,12 +1588,13 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1570,16 +1673,15 @@ Email[] emails = estimate.send(emailRequest);
 [
   {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
     "template": "estimate_email",
     "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
     "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
-    "not_sents": 0,
-    "not_sents_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
   },
   { ... },
@@ -1591,16 +1693,15 @@ Email[] emails = estimate.send(emailRequest);
 [
   #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
     "template": "estimate_email",
     "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
     "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
-    "not_sents": 0,
-    "not_sents_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
   },
   #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
@@ -1612,16 +1713,15 @@ Email[] emails = estimate.send(emailRequest);
 [
   Invoiced\Email JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
     "template": "estimate_email",
     "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
     "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
-    "not_sents": 0,
-    "not_sents_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
   },
   Invoiced\Email JSON: { ... },
@@ -1633,16 +1733,15 @@ Email[] emails = estimate.send(emailRequest);
 [
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
     "template": "estimate_email",
     "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
     "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
-    "not_sents": 0,
-    "not_sents_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
   },
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... },
@@ -1654,13 +1753,17 @@ Email[] emails = estimate.send(emailRequest);
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
+    "reject_reason": null,
     "email": "client@example.com",
     "template": "estimate_email",
     "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
     "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
-    },
+  },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
   com.invoiced.entity.Email@4ce1cfd8 JSON: {...}
 ]
@@ -1716,6 +1819,7 @@ Invoice invoice = estimate.invoice();
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1736,6 +1840,7 @@ Invoice invoice = estimate.invoice();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1751,10 +1856,11 @@ Invoice invoice = estimate.invoice();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1771,6 +1877,7 @@ Invoice invoice = estimate.invoice();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1788,6 +1895,7 @@ Invoice invoice = estimate.invoice();
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1808,6 +1916,7 @@ Invoice invoice = estimate.invoice();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1823,10 +1932,11 @@ Invoice invoice = estimate.invoice();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1843,6 +1953,7 @@ Invoice invoice = estimate.invoice();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1860,6 +1971,7 @@ Invoice invoice = estimate.invoice();
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1880,6 +1992,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1895,10 +2008,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1915,6 +2029,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1932,6 +2047,7 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1952,6 +2068,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1967,10 +2084,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1987,6 +2105,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2004,15 +2123,20 @@ Invoiced\Invoice JSON: {
 ```java 
 com.invoiced.entity.Invoice@3df85de JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
+  "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
   "chase": false,
+  "next_chase_on": null,
   "collection_mode": "manual",
   "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
   "due_date": 1417500000,
@@ -2020,31 +2144,44 @@ com.invoiced.entity.Invoice@3df85de JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2055,6 +2192,7 @@ com.invoiced.entity.Invoice@3df85de JSON: {
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -2095,6 +2233,7 @@ Attachment[] attachments = estimate.listAttachments();
 [
   {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2102,7 +2241,7 @@ Attachment[] attachments = estimate.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2113,6 +2252,7 @@ Attachment[] attachments = estimate.listAttachments();
 [
   #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2120,7 +2260,7 @@ Attachment[] attachments = estimate.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2131,6 +2271,7 @@ Attachment[] attachments = estimate.listAttachments();
 [
   Invoiced\Attachment JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2138,7 +2279,7 @@ Attachment[] attachments = estimate.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2149,6 +2290,7 @@ Attachment[] attachments = estimate.listAttachments();
 [
   <Attachment id=13 at 0x3ff10dd39db4> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2156,7 +2298,7 @@ Attachment[] attachments = estimate.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2167,19 +2309,20 @@ Attachment[] attachments = estimate.listAttachments();
 [
   com.invoiced.entity.Attachment@1759eafd JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
-      "name": "logo-invoice.png",
       "object": "file",
+      "name": "logo-invoice.png",
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
-      },
-      "created_at": 1464625855
-    }, 
-    com.invoiced.entity.Attachment@1759eafd JSON: {...},
-    com.invoiced.entity.Attachment@1759eafd JSON: {...}
+      "created_at": 1464625854
+    },
+    "created_at": 1464625855
+  },
+  com.invoiced.entity.Attachment@1759eafd JSON: {...},
+  com.invoiced.entity.Attachment@1759eafd JSON: {...}
 ]
 ```
 
@@ -2254,6 +2397,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 [
   {
     "id": 2048,
+    "object": "estimate",
     "customer": 15444,
     "invoice": null,
     "name": null,
@@ -2268,6 +2412,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2283,10 +2428,11 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2303,6 +2449,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2322,6 +2469,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 [
   #<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: {
     "id": 2048,
+    "object": "estimate",
     "customer": 15444,
     "invoice": null,
     "name": null,
@@ -2336,6 +2484,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2351,10 +2500,11 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2371,6 +2521,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2422,7 +2573,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2458,6 +2609,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 [
   <Estimate id=2048 at 0x3fdbf95e4d08> JSON: {
     "id": 2048,
+    "object": "estimate",
     "customer": 15444,
     "invoice": null,
     "name": null,
@@ -2472,6 +2624,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2487,10 +2640,11 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2507,6 +2661,7 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2526,47 +2681,68 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 [
   com.invoiced.entity.Estimate@c509a57 JSON: {
     "id": 2048,
+    "object": "estimate",
     "customer": 15444,
     "invoice": null,
-    "number": "EST-0016",
+    "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "sent": false,
-    "chase": false,
+    "number": "EST-0016",
     "date": 1416290400,
     "payment_terms": "NET 14",
-    "items": [ {
-      "id": 7,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "quantity": 1.0,
-      "unit_cost": 45.0,
-      "amount": 45.0,
-      "discountable": true,
-      "taxable": true
-    }, {
-      "id": 8,
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "quantity": 1.0,
-      "unit_cost": 10.0,
-      "amount": 10.0,
-      "discountable": true,
-      "taxable": true
-    } ],
-    "subtotal": 55.0,
-    "taxes": [ {
-      "id": 20554,
-      "amount": 3.85
-    } ],
+    "items": [
+      {
+        "id": 7,
+        "object": "line_item",
+        "catalog_item": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      },
+      {
+        "id": 8,
+        "object": "line_item",
+        "catalog_item": "delivery",
+        "type": "service",
+        "name": "Delivery",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      }
+    ],
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "object": "tax",
+        "amount": 3.85,
+        "tax_rate": null
+      }
+    ],
     "total": 51.15,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   }, 
   com.invoiced.entity.Estimate@20301171 JSON: {...},
   com.invoiced.entity.Estimate@30301171 JSON: {...}

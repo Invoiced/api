@@ -1,5 +1,8 @@
 Changelog
 =========
+### January 21, 2017
+- All objects now include their object type
+
 ### January 12, 2017
 - Added estimates
 - Added credit notes

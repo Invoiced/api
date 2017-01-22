@@ -71,7 +71,7 @@ com.invoiced.entity.File@192cafae JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The file's unique ID
-**object** | *string* | `file`
+**object** | *string* | Object type, `file`
 **name** | *string* | Filename
 **size** | *int* | File size in bytes
 **type** | *string* | MIME type

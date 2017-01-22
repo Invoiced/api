@@ -11,6 +11,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 ```shell
 {
   "id": 15444,
+  "object": "customer",
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
@@ -46,6 +47,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
+  "object": "customer",
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
@@ -81,6 +83,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
+  "object": "customer",
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
@@ -116,6 +119,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
+  "object": "customer",
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
@@ -149,12 +153,14 @@ Invoiced\Customer JSON: {
 ```
 
 ```java
-com.invoiced.entity.Customer@d72919f JSON: {  
+com.invoiced.entity.Customer@d72919f JSON: {
   "id": 15444,
+  "object": "customer",
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
   "collection_mode": "auto",
+  "payment_terms": null,
   "payment_source": {
     "id": 850,
     "object": "card",
@@ -164,17 +170,28 @@ com.invoiced.entity.Customer@d72919f JSON: {
     "exp_year": 20,
     "funding": "credit"
   },
+  "taxes": [],
   "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
   "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
-  "created_at": 1415222128
-  }
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
+**object** | *string* | Object type, `customer`
 **name** | *string* | Customer name
 **number** | *string* | A unique ID to help tie your customer to your external systems
 **email** | *string* | Email address
@@ -206,6 +223,7 @@ Contacts can be attached to customers. A contact could represent an additional e
 ```shell
 {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -222,6 +240,7 @@ Contacts can be attached to customers. A contact could represent an additional e
 ```ruby
 #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -238,6 +257,7 @@ Contacts can be attached to customers. A contact could represent an additional e
 ```php
 Invoiced\Contact JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -254,6 +274,7 @@ Invoiced\Contact JSON: {
 ```python
 <Contact id=10403 at 0x3fdbf95e4d08> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -270,9 +291,16 @@ Invoiced\Contact JSON: {
 ```java
 com.invoiced.entity.Contact@3a0fa320 JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
   "created_at": 1463510889
 }
 ```
@@ -280,6 +308,7 @@ com.invoiced.entity.Contact@3a0fa320 JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The contact's unique ID
+**object** | *string* | Object type, `contact`
 **name** | *string* | Contact name
 **email** | *string* | Email address
 **primary** | *boolean* | When true the contact will be copied on any account communications
@@ -350,6 +379,7 @@ customer.create();
 ```shell
 {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -377,6 +407,7 @@ customer.create();
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -404,6 +435,7 @@ customer.create();
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -431,6 +463,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -456,17 +489,30 @@ Invoiced\Customer JSON: {
 ```
 
 ```java
-com.invoiced.entity.Customer@cb8fd57 JSON :{
+com.invoiced.entity.Customer@cb8fd57 JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
   "payment_terms": "NET 30",
+  "payment_source": null,
+  "taxes": [],
   "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
   "country": "US",
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
-  "created_at": 1415222128
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -531,6 +577,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
 ```shell
 {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -558,6 +605,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -566,15 +614,15 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "payment_source": null,
   "taxes": [],
   "type": "company",
-  "attention_to": null,
-  "address1": null,
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
   "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
   "country": "US",
-  "tax_id": null,
-  "phone": null,
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
@@ -585,6 +633,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -593,15 +642,15 @@ Invoiced\Customer JSON: {
   "payment_source": null,
   "taxes": [],
   "type": "company",
-  "attention_to": null,
-  "address1": null,
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
   "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
   "country": "US",
-  "tax_id": null,
-  "phone": null,
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
@@ -612,6 +661,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -620,15 +670,15 @@ Invoiced\Customer JSON: {
   "payment_source": null,
   "taxes": [],
   "type": "company",
-  "attention_to": null,
-  "address1": null,
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
   "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
   "country": "US",
-  "tax_id": null,
-  "phone": null,
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
   "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
@@ -639,15 +689,28 @@ Invoiced\Customer JSON: {
 ```java
 com.invoiced.entity.Customer@cb8fd58 JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
   "payment_terms": "NET 30",
+  "payment_source": null,
+  "taxes": [],
   "type": "company",
+  "attention_to": "Sarah Fisher",
+  "address1": "342 Amber St",
+  "address2": null,
+  "city": "Hill Valley",
+  "state": "CA",
+  "postal_code": "94523",
   "country": "US",
+  "tax_id": "893-934835",
+  "phone": "(820) 297-2983",
+  "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
-  "created_at": 1415222128  
+  "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -727,6 +790,7 @@ customer.save();
 ```shell
 {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -754,6 +818,7 @@ customer.save();
 ```ruby
 #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -781,6 +846,7 @@ customer.save();
 ```php
 Invoiced\Customer JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -808,6 +874,7 @@ Invoiced\Customer JSON: {
 ```python
 <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
@@ -835,11 +902,14 @@ Invoiced\Customer JSON: {
 ```java
 com.invoiced.entity.Customer@cb8fd59 JSON: {
   "id": 15444,
+  "object": "customer",
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
   "collection_mode": "manual",
   "payment_terms": "NET 14",
+  "payment_source": null,
+  "taxes": [],
   "type": "company",
   "attention_to": "Sarah Fisher",
   "address1": "342 Amber St",
@@ -850,8 +920,10 @@ com.invoiced.entity.Customer@cb8fd59 JSON: {
   "country": "US",
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
+  "notes": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
+  "metadata": {}
 }
 ```
 
@@ -1048,6 +1120,7 @@ Email[] emails = customer.sendStatement(emailRequest);
 [
   {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1056,8 +1129,6 @@ Email[] emails = customer.sendStatement(emailRequest);
     "message": "Dear Client, we have attached your latest account statement. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   { ... },
@@ -1069,6 +1140,7 @@ Email[] emails = customer.sendStatement(emailRequest);
 [
   #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1077,8 +1149,6 @@ Email[] emails = customer.sendStatement(emailRequest);
     "message": "Dear Client, we have attached your latest account statement. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
@@ -1090,6 +1160,7 @@ Email[] emails = customer.sendStatement(emailRequest);
 [
   Invoiced\Email JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1098,8 +1169,6 @@ Email[] emails = customer.sendStatement(emailRequest);
     "message": "Dear Client, we have attached your latest account statement. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   Invoiced\Email JSON: { ... },
@@ -1111,6 +1180,7 @@ Email[] emails = customer.sendStatement(emailRequest);
 [
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1119,8 +1189,6 @@ Email[] emails = customer.sendStatement(emailRequest);
     "message": "Dear Client, we have attached your latest account statement. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   <Email id=a0s36fbc44d44aa7f9a55easdfi8ce731 at 0x3fdasdf95e09> JSON: { ... },
@@ -1132,13 +1200,15 @@ Email[] emails = customer.sendStatement(emailRequest);
 [
   com.invoiced.entity.Email@1bfbb8ee JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
+    "reject_reason": null,
     "email": "client@example.com",
     "template": "statement_email",
     "subject": "Statement from Dunder Mifflin, Inc.",
     "message": "Dear Client, we have attached your latest account statement. Thank you!",
     "opens": 0,
-    "clicks": 0,
+    "opens_detail": [],
     "created_at": 1436890047
   }, 
   com.invoiced.entity.Email@2afbb8ee JSON: {...},
@@ -1213,6 +1283,7 @@ contact.create();
 ```shell
 {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1229,6 +1300,7 @@ contact.create();
 ```ruby
 #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1245,6 +1317,7 @@ contact.create();
 ```php
 Invoiced\Contact JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1261,6 +1334,7 @@ Invoiced\Contact JSON: {
 ```python
 <Contact id=10403 at 0x3fdbf95e4d08> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1277,9 +1351,16 @@ Invoiced\Contact JSON: {
 ```java
 com.invoiced.entity.Contact@cb8fd89 JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
   "created_at": 1463510889
 }
 ```
@@ -1338,6 +1419,7 @@ Contact contact = customer.newContact().retrieve({CONTACT_ID});
 ```shell
 {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1354,6 +1436,7 @@ Contact contact = customer.newContact().retrieve({CONTACT_ID});
 ```ruby
 #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1370,6 +1453,7 @@ Contact contact = customer.newContact().retrieve({CONTACT_ID});
 ```php
 Invoiced\Contact JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1402,9 +1486,16 @@ Invoiced\Contact JSON: {
 ```java
 com.invoiced.entity.Contact@cb8fd89 JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": null,
   "created_at": 1463510889
 }
 ```
@@ -1467,6 +1558,7 @@ contact.save()
 ```shell
 {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1483,6 +1575,7 @@ contact.save()
 ```ruby
 #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1499,6 +1592,7 @@ contact.save()
 ```php
 Invoiced\Contact JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1515,6 +1609,7 @@ Invoiced\Contact JSON: {
 ```python
 <Contact id=10403 at 0x3fdbf95e4d08> JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
@@ -1531,13 +1626,16 @@ Invoiced\Contact JSON: {
 ```java
 com.invoiced.entity.Contact@cb8fd89 JSON: {
   "id": 10403,
+  "object": "contact",
   "name": "Nancy Talty",
   "email": "nancy.talty@example.com",
   "primary": true,
   "address1": "507 Grove Avenue",
+  "address2": null,
   "city": "Oklahoma City",
   "state": "OK",
   "postal_code": "73102",
+  "country": null,
   "created_at": 1463510889
 }
 ```
@@ -1631,6 +1729,7 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 [
   {
     "id": 10403,
+    "object": "contact",
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1651,6 +1750,7 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 [
   #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: {
     "id": 10403,
+    "object": "contact",
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1671,6 +1771,7 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 [
   Invoiced\Contact JSON: {
     "id": 10403,
+    "object": "contact",
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1691,6 +1792,7 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 [
   <Contact id=10403 at 0x3fdbf95e4d08> JSON: {
     "id": 10403,
+    "object": "contact",
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1711,6 +1813,7 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 [
   com.invoiced.entity.Contact@1701e31a JSON: { 
     "id": 10403,
+    "object": "contact",
     "name": "Nancy Talty",
     "email": "nancy.talty@example.com",
     "primary": true,
@@ -1805,6 +1908,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   {
     "id": 15444,
+    "object": "customer",
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
@@ -1836,6 +1940,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   #<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
     "id": 15444,
+    "object": "customer",
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
@@ -1867,6 +1972,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   Invoiced\Customer JSON: {
     "id": 15444,
+    "object": "customer",
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
@@ -1898,6 +2004,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   <Customer id=15444 at 0x3fdbf95e4d08> JSON: {
     "id": 15444,
+    "object": "customer",
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
@@ -1929,22 +2036,28 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   com.invoiced.entity.Customer@1701d31a JSON: {
     "id": 15444,
+    "object": "customer",
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
     "collection_mode": "manual",
     "payment_terms": "NET 30",
+    "payment_source": null,
+    "taxes": [],
     "type": "company",
     "attention_to": "Sarah Fisher",
     "address1": "342 Amber St",
+    "address2": null,
     "city": "Hill Valley",
     "state": "CA",
     "postal_code": "94523",
     "country": "US",
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
+    "notes": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
-    "created_at": 1415222128
+    "created_at": 1415222128,
+    "metadata": {}
   },
   com.invoiced.entity.Customer@2701d31a JSON: { ... },
   com.invoiced.entity.Customer@3701d31a JSON: { ... }

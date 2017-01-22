@@ -70,7 +70,7 @@ com.invoiced.entity.PaymentSource@2fdf31f4 JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The card's unique ID
-**object** | *string* | `card`
+**object** | *string* | Object type, `card`
 **brand** | *string* | Card brand
 **last4** | *string* | Last 4 digits of card
 **exp_month** | *integer* | Expiry month
@@ -145,7 +145,7 @@ com.invoiced.entity.PaymentSource@3fdf31f4 JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The bank account's unique ID
-**object** | *string* | `bank_account`
+**object** | *string* | Object type, `bank_account`
 **bank_name** | *string* | Bank name
 **last4** | *string* | Last 4 digits of bank account
 **routing_number** | *string* | Bank routing number

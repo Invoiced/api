@@ -45,10 +45,11 @@ pli.create();
 ```shell
 {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -63,10 +64,11 @@ pli.create();
 ```ruby
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -81,10 +83,11 @@ pli.create();
 ```php
 Invoiced\LineItem JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -99,10 +102,11 @@ Invoiced\LineItem JSON: {
 ```python
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -117,10 +121,11 @@ Invoiced\LineItem JSON: {
 ```java
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -185,10 +190,11 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 ```shell
 {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -203,10 +209,11 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 ```ruby
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -221,10 +228,11 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 ```php
 Invoiced\LineItem JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -239,10 +247,11 @@ Invoiced\LineItem JSON: {
 ```python
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -257,10 +266,11 @@ Invoiced\LineItem JSON: {
 ```java
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -312,10 +322,11 @@ pli.save();
 ```shell
 {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
@@ -330,10 +341,11 @@ pli.save();
 ```ruby
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
@@ -348,10 +360,11 @@ pli.save();
 ```php
 Invoiced\LineItem JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
@@ -366,10 +379,11 @@ Invoiced\LineItem JSON: {
 ```python
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
@@ -384,10 +398,11 @@ Invoiced\LineItem JSON: {
 ```java
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 2,
   "unit_cost": 10,
   "amount": 20,
@@ -448,6 +463,7 @@ Invoice invoice = customer.invoice();
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -468,6 +484,7 @@ Invoice invoice = customer.invoice();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -483,10 +500,11 @@ Invoice invoice = customer.invoice();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -503,6 +521,7 @@ Invoice invoice = customer.invoice();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -520,6 +539,7 @@ Invoice invoice = customer.invoice();
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -540,6 +560,7 @@ Invoice invoice = customer.invoice();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -555,10 +576,11 @@ Invoice invoice = customer.invoice();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -575,6 +597,7 @@ Invoice invoice = customer.invoice();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -592,6 +615,7 @@ Invoice invoice = customer.invoice();
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -612,6 +636,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -627,10 +652,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -647,6 +673,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -664,6 +691,7 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -684,6 +712,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -699,10 +728,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -719,6 +749,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -736,15 +767,20 @@ Invoiced\Invoice JSON: {
 ```java 
 com.invoiced.entity.Invoice@3df85de JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
+  "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
   "chase": false,
+  "next_chase_on": null,
   "collection_mode": "manual",
   "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
   "due_date": 1417500000,
@@ -752,31 +788,44 @@ com.invoiced.entity.Invoice@3df85de JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -787,6 +836,7 @@ com.invoiced.entity.Invoice@3df85de JSON: {
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -870,10 +920,11 @@ EntityList<PendingLineItem> plis = pli.listAll();
 [
   {
     "id": 8,
+    "object": "line_item",
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
-    "description": "",
+    "description": null,
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
@@ -892,10 +943,11 @@ EntityList<PendingLineItem> plis = pli.listAll();
 [
   #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
     "id": 8,
+    "object": "line_item",
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
-    "description": "",
+    "description": null,
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
@@ -914,10 +966,11 @@ EntityList<PendingLineItem> plis = pli.listAll();
 [
   Invoiced\LineItem JSON: {
     "id": 8,
+    "object": "line_item",
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
-    "description": "",
+    "description": null,
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
@@ -936,10 +989,11 @@ EntityList<PendingLineItem> plis = pli.listAll();
 [
   <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
     "id": 8,
+    "object": "line_item",
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
-    "description": "",
+    "description": null,
     "quantity": 1,
     "unit_cost": 10,
     "amount": 10,
@@ -958,6 +1012,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
 [
   com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: {
     "id": 8,
+    "object": "line_item",
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",

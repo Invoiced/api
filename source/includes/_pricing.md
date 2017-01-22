@@ -101,7 +101,7 @@ com.invoiced.entity.CatalogItem@192cafae JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The catalog item's unique ID
-**object** | *string* | `catalog_item`
+**object** | *string* | Object type, `catalog_item`
 **name** | *string* | Catalog item name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **unit_cost** | *number* | Unit cost or rate
@@ -192,7 +192,7 @@ com.invoiced.entity.Plan@192cafae JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The plan's unique ID
-**object** | *string* | `plan`
+**object** | *string* | Object type, `plan`
 **name** | *string* | Plan name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Plan amount
@@ -276,7 +276,7 @@ com.invoiced.entity.TaxRate@192cafae JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The tax rate's unique ID
-**object** | *string* | `tax_rate`
+**object** | *string* | Object type, `tax_rate`
 **name** | *string* | Tax rate name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **value** | *number* | Amount
@@ -358,7 +358,7 @@ com.invoiced.entity.Coupon@192cafae JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The coupon's unique ID
-**object** | *string* | `coupon`
+**object** | *string* | Object type, `coupon`
 **name** | *string* | Coupon name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **value** | *number* | Amount

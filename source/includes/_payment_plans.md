@@ -11,6 +11,7 @@ Describes and tracks the status of a payment plan.
 ```shell
 {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -52,6 +53,7 @@ Describes and tracks the status of a payment plan.
 ```ruby
 #<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -93,6 +95,7 @@ Describes and tracks the status of a payment plan.
 ```php
 Invoiced\PaymentPlan JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -134,6 +137,7 @@ Invoiced\PaymentPlan JSON: {
 ```python
 <PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -175,6 +179,7 @@ Invoiced\PaymentPlan JSON: {
 ```java
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -216,6 +221,7 @@ com.invoiced.entity.PaymentPlan@754f2c43 JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The payment plan's unique ID
+**object** | *string* | Object type, `payment_plan`
 **status** | *string* | Payment plan state, one of `pending_signup`, `active`, `finished`, `canceled`
 **installments** | *array* | Payment plan installments
 **approval** | *object* | Payment plan approval, if approved
@@ -336,6 +342,7 @@ paymentPlan.create();
 ```shell
 {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -377,6 +384,7 @@ paymentPlan.create();
 ```ruby
 #<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -418,6 +426,7 @@ paymentPlan.create();
 ```php
 Invoiced\PaymentPlan JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -459,6 +468,7 @@ Invoiced\PaymentPlan JSON: {
 ```python
 <PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -500,6 +510,7 @@ Invoiced\PaymentPlan JSON: {
 ```java
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -582,6 +593,7 @@ PaymentPlan paymentPlan = invoice.newPaymentPlan().retrieve();
 ```shell
 {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -623,6 +635,7 @@ PaymentPlan paymentPlan = invoice.newPaymentPlan().retrieve();
 ```ruby
 #<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -664,6 +677,7 @@ PaymentPlan paymentPlan = invoice.newPaymentPlan().retrieve();
 ```php
 Invoiced\PaymentPlan JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -705,6 +719,7 @@ Invoiced\PaymentPlan JSON: {
 ```python
 <PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {
@@ -746,6 +761,7 @@ Invoiced\PaymentPlan JSON: {
 ```java
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: {
     "id": 6,
+    "object": "payment_plan",
     "status": "active",
     "installments": [
         {

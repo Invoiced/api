@@ -11,6 +11,7 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
 ```shell
 {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -24,6 +25,7 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -40,6 +42,7 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
 ```ruby
 #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -53,6 +56,7 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -69,6 +73,7 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
 ```php
 Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -82,6 +87,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -98,6 +104,7 @@ Invoiced\Subscription JSON: {
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -111,6 +118,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -126,30 +134,38 @@ Invoiced\Subscription JSON: {
 ```java
 com.invoiced.entity.Subscription@74f0915b JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
+    "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
     "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
         }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The subscription's unique ID
+**object** | *string* | Object type, `subscription`
 **customer** | *integer* | Associated Customer
 **plan** | *string* | Plan ID
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
@@ -174,6 +190,7 @@ Parameter | Type | Description
 ```shell
 {
     "id": 3,
+    "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
     "created_at": 1420391704
@@ -183,6 +200,7 @@ Parameter | Type | Description
 ```ruby
 #<Invoiced::SubscriptionAddon:0x3fdbf95e4d08 id=3> JSON: {
     "id": 3,
+    "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
     "created_at": 1420391704
@@ -192,6 +210,7 @@ Parameter | Type | Description
 ```php
 Invoiced\SubscriptionAddon JSON: {
     "id": 3,
+    "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
     "created_at": 1420391704
@@ -201,6 +220,7 @@ Invoiced\SubscriptionAddon JSON: {
 ```python
 <SubscriptionAddon id=3 at 0x3fdbf95e4d08> JSON: {
     "id": 3,
+    "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
     "created_at": 1420391704
@@ -210,6 +230,7 @@ Invoiced\SubscriptionAddon JSON: {
 ```java
 com.invoiced.entity.SubscriptionAddOn@6ec9001c JSON: {
     "id": 3,
+    "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
     "created_at": 1420391704
@@ -219,6 +240,7 @@ com.invoiced.entity.SubscriptionAddOn@6ec9001c JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The subscription's unique ID
+**object** | *string* | Object type, `subscription_addon`
 **catalog_item** | *string* | Catalog Item ID
 **quantity** | *integer* | Quantity
 **created_at** | *timestamp* | Timestamp when created
@@ -292,6 +314,7 @@ subscription.create();
 ```shell
 {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -305,6 +328,7 @@ subscription.create();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -321,6 +345,7 @@ subscription.create();
 ```ruby
 #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -334,6 +359,7 @@ subscription.create();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -350,6 +376,7 @@ subscription.create();
 ```php
 Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -363,6 +390,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -379,6 +407,7 @@ Invoiced\Subscription JSON: {
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -392,6 +421,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -408,23 +438,31 @@ Invoiced\Subscription JSON: {
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
+    "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
+    "period_start": null,
     "period_end": 1420391704,
     "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
         }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -479,6 +517,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
 ```shell
 {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -492,6 +531,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -508,6 +548,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
 ```ruby
 #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -521,6 +562,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -537,6 +579,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
 ```php
 Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -550,6 +593,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -566,6 +610,7 @@ Invoiced\Subscription JSON: {
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
     "cycles": null,
@@ -579,6 +624,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -595,24 +641,31 @@ Invoiced\Subscription JSON: {
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "starter",
+    "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
     "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
         }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
+    "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -658,6 +711,7 @@ subscription.save();
 ```shell
 {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -671,6 +725,7 @@ subscription.save();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -687,6 +742,7 @@ subscription.save();
 ```ruby
 #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -700,6 +756,7 @@ subscription.save();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -716,6 +773,7 @@ subscription.save();
 ```php
 Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -729,6 +787,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -745,6 +804,7 @@ Invoiced\Subscription JSON: {
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -758,6 +818,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -774,22 +835,28 @@ Invoiced\Subscription JSON: {
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
+    "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
     "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
         }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -847,6 +914,7 @@ subscription.cancel();
 ```shell
 {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -860,6 +928,7 @@ subscription.cancel();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -876,6 +945,7 @@ subscription.cancel();
 ```ruby
 #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -889,6 +959,7 @@ subscription.cancel();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -905,6 +976,7 @@ subscription.cancel();
 ```php
 Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -918,6 +990,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -934,6 +1007,7 @@ Invoiced\Subscription JSON: {
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -947,6 +1021,7 @@ Invoiced\Subscription JSON: {
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -962,24 +1037,32 @@ Invoiced\Subscription JSON: {
 
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: {
-     "id": 595,
+    "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
+    "cycles": null,
     "quantity": 1,
     "start_date": 1420391704,
+    "period_start": null,
+    "period_end": null,
     "cancel_at_period_end": false,
     "canceled_at": 1449162904,
     "status": "canceled",
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
         }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
+    "metadata": {}
 }
 ```
 
@@ -1020,6 +1103,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 [
   {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -1033,6 +1117,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -1053,6 +1138,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 [
   #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -1066,6 +1152,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -1086,6 +1173,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 [
   Invoiced\Subscription JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -1099,6 +1187,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -1119,6 +1208,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 [
   <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
     "plan": "pro",
     "cycles": null,
@@ -1132,6 +1222,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
@@ -1152,26 +1243,34 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 [
   com.invoiced.entity.Subscription@20b4fc7b JSON: {
     "id": 595,
+    "object": "subscription",
     "customer": 15444,
-    "plan": "starter",
-    "start_date": 1420391704,
+    "plan": "pro",
+    "cycles": null,
     "quantity": 1,
+    "start_date": 1420391704,
     "period_start": 1446657304,
     "period_end": 1449249304,
+    "cancel_at_period_end": false,
+    "canceled_at": null,
     "status": "active",
-    "addons": [ 
+    "addons": [
         {
             "id": 3,
+            "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
             "created_at": 1420391704
-        } 
+        }
     ],
+    "discounts": [],
+    "taxes": [],
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704
-    }, 
-    com.invoiced.entity.Subscription@73f93614 JSON: {...},
-    com.invoiced.entity.Subscription@735f9514 JSON: {...}
+    "created_at": 1420391704,
+    "metadata": {}
+  },
+  com.invoiced.entity.Subscription@73f93614 JSON: {...},
+  com.invoiced.entity.Subscription@735f9514 JSON: {...}
 ]
 ```
 

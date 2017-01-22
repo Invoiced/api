@@ -11,6 +11,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -31,6 +32,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -46,10 +48,11 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -66,6 +69,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -83,6 +87,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -103,6 +108,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -118,10 +124,11 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -138,6 +145,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -155,6 +163,7 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -175,6 +184,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -190,10 +200,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -210,6 +221,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -227,6 +239,7 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -247,6 +260,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -262,10 +276,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -282,6 +297,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -299,6 +315,7 @@ Invoiced\Invoice JSON: {
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -307,8 +324,11 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "paid": false,
   "status": "not_sent",
   "chase": false,
+  "next_chase_on": null,
   "collection_mode": "manual",
   "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
   "due_date": 1417500000,
@@ -316,31 +336,44 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -351,12 +384,14 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The invoice's unique ID
+**object** | *string* | Object type, `invoice`
 **customer** | *integer* | Customer ID
 **name** | *string* | Invoice name for internal use, defaults to "Invoice"
 **number** | *string* | The reference number assigned to the invoice for use in the dashboard
@@ -394,10 +429,11 @@ Parameter | Type | Description
 ```shell
 {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -412,10 +448,11 @@ Parameter | Type | Description
 ```ruby
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -430,10 +467,11 @@ Parameter | Type | Description
 ```php
 Invoiced\LineItem JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -448,10 +486,11 @@ Invoiced\LineItem JSON: {
 ```python
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "description": "",
+  "description": null,
   "quantity": 1,
   "unit_cost": 10,
   "amount": 10,
@@ -466,20 +505,26 @@ Invoiced\LineItem JSON: {
 ```java
  com.invoiced.entity.LineItem@1b13d4f3 JSON: {
   "id": 8,
+  "object": "line_item",
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
-  "quantity": 1.0,
-  "unit_cost": 10.0,
-  "amount": 10.0,
+  "description": null,
+  "quantity": 1,
+  "unit_cost": 10,
+  "amount": 10,
   "discountable": true,
-  "taxable": false
+  "discounts": [],
+  "taxable": true,
+  "taxes": [],
+  "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
+**object** | *string* | Object type, `line_item`
 **catalog_item** | *string* | Optional Catalog Item ID. Fills the line item with the name and pricing of the Catalog Item.
 **type** | *string* | Optional line item type. Used to group line items by type in reporting
 **name** | *string* | Title
@@ -503,6 +548,7 @@ Represents the application of a discount to an invoice or line item.
 ```shell
 {
   "id": 20553,
+  "object": "discount",
   "amount": 5,
   "coupon": null,
   "expires": null
@@ -512,6 +558,7 @@ Represents the application of a discount to an invoice or line item.
 ```ruby
 #<Invoiced::Discount:0x3fdbf95e4d08 id=20553> JSON: {
   "id": 20553,
+  "object": "discount",
   "amount": 5,
   "coupon": null,
   "expires": null
@@ -521,6 +568,7 @@ Represents the application of a discount to an invoice or line item.
 ```php
 Invoiced\Discount JSON: {
   "id": 20553,
+  "object": "discount",
   "amount": 5,
   "coupon": null,
   "expires": null
@@ -530,6 +578,7 @@ Invoiced\Discount JSON: {
 ```python
 <Discount id=20553 at 0x3fdbf95e4d08> JSON: {
   "id": 20553,
+  "object": "discount",
   "amount": 5,
   "coupon": null,
   "expires": null
@@ -539,13 +588,17 @@ Invoiced\Discount JSON: {
 ```java
  com.invoiced.entity.Discount@2abc1f10 JSON: {
   "id": 20553,
-  "amount": 5.0
+  "object": "discount",
+  "amount": 5,
+  "coupon": null,
+  "expires": null
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The discount's unique ID
+**object** | *string* | Object type, `discount`
 **amount** | *number* | Discount amount
 **coupon** | *object* | Coupon the discount was computed from, if any
 **expires** | *timestamp* | Time until discount expires, if any
@@ -559,6 +612,7 @@ Represents the application of tax to an invoice or line item.
 ```shell
 {
   "id": 20554,
+  "object": "tax",
   "amount": 3.85,
   "tax_rate": null
 }
@@ -567,6 +621,7 @@ Represents the application of tax to an invoice or line item.
 ```ruby
 #<Invoiced::Tax:0x3fdbf95e4d08 id=20554> JSON: {
   "id": 20554,
+  "object": "tax",
   "amount": 3.85,
   "tax_rate": null
 }
@@ -575,6 +630,7 @@ Represents the application of tax to an invoice or line item.
 ```php
 Invoiced\Tax JSON: {
   "id": 20554,
+  "object": "tax",
   "amount": 3.85,
   "tax_rate": null
 }
@@ -583,6 +639,7 @@ Invoiced\Tax JSON: {
 ```python
 <Tax id=20554 at 0x3fdbf95e4d08> JSON: {
   "id": 20554,
+  "object": "tax",
   "amount": 3.85,
   "tax_rate": null
 }
@@ -591,13 +648,16 @@ Invoiced\Tax JSON: {
 ```java
 com.invoiced.entity.Tax@31d5f331 JSON: {
   "id": 20554,
-  "amount": 3.85
+  "object": "tax",
+  "amount": 3.85,
+  "tax_rate": null
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The tax's unique ID
+**object** | *string* | Object type, `tax`
 **amount** | *number* | Tax amount
 **tax_rate** | *object* | Tax Rate the tax was computed from, if any
 
@@ -712,6 +772,7 @@ invoice.create();
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -732,6 +793,7 @@ invoice.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -747,10 +809,11 @@ invoice.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -767,6 +830,7 @@ invoice.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -784,6 +848,7 @@ invoice.create();
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -804,6 +869,7 @@ invoice.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -819,10 +885,11 @@ invoice.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -839,6 +906,7 @@ invoice.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -856,6 +924,7 @@ invoice.create();
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -876,6 +945,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -891,10 +961,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -911,6 +982,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -928,6 +1000,7 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -948,6 +1021,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -963,10 +1037,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -983,6 +1058,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1000,15 +1076,20 @@ Invoiced\Invoice JSON: {
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
+  "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "not_sent",
   "chase": false,
+  "next_chase_on": null,
   "collection_mode": "manual",
   "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
   "number": "INV-0016",
   "date": 1416290400,
   "due_date": 1417500000,
@@ -1016,30 +1097,44 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1049,7 +1144,8 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -1111,6 +1207,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1131,6 +1228,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1146,10 +1244,11 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1166,6 +1265,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1183,6 +1283,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1203,6 +1304,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1218,10 +1320,11 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1238,6 +1341,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1255,6 +1359,7 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1275,6 +1380,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1290,10 +1396,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1310,6 +1417,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1327,6 +1435,7 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1347,6 +1456,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1362,10 +1472,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1382,6 +1493,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1399,6 +1511,7 @@ Invoiced\Invoice JSON: {
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": null,
   "currency": "usd",
@@ -1419,6 +1532,7 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1434,10 +1548,11 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1454,6 +1569,7 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1525,6 +1641,7 @@ invoice.save();
 ```shell
 {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
   "name": "July Paper Delivery",
   "currency": "usd",
@@ -1545,6 +1662,7 @@ invoice.save();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1560,10 +1678,11 @@ invoice.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1580,6 +1699,7 @@ invoice.save();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1597,13 +1717,14 @@ invoice.save();
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "chase": false,
   "next_chase_on": null,
   "collection_mode": "manual",
@@ -1617,6 +1738,7 @@ invoice.save();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1632,10 +1754,11 @@ invoice.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1646,12 +1769,13 @@ invoice.save();
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1669,13 +1793,14 @@ invoice.save();
 ```php
 Invoiced\Invoice JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "chase": false,
   "next_chase_on": null,
   "collection_mode": "manual",
@@ -1689,6 +1814,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1704,10 +1830,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1718,12 +1845,13 @@ Invoiced\Invoice JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1741,13 +1869,14 @@ Invoiced\Invoice JSON: {
 ```python
 <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "chase": false,
   "next_chase_on": null,
   "collection_mode": "manual",
@@ -1761,6 +1890,7 @@ Invoiced\Invoice JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1776,10 +1906,11 @@ Invoiced\Invoice JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1790,12 +1921,13 @@ Invoiced\Invoice JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1813,13 +1945,14 @@ Invoiced\Invoice JSON: {
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
   "id": 46225,
+  "object": "invoice",
   "customer": 15444,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "not_sent",
+  "status": "sent",
   "chase": false,
   "next_chase_on": null,
   "collection_mode": "manual",
@@ -1833,6 +1966,7 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1848,10 +1982,11 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1862,12 +1997,13 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1950,6 +2086,7 @@ Email[] emails = invoice.send(emailRequest);
 [
   {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1958,8 +2095,6 @@ Email[] emails = invoice.send(emailRequest);
     "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   { ... },
@@ -1971,6 +2106,7 @@ Email[] emails = invoice.send(emailRequest);
 [
   #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1979,8 +2115,6 @@ Email[] emails = invoice.send(emailRequest);
     "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
@@ -1992,6 +2126,7 @@ Email[] emails = invoice.send(emailRequest);
 [
   Invoiced\Email JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -2000,8 +2135,6 @@ Email[] emails = invoice.send(emailRequest);
     "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   Invoiced\Email JSON: { ... },
@@ -2013,6 +2146,7 @@ Email[] emails = invoice.send(emailRequest);
 [
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -2021,8 +2155,6 @@ Email[] emails = invoice.send(emailRequest);
     "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... },
@@ -2034,11 +2166,15 @@ Email[] emails = invoice.send(emailRequest);
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
+    "reject_reason": null,
     "email": "client@example.com",
     "template": "new_invoice_email",
     "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
     "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
     },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
@@ -2096,6 +2232,7 @@ invoice.pay();
 ```shell
 {
   "id": 46226,
+  "object": "invoice",
   "customer": 15446,
   "name": null,
   "currency": "usd",
@@ -2112,10 +2249,11 @@ invoice.pay();
   "number": "INV-0017",
   "date": 1416290402,
   "due_date": null,
-  "payment_terms": "Auto-Charged",
+  "payment_terms": "AutoPay",
   "items": [
     {
       "id": 9,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -2136,6 +2274,7 @@ invoice.pay();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2153,6 +2292,7 @@ invoice.pay();
 ```ruby
 #<Invoiced::Invoice:0x3fdbf95e4d08 id=46226> JSON: {
   "id": 46226,
+  "object": "invoice",
   "customer": 15446,
   "name": null,
   "currency": "usd",
@@ -2169,10 +2309,11 @@ invoice.pay();
   "number": "INV-0017",
   "date": 1416290402,
   "due_date": null,
-  "payment_terms": "Auto-Charged",
+  "payment_terms": "AutoPay",
   "items": [
     {
       "id": 9,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -2193,6 +2334,7 @@ invoice.pay();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2210,6 +2352,7 @@ invoice.pay();
 ```php
 Invoiced\Invoice JSON: {
   "id": 46226,
+  "object": "invoice",
   "customer": 15446,
   "name": null,
   "currency": "usd",
@@ -2226,10 +2369,11 @@ Invoiced\Invoice JSON: {
   "number": "INV-0017",
   "date": 1416290402,
   "due_date": null,
-  "payment_terms": "Auto-Charged",
+  "payment_terms": "AutoPay",
   "items": [
     {
       "id": 9,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -2250,6 +2394,7 @@ Invoiced\Invoice JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2283,7 +2428,7 @@ Invoiced\Invoice JSON: {
   "number": "INV-0017",
   "date": 1416290402,
   "due_date": null,
-  "payment_terms": "Auto-Charged",
+  "payment_terms": "AutoPay",
   "items": [
     {
       "id": 9,
@@ -2323,6 +2468,7 @@ Invoiced\Invoice JSON: {
 ```java
 com.invoiced.entity.Invoice@e48fa2a JSON: {
   "id": 46226,
+  "object": "invoice",
   "customer": 15446,
   "name": null,
   "currency": "usd",
@@ -2339,10 +2485,11 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "number": "INV-0017",
   "date": 1416290402,
   "due_date": null,
-  "payment_terms": "Auto-Charged",
+  "payment_terms": "AutoPay",
   "items": [
     {
       "id": 9,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -2363,6 +2510,7 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -2418,6 +2566,7 @@ Attachment[] attachments = invoice.listAttachments();
 [
   {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2425,7 +2574,7 @@ Attachment[] attachments = invoice.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2436,6 +2585,7 @@ Attachment[] attachments = invoice.listAttachments();
 [
   #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2443,7 +2593,7 @@ Attachment[] attachments = invoice.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2454,6 +2604,7 @@ Attachment[] attachments = invoice.listAttachments();
 [
   Invoiced\Attachment JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2461,7 +2612,7 @@ Attachment[] attachments = invoice.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2472,6 +2623,7 @@ Attachment[] attachments = invoice.listAttachments();
 [
   <Attachment id=13 at 0x3ff10dd39db4> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -2479,7 +2631,7 @@ Attachment[] attachments = invoice.listAttachments();
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
+      "created_at": 1464625854
     },
     "created_at": 1464625855
   }
@@ -2490,19 +2642,20 @@ Attachment[] attachments = invoice.listAttachments();
 [
   com.invoiced.entity.Attachment@1759eafd JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
-      "name": "logo-invoice.png",
       "object": "file",
+      "name": "logo-invoice.png",
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625855
-      },
-      "created_at": 1464625855
-    }, 
-    com.invoiced.entity.Attachment@1759eafd JSON: {...},
-    com.invoiced.entity.Attachment@1759eafd JSON: {...}
+      "created_at": 1464625854
+    },
+    "created_at": 1464625855
+  },
+  com.invoiced.entity.Attachment@1759eafd JSON: {...},
+  com.invoiced.entity.Attachment@1759eafd JSON: {...}
 ]
 ```
 
@@ -2577,6 +2730,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 [
   {
     "id": 46225,
+    "object": "invoice",
     "customer": 15444,
     "name": null,
     "currency": "usd",
@@ -2597,6 +2751,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2612,10 +2767,11 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2632,6 +2788,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2652,6 +2809,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 [
   #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
     "id": 46225,
+    "object": "invoice",
     "customer": 15444,
     "name": null,
     "currency": "usd",
@@ -2672,6 +2830,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2687,10 +2846,11 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2707,6 +2867,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2727,6 +2888,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 [
   Invoiced\Invoice JSON: {
     "id": 46225,
+    "object": "invoice",
     "customer": 15444,
     "name": null,
     "currency": "usd",
@@ -2747,6 +2909,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2762,10 +2925,11 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2782,6 +2946,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2802,6 +2967,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 [
   <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
     "id": 46225,
+    "object": "invoice",
     "customer": 15444,
     "name": null,
     "currency": "usd",
@@ -2822,6 +2988,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2837,10 +3004,11 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2857,6 +3025,7 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2877,50 +3046,75 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 [
   com.invoiced.entity.Invoice@c509a57 JSON: {
     "id": 46225,
+    "object": "invoice",
     "customer": 15444,
-    "number": "INV-0016",
-    "collection_mode": "manual",
+    "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "sent": false,
     "chase": false,
+    "next_chase_on": null,
+    "collection_mode": "manual",
+    "attempt_count": 0,
+    "next_payment_attempt": null,
+    "subscription": null,
+    "number": "INV-0016",
     "date": 1416290400,
     "due_date": 1417500000,
     "payment_terms": "NET 14",
-    "items": [ {
-      "id": 7,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "quantity": 1.0,
-      "unit_cost": 45.0,
-      "amount": 45.0,
-      "discountable": true,
-      "taxable": true
-    }, {
-      "id": 8,
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "quantity": 1.0,
-      "unit_cost": 10.0,
-      "amount": 10.0,
-      "discountable": true,
-      "taxable": true
-    } ],
-    "subtotal": 55.0,
-    "taxes": [ {
-      "id": 20554,
-      "amount": 3.85
-    } ],
+    "items": [
+      {
+        "id": 7,
+        "object": "line_item",
+        "catalog_item": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      },
+      {
+        "id": 8,
+        "object": "line_item",
+        "catalog_item": "delivery",
+        "type": "service",
+        "name": "Delivery",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      }
+    ],
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "object": "tax",
+        "amount": 3.85,
+        "tax_rate": null
+      }
+    ],
     "total": 51.15,
     "balance": 51.15,
     "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
     "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   }, 
   com.invoiced.entity.Invoice@20301171 JSON: {...},
   com.invoiced.entity.Invoice@30301171 JSON: {...}

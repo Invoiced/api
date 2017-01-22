@@ -11,6 +11,7 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
 ```shell
 {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -29,6 +30,7 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -42,10 +44,10 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
 ```ruby
 #<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
-        "object": {
             "amount": 55,
             "created_at": 1451500772,
             "credit_note": null,
@@ -60,6 +62,7 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -73,6 +76,7 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
 ```php
 Invoiced\Event JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -91,6 +95,7 @@ Invoiced\Event JSON: {
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -104,6 +109,7 @@ Invoiced\Event JSON: {
 ```python
 <Event id=1228003 at 0x3fdbf95e4d08> JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -122,6 +128,7 @@ Invoiced\Event JSON: {
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -135,6 +142,7 @@ Invoiced\Event JSON: {
 ```java
 com.invoiced.entity.Event@1c5119e JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -153,6 +161,7 @@ com.invoiced.entity.Event@1c5119e JSON: {
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -166,6 +175,7 @@ com.invoiced.entity.Event@1c5119e JSON: {
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The event's unique ID
+**object** | *string* | Object type, `event`
 **type** | *string* | Event type
 **timestamp** | *timestamp* | Time when event happened
 **data** | *object* | Contains an `object` property with the object that was subject of the event and an optional `previous` property for `object.updated` events that is a hash of the old values that changed during the event
@@ -224,6 +234,7 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -242,6 +253,7 @@ EntityList<Event> events = connection.newEvent().listAll();
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -259,6 +271,7 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   #<Invoiced::Event:0x3fdbf95e4d08 id=212047> JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -277,6 +290,7 @@ EntityList<Event> events = connection.newEvent().listAll();
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -294,6 +308,7 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   Invoiced\Event JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -312,6 +327,7 @@ EntityList<Event> events = connection.newEvent().listAll();
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -329,6 +345,7 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   <Event id=1228003 at 0x3fdbf95e4d08> JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -347,6 +364,7 @@ EntityList<Event> events = connection.newEvent().listAll();
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",
@@ -364,6 +382,7 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   com.invoiced.entity.Event@1c5119e JSON: {
     "id": 1228003,
+    "object": "event",
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
@@ -382,6 +401,7 @@ EntityList<Event> events = connection.newEvent().listAll();
             "metadata": [],
             "method": "other",
             "notes": null,
+            "object": "transaction",
             "parent_transaction": null,
             "status": "succeeded",
             "type": "payment",

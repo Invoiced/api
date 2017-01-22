@@ -13,6 +13,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
 ```shell
 {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -26,6 +27,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -41,10 +43,11 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -61,6 +64,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -77,6 +81,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
 ```ruby
 #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -90,6 +95,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -105,10 +111,11 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -125,6 +132,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -141,6 +149,7 @@ Credit notes with a balance can be marked as paid by issuing a credit for the cr
 ```php
 Invoiced\CreditNote JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -154,6 +163,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -169,10 +179,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -189,6 +200,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -205,6 +217,7 @@ Invoiced\CreditNote JSON: {
 ```python
 <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -218,6 +231,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -233,10 +247,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -253,6 +268,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -269,6 +285,7 @@ Invoiced\CreditNote JSON: {
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -277,37 +294,49 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "open",
-  "chase": false,
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
+      "discounts": [],
       "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -317,12 +346,14 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The credit note's unique ID
+**object** | *string* | Object type, `credit_note`
 **customer** | *integer* | Customer ID
 **invoice** | *integer* | Invoice ID
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
@@ -456,6 +487,7 @@ creditNote.create();
 ```shell
 {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -469,6 +501,7 @@ creditNote.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -484,10 +517,11 @@ creditNote.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -504,6 +538,7 @@ creditNote.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -520,6 +555,7 @@ creditNote.create();
 ```ruby
 #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -533,6 +569,7 @@ creditNote.create();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -548,10 +585,11 @@ creditNote.create();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -568,6 +606,7 @@ creditNote.create();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -584,6 +623,7 @@ creditNote.create();
 ```php
 Invoiced\CreditNote JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -597,6 +637,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -612,10 +653,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -632,6 +674,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -648,6 +691,7 @@ Invoiced\CreditNote JSON: {
 ```python
 <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -661,6 +705,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -676,10 +721,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -696,6 +742,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -712,43 +759,58 @@ Invoiced\CreditNote JSON: {
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
+  "name": null,
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
   "status": "open",
-  "chase": false,
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
+      "description": null,
       "quantity": 1,
       "unit_cost": 45,
       "amount": 45,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
       "discountable": true,
-      "taxable": true
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
     }
   ],
+  "notes": null,
   "subtotal": 55,
+  "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -757,7 +819,8 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "balance": 51.15,
   "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884
+  "created_at": 1415229884,
+  "metadata": {}
 }
 ```
 
@@ -816,6 +879,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
 ```shell
 {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -829,6 +893,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -844,10 +909,11 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -864,6 +930,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -880,6 +947,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
 ```ruby
 #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -893,6 +961,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -908,10 +977,11 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -928,6 +998,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -944,6 +1015,7 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
 ```php
 Invoiced\CreditNote JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -957,6 +1029,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -972,10 +1045,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -992,6 +1066,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1008,6 +1083,7 @@ Invoiced\CreditNote JSON: {
 ```python
 <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -1021,6 +1097,7 @@ Invoiced\CreditNote JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1036,10 +1113,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1056,6 +1134,7 @@ Invoiced\CreditNote JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1072,6 +1151,7 @@ Invoiced\CreditNote JSON: {
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": null,
@@ -1085,6 +1165,7 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1100,10 +1181,11 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1120,6 +1202,7 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1190,6 +1273,7 @@ creditNote.save();
 ```shell
 {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
   "name": "July Paper Delivery",
@@ -1203,6 +1287,7 @@ creditNote.save();
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1218,10 +1303,11 @@ creditNote.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1238,6 +1324,7 @@ creditNote.save();
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1254,19 +1341,21 @@ creditNote.save();
 ```ruby
 #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "sent",
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1282,10 +1371,11 @@ creditNote.save();
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1296,12 +1386,13 @@ creditNote.save();
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1318,19 +1409,21 @@ creditNote.save();
 ```php
 Invoiced\CreditNote JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "sent",
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1346,10 +1439,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1360,12 +1454,13 @@ Invoiced\CreditNote JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1382,19 +1477,21 @@ Invoiced\CreditNote JSON: {
 ```python
 <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "sent",
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1410,10 +1507,11 @@ Invoiced\CreditNote JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1424,12 +1522,13 @@ Invoiced\CreditNote JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1446,19 +1545,21 @@ Invoiced\CreditNote JSON: {
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: {
   "id": 2048,
+  "object": "credit_note",
   "customer": 15444,
   "invoice": 46225,
-  "name": null,
+  "name": "July Paper Delivery",
   "currency": "usd",
   "draft": false,
   "closed": false,
   "paid": false,
-  "status": "open",
+  "status": "sent",
   "number": "CN-0016",
   "date": 1416290400,
   "items": [
     {
       "id": 7,
+      "object": "line_item",
       "catalog_item": null,
       "type": "product",
       "name": "Copy Paper, Case",
@@ -1474,10 +1575,11 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
     },
     {
       "id": 8,
+      "object": "line_item",
       "catalog_item": "delivery",
       "type": "service",
       "name": "Delivery",
-      "description": "",
+      "description": null,
       "quantity": 1,
       "unit_cost": 10,
       "amount": 10,
@@ -1488,12 +1590,13 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: {
       "metadata": {}
     }
   ],
-  "notes": null,
+  "notes": "The order was delivered on Jul 20, 2015",
   "subtotal": 55,
   "discounts": [],
   "taxes": [
     {
       "id": 20554,
+      "object": "tax",
       "amount": 3.85,
       "tax_rate": null
     }
@@ -1572,6 +1675,7 @@ Email[] emails = creditNote.send(emailRequest);
 [
   {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1580,8 +1684,6 @@ Email[] emails = creditNote.send(emailRequest);
     "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   { ... },
@@ -1593,6 +1695,7 @@ Email[] emails = creditNote.send(emailRequest);
 [
   #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1601,8 +1704,6 @@ Email[] emails = creditNote.send(emailRequest);
     "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
@@ -1614,6 +1715,7 @@ Email[] emails = creditNote.send(emailRequest);
 [
   Invoiced\Email JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1622,8 +1724,6 @@ Email[] emails = creditNote.send(emailRequest);
     "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   Invoiced\Email JSON: { ... },
@@ -1635,6 +1735,7 @@ Email[] emails = creditNote.send(emailRequest);
 [
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
     "reject_reason": null,
     "email": "client@example.com",
@@ -1643,8 +1744,6 @@ Email[] emails = creditNote.send(emailRequest);
     "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
     "opens": 0,
     "opens_detail": [],
-    "clicks": 0,
-    "clicks_detail": [],
     "created_at": 1436890047
   },
   <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... },
@@ -1656,13 +1755,17 @@ Email[] emails = creditNote.send(emailRequest);
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: {
     "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
     "state": "sent",
+    "reject_reason": null,
     "email": "client@example.com",
     "template": "credit_note_email",
     "subject": "New Credit Note from Dunder Mifflin, Inc.: CN-0016",
     "message": "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
     "created_at": 1436890047
-    },
+  },
   com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
   com.invoiced.entity.Email@4ce1cfd8 JSON: {...}
 ]
@@ -1718,6 +1821,7 @@ Attachment[] attachments = creditNote.listAttachments();
 [
   {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -1736,6 +1840,7 @@ Attachment[] attachments = creditNote.listAttachments();
 [
   #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -1754,6 +1859,7 @@ Attachment[] attachments = creditNote.listAttachments();
 [
   Invoiced\Attachment JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -1772,6 +1878,7 @@ Attachment[] attachments = creditNote.listAttachments();
 [
   <Attachment id=13 at 0x3ff10dd39db4> JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
       "object": "file",
@@ -1790,19 +1897,20 @@ Attachment[] attachments = creditNote.listAttachments();
 [
   com.invoiced.entity.Attachment@1759eafd JSON: {
     "id": 13,
+    "object": "attachment",
     "file": {
       "id": 13,
-      "name": "logo-invoice.png",
       "object": "file",
+      "name": "logo-invoice.png",
       "size": 6936,
       "type": "image/png",
       "url": "https://invoiced.com/img/logo-invoice.png",
       "created_at": 1464625855
-      },
-      "created_at": 1464625855
-    }, 
-    com.invoiced.entity.Attachment@1759eafd JSON: {...},
-    com.invoiced.entity.Attachment@1759eafd JSON: {...}
+    },
+    "created_at": 1464625855
+  },
+  com.invoiced.entity.Attachment@1759eafd JSON: {...},
+  com.invoiced.entity.Attachment@1759eafd JSON: {...}
 ]
 ```
 
@@ -1877,6 +1985,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 [
   {
     "id": 2048,
+    "object": "credit_note",
     "customer": 15444,
     "invoice": 46225,
     "name": null,
@@ -1890,6 +1999,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -1905,10 +2015,11 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -1925,6 +2036,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -1945,6 +2057,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 [
   #<Invoiced::CreditNote:0x3fdbf95e4d08 id=2048> JSON: {
     "id": 2048,
+    "object": "credit_note",
     "customer": 15444,
     "invoice": 46225,
     "name": null,
@@ -1958,6 +2071,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -1973,10 +2087,11 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -1993,6 +2108,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2013,6 +2129,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 [
   Invoiced\CreditNote JSON: {
     "id": 2048,
+    "object": "credit_note",
     "customer": 15444,
     "invoice": 46225,
     "name": null,
@@ -2026,6 +2143,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2041,10 +2159,11 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2061,6 +2180,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2081,6 +2201,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 [
   <CreditNote id=2048 at 0x3fdbf95e4d08> JSON: {
     "id": 2048,
+    "object": "credit_note",
     "customer": 15444,
     "invoice": 46225,
     "name": null,
@@ -2094,6 +2215,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "items": [
       {
         "id": 7,
+        "object": "line_item",
         "catalog_item": null,
         "type": "product",
         "name": "Copy Paper, Case",
@@ -2109,10 +2231,11 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
       },
       {
         "id": 8,
+        "object": "line_item",
         "catalog_item": "delivery",
         "type": "service",
         "name": "Delivery",
-        "description": "",
+        "description": null,
         "quantity": 1,
         "unit_cost": 10,
         "amount": 10,
@@ -2129,6 +2252,7 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
     "taxes": [
       {
         "id": 20554,
+        "object": "tax",
         "amount": 3.85,
         "tax_rate": null
       }
@@ -2149,47 +2273,68 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 [
   com.invoiced.entity.CreditNote@c509a57 JSON: {
     "id": 2048,
+    "object": "credit_note",
     "customer": 15444,
     "invoice": 46225,
-    "number": "CN-0016",
+    "name": null,
     "currency": "usd",
     "draft": false,
     "closed": false,
     "paid": false,
     "status": "open",
-    "sent": false,
-    "chase": false,
+    "number": "CN-0016",
     "date": 1416290400,
-    "items": [ {
-      "id": 7,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "quantity": 1.0,
-      "unit_cost": 45.0,
-      "amount": 45.0,
-      "discountable": true,
-      "taxable": true
-    }, {
-      "id": 8,
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "quantity": 1.0,
-      "unit_cost": 10.0,
-      "amount": 10.0,
-      "discountable": true,
-      "taxable": true
-    } ],
-    "subtotal": 55.0,
-    "taxes": [ {
-      "id": 20554,
-      "amount": 3.85
-    } ],
+    "items": [
+      {
+        "id": 7,
+        "object": "line_item",
+        "catalog_item": null,
+        "type": "product",
+        "name": "Copy Paper, Case",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 45,
+        "amount": 45,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      },
+      {
+        "id": 8,
+        "object": "line_item",
+        "catalog_item": "delivery",
+        "type": "service",
+        "name": "Delivery",
+        "description": null,
+        "quantity": 1,
+        "unit_cost": 10,
+        "amount": 10,
+        "discountable": true,
+        "discounts": [],
+        "taxable": true,
+        "taxes": [],
+        "metadata": {}
+      }
+    ],
+    "notes": null,
+    "subtotal": 55,
+    "discounts": [],
+    "taxes": [
+      {
+        "id": 20554,
+        "object": "tax",
+        "amount": 3.85,
+        "tax_rate": null
+      }
+    ],
     "total": 51.15,
     "balance": 51.15,
     "url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/credit_notes/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884
+    "created_at": 1415229884,
+    "metadata": {}
   }, 
   com.invoiced.entity.CreditNote@20301171 JSON: {...},
   com.invoiced.entity.CreditNote@30301171 JSON: {...}
