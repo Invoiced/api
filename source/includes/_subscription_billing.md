@@ -4,6 +4,8 @@ Subscriptions allow you to set up recurring billing for your customers. Creating
 
 Subscriptions can have a fixed or infinite duration. Setting the `cycles` property will end the subscription after a fixed number of billing cycles. Otherwise, the subscription must be canceled in order to be stopped.
 
+By default subscriptions will renew each billing cycle on the same day of the cycle on which it was started. For example, a subscription that started on the 9th of the month will always renew on the 9th of the month. This is known as **Anniversary Billing**. We also support renewing subscriptions on a specific day of the month, i.e. the first. If the subscription does not begin on the day you've specified then the first bill will be prorated. This is called **Calendar Billing**.
+
 ## Subscription Object
 
 ### Attributes
@@ -481,6 +483,7 @@ Parameter | Type | Description
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
+**snap_to_nth_day** | *integer* | Snap billing cycles to a specific day of the month (also known as calendar billing), off by default
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons

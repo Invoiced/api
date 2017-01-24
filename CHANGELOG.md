@@ -1,5 +1,8 @@
 Changelog
 =========
+### January 24, 2017
+- Support for calendar billing with subscriptions
+
 ### January 21, 2017
 - All objects now include their object type
 
