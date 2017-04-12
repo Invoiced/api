@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 11, 2017
+- Added estimate webhook events
+
 ### January 24, 2017
 - Support for calendar billing with subscriptions
 

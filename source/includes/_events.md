@@ -189,6 +189,9 @@ Events were named using the `object.action` pattern where `object` represents th
 - `customer.deleted`
 - `email.sent`
 - `email.not_sent`
+- `estimate.created`
+- `estimate.updated`
+- `estimate.deleted`
 - `invoice.created`
 - `invoice.updated`
 - `invoice.deleted`
