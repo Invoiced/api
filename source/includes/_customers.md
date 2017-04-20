@@ -1,8 +1,8 @@
 # Customers
 
-Customers represent the entity you are billing, whether this is an organization or a individual. Each customer has a collection mode, automatic or manual. In automatic collection mode any invoices will be charged to your customer's payment source. Currently we support debit / credit cards and bank accounts (via ACH) as payment sources.
+Customers represent the entity you are billing, whether this is an organization or a individual. Each customer has an AutoPay setting. When AutoPay is enabled, any invoices issued for this customer will be charged to the customer's payment source. Currently we support debit / credit cards and bank accounts (via ACH) as payment sources.
 
-Conversely, manual collection mode will let your customers pay each invoice issued with one of the payment methods you accept.
+Conversely, when AutoPay is disabled we will let your customers pay each invoice issued with one of the payment methods you accept.
 
 ## Customer Object
 
@@ -15,7 +15,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
-  "collection_mode": "auto",
+  "autopay": true,
   "payment_terms": null,
   "payment_source": {
     "id": 850,
@@ -51,7 +51,7 @@ Conversely, manual collection mode will let your customers pay each invoice issu
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
-  "collection_mode": "auto",
+  "autopay": true,
   "payment_terms": null,
   "payment_source": {
     "id": 850,
@@ -87,7 +87,7 @@ Invoiced\Customer JSON: {
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
-  "collection_mode": "auto",
+  "autopay": true,
   "payment_terms": null,
   "payment_source": {
     "id": 850,
@@ -123,7 +123,7 @@ Invoiced\Customer JSON: {
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
-  "collection_mode": "auto",
+  "autopay": true,
   "payment_terms": null,
   "payment_source": {
     "id": 850,
@@ -159,7 +159,7 @@ com.invoiced.entity.Customer@d72919f JSON: {
   "name": "Acme",
   "number": "CUST-0001",
   "email": "billing@acmecorp.com",
-  "collection_mode": "auto",
+  "autopay": true,
   "payment_terms": null,
   "payment_source": {
     "id": 850,
@@ -195,8 +195,8 @@ Parameter | Type | Description
 **name** | *string* | Customer name
 **number** | *string* | A unique ID to help tie your customer to your external systems
 **email** | *string* | Email address
-**collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
-**payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
+**autopay** | *boolean* | AutoPay enabled?
+**payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **payment_source** | *object* | Customer's [payment source](#payment-sources), if attached
 **taxes** | *array* | Collection of Tax Rate IDs
 **type** | *string* | Organization type, `company` or `person`
@@ -327,7 +327,6 @@ curl "https://api.invoiced.com/customers" \
   -u {API_KEY}: \
   -d name="Acme" \
   -d email="billing@acmecorp.com" \
-  -d collection_mode="manual" \
   -d payment_terms="NET 30" \
   -d type="company"
 ```
@@ -336,7 +335,6 @@ curl "https://api.invoiced.com/customers" \
 invoiced.Customer.create(
   :name => "Acme",
   :email => "billing@acmecorp.com",
-  :collection_mode => "manual",
   :payment_terms => "NET 30",
   :type => "company"
 )
@@ -348,7 +346,6 @@ invoiced.Customer.create(
 $invoiced->Customer->create([
   'name' => "Acme",
   'email' => "billing@acmecorp.com",
-  'collection_mode' => "manual",
   'payment_terms' => "NET 30",
   'type' => "company"
 ]);
@@ -358,7 +355,6 @@ $invoiced->Customer->create([
 client.Customer.create(
   name="Acme",
   email="billing@acmecorp.com",
-  collection_mode="manual",
   payment_terms="NET 30",
   type="company"
 )
@@ -383,7 +379,7 @@ customer.create();
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -411,7 +407,7 @@ customer.create();
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -439,7 +435,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -467,7 +463,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -495,7 +491,7 @@ com.invoiced.entity.Customer@cb8fd57 JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -529,8 +525,8 @@ Parameter | Type | Description
 **name** | *string* | Customer name - **required**
 **number** | *string* | A unique ID to help tie your customer to your external systems. We will generate one if not supplied.
 **email** | *string* | Email address
-**collection_mode** | *string* | Invoice collection mode, `auto` or `manual`. Defaults to `manual`
-**payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
+**autopay** | *boolean* | AutoPay enabled? Defaults to `false`
+**payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
 **taxes** | *array* | Collection of Tax Rate IDs
 **type** | *string* | Organization type, `company` or `person`. Defaults to `company`
@@ -581,7 +577,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -609,7 +605,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -637,7 +633,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -665,7 +661,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -693,7 +689,7 @@ com.invoiced.entity.Customer@cb8fd58 JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 30",
   "payment_source": null,
   "taxes": [],
@@ -794,7 +790,7 @@ customer.save();
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 14",
   "payment_source": null,
   "taxes": [],
@@ -822,7 +818,7 @@ customer.save();
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 14",
   "payment_source": null,
   "taxes": [],
@@ -850,7 +846,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 14",
   "payment_source": null,
   "taxes": [],
@@ -878,7 +874,7 @@ Invoiced\Customer JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 14",
   "payment_source": null,
   "taxes": [],
@@ -906,7 +902,7 @@ com.invoiced.entity.Customer@cb8fd59 JSON: {
   "number": "CUST-0001",
   "name": "Acme",
   "email": "billing@acmecorp.com",
-  "collection_mode": "manual",
+  "autopay": false,
   "payment_terms": "NET 14",
   "payment_source": null,
   "taxes": [],
@@ -940,8 +936,8 @@ Parameter | Type | Description
 **name** | *string* | Customer name
 **number** | *string* | A unique ID to help tie your customer to your external systems
 **email** | *string* | Email address
-**collection_mode** | *string* | Invoice collection mode, `auto` or `manual`
-**payment_terms** | *string* | Payment terms used for `manual` collection mode, i.e. "NET 30"
+**autopay** | *boolean* | AutoPay enabled?
+**payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
 **taxes** | *array* | Collection of Tax Rate IDs
 **type** | *string* | Organization type, `company` or `person`
@@ -1912,7 +1908,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
-    "collection_mode": "manual",
+    "autopay": false,
     "payment_terms": "NET 30",
     "payment_source": null,
     "taxes": [],
@@ -1944,7 +1940,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
-    "collection_mode": "manual",
+    "autopay": false,
     "payment_terms": "NET 30",
     "payment_source": null,
     "taxes": [],
@@ -1976,7 +1972,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
-    "collection_mode": "manual",
+    "autopay": false,
     "payment_terms": "NET 30",
     "payment_source": null,
     "taxes": [],
@@ -2008,7 +2004,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
-    "collection_mode": "manual",
+    "autopay": false,
     "payment_terms": "NET 30",
     "payment_source": null,
     "taxes": [],
@@ -2040,7 +2036,7 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "number": "CUST-0001",
     "name": "Acme",
     "email": "billing@acmecorp.com",
-    "collection_mode": "manual",
+    "autopay": false,
     "payment_terms": "NET 30",
     "payment_source": null,
     "taxes": [],

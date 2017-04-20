@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 20, 2017
+- On customer and invoice objects the `collection_mode` property has been replaced with the `autopay` property
+
 ### April 11, 2017
 - Added estimate webhook events
 
