@@ -401,9 +401,11 @@ com.invoiced.entity.Customer@cb8fd59 JSON: {
 }
 ```
 
-Most Invoices objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
+Most Invoiced objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
 
-The use cases for metadata are many. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and on the dashboard. Customers will not see this data unless you choose to display it.
+There are many use cases for metadata. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and in the dashboard. Customers will not see this data unless you choose to display it with a custom field.
+
+Our [custom fields](https://invoiced.com/docs/guides/custom-fields) feature is backed by the metadata store. If you are using custom fields then be sure to use the ID of your custom field as the key for your metadata value in order to link it with the right custom field. Custom fields are not required in order to use metadata.
 
 Metadata can include up to **10 keys per object**. Each key can be up to 40 characters long and values may be up to 255 characters long.
 
