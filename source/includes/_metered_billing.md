@@ -46,6 +46,7 @@ pli.create();
 {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -65,6 +66,7 @@ pli.create();
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -84,6 +86,7 @@ pli.create();
 Invoiced\LineItem JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -103,6 +106,7 @@ Invoiced\LineItem JSON: {
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -122,6 +126,7 @@ Invoiced\LineItem JSON: {
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -191,6 +196,7 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -210,6 +216,7 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -229,6 +236,7 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 Invoiced\LineItem JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -248,6 +256,7 @@ Invoiced\LineItem JSON: {
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -267,6 +276,7 @@ Invoiced\LineItem JSON: {
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -323,6 +333,7 @@ pli.save();
 {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -342,6 +353,7 @@ pli.save();
 #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -361,6 +373,7 @@ pli.save();
 Invoiced\LineItem JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -380,6 +393,7 @@ Invoiced\LineItem JSON: {
 <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -399,6 +413,7 @@ Invoiced\LineItem JSON: {
 com.invoiced.entity.PendingLineItem@754f2c43 JSON: {
   "id": 8,
   "object": "line_item",
+  "customer": 15444,
   "catalog_item": "delivery",
   "type": "service",
   "name": "Delivery",
@@ -921,6 +936,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
   {
     "id": 8,
     "object": "line_item",
+    "customer": 15444,
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
@@ -944,6 +960,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
   #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
     "id": 8,
     "object": "line_item",
+    "customer": 15444,
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
@@ -967,6 +984,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
   Invoiced\LineItem JSON: {
     "id": 8,
     "object": "line_item",
+    "customer": 15444,
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
@@ -990,6 +1008,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
   <LineItem id=8 at 0x3fdbf95e4d08> JSON: {
     "id": 8,
     "object": "line_item",
+    "customer": 15444,
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
@@ -1013,6 +1032,7 @@ EntityList<PendingLineItem> plis = pli.listAll();
   com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: {
     "id": 8,
     "object": "line_item",
+    "customer": 15444,
     "catalog_item": "delivery",
     "type": "service",
     "name": "Delivery",
