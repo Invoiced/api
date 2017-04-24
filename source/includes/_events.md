@@ -199,6 +199,9 @@ Events were named using the `object.action` pattern where `object` represents th
 - `invoice.commented`
 - `invoice.payment_expected`
 - `invoice.paid`
+- `line_item.created` (pending line items only)
+- `line_item.updated` (pending line items only)
+- `line_item.deleted` (pending line items only)
 - `subscription.created`
 - `subscription.updated`
 - `subscription.deleted`

@@ -2,6 +2,7 @@ Changelog
 =========
 ### April 24, 2017
 - Pending line items now have a `customer` property
+- Added pending line item events
 
 ### April 20, 2017
 - On customer and invoice objects the `collection_mode` property has been replaced with the `autopay` property
