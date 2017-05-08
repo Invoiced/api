@@ -38,6 +38,8 @@ Conversely, when AutoPay is disabled we will let your customers pay each invoice
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -74,6 +76,8 @@ Conversely, when AutoPay is disabled we will let your customers pay each invoice
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -110,6 +114,8 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -146,6 +152,8 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -182,6 +190,8 @@ com.invoiced.entity.Customer@d72919f JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -210,6 +220,8 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
+**sign_up_url** | *string* | URL where customer can purchase a subscription, when a sign up page is assigned
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
@@ -394,6 +406,8 @@ customer.create();
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -422,6 +436,8 @@ customer.create();
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -450,6 +466,8 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -478,6 +496,8 @@ Invoiced\Customer JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -506,6 +526,8 @@ com.invoiced.entity.Customer@cb8fd57 JSON: {
   "tax_id": null,
   "phone": null,
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -540,6 +562,7 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Retrieve a customer
@@ -592,6 +615,8 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -620,6 +645,8 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -648,6 +675,8 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -676,6 +705,8 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -704,6 +735,8 @@ com.invoiced.entity.Customer@cb8fd58 JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -805,6 +838,8 @@ customer.save();
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -833,6 +868,8 @@ customer.save();
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -861,6 +898,8 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -889,6 +928,8 @@ Invoiced\Customer JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -917,6 +958,8 @@ com.invoiced.entity.Customer@cb8fd59 JSON: {
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
   "metadata": {}
@@ -951,6 +994,7 @@ Parameter | Type | Description
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Get current balance
@@ -1923,6 +1967,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
+    "sign_up_page": null,
+    "sign_up_url": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
@@ -1955,6 +2001,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
+    "sign_up_page": null,
+    "sign_up_url": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
@@ -1987,6 +2035,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
+    "sign_up_page": null,
+    "sign_up_url": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
@@ -2019,6 +2069,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
+    "sign_up_page": null,
+    "sign_up_url": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}
@@ -2051,6 +2103,8 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
     "tax_id": "893-934835",
     "phone": "(820) 297-2983",
     "notes": null,
+    "sign_up_page": null,
+    "sign_up_url": null,
     "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
     "created_at": 1415222128,
     "metadata": {}

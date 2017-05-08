@@ -1,5 +1,8 @@
 Changelog
 =========
+### May 8, 2017
+- Added `sign_up_page` and `sign_up_url` properties to customers
+
 ### April 24, 2017
 - Pending line items now have a `customer` property
 - Added pending line item events
