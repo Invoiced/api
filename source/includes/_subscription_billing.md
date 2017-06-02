@@ -30,6 +30,7 @@ By default subscriptions will renew each billing cycle on the same day of the cy
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -61,6 +62,7 @@ By default subscriptions will renew each billing cycle on the same day of the cy
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -92,6 +94,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -123,6 +126,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -153,6 +157,7 @@ com.invoiced.entity.Subscription@74f0915b JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -195,6 +200,7 @@ Parameter | Type | Description
     "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
+    "description": "",
     "created_at": 1420391704
 }
 ```
@@ -205,6 +211,7 @@ Parameter | Type | Description
     "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
+    "description": "",
     "created_at": 1420391704
 }
 ```
@@ -215,6 +222,7 @@ Invoiced\SubscriptionAddon JSON: {
     "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
+    "description": "",
     "created_at": 1420391704
 }
 ```
@@ -225,6 +233,7 @@ Invoiced\SubscriptionAddon JSON: {
     "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
+    "description": "",
     "created_at": 1420391704
 }
 ```
@@ -235,6 +244,7 @@ com.invoiced.entity.SubscriptionAddOn@6ec9001c JSON: {
     "object": "subscription_addon",
     "catalog_item": "ipad-license",
     "quantity": 11,
+    "description": "",
     "created_at": 1420391704
 }
 ```
@@ -245,6 +255,7 @@ Parameter | Type | Description
 **object** | *string* | Object type, `subscription_addon`
 **catalog_item** | *string* | Catalog Item ID
 **quantity** | *integer* | Quantity
+**description** | *string* | Optional description for line items generated from this addon
 **created_at** | *timestamp* | Timestamp when created
 
 ## Create a subscription
@@ -333,6 +344,7 @@ subscription.create();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -364,6 +376,7 @@ subscription.create();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -395,6 +408,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -426,6 +440,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -457,6 +472,7 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -537,6 +553,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -568,6 +585,7 @@ Subscription subscription = invoiced.newSubscription().subscription.retrieve({SU
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -599,6 +617,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -630,6 +649,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -661,6 +681,7 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -731,6 +752,7 @@ subscription.save();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -762,6 +784,7 @@ subscription.save();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -793,6 +816,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -824,6 +848,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -855,6 +880,7 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -934,6 +960,7 @@ subscription.cancel();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -965,6 +992,7 @@ subscription.cancel();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -996,6 +1024,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1027,6 +1056,7 @@ Invoiced\Subscription JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1058,6 +1088,7 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1123,6 +1154,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1158,6 +1190,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1193,6 +1226,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1228,6 +1262,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],
@@ -1263,6 +1298,7 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
             "object": "subscription_addon",
             "catalog_item": "ipad-license",
             "quantity": 11,
+            "description": "",
             "created_at": 1420391704
         }
     ],

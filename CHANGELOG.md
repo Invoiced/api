@@ -1,5 +1,8 @@
 Changelog
 =========
+### June 2, 2017
+- Added a `description` property to subscription addons
+
 ### May 8, 2017
 - Added `sign_up_page` and `sign_up_url` properties to customers
 
