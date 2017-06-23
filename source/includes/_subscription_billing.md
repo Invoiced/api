@@ -528,7 +528,7 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
 ```
 
 ```java
-Subscription subscription = invoiced.newSubscription().subscription.retrieve({SUBSCRIPTION_ID});
+Subscription subscription = invoiced.newSubscription().retrieve({SUBSCRIPTION_ID});
 ```
 
 > The above command returns JSON structured like this:
