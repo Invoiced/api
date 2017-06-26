@@ -20,13 +20,19 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -48,17 +54,24 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
     "type": "transaction.created",
     "timestamp": 1451500772,
     "data": {
+        "object": {
             "amount": 55,
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -85,13 +98,19 @@ Invoiced\Event JSON: {
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -118,13 +137,19 @@ Invoiced\Event JSON: {
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -151,13 +176,19 @@ com.invoiced.entity.Event@1c5119e JSON: {
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              // Customer Object
+              // Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              // Invoice Object
+              // Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -249,13 +280,19 @@ EntityList<Event> events = connection.newEvent().listAll();
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -286,13 +323,19 @@ EntityList<Event> events = connection.newEvent().listAll();
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -323,13 +366,19 @@ EntityList<Event> events = connection.newEvent().listAll();
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -360,13 +409,19 @@ EntityList<Event> events = connection.newEvent().listAll();
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
@@ -397,13 +452,19 @@ EntityList<Event> events = connection.newEvent().listAll();
             "created_at": 1451500772,
             "credit_note": null,
             "currency": "usd",
-            "customer": 15455,
+            "customer": {
+              // Customer Object
+              // Excluded for brevity
+            },
             "date": 1451500771,
             "gateway": null,
             "gateway_id": null,
             "payment_source": null,
             "id": 212047,
-            "invoice": 196539,
+            "invoice": {
+              // Invoice Object
+              // Excluded for brevity
+            },
             "metadata": [],
             "method": "other",
             "notes": null,
