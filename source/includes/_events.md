@@ -240,6 +240,235 @@ Events were named using the `object.action` pattern where `object` represents th
 - `transaction.updated`
 - `transaction.deleted`
 
+## Retrieve an event
+
+```shell
+curl "https://api.invoiced.com/events/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+event = invoiced.Event.retrieve("{EVENT_ID}")
+```
+
+```php
+<?php
+
+$event = $invoiced->Event->retrieve("{EVENT_ID}");
+```
+
+```python
+event = client.Event.retrieve("{EVENT_ID}")
+```
+
+```java
+Event event = invoiced.newEvent();
+Event eventToRetrieve = event.retrieve({EVENT_ID});
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+{
+    "id": 1228003,
+    "object": "event",
+    "type": "transaction.created",
+    "timestamp": 1451500772,
+    "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "credit_note": null,
+            "currency": "usd",
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "object": "transaction",
+            "parent_transaction": null,
+            "status": "succeeded",
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
+        }
+    }
+}
+```
+
+```ruby
+#<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: {
+    "id": 1228003,
+    "object": "event",
+    "type": "transaction.created",
+    "timestamp": 1451500772,
+    "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "credit_note": null,
+            "currency": "usd",
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "object": "transaction",
+            "parent_transaction": null,
+            "status": "succeeded",
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
+        }
+    }
+}
+```
+
+```php
+Invoiced\Event JSON: {
+    "id": 1228003,
+    "object": "event",
+    "type": "transaction.created",
+    "timestamp": 1451500772,
+    "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "credit_note": null,
+            "currency": "usd",
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "object": "transaction",
+            "parent_transaction": null,
+            "status": "succeeded",
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
+        }
+    }
+}
+```
+
+```python
+<Event id=1228003 at 0x3fdbf95e4d08> JSON: {
+    "id": 1228003,
+    "object": "event",
+    "type": "transaction.created",
+    "timestamp": 1451500772,
+    "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "credit_note": null,
+            "currency": "usd",
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "object": "transaction",
+            "parent_transaction": null,
+            "status": "succeeded",
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
+        }
+    }
+}
+```
+
+```java
+com.invoiced.entity.Event@cb8fd58 JSON: {
+    "id": 1228003,
+    "object": "event",
+    "type": "transaction.created",
+    "timestamp": 1451500772,
+    "data": {
+        "object": {
+            "amount": 55,
+            "created_at": 1451500772,
+            "credit_note": null,
+            "currency": "usd",
+            "customer": {
+              # Customer Object
+              # Excluded for brevity
+            },
+            "date": 1451500771,
+            "gateway": null,
+            "gateway_id": null,
+            "payment_source": null,
+            "id": 212047,
+            "invoice": {
+              # Invoice Object
+              # Excluded for brevity
+            },
+            "metadata": [],
+            "method": "other",
+            "notes": null,
+            "object": "transaction",
+            "parent_transaction": null,
+            "status": "succeeded",
+            "type": "payment",
+            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
+            "metadata": {}
+        }
+    }
+}
+```
+
+This endpoint retrieves a specific event.
+
+### HTTP Request
+
+`GET /events/:id`
+
 ## List all events
 
 ```shell

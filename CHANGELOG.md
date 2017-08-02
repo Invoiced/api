@@ -1,5 +1,8 @@
 Changelog
 =========
+### August 2, 2017
+- Added retrieve event endpoint.
+
 ### June 2, 2017
 - Added a `description` property to subscription addons
 
