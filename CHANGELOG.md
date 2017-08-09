@@ -1,5 +1,8 @@
 Changelog
 =========
+### August 9, 2017
+- Added `disabled_payment_methods` parameter when creating or updating customers, invoices, and estimates
+
 ### August 2, 2017
 - Added retrieve event endpoint.
 

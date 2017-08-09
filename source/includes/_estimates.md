@@ -845,6 +845,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate
+**disabled_payment_methods** | *array* | List of payment methods to disable for this estimate, i.e. `["credit_card", "wire_transfer"]`.
 
 ## Retrieve an estimate
 
@@ -1630,6 +1631,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate. Replaces existing attachments. Not providing this keeps existing attachments.
+**disabled_payment_methods** | *array* | List of payment methods to disable for this estimate, i.e. `["credit_card", "wire_transfer"]`.
 
 ## Send an estimate
 

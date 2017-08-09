@@ -564,6 +564,7 @@ Parameter | Type | Description
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
 
 ## Retrieve a customer
 
@@ -996,6 +997,7 @@ Parameter | Type | Description
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
 
 ## Get current balance
 
