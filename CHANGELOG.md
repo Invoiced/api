@@ -1,6 +1,7 @@
 Changelog
 =========
 ### September 15, 2017
+- Added estimate deposits.
 - Can specify `proration_date` when updating subscriptions for changing proration calculations.
 
 ### August 9, 2017

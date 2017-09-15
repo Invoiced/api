@@ -16,7 +16,6 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -67,6 +66,8 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -84,7 +85,6 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -135,6 +135,8 @@ An estimate provides a quote to a [Customer](#customer-object). Like invoices, e
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -152,7 +154,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -203,6 +204,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -220,7 +223,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -271,6 +273,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -288,7 +292,6 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -339,6 +342,8 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -357,7 +362,6 @@ Parameter | Type | Description
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
 **closed** | *boolean* | When true, an estimate is closed and considered bad debt. No further payments are allowed.
-**paid** | *boolean* | Indicates whether an estimate has been paid in full
 **status** | *string* | Estimate state, one of `draft`, `not_sent`, `sent`, `approved`, `invoiced`, `declined`
 **date** | *timestamp* | Estimate date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
@@ -367,6 +371,8 @@ Parameter | Type | Description
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
+**deposit** | *number* | Up-front deposit required
+**deposit_paid** | *bool* | Indicates whether the deposit has been paid in full
 **url** | *string* | URL to view the estimate in the billing portal
 **pdf_url** | *string* | URL to download the estimate as a PDF
 **created_at** | *timestamp* | Timestamp when created
@@ -490,7 +496,6 @@ estimate.create();
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -541,6 +546,8 @@ estimate.create();
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -558,7 +565,6 @@ estimate.create();
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -609,6 +615,8 @@ estimate.create();
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -626,7 +634,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -677,6 +684,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -694,7 +703,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -745,6 +753,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -762,7 +772,6 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -813,6 +822,8 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -843,6 +854,8 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on estimate
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**deposit** | *number* | Up-front deposit required
+**deposit_paid** | *bool* | Indicates whether the deposit has been paid in full
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate
 **disabled_payment_methods** | *array* | List of payment methods to disable for this estimate, i.e. `["credit_card", "wire_transfer"]`.
@@ -884,7 +897,6 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -935,6 +947,8 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -952,7 +966,6 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1003,6 +1016,8 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1020,7 +1035,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1071,6 +1085,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1088,7 +1104,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1139,6 +1154,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1156,7 +1173,6 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "not_sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1207,6 +1223,8 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1278,7 +1296,6 @@ estimate.save();
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1329,6 +1346,8 @@ estimate.save();
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1346,7 +1365,6 @@ estimate.save();
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1397,6 +1415,8 @@ estimate.save();
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1414,7 +1434,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1465,6 +1484,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1482,7 +1503,6 @@ Invoiced\Estimate JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1533,6 +1553,8 @@ Invoiced\Estimate JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1550,7 +1572,6 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
   "currency": "usd",
   "draft": false,
   "closed": false,
-  "paid": false,
   "status": "sent",
   "number": "EST-0016",
   "date": 1416290400,
@@ -1601,6 +1622,8 @@ com.invoiced.entity.Estimate@e48fa2a JSON: {
     }
   ],
   "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
@@ -1629,6 +1652,8 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on estimate
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**deposit** | *number* | Up-front deposit required
+**deposit_paid** | *bool* | Indicates whether the deposit has been paid in full
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the estimate. Replaces existing attachments. Not providing this keeps existing attachments.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this estimate, i.e. `["credit_card", "wire_transfer"]`.
@@ -2406,7 +2431,6 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "currency": "usd",
     "draft": false,
     "closed": false,
-    "paid": false,
     "status": "not_sent",
     "number": "EST-0016",
     "date": 1416290400,
@@ -2457,6 +2481,8 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       }
     ],
     "total": 51.15,
+    "deposit": 0,
+    "deposit_paid": false,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2478,7 +2504,6 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "currency": "usd",
     "draft": false,
     "closed": false,
-    "paid": false,
     "status": "not_sent",
     "number": "EST-0016",
     "date": 1416290400,
@@ -2529,6 +2554,8 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       }
     ],
     "total": 51.15,
+    "deposit": 0,
+    "deposit_paid": false,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2549,7 +2576,6 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "currency": "usd",
     "draft": false,
     "closed": false,
-    "paid": false,
     "status": "not_sent",
     "number": "EST-0016",
     "date": 1416290400,
@@ -2597,6 +2623,8 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       }
     ],
     "total": 51.15,
+    "deposit": 0,
+    "deposit_paid": false,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2618,7 +2646,6 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "currency": "usd",
     "draft": false,
     "closed": false,
-    "paid": false,
     "status": "not_sent",
     "number": "EST-0016",
     "date": 1416290400,
@@ -2669,6 +2696,8 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       }
     ],
     "total": 51.15,
+    "deposit": 0,
+    "deposit_paid": false,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
@@ -2690,7 +2719,6 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
     "currency": "usd",
     "draft": false,
     "closed": false,
-    "paid": false,
     "status": "not_sent",
     "number": "EST-0016",
     "date": 1416290400,
@@ -2741,6 +2769,8 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
       }
     ],
     "total": 51.15,
+    "deposit": 0,
+    "deposit_paid": false,
     "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
     "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
     "created_at": 1415229884,
