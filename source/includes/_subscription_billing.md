@@ -910,6 +910,7 @@ Parameter | Type | Description
 **addons** | *array* | Collection of optional Subscription Addons
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **prorate** | *boolean* | Prorate changes to plan, quantities, or addons, defaults to *true*
+**proration_date** | *integer* | Timestamp when the proration happened, defaults to `now`
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
 ## Cancel a subscription
