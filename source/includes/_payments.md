@@ -15,7 +15,6 @@ We currently support the following payment methods on transactions:
 
 - `credit_card`
 - `ach`
-- `bitcoin`
 - `paypal`
 - `wire_transfer`
 - `check`
