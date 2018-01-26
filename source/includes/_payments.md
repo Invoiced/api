@@ -1227,3 +1227,5 @@ Parameter | Description
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
 **metadata** *object* | Metadata filter object
+**start_date** *timestamp* | Restricts the results to transactions *on or after* the given timestamp
+**end_date** *timestamp* | Restricts the results to transactions *on or before* the given timestamp

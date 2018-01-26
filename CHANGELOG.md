@@ -1,5 +1,9 @@
 Changelog
 =========
+### January 26, 2018
+
+- Added `start_date` and `end_date` parameters when listing transactions.
+
 ### September 15, 2017
 - Added estimate deposits.
 - Can specify `proration_date` when updating subscriptions for changing proration calculations.
