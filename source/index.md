@@ -240,7 +240,7 @@ params.put("icp_number", "1234567890");
 params.put("account_rep","Jan");
 Customer customer = invoiced.newCustomer();
 customer.name = "Acme";
-customer.metaData = params;
+customer.metadata = params;
 customer.create();
 ```
 
