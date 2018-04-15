@@ -376,7 +376,6 @@ client.Customer.create(
 Customer customer = invoiced.newCustomer();
 customer.name = "Acme";
 customer.email = "billing@acmecorp.com";
-customer.collectionMode = "manual";
 customer.paymentTerms = "NET 30";
 customer.type = "company";
 customer.create();
