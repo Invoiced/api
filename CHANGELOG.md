@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 15, 2018
+- Added `plan` property to subscription addons. Using plans for addons are now recommended over catalog items.
+
 ### January 26, 2018
 
 - Added `start_date` and `end_date` parameters when listing transactions.
