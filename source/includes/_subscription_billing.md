@@ -239,7 +239,7 @@ Invoiced\SubscriptionAddon JSON: {
 ```
 
 ```java
-com.invoiced.entity.SubscriptionAddOn@6ec9001c JSON: {
+com.invoiced.entity.SubscriptionAddon@6ec9001c JSON: {
     "id": 3,
     "object": "subscription_addon",
     "plan": "ipad-license",
@@ -315,8 +315,8 @@ client.Subscription.create(
 Subscription subscription = invoiced.newSubscription();
 subscription.customer = 15444;
 subscription.plan = "starter";
-subscription.addons = new SubscriptionAddOn[1];
-subscription.addons[0] = new SubscriptionAddOn();
+subscription.addons = new SubscriptionAddon[1];
+subscription.addons[0] = new SubscriptionAddon();
 subscription.addons[0].plan = "ipad-license";
 subscription.addons[0].quantity = 11;
 subscription.create();
