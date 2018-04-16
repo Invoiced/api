@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 16, 2018
+- Added `catalog_item` property to plans. Plans can now be attributed to a parent catalog item, which represents a product or service you sell.
+
 ### April 15, 2018
 - Added `plan` property to subscription addons. Using plans for addons are now recommended over catalog items.
 

@@ -4,7 +4,7 @@ Your pricing catalog describes the products and services you sell.
 
 ## Catalog Item Object
 
-A catalog item represents a product or service that you sell. Catalog items can be used to generate [line items](#line-item-object) and can also be used as [subscription addons](#subscription-addon-object).
+A catalog item represents a product or service that you sell. Catalog items can be used to generate [line items](#line-item-object) and can also be used by [plans](#plan-object).
 
 ### Attributes
 
@@ -128,6 +128,7 @@ A plan describes a fixed amount that is billed to customers over a recurring int
   "amount": 49,
   "interval": "month",
   "interval_count": 1,
+  "catalog_item": "software-subscription",
   "created_at": 1477418268,
   "metadata": {}
 }
@@ -142,6 +143,7 @@ A plan describes a fixed amount that is billed to customers over a recurring int
   "amount": 49,
   "interval": "month",
   "interval_count": 1,
+  "catalog_item": "software-subscription",
   "created_at": 1477418268,
   "metadata": {}
 }
@@ -156,6 +158,7 @@ Invoiced\Plan JSON: {
   "amount": 49,
   "interval": "month",
   "interval_count": 1,
+  "catalog_item": "software-subscription",
   "created_at": 1477418268,
   "metadata": {}
 }
@@ -170,6 +173,7 @@ Invoiced\Plan JSON: {
   "amount": 49,
   "interval": "month",
   "interval_count": 1,
+  "catalog_item": "software-subscription",
   "created_at": 1477418268,
   "metadata": {}
 }
@@ -184,6 +188,7 @@ com.invoiced.entity.Plan@192cafae JSON: {
   "amount": 49,
   "interval": "month",
   "interval_count": 1,
+  "catalog_item": "software-subscription",
   "created_at": 1477418268,
   "metadata": {}
 }
@@ -193,6 +198,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The plan's unique ID
 **object** | *string* | Object type, `plan`
+**catalog_item** | *string* | Catalog item ID the plan belongs to
 **name** | *string* | Plan name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Plan amount
