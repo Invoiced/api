@@ -204,7 +204,6 @@ Parameter | Type | Description
 **amount** | *number* | Plan amount
 **interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
 **interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
-**description** | *string* | Optional description
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 

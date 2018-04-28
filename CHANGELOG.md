@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 28, 2018
+- Removed `description` property on plans. It is recommended to use the subscription addon description for information specific to a subscription. Otherwise the catalog item description will be used on line items.
+
 ### April 16, 2018
 - Added `catalog_item` property to plans. Plans can now be attributed to a parent catalog item, which represents a product or service you sell.
 
