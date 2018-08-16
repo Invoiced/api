@@ -2131,3 +2131,4 @@ Parameter | Description
 **metadata** *object* | Metadata filter object
 **payment_source** *boolean* | When set only returns customers with (or without) a payment source
 **balance** *boolean* | When set only returns customers with (or without) a credit balance
+**updated_after** *timestamp* | Only gets records updated after the given timestamp

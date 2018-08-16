@@ -1,5 +1,8 @@
 Changelog
 =========
+### August 16, 2018
+- Added `updated_after` request parameter when listing customers, estimates, credit notes, invoices, subscriptions, and transactions to only return results updated after a given timestamp.
+
 ### April 28, 2018
 - Removed `description` property on plans. It is recommended to use the subscription addon description for information specific to a subscription. Otherwise the catalog item description will be used on line items.
 

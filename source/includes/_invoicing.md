@@ -3138,3 +3138,4 @@ Parameter | Description
 **metadata** *object* | Metadata filter object
 **start_date** *timestamp* | Restricts the results to invoices *on or after* the given timestamp
 **end_date** *timestamp* | Restricts the results to invoices *on or before* the given timestamp
+**updated_after** *timestamp* | Only gets records updated after the given timestamp

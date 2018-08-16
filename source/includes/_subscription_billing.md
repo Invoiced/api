@@ -1329,3 +1329,4 @@ Parameter | Description
 **metadata** *object* | Metadata filter object
 **canceled** *boolean* | When true returns only canceled subscriptions
 **finished** *boolean* | When true returns only finished subscriptions
+**updated_after** *timestamp* | Only gets records updated after the given timestamp
