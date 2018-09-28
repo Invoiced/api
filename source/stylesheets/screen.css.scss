@@ -4,6 +4,8 @@
 @import 'variables';
 @import 'syntax';
 @import 'icon-font';
+@import 'invoiced-fonts';
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,700italic);
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -50,8 +52,8 @@ html, body {
 
 @mixin embossed-bg {
   background:
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
+    linear-gradient(to bottom, rgba(#000, 0.1), rgba(#000, 0) 8px),
+    linear-gradient(to top, rgba(#000, 0.1), rgba(#000, 0) 8px),
     linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
     linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
     $nav-subitem-bg;
@@ -59,7 +61,6 @@ html, body {
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -69,12 +70,11 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 14px;
 
   .logo {
-    width: 118px;
-    height: 30px;
+    width: 135px;
+    height: 35px;
     margin: 15px auto 15px;
   }
 
@@ -130,12 +130,13 @@ html, body {
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
+    background: $search-results-bg;
     &.visible {
       height: 30%;
       margin-bottom: 1em;
     }
 
-    @include embossed-bg;
+    //@include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
@@ -147,18 +148,22 @@ html, body {
       text-decoration: none;
 
       &:hover {
-        text-decoration: underline;
+        color: $link-hover-text;
       }
     }
   }
 
 
   .tocify-item>a, .toc-footer li {
-    padding: 0 $nav-padding 0 $nav-padding;
+    padding: 3px $nav-padding 3px $nav-padding;
     display: block;
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .tocify-item:not(.tocify-focus)>a:hover {
+    color: $link-hover-text;
   }
 
   // The Table of Contents is composed of multiple nested
@@ -173,9 +178,6 @@ html, body {
 
   li {
     color: $nav-text;
-    transition-property: background;
-    transition-timing-function: linear;
-    transition-duration: 230ms;
   }
 
   // This is the currently selected ToC entry
@@ -188,16 +190,16 @@ html, body {
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
+    padding-bottom: 10px;
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
-    font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     // for embossed look:
-    @include embossed-bg;
+    //@include embossed-bg;
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
@@ -221,10 +223,10 @@ html, body {
     li,a {
       color: $nav-text;
       text-decoration: none;
-    }
 
-    a:hover {
-      text-decoration: underline;
+      &:hover {
+        color: $link-hover-text;
+      }
     }
 
     li {
@@ -313,8 +315,8 @@ html, body {
     float:left;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 30px;
+    padding: 0 15px;
+    line-height: 35px;
     outline: 0;
 
     &:active, &:focus {
@@ -371,15 +373,14 @@ html, body {
   }
 
   h1 {
-    @extend %header-font;
+    @extend %subtitle-font;
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #E6E6E6;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    border-top: 1px solid #e6e6e6;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -392,7 +393,7 @@ html, body {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #e6e6e6;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
@@ -441,8 +442,14 @@ html, body {
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
       vertical-align: bottom;
+      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #777;
+      font-weight: normal;
+      border-bottom: 1px solid #E6E6E6;
     }
 
     td {
@@ -450,15 +457,15 @@ html, body {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #E6E6E6;
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: #ffffff;
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: #FAFBFC;
     }
   }
 
@@ -480,16 +487,25 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
-    padding: 3px;
-    border-radius: 3px;
+    background-color: #FAFBFC;
+    padding: 2px 4px;
+    border-radius: 4px;
     @extend %break-words;
     @extend %code-font;
+  }
+
+  code.prettyprint {
+    color: #034752;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
   }
 
   pre>code {
     background-color: transparent;
     padding: 0;
+    border-radius: 0;
   }
 
   aside {
@@ -500,14 +516,17 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: $aside-notice-text;
 
     &.warning {
       background-color: $aside-warning-bg;
+      color: $aside-warning-text;
       @include text-shadow(0 1px 0 lighten($aside-warning-bg, 15%));
     }
 
     &.success {
       background-color: $aside-success-bg;
+      color: $aside-success-text;
       @include text-shadow(0 1px 0 lighten($aside-success-bg, 15%));
     }
   }
@@ -547,6 +566,8 @@ html, body {
 // This is all the stuff that appears in the right half of the page
 
 .content {
+  border-left: 1px solid #e6e6e6;
+
   pre, blockquote {
     background-color: $code-bg;
     color: #fff;
@@ -584,6 +605,11 @@ html, body {
       color: #ccc;
       border-top: 1px solid #000;
       border-bottom: 1px solid #404040;
+
+      code.prettyprint {
+        background: none;
+        color: inherit;
+      }
     }
   }
 }
