@@ -2036,6 +2036,7 @@ Parameter | Type | Description
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
+**sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
 **chase** | *boolean* | Enables chasing for this invoice
 **items** | *array* | Collection of Line Items
