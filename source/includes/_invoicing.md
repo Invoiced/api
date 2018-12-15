@@ -19,8 +19,6 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -95,8 +93,6 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -171,8 +167,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -247,8 +241,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -323,8 +315,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -401,8 +391,6 @@ Parameter | Type | Description
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
 **paid** | *boolean* | Indicates whether an invoice has been paid in full
 **status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`
-**chase** | *boolean* | Whether chasing is enabled for the invoice
-**next_chase_on** | *timestamp* | Next scheduled chase
 **attempt_count** | *integer* | # of payment attempts
 **next_payment_attempt** | *timestamp* | Next scheduled charge attempt, when in automatic collection
 **subscription** | *integer* | Subscription ID if invoice came from subscription
@@ -780,8 +768,6 @@ invoice.create();
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -856,8 +842,6 @@ invoice.create();
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -932,8 +916,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1008,8 +990,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1084,8 +1064,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1169,7 +1147,6 @@ Parameter | Type | Description
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
 **closed** | *boolean* | Marks an invoice as closed
-**chase** | *boolean* | Enables chasing for this invoice
 **items** | *array* | Collection of Line Items
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
@@ -1216,8 +1193,6 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1292,8 +1267,6 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1368,8 +1341,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1444,8 +1415,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1520,8 +1489,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1603,8 +1570,7 @@ Parameter | Type | Description
 curl "https://api.invoiced.com/invoices/:id" \
   -u {API_KEY}: \
   -X PATCH \
-  -d sent=1 \
-  -d chase=1
+  -d sent=1
 ```
 
 ```ruby
@@ -1650,8 +1616,6 @@ invoice.save();
   "closed": false,
   "paid": false,
   "status": "sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1726,8 +1690,6 @@ invoice.save();
   "closed": false,
   "paid": false,
   "status": "sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1802,8 +1764,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1878,8 +1838,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1954,8 +1912,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "closed": false,
   "paid": false,
   "status": "sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -2038,7 +1994,6 @@ Parameter | Type | Description
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
 **sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed
-**chase** | *boolean* | Enables chasing for this invoice
 **items** | *array* | Collection of Line Items
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
@@ -2243,8 +2198,6 @@ invoice.pay();
   "closed": false,
   "paid": true,
   "status": "paid",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": true,
   "attempt_count": 1,
   "next_payment_attempt": null,
@@ -2303,8 +2256,6 @@ invoice.pay();
   "closed": false,
   "paid": true,
   "status": "paid",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": true,
   "attempt_count": 1,
   "next_payment_attempt": null,
@@ -2363,8 +2314,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": true,
   "status": "paid",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": true,
   "attempt_count": 1,
   "next_payment_attempt": null,
@@ -2422,8 +2371,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": true,
   "status": "paid",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": true,
   "attempt_count": 1,
   "next_payment_attempt": null,
@@ -2479,8 +2426,6 @@ com.invoiced.entity.Invoice@e48fa2a JSON: {
   "closed": false,
   "paid": true,
   "status": "paid",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": true,
   "attempt_count": 1,
   "next_payment_attempt": null,
@@ -2741,8 +2686,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "chase": false,
-    "next_chase_on": null,
     "autopay": false,
     "attempt_count": 0,
     "next_payment_attempt": null,
@@ -2820,8 +2763,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "chase": false,
-    "next_chase_on": null,
     "autopay": false,
     "attempt_count": 0,
     "next_payment_attempt": null,
@@ -2899,8 +2840,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "chase": false,
-    "next_chase_on": null,
     "autopay": false,
     "attempt_count": 0,
     "next_payment_attempt": null,
@@ -2978,8 +2917,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "chase": false,
-    "next_chase_on": null,
     "autopay": false,
     "attempt_count": 0,
     "next_payment_attempt": null,
@@ -3057,8 +2994,6 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
     "closed": false,
     "paid": false,
     "status": "not_sent",
-    "chase": false,
-    "next_chase_on": null,
     "autopay": false,
     "attempt_count": 0,
     "next_payment_attempt": null,

@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 15, 2018
+- Removed `chase` and `next_chase_on` property on invoices. The new chasing system chases balances at the customer level.
+
 ### August 16, 2018
 - Added `updated_after` request parameter when listing customers, estimates, credit notes, invoices, subscriptions, and transactions to only return results updated after a given timestamp.
 

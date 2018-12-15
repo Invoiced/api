@@ -1234,8 +1234,7 @@ Parameter | Type | Description
 curl "https://api.invoiced.com/credit_notes/:id" \
   -u {API_KEY}: \
   -X PATCH \
-  -d sent=1 \
-  -d chase=1
+  -d sent=1
 ```
 
 ```ruby

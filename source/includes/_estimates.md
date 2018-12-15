@@ -1250,8 +1250,7 @@ Parameter | Type | Description
 curl "https://api.invoiced.com/estimates/:id" \
   -u {API_KEY}: \
   -X PATCH \
-  -d sent=1 \
-  -d chase=1
+  -d sent=1
 ```
 
 ```ruby
@@ -1854,8 +1853,6 @@ Invoice invoice = estimate.invoice();
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -1930,8 +1927,6 @@ Invoice invoice = estimate.invoice();
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -2006,8 +2001,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -2082,8 +2075,6 @@ Invoiced\Invoice JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
@@ -2158,8 +2149,6 @@ com.invoiced.entity.Invoice@3df85de JSON: {
   "closed": false,
   "paid": false,
   "status": "not_sent",
-  "chase": false,
-  "next_chase_on": null,
   "autopay": false,
   "attempt_count": 0,
   "next_payment_attempt": null,
