@@ -36,6 +36,8 @@ By default subscriptions will renew each billing cycle on the same day of the cy
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -68,6 +70,8 @@ By default subscriptions will renew each billing cycle on the same day of the cy
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -100,6 +104,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -132,6 +138,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -163,6 +171,8 @@ com.invoiced.entity.Subscription@74f0915b JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -186,6 +196,8 @@ Parameter | Type | Description
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon Objects
 **taxes** | *array* | Collection of Tax Rate Objects
+**recurring_total** | *number* | Total recurring amount (includes taxes)
+**mrr** | *number* | Monthly Recurring Revenue (MRR)
 **url** | *string* | URL to manage the subscription in the billing portal
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
@@ -350,6 +362,8 @@ subscription.create();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -382,6 +396,8 @@ subscription.create();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -414,6 +430,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -446,6 +464,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -478,6 +498,8 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -559,6 +581,8 @@ Subscription subscription = invoiced.newSubscription().retrieve({SUBSCRIPTION_ID
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -591,6 +615,8 @@ Subscription subscription = invoiced.newSubscription().retrieve({SUBSCRIPTION_ID
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -623,6 +649,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -655,6 +683,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -687,6 +717,8 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 1200,
+    "mrr": 100,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -758,6 +790,8 @@ subscription.save();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -790,6 +824,8 @@ subscription.save();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -822,6 +858,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -854,6 +892,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -886,6 +926,8 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -967,6 +1009,8 @@ subscription.cancel();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -999,6 +1043,8 @@ subscription.cancel();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1031,6 +1077,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1063,6 +1111,8 @@ Invoiced\Subscription JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1095,6 +1145,8 @@ com.invoiced.entity.Subscription@46bbce72 JSON: {
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1161,6 +1213,8 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1197,6 +1251,8 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1233,6 +1289,8 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1269,6 +1327,8 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}
@@ -1305,6 +1365,8 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
     ],
     "discounts": [],
     "taxes": [],
+    "recurring_total": 2400,
+    "mrr": 200,
     "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
     "created_at": 1420391704,
     "metadata": {}

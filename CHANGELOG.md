@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 16, 2018
+- Added `mrr` and `recurring_total` properties to subscriptions.
+
 ### December 15, 2018
 - Removed `chase` and `next_chase_on` property on invoices. The new chasing system chases balances at the customer level.
 
