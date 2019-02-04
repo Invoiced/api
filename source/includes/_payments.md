@@ -15,6 +15,7 @@ We currently support the following payment methods on transactions:
 
 - `credit_card`
 - `ach`
+- `direct_debit`
 - `paypal`
 - `wire_transfer`
 - `check`
