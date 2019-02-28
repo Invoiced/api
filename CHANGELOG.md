@@ -1,5 +1,8 @@
 Changelog
 =========
+### February 28, 2019
+- Our [.NET client library](https://github.com/Invoiced/invoiced-csharp) is now available!
+
 ### December 16, 2018
 - Added `mrr` and `recurring_total` properties to subscriptions.
 

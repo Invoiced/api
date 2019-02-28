@@ -58,11 +58,12 @@ In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/w
 
 We have client libraries available in several languages. If you don't see your language listed then please contact us and we would be happy to help.
 
-- [Ruby](https://github.com/Invoiced/invoiced-ruby)
-- [PHP](https://github.com/Invoiced/invoiced-php)
-- [Python](https://github.com/Invoiced/invoiced-python)
+- [.NET](https://github.com/Invoiced/invoiced-csharp)
 - [Go](https://github.com/Invoiced/invoiced-go)
 - [Java](https://github.com/Invoiced/invoiced-java)
+- [PHP](https://github.com/Invoiced/invoiced-php)
+- [Python](https://github.com/Invoiced/invoiced-python)
+- [Ruby](https://github.com/Invoiced/invoiced-ruby)
 
 ### Getting Help or Contributing
 
