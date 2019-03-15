@@ -35,6 +35,7 @@ Conversely, when AutoPay is disabled we will let your customers pay each invoice
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -73,6 +74,7 @@ Conversely, when AutoPay is disabled we will let your customers pay each invoice
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -111,6 +113,7 @@ Invoiced\Customer JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -149,6 +152,7 @@ Invoiced\Customer JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -187,6 +191,7 @@ com.invoiced.entity.Customer@d72919f JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -217,6 +222,7 @@ Parameter | Type | Description
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+**language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
@@ -402,6 +408,7 @@ customer.create();
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -432,6 +439,7 @@ customer.create();
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -462,6 +470,7 @@ Invoiced\Customer JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -492,6 +501,7 @@ Invoiced\Customer JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -522,6 +532,7 @@ com.invoiced.entity.Customer@cb8fd57 JSON: {
   "state": null,
   "postal_code": null,
   "country": "US",
+  "language": null,
   "tax_id": null,
   "phone": null,
   "notes": null,
@@ -558,6 +569,7 @@ Parameter | Type | Description
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+**language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes
@@ -612,6 +624,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -642,6 +655,7 @@ Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -672,6 +686,7 @@ Invoiced\Customer JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -702,6 +717,7 @@ Invoiced\Customer JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -732,6 +748,7 @@ com.invoiced.entity.Customer@cb8fd58 JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -835,6 +852,7 @@ customer.save();
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -865,6 +883,7 @@ customer.save();
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -895,6 +914,7 @@ Invoiced\Customer JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -925,6 +945,7 @@ Invoiced\Customer JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -955,6 +976,7 @@ com.invoiced.entity.Customer@cb8fd59 JSON: {
   "state": "CA",
   "postal_code": "94523",
   "country": "US",
+  "language": null,
   "tax_id": "893-934835",
   "phone": "(820) 297-2983",
   "notes": null,
@@ -991,6 +1013,7 @@ Parameter | Type | Description
 **state** | *string* | State or province
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+**language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
 **tax_id** | *string* | Tax ID to be displayed on documents
 **phone** | *string* | Phone #
 **notes** | *string* | Private customer notes

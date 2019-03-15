@@ -1,5 +1,8 @@
 Changelog
 =========
+### March 15, 2019
+- Added a `language` property to the customer object.
+
 ### February 28, 2019
 - Our [.NET client library](https://github.com/Invoiced/invoiced-csharp) is now available!
 
