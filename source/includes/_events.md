@@ -215,14 +215,23 @@ Parameter | Type | Description
 
 Events were named using the `object.action` pattern where `object` represents the subject of the event and `action` represents an operation on the object. You should expect to see the following event types:
 
+- `credit_note.created`
+- `credit_note.updated`
+- `credit_note.deleted`
+- `credit_note.commented`
+- `credit_note.viewed`
 - `customer.created`
 - `customer.updated`
 - `customer.deleted`
+- `customer.merged`
 - `email.sent`
 - `email.not_sent`
 - `estimate.created`
 - `estimate.updated`
 - `estimate.deleted`
+- `estimate.viewed`
+- `estimate.commented`
+- `estimate.approved`
 - `invoice.created`
 - `invoice.updated`
 - `invoice.deleted`
@@ -233,6 +242,16 @@ Events were named using the `object.action` pattern where `object` represents th
 - `line_item.created` (pending line items only)
 - `line_item.updated` (pending line items only)
 - `line_item.deleted` (pending line items only)
+- `note.created`
+- `note.updated`
+- `note.deleted`
+- `payment_plan.created`
+- `payment_plan.updated`
+- `payment_plan.deleted`
+- `task.created`
+- `task.updated`
+- `task.deleted`
+- `task.completed`
 - `subscription.created`
 - `subscription.updated`
 - `subscription.deleted`

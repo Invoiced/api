@@ -1,5 +1,8 @@
 Changelog
 =========
+### May 1, 2019
+- Added new event types.
+
 ### March 15, 2019
 - Added a `language` property to the customer object.
 
