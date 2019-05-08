@@ -1,5 +1,8 @@
 Changelog
 =========
+### May 8, 2019
+- Added payment source event types.
+
 ### May 1, 2019
 - Added new event types.
 

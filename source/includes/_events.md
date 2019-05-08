@@ -248,6 +248,9 @@ Events were named using the `object.action` pattern where `object` represents th
 - `payment_plan.created`
 - `payment_plan.updated`
 - `payment_plan.deleted`
+- `payment_source.created`
+- `payment_source.updated`
+- `payment_source.deleted`
 - `task.created`
 - `task.updated`
 - `task.deleted`
