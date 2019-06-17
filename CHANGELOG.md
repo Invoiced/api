@@ -1,5 +1,8 @@
 Changelog
 =========
+### June 17, 2019
+- Added contact event types.
+
 ### May 8, 2019
 - Added payment source event types.
 

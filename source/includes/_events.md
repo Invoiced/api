@@ -215,6 +215,9 @@ Parameter | Type | Description
 
 Events were named using the `object.action` pattern where `object` represents the subject of the event and `action` represents an operation on the object. You should expect to see the following event types:
 
+- `contact.created`
+- `contact.updated`
+- `contact.deleted`
 - `credit_note.created`
 - `credit_note.updated`
 - `credit_note.deleted`
