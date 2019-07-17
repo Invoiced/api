@@ -80,7 +80,7 @@ The API uses [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_acc
 
 ### Obtaining an API Key
 
-An API key can be obtained by signing in to [invoiced.com](https://invoiced.com), and then going to **Settings** > **Developers** > **API Keys**. Each business on Invoiced has its own set of API keys. We recommend creating a separate API key for each application that will be making calls on your behalf.
+An API key can be obtained by signing in to [invoiced.com](https://invoiced.com), and then going to **Settings** &rarr; **Developers** &rarr; **API Keys**. Each business on Invoiced has its own set of API keys. We recommend creating a separate API key for each application that will be making calls on your behalf.
 
 ### Usage
 
