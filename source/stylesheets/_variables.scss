@@ -14,21 +14,19 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOMIZE SLATE
 ////////////////////////////////////////////////////////////////////////////////
 // Use these settings to help adjust the appearance of Slate
 
-
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #FAFBFC;
+$nav-bg: #fafbfc;
 $examples-bg: #3d3e3d;
 $code-bg: #2d2f2e;
 $code-annotation-bg: #202221;
-$nav-subitem-bg: #FAFBFC;
-$nav-active-bg: #FAFBFC;
+$nav-subitem-bg: #fafbfc;
+$nav-active-bg: #fafbfc;
 $lang-select-border: #000;
 $lang-select-bg: #262827;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
@@ -39,21 +37,19 @@ $aside-warning-bg: #f2dede;
 $aside-success-bg: #dff0d8;
 $search-results-bg: rgba(0, 0, 0, 0.05);
 
-
 // TEXT COLORS
 ////////////////////
-$main-text: #4E5459; // main content text color
-$nav-text: #4E5459;
-$nav-active-text: #009E74;
-$link-text: #009E74;
-$link-hover-text: #0E7162;
+$main-text: #4e5459; // main content text color
+$nav-text: #4e5459;
+$nav-active-text: #009e74;
+$link-text: #009e74;
+$link-hover-text: #0e7162;
 $lang-select-text: #fff; // color of unselected language tab text
 $lang-select-active-text: #fff; // color of selected language tab text
 $lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
 $aside-notice-text: #31708f;
 $aside-warning-text: #a94442;
 $aside-success-text: #3c763d;
-
 
 // SIZES
 ////////////////////
@@ -69,32 +65,31 @@ $h1-margin-bottom: 21px; // padding under the largest header tags
 $tablet-width: 930px; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
 
-
 // FONTS
 ////////////////////
 %default-font {
-  font-family: "ColfaxWeb", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+    font-family: 'ColfaxWeb', Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 %subtitle-font {
-  font-family: FFMetaSerifWebProBold, Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  color: #0E7162;
+    font-family: FFMetaSerifWebProBold, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #0e7162;
 }
 
 %header-font {
-  @extend %default-font;
-  font-weight: normal;
-  color: #009E74;
+    @extend %default-font;
+    font-weight: normal;
+    color: #009e74;
 }
 
 %code-font {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  line-height: 1.5;
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono',
+        'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    font-size: 12px;
+    line-height: 1.5;
 }
-
 
 // OTHER
 ////////////////////
@@ -105,17 +100,16 @@ $nav-embossed-border-bottom: #e6e6e6;
 $main-embossed-text-shadow: 0px 1px 0px #fff;
 $search-box-border-color: #999;
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
 ////////////////////////////////////////////////////////////////////////////////
 // These settings are probably best left alone.
 
 %break-words {
-     word-break: break-all;
+    word-break: break-all;
 
-     /* Non standard for webkit */
-     word-break: break-word;
+    /* Non standard for webkit */
+    word-break: break-word;
 
-        hyphens: auto;
+    hyphens: auto;
 }

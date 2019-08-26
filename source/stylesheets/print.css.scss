@@ -26,118 +26,127 @@ $print-color-light: #ccc;
 $print-font-size: 12px;
 
 body {
-  @extend %default-font;
+    @extend %default-font;
 }
 
-.tocify, .toc-footer, .lang-selector, .search, #nav-button {
-  display: none;
+.tocify,
+.toc-footer,
+.lang-selector,
+.search,
+#nav-button {
+    display: none;
 }
 
-.tocify-wrapper>img {
-  margin: 0 auto;
-  display: block;
+.tocify-wrapper > img {
+    margin: 0 auto;
+    display: block;
 }
 
 .content {
-  font-size: 12px;
+    font-size: 12px;
 
-  pre, code {
-    @extend %code-font;
-    @extend %break-words;
-    border: 1px solid $print-color;
-    border-radius: 5px;
-    font-size: 0.8em;
-  }
-
-  pre {
-    padding: 1.3em;
-  }
-
-  code {
-    padding: 0.2em;
-  }
-
-  table {
-    border: 1px solid $print-color;
-    tr {
-      border-bottom: 1px solid $print-color;
+    pre,
+    code {
+        @extend %code-font;
+        @extend %break-words;
+        border: 1px solid $print-color;
+        border-radius: 5px;
+        font-size: 0.8em;
     }
-    td,th {
-      padding: 0.7em;
+
+    pre {
+        padding: 1.3em;
     }
-  }
 
-  p {
-    line-height: 1.5;
-  }
+    code {
+        padding: 0.2em;
+    }
 
-  a {
-    text-decoration: none;
-    color: #000;
-  }
+    table {
+        border: 1px solid $print-color;
+        tr {
+            border-bottom: 1px solid $print-color;
+        }
+        td,
+        th {
+            padding: 0.7em;
+        }
+    }
 
-  h1 {
-    @extend %header-font;
-    font-size: 2.5em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    margin-top: 1em;
-    margin-bottom: $h1-margin-bottom;
-    border: 2px solid $print-color-light;
-    border-width: 2px 0;
-    text-align: center;
-  }
+    p {
+        line-height: 1.5;
+    }
 
-  h2 {
-    @extend %header-font;
-    font-size: 1.8em;
-    margin-top: 2em;
-    border-top: 2px solid $print-color-light;
-    padding-top: 0.8em;
-  }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
 
-  h1+h2, h1+div+h2 {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 0;
-  }
+    h1 {
+        @extend %header-font;
+        font-size: 2.5em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-top: 1em;
+        margin-bottom: $h1-margin-bottom;
+        border: 2px solid $print-color-light;
+        border-width: 2px 0;
+        text-align: center;
+    }
 
-  h3, h4 {
-    @extend %header-font;
-    font-size: 0.8em;
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    text-transform: uppercase;
-  }
+    h2 {
+        @extend %header-font;
+        font-size: 1.8em;
+        margin-top: 2em;
+        border-top: 2px solid $print-color-light;
+        padding-top: 0.8em;
+    }
 
-  h5, h6 {
-    text-transform: uppercase;
-  }
+    h1 + h2,
+    h1 + div + h2 {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
 
-  aside {
-    padding: 1em;
-    border: 1px solid $print-color-light;
-    border-radius: 5px;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    line-height: 1.6;
-  }
+    h3,
+    h4 {
+        @extend %header-font;
+        font-size: 0.8em;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+        text-transform: uppercase;
+    }
 
-  aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 14px;
-  }
+    h5,
+    h6 {
+        text-transform: uppercase;
+    }
 
-  aside.notice:before {
-    @extend %icon-info-sign;
-  }
+    aside {
+        padding: 1em;
+        border: 1px solid $print-color-light;
+        border-radius: 5px;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        line-height: 1.6;
+    }
 
-  aside.warning:before {
-    @extend %icon-exclamation-sign;
-  }
+    aside:before {
+        vertical-align: middle;
+        padding-right: 0.5em;
+        font-size: 14px;
+    }
 
-  aside.success:before {
-    @extend %icon-ok-sign;
-  }
+    aside.notice:before {
+        @extend %icon-info-sign;
+    }
+
+    aside.warning:before {
+        @extend %icon-exclamation-sign;
+    }
+
+    aside.success:before {
+        @extend %icon-ok-sign;
+    }
 }
