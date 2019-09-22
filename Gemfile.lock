@@ -142,4 +142,4 @@ DEPENDENCIES
   therubyracer (~> 0.12.1)
 
 BUNDLED WITH
-   1.10.6
+   2.0.2
