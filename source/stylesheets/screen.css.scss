@@ -702,10 +702,14 @@ body {
     }
 }
 
-.highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #909090;
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+    color: #909090;
 }
 
-.highlight, .highlight .w {
-  background-color: $code-bg;
+.highlight,
+.highlight .w {
+    background-color: $code-bg;
 }
