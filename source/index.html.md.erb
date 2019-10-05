@@ -248,164 +248,23 @@ customer.create();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 15444,
-  "object": "customer",
-  "number": "CUST-0001",
-  "name": "Acme",
-  "email": null,
-  "autopay": false,
-  "payment_terms": null,
-  "payment_source": null,
-  "taxes": [],
-  "type": "company",
-  "attention_to": null,
-  "address1": null,
-  "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
-  "country": "US",
-  "language": null,
-  "language": null,
-  "tax_id": null,
-  "phone": null,
-  "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128,
-  "metadata": {
-    "icp_number": "1234567890",
-    "account_rep": "Jan"
-  }
-}
+<%= json data.customers.object %>
 ```
 
 ```ruby
-#<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: {
-  "id": 15444,
-  "object": "customer",
-  "number": "CUST-0001",
-  "name": "Acme",
-  "email": null,
-  "autopay": false,
-  "payment_terms": null,
-  "payment_source": null,
-  "taxes": [],
-  "type": "company",
-  "attention_to": null,
-  "address1": null,
-  "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
-  "country": "US",
-  "language": null,
-  "tax_id": null,
-  "phone": null,
-  "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128,
-  "metadata": {
-    "icp_number": "1234567890",
-    "account_rep": "Jan"
-  }
-}
+#<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: <%= json data.customers.object %>
 ```
 
 ```php
-Invoiced\Customer JSON: {
-  "id": 15444,
-  "object": "customer",
-  "number": "CUST-0001",
-  "name": "Acme",
-  "email": null,
-  "autopay": false,
-  "payment_terms": null,
-  "payment_source": null,
-  "taxes": [],
-  "type": "company",
-  "attention_to": null,
-  "address1": null,
-  "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
-  "country": "US",
-  "language": null,
-  "tax_id": null,
-  "phone": null,
-  "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128,
-  "metadata": {
-    "icp_number": "1234567890",
-    "account_rep": "Jan"
-  }
-}
+Invoiced\Customer JSON: <%= json data.customers.object %>
 ```
 
 ```python
-<Customer id=15444 at 0x3fdbf95e4d08> JSON: {
-  "id": 15444,
-  "object": "customer",
-  "number": "CUST-0001",
-  "name": "Acme",
-  "email": null,
-  "autopay": false,
-  "payment_terms": null,
-  "payment_source": null,
-  "taxes": [],
-  "type": "company",
-  "attention_to": null,
-  "address1": null,
-  "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
-  "country": "US",
-  "language": null,
-  "tax_id": null,
-  "phone": null,
-  "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128,
-  "metadata": {
-    "icp_number": "1234567890",
-    "account_rep": "Jan"
-  }
-}
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.customers.object %>
 ```
 
 ```java
-com.invoiced.entity.Customer@cb8fd59 JSON: {
-  "id": 15444,
-  "object": "customer",
-  "number": "CUST-0001",
-  "name": "Acme",
-  "email": null,
-  "autopay": false,
-  "payment_terms": null,
-  "payment_source": null,
-  "taxes": [],
-  "type": "company",
-  "attention_to": null,
-  "address1": null,
-  "address2": null,
-  "city": null,
-  "state": null,
-  "postal_code": null,
-  "country": "US",
-  "language": null,
-  "tax_id": null,
-  "phone": null,
-  "notes": null,
-  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/15444/pdf",
-  "created_at": 1415222128,
-  "metadata": {
-    "icp_number": "1234567890",
-    "account_rep": "Jan"
-  }
-}
+com.invoiced.entity.Customer@cb8fd59 JSON: <%= json data.customers.object %>
 ```
 
 Most Invoiced objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.

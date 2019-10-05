@@ -1,0 +1,39 @@
+{
+  "id": 15444,
+  "object": "customer",
+  "name": "Acme",
+  "number": "CUST-0001",
+  "email": "billing@acmecorp.com",
+  "autopay": true,
+  "payment_terms": null,
+  "payment_source": {
+    "id": 850,
+    "object": "card",
+    "brand": "Visa",
+    "last4": "4242",
+    "exp_month": 2,
+    "exp_year": 20,
+    "funding": "credit"
+  },
+  "taxes": [],
+  "type": "company",
+  "attention_to": null,
+  "address1": null,
+  "address2": null,
+  "city": null,
+  "state": null,
+  "postal_code": null,
+  "country": "US",
+  "language": null,
+  "tax_id": null,
+  "phone": null,
+  "notes": null,
+  "sign_up_page": null,
+  "sign_up_url": null,
+  "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
+  "created_at": 1415222128,
+  "metadata": {
+    "icp_number": "1234567890",
+    "account_rep": "Jan"
+  }
+}

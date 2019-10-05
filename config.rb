@@ -1,3 +1,5 @@
+require "neatjson"
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -35,4 +37,11 @@ configure :build do
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
+end
+
+# Custom Helpers
+helpers do
+  def json(data)
+    JSON.neat_generate data, sort:true, wrap:true, after_colon_n:1
+  end
 end

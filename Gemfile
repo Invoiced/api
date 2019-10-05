@@ -10,3 +10,4 @@ gem 'rouge', '~> 1.10.1'
 gem 'redcarpet', '~> 3.3.2'
 
 gem 'rake', '~> 10.4.2'
+gem 'neatjson', '~> 0.9'
