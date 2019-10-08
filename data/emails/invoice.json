@@ -1,0 +1,13 @@
+{
+  "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+  "object": "email",
+  "state": "sent",
+  "reject_reason": null,
+  "email": "client@example.com",
+  "template": "new_invoice_email",
+  "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
+  "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
+  "opens": 0,
+  "opens_detail": [],
+  "created_at": 1436890047
+}
