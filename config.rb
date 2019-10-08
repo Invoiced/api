@@ -40,8 +40,16 @@ configure :build do
 end
 
 # Custom Helpers
+INDENTATION_LEVEL=2
 helpers do
-  def json(data)
-    JSON.neat_generate data, sort:true, wrap:true, after_colon_n:1
+  def json(data, indent=0)
+    res = JSON.neat_generate data, sort:true, wrap:true, after_colon_n:1
+
+    if indent > 0
+      str = " " * (indent * INDENTATION_LEVEL)
+      return res.gsub("\n", "\n" + str)
+    end
+
+    res
   end
 end
