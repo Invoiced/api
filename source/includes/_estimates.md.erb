@@ -311,23 +311,23 @@ estimate.save();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.estimates.update %>
+<%= json data.estimates._update %>
 ```
 
 ```ruby
-#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: <%= json data.estimates.update %>
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: <%= json data.estimates._update %>
 ```
 
 ```php
-Invoiced\Estimate JSON: <%= json data.estimates.update %>
+Invoiced\Estimate JSON: <%= json data.estimates._update %>
 ```
 
 ```python
-<Estimate id=2048 at 0x3fdbf95e4d08> JSON: <%= json data.estimates.update %>
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: <%= json data.estimates._update %>
 ```
 
 ```java
-com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.update %>
+com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates._update %>
 ```
 
 Use this endpoint to update an estimate.
