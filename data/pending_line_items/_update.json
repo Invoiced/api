@@ -1,0 +1,17 @@
+{
+  "id": 8,
+  "object": "line_item",
+  "customer": 15444,
+  "catalog_item": "delivery",
+  "type": "service",
+  "name": "Delivery",
+  "description": null,
+  "quantity": 2,
+  "unit_cost": 10,
+  "amount": 20,
+  "discountable": true,
+  "discounts": [],
+  "taxable": true,
+  "taxes": [],
+  "metadata": {}
+}
