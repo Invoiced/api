@@ -9,198 +9,23 @@ Events are also the basis of our webhooks feature. Webhooks are HTTP callbacks t
 ### Attributes
 
 ```shell
-{
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+<%= json data.events.object %>
 ```
 
 ```ruby
-#<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+#<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: <%= json data.events.object %>
 ```
 
 ```php
-Invoiced\Event JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+Invoiced\Event JSON: <%= json data.events.object %>
 ```
 
 ```python
-<Event id=1228003 at 0x3fdbf95e4d08> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+<Event id=1228003 at 0x3fdbf95e4d08> JSON: <%= json data.events.object %>
 ```
 
 ```java
-com.invoiced.entity.Event@1c5119e JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              // Customer Object
-              // Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              // Invoice Object
-              // Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+com.invoiced.entity.Event@1c5119e JSON: <%= json data.events.object %>
 ```
 
 Parameter | Type | Description
@@ -294,198 +119,23 @@ Event eventToRetrieve = event.retrieve({EVENT_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-{
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+<%= json data.events.retrieve %>
 ```
 
 ```ruby
-#<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+#<Invoiced::Event:0x3fdbf95e4d08 id=1228003> JSON: <%= json data.events.retrieve %>
 ```
 
 ```php
-Invoiced\Event JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+Invoiced\Event JSON: <%= json data.events.retrieve %>
 ```
 
 ```python
-<Event id=1228003 at 0x3fdbf95e4d08> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+<Event id=1228003 at 0x3fdbf95e4d08> JSON: <%= json data.events.retrieve %>
 ```
 
 ```java
-com.invoiced.entity.Event@cb8fd58 JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-}
+com.invoiced.entity.Event@cb8fd58 JSON: <%= json data.events.retrieve %>
 ```
 
 This endpoint retrieves a specific event.
@@ -523,216 +173,31 @@ EntityList<Event> events = connection.newEvent().listAll();
 
 ```shell
 [
-  {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-  },
-  { ... },
-  { ... }
+  <%= json data.events.list_all, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Event:0x3fdbf95e4d08 id=212047> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-  },
-  #<Invoiced::Event:0x3fdbf95e4d09 id=1228004> JSON: { ... },
-  #<Invoiced::Event:0x3fdbf95e4d10 id=1228005> JSON: { ... }
+  #<Invoiced::Event:0x3fdbf95e4d08 id=212047> JSON: <%= json data.events.list_all, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Event JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-  },
-  Invoiced\Event JSON: { ... },
-  Invoiced\Event JSON: { ... }
+  Invoiced\Event JSON: <%= json data.events.list_all, 1 %>
 ]
 ```
 
 ```python
 [
-  <Event id=1228003 at 0x3fdbf95e4d08> JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              # Customer Object
-              # Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              # Invoice Object
-              # Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-  },
-  <Event id=1228004 at 0x3fdbf95e4d08> JSON: { ... },
-  <Event id=1228005 at 0x3fdbf95e4d08> JSON: { ... }
+  <Event id=1228003 at 0x3fdbf95e4d08> JSON: <%= json data.events.list_all, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Event@1c5119e JSON: {
-    "id": 1228003,
-    "object": "event",
-    "type": "transaction.created",
-    "timestamp": 1451500772,
-    "data": {
-        "object": {
-            "amount": 55,
-            "created_at": 1451500772,
-            "credit_note": null,
-            "currency": "usd",
-            "customer": {
-              // Customer Object
-              // Excluded for brevity
-            },
-            "date": 1451500771,
-            "gateway": null,
-            "gateway_id": null,
-            "payment_source": null,
-            "id": 212047,
-            "invoice": {
-              // Invoice Object
-              // Excluded for brevity
-            },
-            "metadata": [],
-            "method": "other",
-            "notes": null,
-            "object": "transaction",
-            "parent_transaction": null,
-            "status": "succeeded",
-            "type": "payment",
-            "pdf_url": "https://dundermifflin.invoiced.com/payments/59FHO96idoXFeiBDu1y5Zggg/pdf",
-            "metadata": {}
-        }
-    }
-  }, 
-  com.invoiced.entity.Event@2d7f0598 JSON: {...},
-  com.invoiced.entity.Event@3d7f0598 JSON: {...}
+  com.invoiced.entity.Event@1c5119e JSON: <%= json data.events.list_all, 1 %>
 ] 
 ```
 
