@@ -150,23 +150,23 @@ paymentPlan.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.payment_plans.create %>
+<%= json data.payment_plans.object %>
 ```
 
 ```ruby
-#<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: <%= json data.payment_plans.create %>
+#<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: <%= json data.payment_plans.object %>
 ```
 
 ```php
-Invoiced\PaymentPlan JSON: <%= json data.payment_plans.create %>
+Invoiced\PaymentPlan JSON: <%= json data.payment_plans.object %>
 ```
 
 ```python
-<PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: <%= json data.payment_plans.create %>
+<PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: <%= json data.payment_plans.object %>
 ```
 
 ```java
-com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.create %>
+com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.object %>
 ```
 
 ### HTTP Request
@@ -211,23 +211,23 @@ PaymentPlan paymentPlan = invoice.newPaymentPlan().retrieve();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.payment_plans.retrieve %>
+<%= json data.payment_plans.object %>
 ```
 
 ```ruby
-#<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: <%= json data.payment_plans.retrieve %>
+#<Invoiced::PaymentPlan:0x3fdbf95e4d08 id=6> JSON: <%= json data.payment_plans.object %>
 ```
 
 ```php
-Invoiced\PaymentPlan JSON: <%= json data.payment_plans.retrieve %>
+Invoiced\PaymentPlan JSON: <%= json data.payment_plans.object %>
 ```
 
 ```python
-<PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: <%= json data.payment_plans.retrieve %>
+<PaymentPlan id=6 at 0x3fdbf95e4d08> JSON: <%= json data.payment_plans.object %>
 ```
 
 ```java
-com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.retrieve %>
+com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.object %>
 ```
 
 This endpoint retrieves the payment plan for a given invoice.
