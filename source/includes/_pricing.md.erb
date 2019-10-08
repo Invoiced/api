@@ -9,98 +9,28 @@ A catalog item represents a product or service that you sell. Catalog items can 
 ### Attributes
 
 ```shell
-{
-  "id": "delivery",
-  "object": "catalog_item",
-  "name": "Delivery",
-  "currency": "usd",
-  "unit_cost": 100,
-  "description": null,
-  "type": "service",
-  "taxes": [],
-  "discountable": true,
-  "taxable": true,
-  "unit_cost": 10,
-  "created_at": 1477327516,
-  "metadata": {}
-}
+<%= json data.pricing.catalog_items.object %>
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: {
-  "id": "delivery",
-  "object": "catalog_item",
-  "name": "Delivery",
-  "currency": "usd",
-  "unit_cost": 100,
-  "description": null,
-  "type": "service",
-  "taxes": [],
-  "discountable": true,
-  "taxable": true,
-  "unit_cost": 10,
-  "created_at": 1477327516,
-  "metadata": {}
-}
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```php
-Invoiced\CatalogItem JSON: {
-  "id": "delivery",
-  "object": "catalog_item",
-  "name": "Delivery",
-  "currency": "usd",
-  "unit_cost": 100,
-  "description": null,
-  "type": "service",
-  "taxes": [],
-  "discountable": true,
-  "taxable": true,
-  "unit_cost": 10,
-  "created_at": 1477327516,
-  "metadata": {}
-}
+Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: {
-  "id": "delivery",
-  "object": "catalog_item",
-  "name": "Delivery",
-  "currency": "usd",
-  "unit_cost": 100,
-  "description": null,
-  "type": "service",
-  "taxes": [],
-  "discountable": true,
-  "taxable": true,
-  "unit_cost": 10,
-  "created_at": 1477327516,
-  "metadata": {}
-}
+<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@192cafae JSON: {
-  "id": "delivery",
-  "object": "catalog_item",
-  "name": "Delivery",
-  "currency": "usd",
-  "unit_cost": 100,
-  "description": null,
-  "type": "service",
-  "taxes": [],
-  "discountable": true,
-  "taxable": true,
-  "unit_cost": 10,
-  "created_at": 1477327516,
-  "metadata": {}
-}
+com.invoiced.entity.CatalogItem@192cafae JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**id** | *string* | The catalog item's unique ID
+**id** | *integer* | The catalog item's unique ID
 **object** | *string* | Object type, `catalog_item`
 **name** | *string* | Catalog item name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
@@ -120,83 +50,28 @@ A plan describes a fixed amount that is billed to customers over a recurring int
 ### Attributes
 
 ```shell
-{
-  "id": "starter",
-  "object": "plan",
-  "name": "Starter",
-  "currency": "usd",
-  "amount": 49,
-  "interval": "month",
-  "interval_count": 1,
-  "catalog_item": "software-subscription",
-  "created_at": 1477418268,
-  "metadata": {}
-}
+<%= json data.pricing.plans.object %>
 ```
 
 ```ruby
-#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: {
-  "id": "starter",
-  "object": "plan",
-  "name": "Starter",
-  "currency": "usd",
-  "amount": 49,
-  "interval": "month",
-  "interval_count": 1,
-  "catalog_item": "software-subscription",
-  "created_at": 1477418268,
-  "metadata": {}
-}
+#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans.object %>
 ```
 
 ```php
-Invoiced\Plan JSON: {
-  "id": "starter",
-  "object": "plan",
-  "name": "Starter",
-  "currency": "usd",
-  "amount": 49,
-  "interval": "month",
-  "interval_count": 1,
-  "catalog_item": "software-subscription",
-  "created_at": 1477418268,
-  "metadata": {}
-}
+Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
 ```
 
 ```python
-<Plan id=starter at 0x3fdbf95e4d08> JSON: {
-  "id": "starter",
-  "object": "plan",
-  "name": "Starter",
-  "currency": "usd",
-  "amount": 49,
-  "interval": "month",
-  "interval_count": 1,
-  "catalog_item": "software-subscription",
-  "created_at": 1477418268,
-  "metadata": {}
-}
+<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
 ```
 
 ```java
-com.invoiced.entity.Plan@192cafae JSON: {
-  "id": "starter",
-  "object": "plan",
-  "name": "Starter",
-  "currency": "usd",
-  "amount": 49,
-  "interval": "month",
-  "interval_count": 1,
-  "catalog_item": "software-subscription",
-  "created_at": 1477418268,
-  "metadata": {}
-}
+com.invoiced.entity.Plan@192cafae JSON: <%= json data.pricing.plans.object %>
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**id** | *string* | The plan's unique ID
+**id** | *integer* | The plan's unique ID
 **object** | *string* | Object type, `plan`
 **catalog_item** | *string* | Catalog item ID the plan belongs to
 **name** | *string* | Plan name
@@ -214,73 +89,28 @@ A tax rate describes a tax that customers should be charged. Tax rates can be ap
 ### Attributes
 
 ```shell
-{
-  "id": "vat",
-  "object": "tax_rate",
-  "name": "VAT",
-  "currency": null,
-  "value": 5,
-  "is_percent": true,
-  "created_at": 1477418268,
-  "metadata": {}
-}
+<%= json data.pricing.tax_rates.object %>
 ```
 
 ```ruby
-#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: {
-  "id": "vat",
-  "object": "tax_rate",
-  "name": "VAT",
-  "currency": null,
-  "value": 5,
-  "is_percent": true,
-  "created_at": 1477418268,
-  "metadata": {}
-}
+#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates.object %>
 ```
 
 ```php
-Invoiced\TaxRate JSON: {
-  "id": "vat",
-  "object": "tax_rate",
-  "name": "VAT",
-  "currency": null,
-  "value": 5,
-  "is_percent": true,
-  "created_at": 1477418268,
-  "metadata": {}
-}
+Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates.object %>
 ```
 
 ```python
-<TaxRate id=vat at 0x3fdbf95e4d08> JSON: {
-  "id": "vat",
-  "object": "tax_rate",
-  "name": "VAT",
-  "currency": null,
-  "value": 5,
-  "is_percent": true,
-  "created_at": 1477418268,
-  "metadata": {}
-}
+<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates.object %>
 ```
 
 ```java
-com.invoiced.entity.TaxRate@192cafae JSON: {
-  "id": "vat",
-  "object": "tax_rate",
-  "name": "VAT",
-  "currency": null,
-  "value": 5,
-  "is_percent": true,
-  "created_at": 1477418268,
-  "metadata": {}
-}
+com.invoiced.entity.TaxRate@192cafae JSON: <%= json data.pricing.tax_rates.object %>
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**id** | *string* | The tax rate's unique ID
+**id** | *integer* | The tax rate's unique ID
 **object** | *string* | Object type, `tax_rate`
 **name** | *string* | Tax rate name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
@@ -296,73 +126,28 @@ A coupon describes a discount that can be applied to [invoices](#invoice-object)
 ### Attributes
 
 ```shell
-{
-  "id": "S8L47J",
-  "object": "coupon",
-  "name": "Non-profit Discount",
-  "currency": null,
-  "value": 20,
-  "is_percent": true,
-  "created_at": 1477415090,
-  "metadata": {}
-}
+<%= json data.pricing.coupons.object %>
 ```
 
 ```ruby
-#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: {
-  "id": "S8L47J",
-  "object": "coupon",
-  "name": "Non-profit Discount",
-  "currency": null,
-  "value": 20,
-  "is_percent": true,
-  "created_at": 1477415090,
-  "metadata": {}
-}
+#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons.object %>
 ```
 
 ```php
-Invoiced\Coupon JSON: {
-  "id": "S8L47J",
-  "object": "coupon",
-  "name": "Non-profit Discount",
-  "currency": null,
-  "value": 20,
-  "is_percent": true,
-  "created_at": 1477415090,
-  "metadata": {}
-}
+Invoiced\Coupon JSON: <%= json data.pricing.coupons.object %>
 ```
 
 ```python
-<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: {
-  "id": "S8L47J",
-  "object": "coupon",
-  "name": "Non-profit Discount",
-  "currency": null,
-  "value": 20,
-  "is_percent": true,
-  "created_at": 1477415090,
-  "metadata": {}
-}
+<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons.object %>
 ```
 
 ```java
-com.invoiced.entity.Coupon@192cafae JSON: {
-  "id": "S8L47J",
-  "object": "coupon",
-  "name": "Non-profit Discount",
-  "currency": null,
-  "value": 20,
-  "is_percent": true,
-  "created_at": 1477415090,
-  "metadata": {}
-}
+com.invoiced.entity.Coupon@192cafae JSON: <%= json data.pricing.coupons.object %>
 ```
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**id** | *string* | The coupon's unique ID
+**id** | *integer* | The coupon's unique ID
 **object** | *string* | Object type, `coupon`
 **name** | *string* | Coupon name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
