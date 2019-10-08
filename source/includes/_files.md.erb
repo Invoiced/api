@@ -9,63 +9,23 @@ Represents an external file.
 ### Attributes
 
 ```shell
-{
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<%= json data.files.object %>
 ```
 
 ```ruby
-#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.object %>
 ```
 
 ```php
-Invoiced\File JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+Invoiced\File JSON: <%= json data.files.object %>
 ```
 
 ```python
-<File id=13 at 0x3fdbf95e4d08> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.object %>
 ```
 
 ```java
-com.invoiced.entity.File@192cafae JSON: {
-  "id": 13,
-  "name": "logo-invoice.png",
-  "object": "file",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+com.invoiced.entity.File@192cafae JSON: <%= json data.files.object %>
 ```
 
 Parameter | Type | Description
@@ -130,63 +90,23 @@ file.create();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<%= json data.files.create %>
 ```
 
 ```ruby
-#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.create %>
 ```
 
 ```php
-Invoiced\File JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+Invoiced\File JSON: <%= json data.files.create %>
 ```
 
 ```python
-<File id=13 at 0x3fdbf95e4d08> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.create %>
 ```
 
 ```java
-com.invoiced.entity.File@106505f5 JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855  
-}
+com.invoiced.entity.File@106505f5 JSON: <%= json data.files.create %>
 ```
 
 Create a new file profile with this endpoint.
@@ -232,63 +152,23 @@ File file = invoiced.newFile().retrieve({FILE_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<%= json data.files.retrieve %>
 ```
 
 ```ruby
-#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.retrieve %>
 ```
 
 ```php
-Invoiced\File JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+Invoiced\File JSON: <%= json data.files.retrieve %>
 ```
 
 ```python
-<File id=13 at 0x3fdbf95e4d08> JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855
-}
+<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.retrieve %>
 ```
 
 ```java
-com.invoiced.entity.File@106505f5 JSON: {
-  "id": 13,
-  "object": "file",
-  "name": "logo-invoice.png",
-  "size": 6936,
-  "type": "image/png",
-  "url": "https://invoiced.com/img/logo-invoice.png",
-  "created_at": 1464625855  
-}
+com.invoiced.entity.File@106505f5 JSON: <%= json data.files.retrieve %>
 ```
 
 This endpoint retrieves a specific file.
