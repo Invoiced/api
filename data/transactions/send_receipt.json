@@ -1,0 +1,13 @@
+{
+    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+    "object": "email",
+    "state": "sent",
+    "reject_reason": null,
+    "email": "client@example.com",
+    "template": "payment_receipt_email",
+    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
+    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
+    "opens": 0,
+    "opens_detail": [],
+    "created_at": 1436890047
+  }

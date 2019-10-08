@@ -1,0 +1,9 @@
+{
+  "id": 4321,
+  "object": "bank_account",
+  "bank_name": "Wells Fargo",
+  "last4": "7890",
+  "routing_number": "110000000",
+  "verified": true,
+  "currency": "usd"
+}

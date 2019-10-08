@@ -29,123 +29,23 @@ We currently support the following payment methods on transactions:
 ### Attributes
 
 ```shell
-{
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<%= json data.transactions.object %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object %>
 ```
 
 ```php
-Invoiced\Transaction JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+Invoiced\Transaction JSON: <%= json data.transactions.object %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object %>
 ```
 
 Parameter | Type | Description
@@ -223,123 +123,23 @@ transaction.create();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": "1450",
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<%= json data.transactions.create %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=30939> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": "1450",
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=30939> JSON: <%= json data.transactions.create %>
 ```
 
 ```php
-Invoiced\Transaction JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": "1450",
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+Invoiced\Transaction JSON: <%= json data.transactions.create %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": "1450",
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.create %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": "1450",
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.create %>
 ```
 
 Create a new transaction with this endpoint.
@@ -394,123 +194,23 @@ Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-{
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<%= json data.transactions.retrieve %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.retrieve %>
 ```
 
 ```php
-Invoiced\Transaction JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+Invoiced\Transaction JSON: <%= json data.transactions.retrieve %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.retrieve %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.retrieve %>
 ```
 
 This endpoint retrieves a specific transaction.
@@ -553,122 +253,22 @@ transaction.save();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": "Check was received by Jan",
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<%= json data.transactions._update %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": "Check was received by Jan",
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions._update %>
 ```
 
 ```php
-Invoiced\Transaction JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": "Check was received by Jan",
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+Invoiced\Transaction JSON: <%= json data.transactions._update %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": "Check was received by Jan",
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions._update %>
 ```
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": "Check was received by Jan",
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions._update %>
 ```
 
 Use this endpoint to update a transaction.
@@ -729,102 +329,32 @@ Email[] emails = transaction.send(emailRequest);
 
 ```shell
 [
-  {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "payment_receipt_email",
-    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  { ... },
-  { ... }
+	<%= json data.transactions.send_receipt, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "payment_receipt_email",
-    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
-  #<Invoiced::Email:0x3fdbffge4d10 id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731> JSON: { ... }
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.transactions.send_receipt, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Email JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "payment_receipt_email",
-    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  Invoiced\Email JSON: { ... },
-  Invoiced\Email JSON: { ... }
+  Invoiced\Email JSON: <%= json data.transactions.send_receipt, 1 %>
 ]
 ```
 
 ```python
 [
-  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "payment_receipt_email",
-    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  <Email id=a0s36fbc44d44aa7f9a55easdfi8ce731 at 0x3fdbffge4d10> JSON: { ... },
-  <Email id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731 at 0x3fdbffge4d10> JSON: { ... }
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.send_receipt, 1 %>
 ]
 ```
 
 ```java
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 [
-  com.invoiced.entity.Email@12497547 JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "payment_receipt_email",
-    "subject": "Receipt for your recent payment to Dunder Mifflin, Inc.",
-    "message": "Dear Client, we have attached a receipt for your most recent payment. Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  com.invoiced.entity.Email@12497547 JSON: {...},
-  com.invoiced.entity.Email@12497547 JSON: {...}
+  com.invoiced.entity.Email@12497547 JSON: <%= json data.transactions.send_receipt, 1 %>
 ]
 ```
 
@@ -876,123 +406,23 @@ Transaction refund = transaction.refund(400);
 > The above command returns JSON structured like this:
 
 ```shell
-{
-	"id": 20952,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "refund",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 400,
-	"notes": null,
-	"parent_transaction": 20939,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<%= json data.transactions.refund %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20952> JSON: {
-	"id": 20952,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "refund",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 400,
-	"notes": null,
-	"parent_transaction": 20939,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=20952> JSON: <%= json data.transactions.refund %>
 ```
 
 ```php
-Invoiced\Transaction JSON: {
-	"id": 20952,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "refund",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 400,
-	"notes": null,
-	"parent_transaction": 20939,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+Invoiced\Transaction JSON: <%= json data.transactions.refund %>
 ```
 
 ```python
-<Transaction id=20952 at 0x3fdbf95e4d08> JSON: {
-	"id": 20952,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "refund",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 400,
-	"notes": null,
-	"parent_transaction": 20939,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+<Transaction id=20952 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.refund %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@424ba398 JSON: {
-	"id": 20952,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "refund",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 400,
-	"notes": null,
-	"parent_transaction": 20939,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/20939pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-}
+com.invoiced.entity.Transaction@424ba398 JSON: <%= json data.transactions.refund %>
 ```
 
 You can issue a refund for `charge` and `payment` transactions. When a refund is issued for a `charge` transaction we will attempt to initiate the refund over the payment gateway it happened on.
@@ -1078,27 +508,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 
 ```shell
 [
-  {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-  },
+	<%= json data.transactions.list_all %>,
   { ... },
   { ... }
 ]
@@ -1106,113 +516,25 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 
 ```ruby
 [
-  #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-  },
-  #<Invoiced::Transaction:0x3fdbf95e4d09 id=20940> JSON: { ... },
-  #<Invoiced::Transaction:0x3fdbf95e4d10 id=20941> JSON: { ... }
+  #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.list_all, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Transaction JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-  },
-  Invoiced\Transaction JSON: { ... },
-  Invoiced\Transaction JSON: { ... }
+  Invoiced\Transaction JSON: <%= json data.transactions.list_all, 1 %>
 ]
 ```
 
 ```python
 [
-  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-  },
-  <Transaction id=20940 at 0x3fdbf95e4d08> JSON: { ... },
-  <Transaction id=20941 at 0x3fdbf95e4d08> JSON: { ... }
+  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.list_all, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Transaction@52638766 JSON: {
-	"id": 20939,
-	"object": "transaction",
-	"customer": 15460,
-	"invoice": 44648,
-	"credit_note": null,
-	"date": 1410843600,
-	"type": "payment",
-	"method": "check",
-	"status": "succeeded",
-	"gateway": null,
-	"gateway_id": null,
-	"payment_source": null,
-	"currency": "usd",
-	"amount": 800,
-	"notes": null,
-	"parent_transaction": null,
-	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-	"created_at": 1415228628,
-    "metadata": {}
-  },
-  com.invoiced.entity.Transaction@5c01c09f JSON: {...},
-  com.invoiced.entity.Transaction@5c01a09f JSON: {...}
+  com.invoiced.entity.Transaction@52638766 JSON: <%= json data.transactions.list_all, 1 %>
 ]
 ```
 This endpoint retrieves all transactions.

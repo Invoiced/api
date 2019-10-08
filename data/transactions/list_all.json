@@ -1,0 +1,21 @@
+{
+	"id": 20939,
+	"object": "transaction",
+	"customer": 15460,
+	"invoice": 44648,
+	"credit_note": null,
+	"date": 1410843600,
+	"type": "payment",
+	"method": "check",
+	"status": "succeeded",
+	"gateway": null,
+	"gateway_id": null,
+	"payment_source": null,
+	"currency": "usd",
+	"amount": 800,
+	"notes": null,
+	"parent_transaction": null,
+	"pdf_url": "https://dundermifflin.invoiced.com/payments/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+	"created_at": 1415228628,
+    "metadata": {}
+  }
