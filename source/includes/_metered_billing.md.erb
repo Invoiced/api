@@ -116,23 +116,23 @@ PendingLineItem pli = customer.newPendingLineItem().retrieve({LINE_ITEM_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pending_line_items.retrieve %>
+<%= json data.pending_line_items.object %>
 ```
 
 ```ruby
-#<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: <%= json data.pending_line_items.retrieve %>
+#<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: <%= json data.pending_line_items.object %>
 ```
 
 ```php
-Invoiced\LineItem JSON: <%= json data.pending_line_items.retrieve %>
+Invoiced\LineItem JSON: <%= json data.pending_line_items.object %>
 ```
 
 ```python
-<LineItem id=8 at 0x3fdbf95e4d08> JSON: <%= json data.pending_line_items.retrieve %>
+<LineItem id=8 at 0x3fdbf95e4d08> JSON: <%= json data.pending_line_items.object %>
 ```
 
 ```java
-com.invoiced.entity.PendingLineItem@754f2c43 JSON: <%= json data.pending_line_items.retrieve %>
+com.invoiced.entity.PendingLineItem@754f2c43 JSON: <%= json data.pending_line_items.object %>
 ```
 
 This endpoint retrieves a specific pending line item.
@@ -342,31 +342,31 @@ EntityList<PendingLineItem> plis = pli.listAll();
 
 ```shell
 [
-  <%= json data.pending_line_items.list_all, 1 %>
+  <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: <%= json data.pending_line_items.list_all, 1 %>
+  #<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\LineItem JSON: <%= json data.pending_line_items.list_all, 1 %>
+  Invoiced\LineItem JSON: <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <LineItem id=8 at 0x3fdbf95e4d08> JSON: <%= json data.pending_line_items.list_all, 1 %>
+  <LineItem id=8 at 0x3fdbf95e4d08> JSON: <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: <%= json data.pending_line_items.list_all, 1 %>
+  com.invoiced.entity.PendingLineItem@5dac2ea1 JSON: <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 

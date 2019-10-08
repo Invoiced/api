@@ -90,23 +90,23 @@ file.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.files.create %>
+<%= json data.files.object %>
 ```
 
 ```ruby
-#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.create %>
+#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.object %>
 ```
 
 ```php
-Invoiced\File JSON: <%= json data.files.create %>
+Invoiced\File JSON: <%= json data.files.object %>
 ```
 
 ```python
-<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.create %>
+<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.object %>
 ```
 
 ```java
-com.invoiced.entity.File@106505f5 JSON: <%= json data.files.create %>
+com.invoiced.entity.File@106505f5 JSON: <%= json data.files.object %>
 ```
 
 Create a new file profile with this endpoint.
@@ -152,23 +152,23 @@ File file = invoiced.newFile().retrieve({FILE_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.files.retrieve %>
+<%= json data.files.object %>
 ```
 
 ```ruby
-#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.retrieve %>
+#<Invoiced::File:0x3fdbf95e4d08 id=13> JSON: <%= json data.files.object %>
 ```
 
 ```php
-Invoiced\File JSON: <%= json data.files.retrieve %>
+Invoiced\File JSON: <%= json data.files.object %>
 ```
 
 ```python
-<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.retrieve %>
+<File id=13 at 0x3fdbf95e4d08> JSON: <%= json data.files.object %>
 ```
 
 ```java
-com.invoiced.entity.File@106505f5 JSON: <%= json data.files.retrieve %>
+com.invoiced.entity.File@106505f5 JSON: <%= json data.files.object %>
 ```
 
 This endpoint retrieves a specific file.

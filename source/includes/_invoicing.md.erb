@@ -278,23 +278,23 @@ invoice.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.invoicing.invoices.create %>
+<%= json data.invoicing.invoices.object %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.create %>
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```php
-Invoiced\Invoice JSON: <%= json data.invoicing.invoices.create %>
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.create %>
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.create %>
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 Create a new invoice with this endpoint.
@@ -353,23 +353,23 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.invoicing.invoices.retrieve %>
+<%= json data.invoicing.invoices.object %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.retrieve %>
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```php
-Invoiced\Invoice JSON: <%= json data.invoicing.invoices.retrieve %>
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.retrieve %>
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.retrieve %>
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 This endpoint retrieves a specific invoice.
@@ -742,31 +742,31 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 
 ```shell
 [
-  <%= json data.invoicing.invoices.list_all, 1 %>
+  <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.list_all, 1 %>
+  #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Invoice JSON: <%= json data.invoicing.invoices.list_all, 1 %>
+  Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.list_all, 1 %>
+  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Invoice@c509a57 JSON: <%= json data.invoicing.invoices.list_all, 1 %>
+  com.invoiced.entity.Invoice@c509a57 JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
