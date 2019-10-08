@@ -1,0 +1,66 @@
+{
+  "id": 2048,
+  "object": "estimate",
+  "customer": 15444,
+  "invoice": null,
+  "name": "July Paper Delivery",
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "status": "sent",
+  "number": "EST-0016",
+  "date": 1416290400,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "object": "line_item",
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": "The order was delivered on Jul 20, 2015",
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "object": "tax",
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "deposit": 0,
+  "deposit_paid": false,
+  "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {}
+}

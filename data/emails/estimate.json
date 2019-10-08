@@ -1,0 +1,13 @@
+{
+  "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
+  "object": "email",
+  "state": "sent",
+  "reject_reason": null,
+  "email": "client@example.com",
+  "template": "estimate_email",
+  "subject": "New Estimate from Dunder Mifflin, Inc.: EST-0016",
+  "message": "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!",
+  "opens": 0,
+  "opens_detail": [],
+  "created_at": 1436890047
+}
