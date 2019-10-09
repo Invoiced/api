@@ -1,0 +1,10 @@
+{
+  "id": "S8L47J",
+  "object": "coupon",
+  "name": "Non-profit Discount",
+  "currency": null,
+  "value": 20,
+  "is_percent": true,
+  "created_at": 1477415090,
+  "metadata": {}
+}

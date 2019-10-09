@@ -1,0 +1,9 @@
+{
+  "id": 850,
+  "object": "card",
+  "brand": "Visa",
+  "last4": "4242",
+  "exp_month": 2,
+  "exp_year": 20,
+  "funding": "credit"
+}

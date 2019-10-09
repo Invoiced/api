@@ -1,0 +1,31 @@
+{
+  "id": 595,
+  "object": "subscription",
+  "customer": 15444,
+  "plan": "pro",
+  "cycles": null,
+  "quantity": 1,
+  "start_date": 1420391704,
+  "period_start": null,
+  "period_end": null,
+  "cancel_at_period_end": false,
+  "canceled_at": 1449162904,
+  "status": "canceled",
+  "addons": [
+      {
+          "id": 3,
+          "object": "subscription_addon",
+          "plan": "ipad-license",
+          "quantity": 11,
+          "description": "",
+          "created_at": 1420391704
+      }
+  ],
+  "discounts": [],
+  "taxes": [],
+  "recurring_total": 2400,
+  "mrr": 200,
+  "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+  "created_at": 1420391704,
+  "metadata": {}
+}

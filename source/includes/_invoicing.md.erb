@@ -9,373 +9,23 @@ Invoices can be marked as paid with [Transactions](#transaction-object). Once th
 ### Attributes
 
 ```shell
-{
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<%= json data.invoicing.invoices.object %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```php
-Invoiced\Invoice JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 Parameter | Type | Description
@@ -415,98 +65,23 @@ Parameter | Type | Description
 ### Attributes
 
 ```shell
-{
-  "id": 8,
-  "object": "line_item",
-  "catalog_item": "delivery",
-  "type": "service",
-  "name": "Delivery",
-  "description": null,
-  "quantity": 1,
-  "unit_cost": 10,
-  "amount": 10,
-  "discountable": true,
-  "discounts": [],
-  "taxable": true,
-  "taxes": [],
-  "metadata": {}
-}
+<%= json data.invoicing.line_items.object %>
 ```
 
 ```ruby
-#<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: {
-  "id": 8,
-  "object": "line_item",
-  "catalog_item": "delivery",
-  "type": "service",
-  "name": "Delivery",
-  "description": null,
-  "quantity": 1,
-  "unit_cost": 10,
-  "amount": 10,
-  "discountable": true,
-  "discounts": [],
-  "taxable": true,
-  "taxes": [],
-  "metadata": {}
-}
+#<Invoiced::LineItem:0x3fdbf95e4d08 id=8> JSON: <%= json data.invoicing.line_items.object %>
 ```
 
 ```php
-Invoiced\LineItem JSON: {
-  "id": 8,
-  "object": "line_item",
-  "catalog_item": "delivery",
-  "type": "service",
-  "name": "Delivery",
-  "description": null,
-  "quantity": 1,
-  "unit_cost": 10,
-  "amount": 10,
-  "discountable": true,
-  "discounts": [],
-  "taxable": true,
-  "taxes": [],
-  "metadata": {}
-}
+Invoiced\LineItem JSON: <%= json data.invoicing.line_items.object %>
 ```
 
 ```python
-<LineItem id=8 at 0x3fdbf95e4d08> JSON: {
-  "id": 8,
-  "object": "line_item",
-  "catalog_item": "delivery",
-  "type": "service",
-  "name": "Delivery",
-  "description": null,
-  "quantity": 1,
-  "unit_cost": 10,
-  "amount": 10,
-  "discountable": true,
-  "discounts": [],
-  "taxable": true,
-  "taxes": [],
-  "metadata": {}
-}
+<LineItem id=8 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.line_items.object %>
 ```
 
 ```java
- com.invoiced.entity.LineItem@1b13d4f3 JSON: {
-  "id": 8,
-  "object": "line_item",
-  "catalog_item": "delivery",
-  "type": "service",
-  "name": "Delivery",
-  "description": null,
-  "quantity": 1,
-  "unit_cost": 10,
-  "amount": 10,
-  "discountable": true,
-  "discounts": [],
-  "taxable": true,
-  "taxes": [],
-  "metadata": {}
-}
+ com.invoiced.entity.LineItem@1b13d4f3 JSON: <%= json data.invoicing.line_items.object %>
 ```
 
 Parameter | Type | Description
@@ -534,53 +109,23 @@ Represents the application of a discount to an invoice or line item.
 ### Attributes
 
 ```shell
-{
-  "id": 20553,
-  "object": "discount",
-  "amount": 5,
-  "coupon": null,
-  "expires": null
-}
+<%= json data.invoicing.discounts.object %>
 ```
 
 ```ruby
-#<Invoiced::Discount:0x3fdbf95e4d08 id=20553> JSON: {
-  "id": 20553,
-  "object": "discount",
-  "amount": 5,
-  "coupon": null,
-  "expires": null
-}
+#<Invoiced::Discount:0x3fdbf95e4d08 id=20553> JSON: <%= json data.invoicing.discounts.object %>
 ```
 
 ```php
-Invoiced\Discount JSON: {
-  "id": 20553,
-  "object": "discount",
-  "amount": 5,
-  "coupon": null,
-  "expires": null
-}
+Invoiced\Discount JSON: <%= json data.invoicing.discounts.object %>
 ```
 
 ```python
-<Discount id=20553 at 0x3fdbf95e4d08> JSON: {
-  "id": 20553,
-  "object": "discount",
-  "amount": 5,
-  "coupon": null,
-  "expires": null
-}
+<Discount id=20553 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.discounts.object %>
 ```
 
 ```java
- com.invoiced.entity.Discount@2abc1f10 JSON: {
-  "id": 20553,
-  "object": "discount",
-  "amount": 5,
-  "coupon": null,
-  "expires": null
-}
+ com.invoiced.entity.Discount@2abc1f10 JSON: <%= json data.invoicing.discounts.object %>
 ```
 
 Parameter | Type | Description
@@ -598,48 +143,23 @@ Represents the application of tax to an invoice or line item.
 ### Attributes
 
 ```shell
-{
-  "id": 20554,
-  "object": "tax",
-  "amount": 3.85,
-  "tax_rate": null
-}
+<%= json data.invoicing.taxes.object %>
 ```
 
 ```ruby
-#<Invoiced::Tax:0x3fdbf95e4d08 id=20554> JSON: {
-  "id": 20554,
-  "object": "tax",
-  "amount": 3.85,
-  "tax_rate": null
-}
+#<Invoiced::Tax:0x3fdbf95e4d08 id=20554> JSON: <%= json data.invoicing.taxes.object %>
 ```
 
 ```php
-Invoiced\Tax JSON: {
-  "id": 20554,
-  "object": "tax",
-  "amount": 3.85,
-  "tax_rate": null
-}
+Invoiced\Tax JSON: <%= json data.invoicing.taxes.object %>
 ```
 
 ```python
-<Tax id=20554 at 0x3fdbf95e4d08> JSON: {
-  "id": 20554,
-  "object": "tax",
-  "amount": 3.85,
-  "tax_rate": null
-}
+<Tax id=20554 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.taxes.object %>
 ```
 
 ```java
-com.invoiced.entity.Tax@31d5f331 JSON: {
-  "id": 20554,
-  "object": "tax",
-  "amount": 3.85,
-  "tax_rate": null
-}
+com.invoiced.entity.Tax@31d5f331 JSON: <%= json data.invoicing.taxes.object %>
 ```
 
 Parameter | Type | Description
@@ -758,373 +278,23 @@ invoice.create();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<%= json data.invoicing.invoices.object %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```php
-Invoiced\Invoice JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 Create a new invoice with this endpoint.
@@ -1183,373 +353,23 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<%= json data.invoicing.invoices.object %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```php
-Invoiced\Invoice JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "not_sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 This endpoint retrieves a specific invoice.
@@ -1606,373 +426,23 @@ invoice.save();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": "July Paper Delivery",
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": "The order was delivered on Jul 20, 2015",
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<%= json data.invoicing.invoices._update %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": "July Paper Delivery",
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": "The order was delivered on Jul 20, 2015",
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices._update %>
 ```
 
 ```php
-Invoiced\Invoice JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": "July Paper Delivery",
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": "The order was delivered on Jul 20, 2015",
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices._update %>
 ```
 
 ```python
-<Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": "July Paper Delivery",
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": "The order was delivered on Jul 20, 2015",
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices._update %>
 ```
 
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: {
-  "id": 46225,
-  "object": "invoice",
-  "customer": 15444,
-  "name": "July Paper Delivery",
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": false,
-  "status": "sent",
-  "autopay": false,
-  "attempt_count": 0,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0016",
-  "date": 1416290400,
-  "due_date": 1417500000,
-  "payment_terms": "NET 14",
-  "items": [
-    {
-      "id": 7,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 45,
-      "amount": 45,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    },
-    {
-      "id": 8,
-      "object": "line_item",
-      "catalog_item": "delivery",
-      "type": "service",
-      "name": "Delivery",
-      "description": null,
-      "quantity": 1,
-      "unit_cost": 10,
-      "amount": 10,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": "The order was delivered on Jul 20, 2015",
-  "subtotal": 55,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 51.15,
-  "balance": 51.15,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-  "created_at": 1415229884,
-  "metadata": {}
-}
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices._update %>
 ```
 
 Use this endpoint to update an invoice.
@@ -2042,101 +512,31 @@ Email[] emails = invoice.send(emailRequest);
 
 ```shell
 [
-  {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "new_invoice_email",
-    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  { ... },
-  { ... }
+  <%= json data.emails.invoice, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "new_invoice_email",
-    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  #<Invoiced::Email:0x3fdasdf95e09 id=a0s36fbc44d44aa7f9a55easdfi8ce731> JSON: { ... },
-  #<Invoiced::Email:0x3fdbffge4d10 id=s90f2c6fbc44sdfj8aa7f9a55eb2ce731> JSON: { ... }
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.emails.invoice, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Email JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "new_invoice_email",
-    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  Invoiced\Email JSON: { ... },
-  Invoiced\Email JSON: { ... }
+  Invoiced\Email JSON: <%= json data.emails.invoice, 1 %>
 ]
 ```
 
 ```python
 [
-  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "new_invoice_email",
-    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-  },
-  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... },
-  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: { ... }
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.emails.invoice, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Email@2ce1cfd8 JSON: {
-    "id": "f45382c6fbc44d44aa7f9a55eb2ce731",
-    "object": "email",
-    "state": "sent",
-    "reject_reason": null,
-    "email": "client@example.com",
-    "template": "new_invoice_email",
-    "subject": "New Invoice from Dunder Mifflin, Inc.: INV-0016",
-    "message": "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!",
-    "opens": 0,
-    "opens_detail": [],
-    "created_at": 1436890047
-    },
-  com.invoiced.entity.Email@3ce1cfd8 JSON: {...},
-  com.invoiced.entity.Email@4ce1cfd8 JSON: {...}
+  com.invoiced.entity.Email@2ce1cfd8 JSON: <%= json data.emails.invoice, 1 %>
 ]
 ```
 
@@ -2188,289 +588,22 @@ invoice.pay();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-  "id": 46226,
-  "object": "invoice",
-  "customer": 15446,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": true,
-  "status": "paid",
-  "autopay": true,
-  "attempt_count": 1,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0017",
-  "date": 1416290402,
-  "due_date": null,
-  "payment_terms": "AutoPay",
-  "items": [
-    {
-      "id": 9,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 5,
-      "unit_cost": 45,
-      "amount": 225,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 225,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 228.85,
-  "balance": 228.85,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885,
-  "metadata": {}
-}
+<%= json data.invoicing.invoices.pay %>
 ```
 
 ```ruby
-#<Invoiced::Invoice:0x3fdbf95e4d08 id=46226> JSON: {
-  "id": 46226,
-  "object": "invoice",
-  "customer": 15446,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": true,
-  "status": "paid",
-  "autopay": true,
-  "attempt_count": 1,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0017",
-  "date": 1416290402,
-  "due_date": null,
-  "payment_terms": "AutoPay",
-  "items": [
-    {
-      "id": 9,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 5,
-      "unit_cost": 45,
-      "amount": 225,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 225,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 228.85,
-  "balance": 228.85,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885,
-  "metadata": {}
-}
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46226> JSON: <%= json data.invoicing.invoices.pay %>
 ```
 
 ```php
-Invoiced\Invoice JSON: {
-  "id": 46226,
-  "object": "invoice",
-  "customer": 15446,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": true,
-  "status": "paid",
-  "autopay": true,
-  "attempt_count": 1,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0017",
-  "date": 1416290402,
-  "due_date": null,
-  "payment_terms": "AutoPay",
-  "items": [
-    {
-      "id": 9,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 5,
-      "unit_cost": 45,
-      "amount": 225,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 225,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 228.85,
-  "balance": 228.85,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885,
-  "metadata": {}
-}
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.pay %>
 ```
 
 ```python
-<Invoice id=46226 at 0x3fdbf95e4d08> JSON: {
-  "id": 46226,
-  "customer": 15446,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": true,
-  "status": "paid",
-  "autopay": true,
-  "attempt_count": 1,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0017",
-  "date": 1416290402,
-  "due_date": null,
-  "payment_terms": "AutoPay",
-  "items": [
-    {
-      "id": 9,
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 5,
-      "unit_cost": 45,
-      "amount": 225,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 225,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 228.85,
-  "balance": 228.85,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885,
-  "metadata": {}
-}
+<Invoice id=46226 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.pay %>
 ```
 ```java
-com.invoiced.entity.Invoice@e48fa2a JSON: {
-  "id": 46226,
-  "object": "invoice",
-  "customer": 15446,
-  "name": null,
-  "currency": "usd",
-  "draft": false,
-  "closed": false,
-  "paid": true,
-  "status": "paid",
-  "autopay": true,
-  "attempt_count": 1,
-  "next_payment_attempt": null,
-  "subscription": null,
-  "number": "INV-0017",
-  "date": 1416290402,
-  "due_date": null,
-  "payment_terms": "AutoPay",
-  "items": [
-    {
-      "id": 9,
-      "object": "line_item",
-      "catalog_item": null,
-      "type": "product",
-      "name": "Copy Paper, Case",
-      "description": null,
-      "quantity": 5,
-      "unit_cost": 45,
-      "amount": 225,
-      "discountable": true,
-      "discounts": [],
-      "taxable": true,
-      "taxes": [],
-      "metadata": {}
-    }
-  ],
-  "notes": null,
-  "subtotal": 225,
-  "discounts": [],
-  "taxes": [
-    {
-      "id": 20554,
-      "object": "tax",
-      "amount": 3.85,
-      "tax_rate": null
-    }
-  ],
-  "total": 228.85,
-  "balance": 228.85,
-  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ",
-  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
-  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
-  "created_at": 1415229885,
-  "metadata": {}
-}
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.pay %>
 ```
 
 When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.
@@ -2512,98 +645,31 @@ Attachment[] attachments = invoice.listAttachments();
 
 ```shell
 [
-  {
-    "id": 13,
-    "object": "attachment",
-    "file": {
-      "id": 13,
-      "object": "file",
-      "name": "logo-invoice.png",
-      "size": 6936,
-      "type": "image/png",
-      "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625854
-    },
-    "created_at": 1464625855
-  }
+  <%= json data.invoicing.invoices.list_attachments, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: {
-    "id": 13,
-    "object": "attachment",
-    "file": {
-      "id": 13,
-      "object": "file",
-      "name": "logo-invoice.png",
-      "size": 6936,
-      "type": "image/png",
-      "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625854
-    },
-    "created_at": 1464625855
-  }
+  #<Invoiced::Attachment:0x3ff10dd39db4 id=13> JSON: <%= json data.invoicing.invoices.list_attachments, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Attachment JSON: {
-    "id": 13,
-    "object": "attachment",
-    "file": {
-      "id": 13,
-      "object": "file",
-      "name": "logo-invoice.png",
-      "size": 6936,
-      "type": "image/png",
-      "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625854
-    },
-    "created_at": 1464625855
-  }
+  Invoiced\Attachment JSON: <%= json data.invoicing.invoices.list_attachments, 1 %>
 ]
 ```
 
 ```python
 [
-  <Attachment id=13 at 0x3ff10dd39db4> JSON: {
-    "id": 13,
-    "object": "attachment",
-    "file": {
-      "id": 13,
-      "object": "file",
-      "name": "logo-invoice.png",
-      "size": 6936,
-      "type": "image/png",
-      "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625854
-    },
-    "created_at": 1464625855
-  }
+  <Attachment id=13 at 0x3ff10dd39db4> JSON: <%= json data.invoicing.invoices.list_attachments, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Attachment@1759eafd JSON: {
-    "id": 13,
-    "object": "attachment",
-    "file": {
-      "id": 13,
-      "object": "file",
-      "name": "logo-invoice.png",
-      "size": 6936,
-      "type": "image/png",
-      "url": "https://invoiced.com/img/logo-invoice.png",
-      "created_at": 1464625854
-    },
-    "created_at": 1464625855
-  },
-  com.invoiced.entity.Attachment@1759eafd JSON: {...},
-  com.invoiced.entity.Attachment@1759eafd JSON: {...}
+  com.invoiced.entity.Attachment@1759eafd JSON: <%= json data.invoicing.invoices.list_attachments, 1 %>
 ]
 ```
 
@@ -2676,386 +742,31 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 
 ```shell
 [
-  {
-    "id": 46225,
-    "object": "invoice",
-    "customer": 15444,
-    "name": null,
-    "currency": "usd",
-    "draft": false,
-    "closed": false,
-    "paid": false,
-    "status": "not_sent",
-    "autopay": false,
-    "attempt_count": 0,
-    "next_payment_attempt": null,
-    "subscription": null,
-    "number": "INV-0016",
-    "date": 1416290400,
-    "due_date": 1417500000,
-    "payment_terms": "NET 14",
-    "items": [
-      {
-        "id": 7,
-        "object": "line_item",
-        "catalog_item": null,
-        "type": "product",
-        "name": "Copy Paper, Case",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 45,
-        "amount": 45,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      },
-      {
-        "id": 8,
-        "object": "line_item",
-        "catalog_item": "delivery",
-        "type": "service",
-        "name": "Delivery",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 10,
-        "amount": 10,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      }
-    ],
-    "notes": null,
-    "subtotal": 55,
-    "discounts": [],
-    "taxes": [
-      {
-        "id": 20554,
-        "object": "tax",
-        "amount": 3.85,
-        "tax_rate": null
-      }
-    ],
-    "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884,
-    "metadata": {}
-  },
-  { ... },
-  { ... }
+  <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: {
-    "id": 46225,
-    "object": "invoice",
-    "customer": 15444,
-    "name": null,
-    "currency": "usd",
-    "draft": false,
-    "closed": false,
-    "paid": false,
-    "status": "not_sent",
-    "autopay": false,
-    "attempt_count": 0,
-    "next_payment_attempt": null,
-    "subscription": null,
-    "number": "INV-0016",
-    "date": 1416290400,
-    "due_date": 1417500000,
-    "payment_terms": "NET 14",
-    "items": [
-      {
-        "id": 7,
-        "object": "line_item",
-        "catalog_item": null,
-        "type": "product",
-        "name": "Copy Paper, Case",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 45,
-        "amount": 45,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      },
-      {
-        "id": 8,
-        "object": "line_item",
-        "catalog_item": "delivery",
-        "type": "service",
-        "name": "Delivery",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 10,
-        "amount": 10,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      }
-    ],
-    "notes": null,
-    "subtotal": 55,
-    "discounts": [],
-    "taxes": [
-      {
-        "id": 20554,
-        "object": "tax",
-        "amount": 3.85,
-        "tax_rate": null
-      }
-    ],
-    "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884,
-    "metadata": {}
-  },
-  #<Invoiced::Invoice:0x3fdbf95e4d09 id=15445> JSON: { ... },
-  #<Invoiced::Invoice:0x3fdbf95e4d10 id=15446> JSON: { ... }
+  #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Invoice JSON: {
-    "id": 46225,
-    "object": "invoice",
-    "customer": 15444,
-    "name": null,
-    "currency": "usd",
-    "draft": false,
-    "closed": false,
-    "paid": false,
-    "status": "not_sent",
-    "autopay": false,
-    "attempt_count": 0,
-    "next_payment_attempt": null,
-    "subscription": null,
-    "number": "INV-0016",
-    "date": 1416290400,
-    "due_date": 1417500000,
-    "payment_terms": "NET 14",
-    "items": [
-      {
-        "id": 7,
-        "object": "line_item",
-        "catalog_item": null,
-        "type": "product",
-        "name": "Copy Paper, Case",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 45,
-        "amount": 45,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      },
-      {
-        "id": 8,
-        "object": "line_item",
-        "catalog_item": "delivery",
-        "type": "service",
-        "name": "Delivery",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 10,
-        "amount": 10,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      }
-    ],
-    "notes": null,
-    "subtotal": 55,
-    "discounts": [],
-    "taxes": [
-      {
-        "id": 20554,
-        "object": "tax",
-        "amount": 3.85,
-        "tax_rate": null
-      }
-    ],
-    "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884,
-    "metadata": {}
-  },
-  Invoiced\Invoice JSON: { ... },
-  Invoiced\Invoice JSON: { ... }
+  Invoiced\Invoice JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: {
-    "id": 46225,
-    "object": "invoice",
-    "customer": 15444,
-    "name": null,
-    "currency": "usd",
-    "draft": false,
-    "closed": false,
-    "paid": false,
-    "status": "not_sent",
-    "autopay": false,
-    "attempt_count": 0,
-    "next_payment_attempt": null,
-    "subscription": null,
-    "number": "INV-0016",
-    "date": 1416290400,
-    "due_date": 1417500000,
-    "payment_terms": "NET 14",
-    "items": [
-      {
-        "id": 7,
-        "object": "line_item",
-        "catalog_item": null,
-        "type": "product",
-        "name": "Copy Paper, Case",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 45,
-        "amount": 45,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      },
-      {
-        "id": 8,
-        "object": "line_item",
-        "catalog_item": "delivery",
-        "type": "service",
-        "name": "Delivery",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 10,
-        "amount": 10,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      }
-    ],
-    "notes": null,
-    "subtotal": 55,
-    "discounts": [],
-    "taxes": [
-      {
-        "id": 20554,
-        "object": "tax",
-        "amount": 3.85,
-        "tax_rate": null
-      }
-    ],
-    "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884,
-    "metadata": {}
-  },
-  <Invoice id=15445 at 0x3fdbf95e4d08> JSON: { ... },
-  <Invoice id=15446 at 0x3fdbf95e4d08> JSON: { ... }
+  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Invoice@c509a57 JSON: {
-    "id": 46225,
-    "object": "invoice",
-    "customer": 15444,
-    "name": null,
-    "currency": "usd",
-    "draft": false,
-    "closed": false,
-    "paid": false,
-    "status": "not_sent",
-    "autopay": false,
-    "attempt_count": 0,
-    "next_payment_attempt": null,
-    "subscription": null,
-    "number": "INV-0016",
-    "date": 1416290400,
-    "due_date": 1417500000,
-    "payment_terms": "NET 14",
-    "items": [
-      {
-        "id": 7,
-        "object": "line_item",
-        "catalog_item": null,
-        "type": "product",
-        "name": "Copy Paper, Case",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 45,
-        "amount": 45,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      },
-      {
-        "id": 8,
-        "object": "line_item",
-        "catalog_item": "delivery",
-        "type": "service",
-        "name": "Delivery",
-        "description": null,
-        "quantity": 1,
-        "unit_cost": 10,
-        "amount": 10,
-        "discountable": true,
-        "discounts": [],
-        "taxable": true,
-        "taxes": [],
-        "metadata": {}
-      }
-    ],
-    "notes": null,
-    "subtotal": 55,
-    "discounts": [],
-    "taxes": [
-      {
-        "id": 20554,
-        "object": "tax",
-        "amount": 3.85,
-        "tax_rate": null
-      }
-    ],
-    "total": 51.15,
-    "balance": 51.15,
-    "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
-    "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
-    "created_at": 1415229884,
-    "metadata": {}
-  }, 
-  com.invoiced.entity.Invoice@20301171 JSON: {...},
-  com.invoiced.entity.Invoice@30301171 JSON: {...}
+  com.invoiced.entity.Invoice@c509a57 JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 

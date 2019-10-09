@@ -1,0 +1,10 @@
+{
+  "id": "vat",
+  "object": "tax_rate",
+  "name": "VAT",
+  "currency": null,
+  "value": 5,
+  "is_percent": true,
+  "created_at": 1477418268,
+  "metadata": {}
+}

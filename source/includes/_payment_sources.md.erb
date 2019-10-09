@@ -7,64 +7,24 @@ A payment source represents a specific payment instrument owned by a customer th
 ### Attributes
 
 ```shell
-{
-  "id": 850,
-  "object": "card",
-  "brand": "Visa",
-  "last4": "4242",
-  "exp_month": 2,
-  "exp_year": 20,
-  "funding": "credit"
-}
+<%= json data.sources.cards.object %>
 ```
 
 ```ruby
-#<Invoiced::Card:0x3fdbf95e4d08 id=850> JSON: {
-  "id": 850,
-  "object": "card",
-  "brand": "Visa",
-  "last4": "4242",
-  "exp_month": 2,
-  "exp_year": 20,
-  "funding": "credit"
-}
+#<Invoiced::Card:0x3fdbf95e4d08 id=850> JSON: <%= json data.sources.cards.object %>
 ```
 
 ```php
-Invoiced\Card JSON: {
-  "id": 850,
-  "object": "card",
-  "brand": "Visa",
-  "last4": "4242",
-  "exp_month": 2,
-  "exp_year": 20,
-  "funding": "credit"
-}
+Invoiced\Card JSON: <%= json data.sources.cards.object %>
 ```
 
 ```python
-<Card id=850 at 0x3fdbf95e4d08> JSON: {
-  "id": 850,
-  "object": "card",
-  "brand": "Visa",
-  "last4": "4242",
-  "exp_month": 2,
-  "exp_year": 20,
-  "funding": "credit"
-}
+<Card id=850 at 0x3fdbf95e4d08> JSON: <%= json data.sources.cards.object %>
 ```
 
 ```java
 //PaymentSource can be used for both Card Object and Bank Account Object
-com.invoiced.entity.PaymentSource@2fdf31f4 JSON: {
-  "id": 850,
-  "object": "card",
-  "brand": "Visa",
-  "last4": "4242",
-  "exp_month": 2,
-  "exp_year": 20,
-  "funding": "credit"
-}
+com.invoiced.entity.PaymentSource@2fdf31f4 JSON: <%= json data.sources.cards.object %>
 ```
 
 Parameter | Type | Description
@@ -82,64 +42,24 @@ Parameter | Type | Description
 ### Attributes
 
 ```shell
-{
-  "id": 4321,
-  "object": "bank_account",
-  "bank_name": "Wells Fargo",
-  "last4": "7890",
-  "routing_number": "110000000",
-  "verified": true,
-  "currency": "usd"
-}
+<%= json data.sources.bank_accounts.object %>
 ```
 
 ```ruby
-#<Invoiced::BankAccount:0x3fdbf95e4d08 id=4321> JSON: {
-  "id": 4321,
-  "object": "bank_account",
-  "bank_name": "Wells Fargo",
-  "last4": "7890",
-  "routing_number": "110000000",
-  "verified": true,
-  "currency": "usd"
-}
+#<Invoiced::BankAccount:0x3fdbf95e4d08 id=4321> JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 ```php
-Invoiced\BankAccount JSON: {
-  "id": 4321,
-  "object": "bank_account",
-  "bank_name": "Wells Fargo",
-  "last4": "7890",
-  "routing_number": "110000000",
-  "verified": true,
-  "currency": "usd"
-}
+Invoiced\BankAccount JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 ```python
-<BankAccount id=4321 at 0x3fdbf95e4d08> JSON: {
-  "id": 4321,
-  "object": "bank_account",
-  "bank_name": "Wells Fargo",
-  "last4": "7890",
-  "routing_number": "110000000",
-  "verified": true,
-  "currency": "usd"
-}
+<BankAccount id=4321 at 0x3fdbf95e4d08> JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 ```java
 //PaymentSource can be used for both Card Object and Bank Account Object
-com.invoiced.entity.PaymentSource@3fdf31f4 JSON: {
-  "id": 4321,
-  "object": "bank_account",
-  "bank_name": "Wells Fargo",
-  "last4": "7890",
-  "routing_number": "110000000",
-  "verified": true,
-  "currency": "usd"
-}
+com.invoiced.entity.PaymentSource@3fdf31f4 JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 Parameter | Type | Description

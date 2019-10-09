@@ -11,172 +11,22 @@ By default subscriptions will renew each billing cycle on the same day of the cy
 ### Attributes
 
 ```shell
-{
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<%= json data.subscriptions.object %>
 ```
 
 ```ruby
-#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions.object %>
 ```
 
 ```php
-Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+Invoiced\Subscription JSON: <%= json data.subscriptions.object %>
 ```
 
 ```python
-<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.object %>
 ``` 
 ```java
-com.invoiced.entity.Subscription@74f0915b JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+com.invoiced.entity.Subscription@74f0915b JSON: <%= json data.subscriptions.object %>
 ```
 
 Parameter | Type | Description
@@ -207,58 +57,23 @@ Parameter | Type | Description
 ### Attributes
 
 ```shell
-{
-    "id": 3,
-    "object": "subscription_addon",
-    "plan": "ipad-license",
-    "quantity": 11,
-    "description": "",
-    "created_at": 1420391704
-}
+<%= json data.subscriptions.addon_object %>
 ```
 
 ```ruby
-#<Invoiced::SubscriptionAddon:0x3fdbf95e4d08 id=3> JSON: {
-    "id": 3,
-    "object": "subscription_addon",
-    "plan": "ipad-license",
-    "quantity": 11,
-    "description": "",
-    "created_at": 1420391704
-}
+#<Invoiced::SubscriptionAddon:0x3fdbf95e4d08 id=3> JSON: <%= json data.subscriptions.addon_object %>
 ```
 
 ```php
-Invoiced\SubscriptionAddon JSON: {
-    "id": 3,
-    "object": "subscription_addon",
-    "plan": "ipad-license",
-    "quantity": 11,
-    "description": "",
-    "created_at": 1420391704
-}
+Invoiced\SubscriptionAddon JSON: <%= json data.subscriptions.addon_object %>
 ```
 
 ```python
-<SubscriptionAddon id=3 at 0x3fdbf95e4d08> JSON: {
-    "id": 3,
-    "object": "subscription_addon",
-    "plan": "ipad-license",
-    "quantity": 11,
-    "description": "",
-    "created_at": 1420391704
-}
+<SubscriptionAddon id=3 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.addon_object %>
 ```
 
 ```java
-com.invoiced.entity.SubscriptionAddon@6ec9001c JSON: {
-    "id": 3,
-    "object": "subscription_addon",
-    "plan": "ipad-license",
-    "quantity": 11,
-    "description": "",
-    "created_at": 1420391704
-}
+com.invoiced.entity.SubscriptionAddon@6ec9001c JSON: <%= json data.subscriptions.addon_object %>
 ```
 
 Parameter | Type | Description
@@ -337,173 +152,23 @@ subscription.create();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": 1420391704,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<%= json data.subscriptions.create %>
 ```
 
 ```ruby
-#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": 1420391704,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions.create %>
 ```
 
 ```php
-Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": 1420391704,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+Invoiced\Subscription JSON: <%= json data.subscriptions.create %>
 ```
 
 ```python
-<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": 1420391704,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.create %>
 ```
 
 ```java
-com.invoiced.entity.Subscription@46bbce72 JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": 1420391704,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.create %>
 ```
 
 Create a new subscription with this endpoint.
@@ -556,173 +221,23 @@ Subscription subscription = invoiced.newSubscription().retrieve({SUBSCRIPTION_ID
 > The above command returns JSON structured like this:
 
 ```shell
-{
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<%= json data.subscriptions.object %>
 ```
 
 ```ruby
-#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions.object %>
 ```
 
 ```php
-Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+Invoiced\Subscription JSON: <%= json data.subscriptions.object %>
 ```
 
 ```python
-<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.object %>
 ```
 
 ```java
-com.invoiced.entity.Subscription@46bbce72 JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "starter",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 1200,
-    "mrr": 100,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.object %>
 ```
 
 This endpoint retrieves a specific subscription.
@@ -765,173 +280,23 @@ subscription.save();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<%= json data.subscriptions._update %>
 ```
 
 ```ruby
-#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions._update %>
 ```
 
 ```php
-Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+Invoiced\Subscription JSON: <%= json data.subscriptions._update %>
 ```
 
 ```python
-<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions._update %>
 ```
 
 ```java
-com.invoiced.entity.Subscription@46bbce72 JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions._update %>
 ```
 
 Use this endpoint to update a subscription.
@@ -984,173 +349,23 @@ subscription.cancel();
 > The above command returns JSON structured like this:
 
 ```shell
-{
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": null,
-    "cancel_at_period_end": false,
-    "canceled_at": 1449162904,
-    "status": "canceled",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<%= json data.subscriptions.cancel %>
 ```
 
 ```ruby
-#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": null,
-    "cancel_at_period_end": false,
-    "canceled_at": 1449162904,
-    "status": "canceled",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions.cancel %>
 ```
 
 ```php
-Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": null,
-    "cancel_at_period_end": false,
-    "canceled_at": 1449162904,
-    "status": "canceled",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+Invoiced\Subscription JSON: <%= json data.subscriptions.cancel %>
 ```
 
 ```python
-<Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": null,
-    "cancel_at_period_end": false,
-    "canceled_at": 1449162904,
-    "status": "canceled",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+<Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.cancel %>
 ```
 
 ```java
-com.invoiced.entity.Subscription@46bbce72 JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": null,
-    "period_end": null,
-    "cancel_at_period_end": false,
-    "canceled_at": 1449162904,
-    "status": "canceled",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-}
+com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.cancel %>
 ```
 
 This endpoint cancels a subscription.
@@ -1188,191 +403,31 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 
 ```shell
 [
-  {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-  },
-  { ... },
-  { ... }
+    <%= json data.subscriptions._update, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-  },
-  #<Invoiced::Subscription:0x3fdbf95e4d09 id=596> JSON: { ... },
-  #<Invoiced::Subscription:0x3fdbf95e4d10 id=597> JSON: { ... }
+  #<Invoiced::Subscription:0x3fdbf95e4d08 id=595> JSON: <%= json data.subscriptions._update, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Subscription JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-  },
-  Invoiced\Subscription JSON: { ... },
-  Invoiced\Subscription JSON: { ... }
+  Invoiced\Subscription JSON: <%= json data.subscriptions._update, 1 %>
 ]
 ```
 
 ```python
 [
-  <Subscription id=595 at 0x3fdbf95e4d08> JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-  },
-  <Subscription id=596 at 0x3fdbf95e4d08> JSON: { ... },
-  <Subscription id=597 at 0x3fdbf95e4d08> JSON: { ... }
+  <Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions._update, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Subscription@20b4fc7b JSON: {
-    "id": 595,
-    "object": "subscription",
-    "customer": 15444,
-    "plan": "pro",
-    "cycles": null,
-    "quantity": 1,
-    "start_date": 1420391704,
-    "period_start": 1446657304,
-    "period_end": 1449249304,
-    "cancel_at_period_end": false,
-    "canceled_at": null,
-    "status": "active",
-    "addons": [
-        {
-            "id": 3,
-            "object": "subscription_addon",
-            "plan": "ipad-license",
-            "quantity": 11,
-            "description": "",
-            "created_at": 1420391704
-        }
-    ],
-    "discounts": [],
-    "taxes": [],
-    "recurring_total": 2400,
-    "mrr": 200,
-    "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
-    "created_at": 1420391704,
-    "metadata": {}
-  },
-  com.invoiced.entity.Subscription@73f93614 JSON: {...},
-  com.invoiced.entity.Subscription@735f9514 JSON: {...}
+  com.invoiced.entity.Subscription@20b4fc7b JSON: <%= json data.subscriptions._update, 1 %>
 ]
 ```
 

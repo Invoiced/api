@@ -1,0 +1,37 @@
+{
+	"id": 6,
+	"object": "payment_plan",
+	"status": "active",
+	"installments": [{
+			"id": 23,
+			"date": 1480572000,
+			"amount": 500,
+			"balance": 500
+		},
+		{
+			"id": 24,
+			"date": 1481176800,
+			"amount": 500,
+			"balance": 500
+		},
+		{
+			"id": 25,
+			"date": 1481781600,
+			"amount": 500,
+			"balance": 500
+		},
+		{
+			"id": 26,
+			"date": 1482386400,
+			"amount": 500,
+			"balance": 500
+		}
+	],
+	"approval": {
+		"id": 12,
+		"ip": "217.15.151.36",
+		"timestamp": 1479827803,
+		"user_agent": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10.12; rv:50.0) Gecko\/20100101 Firefox\/50.0"
+	},
+	"created_at": 1479827791
+}
