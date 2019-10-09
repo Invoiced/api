@@ -194,23 +194,23 @@ Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.transactions.retrieve %>
+<%= json data.transactions.object %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.retrieve %>
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object %>
 ```
 
 ```php
-Invoiced\Transaction JSON: <%= json data.transactions.retrieve %>
+Invoiced\Transaction JSON: <%= json data.transactions.object %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.retrieve %>
+<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.retrieve %>
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object %>
 ```
 
 This endpoint retrieves a specific transaction.
@@ -329,32 +329,32 @@ Email[] emails = transaction.send(emailRequest);
 
 ```shell
 [
-	<%= json data.transactions.send_receipt, 1 %>
+	<%= json data.emails.receipt, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.transactions.send_receipt, 1 %>
+  #<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.emails.receipt, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Email JSON: <%= json data.transactions.send_receipt, 1 %>
+  Invoiced\Email JSON: <%= json data.emails.receipt, 1 %>
 ]
 ```
 
 ```python
 [
-  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.send_receipt, 1 %>
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.emails.receipt, 1 %>
 ]
 ```
 
 ```java
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 [
-  com.invoiced.entity.Email@12497547 JSON: <%= json data.transactions.send_receipt, 1 %>
+  com.invoiced.entity.Email@12497547 JSON: <%= json data.emails.receipt, 1 %>
 ]
 ```
 
@@ -508,31 +508,31 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 
 ```shell
 [
-	<%= json data.transactions.list_all, 1 %>
+	<%= json data.transactions.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.list_all, 1 %>
+  #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Transaction JSON: <%= json data.transactions.list_all, 1 %>
+  Invoiced\Transaction JSON: <%= json data.transactions.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.list_all, 1 %>
+  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Transaction@52638766 JSON: <%= json data.transactions.list_all, 1 %>
+  com.invoiced.entity.Transaction@52638766 JSON: <%= json data.transactions.object, 1 %>
 ]
 ```
 This endpoint retrieves all transactions.
