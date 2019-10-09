@@ -508,9 +508,7 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 
 ```shell
 [
-	<%= json data.transactions.list_all %>,
-  { ... },
-  { ... }
+	<%= json data.transactions.list_all, 1 %>
 ]
 ```
 
