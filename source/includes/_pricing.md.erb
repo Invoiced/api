@@ -38,8 +38,10 @@ Parameter | Type | Description
 **description** | *string* | Optional description
 **type** | *string* | Optional line item type. Used to group line items by type in reporting
 **taxes** | *array* | Collection of Tax Rate Objects
+**gl_account** | *string* | General ledger account code
 **discountable** | *boolean* | Excludes amount from discounts when `false`
 **taxable** | *boolean* | Excludes amount from taxes when `false`
+**avalara_tax_code** | *string* | [Avalara-specific tax code](https://taxcode.avatax.avalara.com/)
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
