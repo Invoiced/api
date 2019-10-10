@@ -35,5 +35,16 @@
   "metadata": {
     "icp_number": "1234567890",
     "account_rep": "Jan"
-  }
+  },
+  "autopay_delay_days": null,
+  "avalara_entity_use_code": null,
+  "avalara_exemption_number": null,
+  "chase": true,
+  "chasing_cadence": null,
+  "next_chase_step": null,
+  "credit_hold": false,
+  "credit_limit": null,
+  "owner": null,
+  "parent_customer": null,
+  "taxable": true
 }

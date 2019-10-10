@@ -36,9 +36,12 @@ Parameter | Type | Description
 **number** | *string* | A unique ID to help tie your customer to your external systems
 **email** | *string* | Email address
 **autopay** | *boolean* | AutoPay enabled?
+**autopay_delay_days** | *integer* | Number of days to delay AutoPay
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **payment_source** | *object* | Customer's [payment source](#payment-sources), if attached
 **taxes** | *array* | Collection of Tax Rate IDs
+**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
@@ -48,8 +51,16 @@ Parameter | Type | Description
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
+**taxable** | *boolean* | Customer taxable?
 **tax_id** | *string* | Tax ID to be displayed on documents
+**chase** | *boolean* | When false, chasing is disabled for customer
+**chasing_cadence** | *integer* | Cadence ID
+**next_chase_step** | *integer* | Cadence step ID
 **phone** | *string* | Phone #
+**credit_hold** | *boolean* | When true, customer is on credit hold
+**credit_limit** | *number* | Customer credit limit
+**owner** | *integer* | User ID
+**parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
 **sign_up_url** | *string* | URL where customer can purchase a subscription, when a sign up page is assigned
