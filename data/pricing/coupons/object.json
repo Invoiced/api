@@ -6,5 +6,8 @@
   "value": 20,
   "is_percent": true,
   "created_at": 1477415090,
-  "metadata": {}
+  "metadata": {},
+  "exclusive": false,
+  "expiration_date": null,
+  "max_redemptions": 0
 }
