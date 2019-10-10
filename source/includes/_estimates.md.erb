@@ -37,8 +37,10 @@ Parameter | Type | Description
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
 **closed** | *boolean* | When true, an estimate is closed and considered bad debt. No further payments are allowed.
+**approved** | *boolean* | Estimate approved?
 **status** | *string* | Estimate state, one of `draft`, `not_sent`, `sent`, `approved`, `invoiced`, `declined`
 **date** | *timestamp* | Estimate date
+**expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
 **items** | *array* | Collection of Line Items
 **notes** | *string* | Additional notes displayed on estimate
@@ -197,6 +199,7 @@ Parameter | Type | Description
 **number** | *string* | The reference number assigned to the estimate, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **date** | *timestamp* | Estimate date - defaults to current timestamp
+**expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
 **closed** | *boolean* | Marks an estimate as closed
@@ -344,6 +347,7 @@ Parameter | Type | Description
 **number** | *string* | The reference number assigned to the estimate, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **date** | *timestamp* | Estimate date - defaults to current timestamp
+**expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the invoice is a draft
 **closed** | *boolean* | Marks an estimate as closed

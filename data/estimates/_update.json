@@ -62,5 +62,7 @@
   "url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY",
   "pdf_url": "https://dundermifflin.invoiced.com/estimates/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
   "created_at": 1415229884,
-  "metadata": {}
+  "metadata": {},
+  "approved": false,
+  "expiration_date": null
 }
