@@ -36,13 +36,19 @@ Parameter | Type | Description
 **customer** | *integer* | Associated Customer
 **plan** | *string* | Plan ID
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
+**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
 **period_start** | *timestamp* | Start of the current billing period
 **period_end** | *timestamp* | End of the current billing period
+**contract_period_start** | *timestamp* | Start of current contract period
+**contract_period_end** | *timestamp* | End of current contract period
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **canceled_at** | *timestamp* | Timestamp the subscription was canceled
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`, `canceled`
+**paused** | *boolean* | When true, subscription is paused
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon Objects
 **taxes** | *array* | Collection of Tax Rate Objects
@@ -184,9 +190,13 @@ Parameter | Type | Description
 **customer** | *integer* | Customer ID, required
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
+**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
 **snap_to_nth_day** | *integer* | Snap billing cycles to a specific day of the month (also known as calendar billing), off by default
+**paused** | *boolean* | When true, subscription is paused
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
@@ -312,6 +322,9 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **quantity** | *integer* | Plan quantity. Defaults to 1
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
+**paused** | *boolean* | When true, subscription is paused
 **discounts** | *array* | Collection of Coupon IDs
 **taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons

@@ -27,5 +27,11 @@
   "mrr": 100,
   "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
   "created_at": 1420391704,
-  "metadata": {}
+  "metadata": {},
+  "bill_in": "advance",
+  "contract_period_end": 1449249304,
+  "contract_period_start": 1446657304,
+  "contract_renewal_cycles": null,
+  "contract_renewal_mode": "auto",
+  "paused": false
 }
