@@ -6,6 +6,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
 
 By default subscriptions will renew each billing cycle on the same day of the cycle on which it was started. For example, a subscription that started on the 9th of the month will always renew on the 9th of the month. This is known as **Anniversary Billing**. We also support renewing subscriptions on a specific day of the month, i.e. the first. If the subscription does not begin on the day you've specified then the first bill will be prorated. This is called **Calendar Billing**.
 
+Subscriptions can optionally include a contract period, the length of which is measured in a number of billing cycles. At the end of the contract term, these subscriptions can be set to renew or end automatically, or to renew pending manual approval.
+
 ## Subscription Object
 
 ### Attributes
