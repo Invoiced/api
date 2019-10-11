@@ -39,12 +39,6 @@ Parameter | Type | Description
 **autopay_delay_days** | *integer* | Number of days to delay AutoPay
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **payment_source** | *object* | Customer's [payment source](#payment-sources), if attached
-**taxable** | *boolean* | Customer taxable?
-**taxes** | *array* | Collection of Tax Rate IDs
-**tax_id** | *string* | Tax ID to be displayed on documents
-**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
-**type** | *string* | Organization type, `company` or `person`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -60,6 +54,12 @@ Parameter | Type | Description
 **credit_hold** | *boolean* | When true, customer is on credit hold
 **credit_limit** | *number* | Customer credit limit
 **owner** | *integer* | User ID
+**taxable** | *boolean* | Customer taxable?
+**taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
+**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**type** | *string* | Organization type, `company` or `person`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
@@ -201,12 +201,6 @@ Parameter | Type | Description
 **autopay_delay_days** | *integer* | Number of days to delay AutoPay
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
-**taxable** | *boolean* | Customer taxable?
-**taxes** | *array* | Collection of Tax Rate IDs
-**tax_id** | *string* | Tax ID to be displayed on documents
-**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
-**type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -221,6 +215,12 @@ Parameter | Type | Description
 **credit_hold** | *boolean* | When true, customer is on credit hold
 **credit_limit** | *number* | Customer credit limit
 **owner** | *integer* | User ID
+**taxable** | *boolean* | Customer taxable?
+**taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
+**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
@@ -384,12 +384,6 @@ Parameter | Type | Description
 **autopay** | *boolean* | AutoPay enabled?
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
-**taxable** | *boolean* | Customer taxable?
-**taxes** | *array* | Collection of Tax Rate IDs
-**tax_id** | *string* | Tax ID to be displayed on documents
-**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
-**type** | *string* | Organization type, `company` or `person`
 **attention_to** | *string* | Used for ATTN: address line if `company`
 **address1** | *string* | First address line
 **address2** | *string* | Optional second address line
@@ -404,6 +398,12 @@ Parameter | Type | Description
 **credit_hold** | *boolean* | When true, customer is on credit hold
 **credit_limit** | *number* | Customer credit limit
 **owner** | *integer* | User ID
+**taxable** | *boolean* | Customer taxable?
+**taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
+**avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**type** | *string* | Organization type, `company` or `person`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
