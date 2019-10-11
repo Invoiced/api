@@ -24,5 +24,16 @@
   "sign_up_url": null,
   "statement_pdf_url": "https://dundermifflin.invoiced.com/statements/t3NmhUomra3g3ueSNnbtUgrr/pdf",
   "created_at": 1415222128,
-  "metadata": {}
+  "metadata": {},
+  "autopay_delay_days": null,
+  "avalara_entity_use_code": null,
+  "avalara_exemption_number": null,
+  "chase": true,
+  "chasing_cadence": null,
+  "next_chase_step": null,
+  "credit_hold": false,
+  "credit_limit": null,
+  "owner": null,
+  "parent_customer": null,
+  "taxable": true
 }

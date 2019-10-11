@@ -8,5 +8,8 @@
   "interval_count": 1,
   "catalog_item": "software-subscription",
   "created_at": 1477418268,
-  "metadata": {}
+  "metadata": {},
+  "pricing_mode": "volume",
+  "quantity_type": "constant",
+  "tiers": null
 }

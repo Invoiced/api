@@ -6,6 +6,8 @@ Subscriptions can have a fixed or infinite duration. Setting the `cycles` proper
 
 By default subscriptions will renew each billing cycle on the same day of the cycle on which it was started. For example, a subscription that started on the 9th of the month will always renew on the 9th of the month. This is known as **Anniversary Billing**. We also support renewing subscriptions on a specific day of the month, i.e. the first. If the subscription does not begin on the day you've specified then the first bill will be prorated. This is called **Calendar Billing**.
 
+Subscriptions can optionally include a contract period, the length of which is measured in a number of billing cycles. At the end of the contract term, these subscriptions can be set to renew or end automatically, or to renew pending manual approval.
+
 ## Subscription Object
 
 ### Attributes
@@ -36,15 +38,21 @@ Parameter | Type | Description
 **customer** | *integer* | Associated Customer
 **plan** | *string* | Plan ID
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
+**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
+**addons** | *array* | Collection of Subscription Addons
+**discounts** | *array* | Collection of Coupon Objects
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
 **period_start** | *timestamp* | Start of the current billing period
 **period_end** | *timestamp* | End of the current billing period
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **canceled_at** | *timestamp* | Timestamp the subscription was canceled
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`, `canceled`
-**addons** | *array* | Collection of Subscription Addons
-**discounts** | *array* | Collection of Coupon Objects
+**paused** | *boolean* | When true, subscription is paused
+**contract_period_start** | *timestamp* | Start of current contract period
+**contract_period_end** | *timestamp* | End of current contract period
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`. Defaults to `none`
 **taxes** | *array* | Collection of Tax Rate Objects
 **recurring_total** | *number* | Total recurring amount (includes taxes)
 **mrr** | *number* | Monthly Recurring Revenue (MRR)
@@ -184,12 +192,16 @@ Parameter | Type | Description
 **customer** | *integer* | Customer ID, required
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
+**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
+**addons** | *array* | Collection of optional Subscription Addons
+**discounts** | *array* | Collection of Coupon IDs
 **cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
 **snap_to_nth_day** | *integer* | Snap billing cycles to a specific day of the month (also known as calendar billing), off by default
-**discounts** | *array* | Collection of Coupon IDs
+**paused** | *boolean* | When true, subscription is paused
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
 **taxes** | *array* | Collection of Tax Rate IDs
-**addons** | *array* | Collection of optional Subscription Addons
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -312,9 +324,12 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **quantity** | *integer* | Plan quantity. Defaults to 1
-**discounts** | *array* | Collection of Coupon IDs
-**taxes** | *array* | Collection of Tax Rate IDs
 **addons** | *array* | Collection of optional Subscription Addons
+**discounts** | *array* | Collection of Coupon IDs
+**paused** | *boolean* | When true, subscription is paused
+**taxes** | *array* | Collection of Tax Rate IDs
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **prorate** | *boolean* | Prorate changes to plan, quantities, or addons, defaults to *true*
 **proration_date** | *integer* | Timestamp when the proration happened, defaults to `now`

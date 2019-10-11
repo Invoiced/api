@@ -37,9 +37,11 @@ Parameter | Type | Description
 **unit_cost** | *number* | Unit cost or rate
 **description** | *string* | Optional description
 **type** | *string* | Optional line item type. Used to group line items by type in reporting
-**taxes** | *array* | Collection of Tax Rate Objects
-**discountable** | *boolean* | Excludes amount from discounts when `false`
 **taxable** | *boolean* | Excludes amount from taxes when `false`
+**taxes** | *array* | Collection of Tax Rate Objects
+**avalara_tax_code** | *string* | [Avalara-specific tax code](https://taxcode.avatax.avalara.com/)
+**gl_account** | *string* | General ledger account code
+**discountable** | *boolean* | Excludes amount from discounts when `false`
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -77,8 +79,11 @@ Parameter | Type | Description
 **name** | *string* | Plan name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **amount** | *number* | Plan amount
+**pricing_mode** | *string* | `per_unit`, `volume` or `tiered`
+**quantity_type** | *string* | `constant` or `usage`
 **interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
 **interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
+**tiers** | *array* | Example: `[{“max_qty”:50,”unit_cost”:100},{“min_qty”:51,”max_qty”:100,”unit_cost”:80},{“min_qty”:101,”unit_cost”:70}]`
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -115,6 +120,7 @@ Parameter | Type | Description
 **name** | *string* | Tax rate name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **value** | *number* | Amount
+**inclusive** | *boolean* | When true, pricing is calculated as tax-inclusive
 **is_percent** | *boolean* | When true the value is a %
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
@@ -153,5 +159,8 @@ Parameter | Type | Description
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **value** | *number* | Amount
 **is_percent** | *boolean* | When true the value is a %
+**exclusive** | *boolean* | When true no other coupons can be used simultaneously
+**expiration_date** | *timestamp* | Date coupon expires
+**max_redemptions** | *integer* | Max number of times coupon can be used
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.

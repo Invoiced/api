@@ -1,5 +1,16 @@
 Changelog
 =========
+### October 11, 2019
+- Added `avalara_tax_code` and `gl_account` properties to the catalog item object.
+- Added `department`, `phone`, `sms_enabled` and `title` properties to the contact object.
+- Added `exclusive`, `expiration_date`, and `max_redemptions` properties to the coupon object.
+- Added `autopay_delay_days`, `avalara_entity_use_code`, `avalara_exemption_number`, `chase`, `chasing_cadence`, `next_chase_step`, `credit_hold`, `credit_limit`, `owner`, `parent_customer`, and `taxable` properties to the customer object.
+- Added `approved` and `expiration_date` properties to the estimate object.
+- Added `payment_plan` property to the invoice object.
+- Added `pricing_mode`, `quantity_type` and `tiers` property to the plan object.
+- Added `bill_in`, `contract_period_end`, `contract_period_start`, `contract_renewal_cycles`, `contract_renewal_mode`, and `paused` properties to the subscription object.
+- Added `inclusive` property to the tax rate object.
+
 ### June 17, 2019
 - Added contact event types.
 

@@ -6,5 +6,6 @@
   "value": 5,
   "is_percent": true,
   "created_at": 1477418268,
-  "metadata": {}
+  "metadata": {},
+  "inclusive": false
 }
