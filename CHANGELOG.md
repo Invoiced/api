@@ -1,5 +1,8 @@
 Changelog
 =========
+### October 11, 2019
+- Added new properties on catalog item, contact, coupon, customer, estimate, invoice, plan, subscription and tax rate objects as detailed [here](https://github.com/Invoiced/api/pull/10#issue-327275584).
+
 ### June 17, 2019
 - Added contact event types.
 
