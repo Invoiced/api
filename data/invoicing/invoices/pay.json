@@ -51,5 +51,6 @@
   "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/payment",
   "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfDasdfGPBmyd6FwXZ/pdf",
   "created_at": 1415229885,
-  "metadata": {}
+  "metadata": {},
+  "payment_plan": null
 }
