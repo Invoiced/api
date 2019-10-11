@@ -37,11 +37,11 @@ Parameter | Type | Description
 **unit_cost** | *number* | Unit cost or rate
 **description** | *string* | Optional description
 **type** | *string* | Optional line item type. Used to group line items by type in reporting
+**taxable** | *boolean* | Excludes amount from taxes when `false`
 **taxes** | *array* | Collection of Tax Rate Objects
+**avalara_tax_code** | *string* | [Avalara-specific tax code](https://taxcode.avatax.avalara.com/)
 **gl_account** | *string* | General ledger account code
 **discountable** | *boolean* | Excludes amount from discounts when `false`
-**taxable** | *boolean* | Excludes amount from taxes when `false`
-**avalara_tax_code** | *string* | [Avalara-specific tax code](https://taxcode.avatax.avalara.com/)
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -83,7 +83,7 @@ Parameter | Type | Description
 **quantity_type** | *string* | `constant` or `usage`
 **interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
 **interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
-**tiers** | *array* | Array, i.e. `[{“max_qty”:50,”unit_cost”:100},{“min_qty”:51,”max_qty”:100,”unit_cost”:80},{“min_qty”:101,”unit_cost”:70}]`
+**tiers** | *array* | Example: `[{“max_qty”:50,”unit_cost”:100},{“min_qty”:51,”max_qty”:100,”unit_cost”:80},{“min_qty”:101,”unit_cost”:70}]`
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 

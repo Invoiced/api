@@ -39,7 +39,9 @@ Parameter | Type | Description
 **autopay_delay_days** | *integer* | Number of days to delay AutoPay
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **payment_source** | *object* | Customer's [payment source](#payment-sources), if attached
+**taxable** | *boolean* | Customer taxable?
 **taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
 **avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`
@@ -51,8 +53,6 @@ Parameter | Type | Description
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
-**taxable** | *boolean* | Customer taxable?
-**tax_id** | *string* | Tax ID to be displayed on documents
 **chase** | *boolean* | Chasing enabled? - defaults to `true`
 **chasing_cadence** | *integer* | Cadence ID
 **next_chase_step** | *integer* | Cadence step ID
@@ -99,7 +99,7 @@ Parameter | Type | Description
 **id** | *integer* | The contact's unique ID
 **object** | *string* | Object type, `contact`
 **name** | *string* | Contact name
-**title** | *string* | Contact title
+**title** | *string* | Job title
 **email** | *string* | Email address
 **phone** | *string* | Phone number
 **primary** | *boolean* | When true the contact will be copied on any account communications
@@ -201,7 +201,9 @@ Parameter | Type | Description
 **autopay_delay_days** | *integer* | Number of days to delay AutoPay
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
+**taxable** | *boolean* | Customer taxable?
 **taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
 **avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`. Defaults to `company`
@@ -213,8 +215,6 @@ Parameter | Type | Description
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
-**taxable** | *boolean* | Customer taxable?
-**tax_id** | *string* | Tax ID to be displayed on documents
 **chase** | *boolean* | Chasing enabled? - defaults to `true`
 **chasing_cadence** | *integer* | Cadence ID
 **phone** | *string* | Phone #
@@ -384,7 +384,9 @@ Parameter | Type | Description
 **autopay** | *boolean* | AutoPay enabled?
 **payment_terms** | *string* | Payment terms when AutoPay is off, i.e. "NET 30"
 **stripe_token** | *string* | When provided sets the customer's payment source to the tokenized Stripe card
+**taxable** | *boolean* | Customer taxable?
 **taxes** | *array* | Collection of Tax Rate IDs
+**tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
 **avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`
@@ -396,8 +398,6 @@ Parameter | Type | Description
 **postal_code** | *string* | Zip or postal code
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **language** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_639-1)
-**taxable** | *boolean* | Customer taxable?
-**tax_id** | *string* | Tax ID to be displayed on documents
 **chase** | *boolean* | Chasing enabled? - defaults to `true`
 **chasing_cadence** | *integer* | Cadence ID
 **phone** | *string* | Phone #
@@ -625,7 +625,7 @@ Create a new contact with this endpoint.
 Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Contact name
-**title** | *string* | Contact title
+**title** | *string* | Job title
 **email** | *string* | Email address
 **phone** | *string* | Phone number
 **primary** | *boolean* | When true the contact will be copied on any account communications
@@ -775,7 +775,7 @@ Use this endpoint to update a contact.
 Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Contact name
-**title** | *string* | Contact title
+**title** | *string* | Job title
 **email** | *string* | Email address
 **phone** | *string* | Phone number
 **primary** | *boolean* | When true the contact will be copied on any account communications

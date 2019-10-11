@@ -44,7 +44,7 @@ Parameter | Type | Description
 **contract_period_start** | *timestamp* | Start of current contract period
 **contract_period_end** | *timestamp* | End of current contract period
 **contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
-**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`. Defaults to `none`
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **canceled_at** | *timestamp* | Timestamp the subscription was canceled
 **status** | *string* | Subscription status, one of `not_started`, `active`, `past_due`, `finished`, `canceled`
