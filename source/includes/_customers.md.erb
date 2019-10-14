@@ -536,6 +536,10 @@ This endpoint sends a PDF account statement to a customer.
 
 `POST /customers/:id/emails`
 
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
 ### Request Parameters
 
 Parameter | Type | Description
@@ -544,10 +548,10 @@ Parameter | Type | Description
 **bcc** | *string* | Optional comma-separated list of email addresses to be blind carbon copied
 **subject** | *string* | Optional subject
 **message** | *string* | Optional message body, otherwise the *Statement Email* template is used
-
-<aside class="info">
-A successful response means that your email has been added to the send queue.
-</aside>
+**type** | *string* | Statement type, `balance_forward` or `open_item`
+**start** | *timestamp* | Used with balance forward statements
+**end** | *timestamp* | Used with balance forward statements
+**items** | *string* | Optional; can be set to `past_due` for open item statements
 
 ## Send a statement letter
 
@@ -559,25 +563,26 @@ curl "https://api.invoiced.com/customers/:id/letters" \
 ```
 
 ```ruby
-(PLACEHOLDER)
+(Support in this library coming soon)
 ```
 
 ```php
 <?php
 
-(PLACEHOLDER)
+(Support in this library coming soon)
 ```
 
 ```python
-(PLACEHOLDER)
+(Support in this library coming soon)
 ```
 
 ```java
-(PLACEHOLDER)
+(Support in this library coming soon)
 ```
 
 > The above command returns JSON structured like this:
-(TODO note context around json here and fix)
+
+> (TODO note context around json here and fix)
 
 ```shell
 [
@@ -614,6 +619,14 @@ This endpoint sends an account statement by mail to a customer using [Lob](https
 
 The letter will automatically be sent to the customer's billing address.
 
+### HTTP Request
+
+`POST /customers/:id/letters`
+
+<aside class="info">
+A successful response means that your letter has been added to the send queue.
+</aside>
+
 ### Request Parameters
 
 Parameter | Type | Description
@@ -622,14 +635,6 @@ Parameter | Type | Description
 **start** | *timestamp* | Used with balance forward statements
 **end** | *timestamp* | Used with balance forward statements
 **items** | *string* | Optional; can be set to `past_due` for open item statements
-
-### HTTP Request
-
-`POST /customers/:id/letters`
-
-<aside class="info">
-A successful response means that your letter has been added to the send queue.
-</aside>
 
 ## Create a contact
 
