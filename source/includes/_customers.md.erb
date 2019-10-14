@@ -563,46 +563,48 @@ curl "https://api.invoiced.com/customers/:id/letters" \
 ```
 
 ```ruby
-(Support in this library coming soon)
+letters = customer.send_statement_letter
 ```
 
 ```php
 <?php
 
-(Support in this library coming soon)
+$letters = $customer->sendStatementLetter();
 ```
 
 ```python
-(Support in this library coming soon)
+letters = customer.send_statement_letter()
 ```
 
 ```java
-(Support in this library coming soon)
+LetterRequest letterRequest = new LetterRequest();
+letterRequest.type = "open_item";
+Letter[] letters = customer.sendStatementLetter(letterRequest);
 ```
 
 > The above command returns JSON structured like this:
 
-> (TODO note context around json here and fix)
+> (TODO check whether context around JSON here is correct—literally just changed "Email" to "Letter")
 
 ```shell
 <%= json data.letters.statement %>
 ```
 
 ```ruby
-#<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.letters.statement %>
+#<Invoiced::Letter:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.letters.statement %>
 ```
 
 ```php
-Invoiced\Email JSON: <%= json data.letters.statement %>
+Invoiced\Letter JSON: <%= json data.letters.statement %>
 ```
 
 ```python
-<Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.letters.statement %>
+<Letter id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.letters.statement %>
 ```
 
 ```java
 //To pretty print a array of Objects use Arrays.toString(Object[]);
-com.invoiced.entity.Email@1bfbb8ee JSON: <%= json data.letters.statement %>
+com.invoiced.entity.Letter@1bfbb8ee JSON: <%= json data.letters.statement %>
 ```
 
 This endpoint sends an account statement by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
