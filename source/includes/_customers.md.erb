@@ -553,6 +553,94 @@ Parameter | Type | Description
 **end** | *timestamp* | Used with balance forward statements
 **items** | *string* | Optional; can be set to `past_due` for open item statements
 
+## Send a statement text message
+
+> (TODO probably "text_message" in libraries is too verbose; consider "text" or "sms" w existing libraries or Jared)
+
+```shell
+curl "https://api.invoiced.com/customers/:id/text_messages" \
+  -u {API_KEY}: \
+  -d type="open_item" \
+  -X POST
+```
+
+```ruby
+text_messages = customer.send_statement_text_message
+```
+
+```php
+<?php
+
+$textMessages = $customer->sendStatementTextMessage();
+```
+
+```python
+text_messages = customer.send_statement_text_message()
+```
+
+```java
+TextMessageRequest textMessageRequest = new TextMessageRequest();
+textMessageRequest.type = "open_item";
+TextMessage[] text_messages = customer.sendStatementTextMessage(textMessageRequest);
+```
+
+> The above command returns JSON structured like this:
+
+> (TODO make context around JSON here correct—literally just changed "Email" to "TextMessage")
+
+```shell
+[
+  <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::TextMessage:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\TextMessage JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```python
+[
+<TextMessage id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```java
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+
+[
+  com.invoiced.entity.TextMessage@1bfbb8ee JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+This endpoint sends an account statement by SMS to a customer using [Twilio](https://invoiced.com/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
+
+Text messages can only be sent to customer contacts marked as `sms_enabled`.
+
+### HTTP Request
+
+`POST /customers/:id/text_messages`
+
+<aside class="info">
+A successful response means that your text message has been added to the send queue.
+</aside>
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**type** | *string* | Statement type, `balance_forward` or `open_item`
+**start** | *timestamp* | Used with balance forward statements
+**end** | *timestamp* | Used with balance forward statements
+**items** | *string* | Optional; can be set to `past_due` for open item statements
+
 ## Send a statement letter
 
 ```shell
