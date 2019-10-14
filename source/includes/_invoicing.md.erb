@@ -473,7 +473,7 @@ Parameter | Type | Description
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
 
-## Send an invoice
+## Send an invoice email
 
 ```shell
 curl "https://api.invoiced.com/invoices/:id/emails" \
@@ -547,6 +547,10 @@ This endpoint sends an invoice to your customer.
 
 `POST /invoices/:id/emails`
 
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
 ### Request Parameters
 
 Parameter | Type | Description
@@ -556,8 +560,66 @@ Parameter | Type | Description
 **subject** | *string* | Optional subject
 **message** | *string* | Optional message body, otherwise the appropriate invoice template is used
 
+## Send an invoice letter
+
+```shell
+curl "https://api.invoiced.com/invoices/:id/letters" \
+  -u {API_KEY}: \
+  -X POST
+```
+
+```ruby
+(Support in this library coming soon)
+```
+
+```php
+<?php
+
+(Support in this library coming soon)
+```
+
+```python
+(Support in this library coming soon)
+```
+
+```java
+(Support in this library coming soon)
+```
+
+> The above command returns JSON structured like this:
+
+> (TODO note context around json here and fix)
+
+```shell
+<%= json data.letters.invoice %>
+```
+
+```ruby
+#<Invoiced::Email:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.letters.invoice %>
+```
+
+```php
+Invoiced\Email JSON: <%= json data.letters.invoice %>
+```
+
+```python
+<Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.letters.invoice %>
+```
+
+```java
+com.invoiced.entity.Email@2ce1cfd8 JSON: <%= json data.letters.invoice %>
+```
+
+This endpoint sends an invoice by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
+
+There are no request parameters; the letter will automatically be sent to the customer's billing address.
+
+### HTTP Request
+
+`POST /invoices/:id/letters`
+
 <aside class="info">
-A successful response means that your email has been added to the send queue.
+A successful response means that your letter has been added to the send queue.
 </aside>
 
 ## Pay an invoice
