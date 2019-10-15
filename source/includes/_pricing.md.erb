@@ -53,7 +53,7 @@ curl "https://api.invoiced.com/catalog_items" \
   -d id="delivery" \
   -d name="Delivery" \
   -d type="service" \
-  -d unit_cost=100 \
+  -d unit_cost=100
 ```
 
 ```ruby
@@ -101,19 +101,19 @@ catalogItem.create();
 ```
 
 ```ruby
-#<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.catalog_items.object %>
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```php
-Invoiced\Customer JSON: <%= json data.pricing.catalog_items.object %>
+Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```python
-<Customer id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+<CatalogItem id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 ```java
-com.invoiced.entity.Customer@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
+com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
 ```
 
 Create a new catalog item with this endpoint.
@@ -137,6 +137,60 @@ Parameter | Type | Description
 **gl_account** | *string* | General ledger account code
 **discountable** | *boolean* | Excludes amount from discounts when `false`
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
+## Retrieve a catalog item
+
+```shell
+curl "https://api.invoiced.com/catalog_items/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+catalogItem = invoiced.CatalogItem.retrieve("{CITEM_ID}")
+```
+
+```php
+<?php
+
+$catalogItem = $invoiced->CatalogItem->retrieve("{CITEM_ID}");
+```
+
+```python
+catalogItem = client.CatalogItem.retrieve("{CITEM_ID}")
+```
+
+```java
+CatalogItem catalogItem = invoiced.newCatalogItem().retrieve({CITEM_ID});
+
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.pricing.catalog_items.object %>
+```
+
+```ruby
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```php
+Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```python
+<CatalogItem id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```java
+com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+This endpoint retrieves a specific catalog item.
+
+### HTTP Request
+
+`GET /catalog_items/:id`
 
 ## Plan Object
 
