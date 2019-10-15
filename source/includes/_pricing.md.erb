@@ -411,6 +411,346 @@ Parameter | Type | Description
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
+## Create a plan
+
+```shell
+curl "https://api.invoiced.com/plans" \
+  -u {API_KEY}: \
+  -d id="starter" \
+  -d name="Starter" \
+  -d catalog_item="software-subscription" \
+  -d amount=49 \
+  -d interval="month" \
+  -d interval_count=1 \
+  -d pricing_mode="volume"
+```
+
+```ruby
+invoiced.Plan.create(
+  :id => "starter",
+  :name => "Starter",
+  :catalog_item => "software-subscription",
+  :amount => 49,
+  :interval => "month",
+  :interval_count => 1,
+  :pricing_mode => "volume"
+)
+```
+
+```php
+<?php
+
+$invoiced->Plan->create([
+  'id' => "starter",
+  'name' => "Starter",
+  'catalog_item' => "software-subscription",
+  'amount' => 49,
+  'interval' => "month",
+  'interval_count' => 1,
+  'pricing_mode' => "volume"
+]);
+```
+
+```python
+client.Plan.create(
+  id="starter",
+  name="Starter",
+  catalog_item="software-subscription",
+  amount=49,
+  interval="month",
+  interval_count=1,
+  pricing_mode="volume"
+)
+```
+
+```java
+Plan plan = invoiced.newPlan();
+plan.id = "starter";
+plan.name = "Starter";
+plan.catalog_item = "software-subscription";
+plan.amount = "service";
+plan.interval = "month";
+plan.interval_count = 1;
+plan.pricing_mode = "volume";
+plan.create();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.pricing.plans.object %>
+```
+
+```ruby
+#<Invoiced::Plan:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.plans.object %>
+```
+
+```php
+Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
+```
+
+```python
+<Plan id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
+```
+
+```java
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans.object %>
+```
+
+Create a new plan with this endpoint.
+
+### HTTP Request
+
+`POST /plans`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The plan's unique ID
+**catalog_item** | *string* | Catalog item ID the plan belongs to
+**name** | *string* | Plan name
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Plan amount
+**pricing_mode** | *string* | `per_unit`, `volume` or `tiered`
+**quantity_type** | *string* | `constant` or `usage`
+**interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
+**interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
+**tiers** | *array* | Example: `[{“max_qty”:50,”unit_cost”:100},{“min_qty”:51,”max_qty”:100,”unit_cost”:80},{“min_qty”:101,”unit_cost”:70}]`
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
+## Retrieve a plan
+
+```shell
+curl "https://api.invoiced.com/plans/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+plan = invoiced.Plan.retrieve("{PLAN_ID}")
+```
+
+```php
+<?php
+
+$plan = $invoiced->Plan->retrieve("{PLAN_ID}");
+```
+
+```python
+plan = client.Plan.retrieve("{PLAN_ID}")
+```
+
+```java
+Plan plan = invoiced.newPlan().retrieve({PLAN_ID});
+
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.pricing.plans.object %>
+```
+
+```ruby
+#<Invoiced::Plan:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.plans.object %>
+```
+
+```php
+Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
+```
+
+```python
+<Plan id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
+```
+
+```java
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans.object %>
+```
+
+This endpoint retrieves a specific plan.
+
+### HTTP Request
+
+`GET /plans/:id`
+
+## Update a plan
+
+```shell
+curl "https://api.invoiced.com/plans/:id" \
+  -u {API_KEY}: \
+  -X PATCH \
+  -d amount=99
+```
+
+```ruby
+plan.amount = 99
+plan.save
+```
+
+```php
+<?php
+
+$plan->amount = 99;
+$plan->save();
+```
+
+```python
+plan.amount = 99
+plan.save()
+```
+
+```java
+plan.amount = 99;
+plan.save();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.pricing.plans._update %>
+```
+
+```ruby
+#<Invoiced::Plan:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.plans._update %>
+```
+
+```php
+Invoiced\Plan JSON: <%= json data.pricing.plans._update %>
+```
+
+```python
+<Plan id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans._update %>
+```
+
+```java
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans._update %>
+```
+
+Use this endpoint to update a plan.
+
+### HTTP Request
+
+`PATCH /plans/:id`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**catalog_item** | *string* | Catalog item ID the plan belongs to
+**name** | *string* | Plan name
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Plan amount
+**pricing_mode** | *string* | `per_unit`, `volume` or `tiered`
+**interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
+**interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
+**tiers** | *array* | Example: `[{“max_qty”:50,”unit_cost”:100},{“min_qty”:51,”max_qty”:100,”unit_cost”:80},{“min_qty”:101,”unit_cost”:70}]`
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
+## Delete a plan
+
+```shell
+curl "https://api.invoiced.com/plans/:id" \
+  -u {API_KEY}: \
+  -X DELETE
+```
+
+```ruby
+plan.delete
+```
+
+```php
+<?php
+
+$plan->delete();
+```
+
+```python
+plan.delete()
+```
+
+```java
+plan.delete();
+```
+
+> The above command returns `204 No Content`
+
+This endpoint deletes a specific plan.
+
+### HTTP Request
+
+`DELETE /plans/:id`
+
+## List all plans
+
+```shell
+curl "https://api.invoiced.com/plans" \
+  -u {API_KEY}:
+```
+
+```ruby
+catalog_items, metadata = invoiced.Plan.list(:per_page => 3)
+```
+
+```php
+<?php
+
+list($plans, $metadata) = $invoiced->Plan->all(['per_page' => 3]);
+```
+
+```python
+catalog_items, metadata = invoiced.Plan.list(per_page=3)
+```
+
+```java
+EntityList<Plan> plans = conn.newPlan().listAll();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  <%= json data.pricing.plans.object, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::Plan:0x3fdbf95e4d08 id=46225> JSON: <%= json data.pricing.plans.object, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\Plan JSON: <%= json data.pricing.plans.object, 1 %>
+]
+```
+
+```python
+[
+  <Plan id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object, 1 %>
+]
+```
+
+```java
+[
+  com.invoiced.entity.Plan@c509a57 JSON: <%= json data.pricing.plans.object, 1 %>
+]
+```
+
+This endpoint retrieves all plans.
+
+### HTTP Request
+
+`GET /plans`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+**sort** *string* | Column to sort by, i.e. `name asc`
+**filter** *object* | Filter object
+**updated_after** *timestamp* | Only gets records updated after the given timestamp
+
 ## Tax Rate Object
 
 A tax rate describes a tax that customers should be charged. Tax rates can be applied to [invoices](#invoice-object), [line items](#line-item-object), and [subscriptions](#subscription-object).
