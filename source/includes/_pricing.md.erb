@@ -45,6 +45,99 @@ Parameter | Type | Description
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
+## Create a catalog item
+
+```shell
+curl "https://api.invoiced.com/catalog_items" \
+  -u {API_KEY}: \
+  -d id="delivery" \
+  -d name="Delivery" \
+  -d type="service" \
+  -d unit_cost=100 \
+```
+
+```ruby
+invoiced.CatalogItem.create(
+  :id => "delivery",
+  :name => "Delivery",
+  :type => "service",
+  :unit_cost => 100
+)
+```
+
+```php
+<?php
+
+$invoiced->CatalogItem->create([
+  'id' => "delivery",
+  'name' => "Delivery",
+  'type' => "service",
+  'unit_cost' => 100
+]);
+```
+
+```python
+client.CatalogItem.create(
+  id="delivery",
+  name="Delivery",
+  type="service",
+  unit_cost=100
+)
+```
+
+```java
+CatalogItem catalogItem = invoiced.newCatalogItem();
+catalogItem.id = "delivery";
+catalogItem.name = "Delivery";
+catalogItem.type = "service";
+catalogItem.unit_cost = 100;
+catalogItem.create();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.pricing.catalog_items.object %>
+```
+
+```ruby
+#<Invoiced::Customer:0x3fdbf95e4d08 id=15444> JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```php
+Invoiced\Customer JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```python
+<Customer id=15444 at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+```java
+com.invoiced.entity.Customer@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
+```
+
+Create a new catalog item with this endpoint.
+
+### HTTP Request
+
+`POST /catalog_items`
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The catalog item's unique ID
+**name** | *string* | Catalog item name
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**unit_cost** | *number* | Unit cost or rate
+**description** | *string* | Optional description
+**type** | *string* | Optional line item type. Used to group line items by type in reporting
+**taxable** | *boolean* | Excludes amount from taxes when `false`
+**avalara_tax_code** | *string* | [Avalara-specific tax code](https://taxcode.avatax.avalara.com/)
+**gl_account** | *string* | General ledger account code
+**discountable** | *boolean* | Excludes amount from discounts when `false`
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
 ## Plan Object
 
 A plan describes a fixed amount that is billed to customers over a recurring interval. Used with [subscriptions](#subscription-object).
