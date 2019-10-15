@@ -1,0 +1,11 @@
+{
+  "id": "vat",
+  "object": "tax_rate",
+  "name": "GST",
+  "currency": null,
+  "value": 5,
+  "is_percent": true,
+  "created_at": 1477418268,
+  "metadata": {},
+  "inclusive": false
+}

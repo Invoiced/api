@@ -1,9 +1,9 @@
 {
   "id": "starter",
   "object": "plan",
-  "name": "Starter",
+  "name": "Standard",
   "currency": "usd",
-  "amount": 99,
+  "amount": 49,
   "interval": "month",
   "interval_count": 1,
   "catalog_item": "software-subscription",
