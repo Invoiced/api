@@ -574,18 +574,7 @@ invoiced.Charge.create(
   :customer => 401558,
   :currency => "usd",
   :amount => 2000,
-  :splits => [
-    {
-      "type" => "invoice",
-      "invoice" => 2112620,
-      "amount" => 1710
-    },
-    {
-      "type" => "invoice",
-      "invoice" => 2112622,
-      "amount" => 290
-    }
-  ],
+  :splits => [...], // excluded for brevity
   :method => "credit_card",
 
   (Tokenized Payment Info)
@@ -604,18 +593,7 @@ $invoiced->Charge->create([
   'customer' => 401558,
   'currency' => "usd",
   'amount' => 2000,
-  'splits' => [
-    {
-      'type' => "invoice",
-      'invoice' => 2112620,
-      'amount' => 1710
-    },
-    {
-      'type' => "invoice",
-      'invoice' => 2112622,
-      'amount' => 290
-    }
-  ],
+  'splits' => [...], // excluded for brevity
   'method' => "credit_card",
 
   (Tokenized Payment Info)
@@ -632,18 +610,7 @@ client.Charge.create(
   customer = 401558,
   currency = "usd",
   amount = 2000,
-  splits = [
-    {
-      "type": "invoice",
-      "invoice": 2112620,
-      "amount": 1710
-    },
-    {
-      "type": "invoice",
-      "invoice": 2112622,
-      "amount": 290
-    }
-  ],
+  splits = [...], // excluded for brevity
   method = "credit_card",
 
   (Tokenized Payment Info)
@@ -660,7 +627,7 @@ Charge charge = invoiced.newCharge();
 charge.customer = 401558;
 charge.currency = "usd";
 charge.amount = 2000;
-charge.splits = {...};
+charge.splits = [...]; // excluded for brevity
 charge.method = "credit_card";
 
 (Tokenized Payment Info)
