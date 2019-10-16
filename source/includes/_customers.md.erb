@@ -564,29 +564,27 @@ curl "https://api.invoiced.com/customers/:id/text_messages" \
 ```
 
 ```ruby
-sms_messages = customer.send_statement_sms(:type => "open_item", :message => "{{company_name}}: You have a new statement {{url}}")
+text_messages = customer.send_statement_text(:type => "open_item", :message => "{{company_name}}: You have a new statement {{url}}")
 ```
 
 ```php
 <?php
 
-$smsMessages = $customer->sendStatementSMS(['type' => 'open_item', 'message' => "{{company_name}}: You have a new statement {{url}}"]);
+$textMessages = $customer->sendStatementText(['type' => 'open_item', 'message' => "{{company_name}}: You have a new statement {{url}}"]);
 ```
 
 ```python
-sms_messages = customer.send_statement_sms(type="open_item", message="{{company_name}}: You have a new statement {{url}}")
+text_messages = customer.send_statement_text(type="open_item", message="{{company_name}}: You have a new statement {{url}}")
 ```
 
 ```java
-SMSRequest smsRequest = new SMSRequest();
-smsRequest.message = "{{company_name}}: You have a new statement {{url}}";
-smsRequest.type = "open_item";
-SMS[] smsMessages = customer.sendStatementSMS(smsRequest);
+TextRequest textRequest = new TextRequest();
+textRequest.message = "{{company_name}}: You have a new statement {{url}}";
+textRequest.type = "open_item";
+TextMessage[] textMessages = customer.sendStatementText(textRequest);
 ```
 
 > The above command returns JSON structured like this:
-
-> (TODO make context around JSON here correct—literally just changed "Email" to "SMS")
 
 ```shell
 [
@@ -596,19 +594,19 @@ SMS[] smsMessages = customer.sendStatementSMS(smsRequest);
 
 ```ruby
 [
-  #<Invoiced::SMS:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.text_messages.statement, 1 %>
+  #<Invoiced::TextMessage:0x3fdbf95e4d08 id=c05c9cae8c5799da1e5723a0fff355b3> JSON: <%= json data.text_messages.statement, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\SMS JSON: <%= json data.text_messages.statement, 1 %>
+  Invoiced\TextMessage JSON: <%= json data.text_messages.statement, 1 %>
 ]
 ```
 
 ```python
 [
-<SMS id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.text_messages.statement, 1 %>
+<TextMessage id=c05c9cae8c5799da1e5723a0fff355b3 at 0x3fdbf95e4d08> JSON: <%= json data.text_messages.statement, 1 %>
 ]
 ```
 
@@ -616,7 +614,7 @@ SMS[] smsMessages = customer.sendStatementSMS(smsRequest);
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 
 [
-  com.invoiced.entity.SMS@1bfbb8ee JSON: <%= json data.text_messages.statement, 1 %>
+  com.invoiced.entity.TextMessage@1bfbb8ee JSON: <%= json data.text_messages.statement, 1 %>
 ]
 ```
 
@@ -674,14 +672,12 @@ Letter[] letters = customer.sendStatementLetter(letterRequest);
 
 > The above command returns JSON structured like this:
 
-> (TODO check whether context around JSON here is correct—literally just changed "Email" to "Letter")
-
 ```shell
 <%= json data.letters.statement %>
 ```
 
 ```ruby
-#<Invoiced::Letter:0x3fdbf95e4d08 id=f45382c6fbc44d44aa7f9a55eb2ce731> JSON: <%= json data.letters.statement %>
+#<Invoiced::Letter:0x3fdbf95e4d08 id=2678c1e7e6dd1011ce13fb6b76db42df> JSON: <%= json data.letters.statement %>
 ```
 
 ```php
@@ -689,7 +685,7 @@ Invoiced\Letter JSON: <%= json data.letters.statement %>
 ```
 
 ```python
-<Letter id=f45382c6fbc44d44aa7f9a55eb2ce731 at 0x3fdbf95e4d08> JSON: <%= json data.letters.statement %>
+<Letter id=2678c1e7e6dd1011ce13fb6b76db42df at 0x3fdbf95e4d08> JSON: <%= json data.letters.statement %>
 ```
 
 ```java
