@@ -463,7 +463,7 @@ This endpoint returns the customer's current credit balance, credit balance hist
 
 `GET /customers/:id/balance`
 
-## Send a statement
+## Send a statement email
 
 ```shell
 curl "https://api.invoiced.com/customers/:id/emails" \
@@ -530,11 +530,15 @@ Email[] emails = customer.sendStatement(emailRequest);
 ]
 ```
 
-This endpoint sends a PDF account statement to a customer.
+This endpoint sends a PDF account statement to a customer by email.
 
 ### HTTP Request
 
 `POST /customers/:id/emails`
+
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
 
 ### Request Parameters
 
@@ -544,10 +548,171 @@ Parameter | Type | Description
 **bcc** | *string* | Optional comma-separated list of email addresses to be blind carbon copied
 **subject** | *string* | Optional subject
 **message** | *string* | Optional message body, otherwise the *Statement Email* template is used
+**type** | *string* | Statement type, `balance_forward` or `open_item`
+**start** | *timestamp* | Used with balance forward statements
+**end** | *timestamp* | Used with balance forward statements
+**items** | *string* | Optional; can be set to `past_due` for open item statements
+
+## Send a statement SMS
+
+```shell
+curl "https://api.invoiced.com/customers/:id/text_messages" \
+  -u {API_KEY}: \
+  -d message="{{company_name}}: You have a new statement {{url}}"
+  -d type="open_item" \
+  -X POST
+```
+
+```ruby
+text_messages = customer.send_statement_text(:type => "open_item", :message => "{{company_name}}: You have a new statement {{url}}")
+```
+
+```php
+<?php
+
+$textMessages = $customer->sendStatementText(['type' => 'open_item', 'message' => "{{company_name}}: You have a new statement {{url}}"]);
+```
+
+```python
+text_messages = customer.send_statement_text(type="open_item", message="{{company_name}}: You have a new statement {{url}}")
+```
+
+```java
+TextRequest textRequest = new TextRequest();
+textRequest.message = "{{company_name}}: You have a new statement {{url}}";
+textRequest.type = "open_item";
+TextMessage[] textMessages = customer.sendStatementText(textRequest);
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::TextMessage:0x3fdbf95e4d08 id=c05c9cae8c5799da1e5723a0fff355b3> JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\TextMessage JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```python
+[
+<TextMessage id=c05c9cae8c5799da1e5723a0fff355b3 at 0x3fdbf95e4d08> JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```java
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+
+[
+  com.invoiced.entity.TextMessage@1bfbb8ee JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+This endpoint sends an account statement by SMS to a customer using [Twilio](https://invoiced.com/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
+
+Text messages can only be sent to customer contacts marked as `sms_enabled`.
+
+### HTTP Request
+
+`POST /customers/:id/text_messages`
 
 <aside class="info">
-A successful response means that your email has been added to the send queue.
+A successful response means that your text message has been added to the send queue.
 </aside>
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**message** | *string* | Full text of message - **required**
+**to** | *array* | Optional array of recipients like:<br/>`[{"phone": "11234567890", "name": "Bob Loblaw"}]`
+**type** | *string* | Statement type, `balance_forward` or `open_item`
+**start** | *timestamp* | Used with balance forward statements
+**end** | *timestamp* | Used with balance forward statements
+**items** | *string* | Optional; can be set to `past_due` for open item statements
+
+## Send a statement letter
+
+```shell
+curl "https://api.invoiced.com/customers/:id/letters" \
+  -u {API_KEY}: \
+  -d type="open_item" \
+  -X POST
+```
+
+```ruby
+letters = customer.send_statement_letter
+```
+
+```php
+<?php
+
+$letters = $customer->sendStatementLetter();
+```
+
+```python
+letters = customer.send_statement_letter()
+```
+
+```java
+LetterRequest letterRequest = new LetterRequest();
+letterRequest.type = "open_item";
+Letter[] letters = customer.sendStatementLetter(letterRequest);
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.letters.statement %>
+```
+
+```ruby
+#<Invoiced::Letter:0x3fdbf95e4d08 id=2678c1e7e6dd1011ce13fb6b76db42df> JSON: <%= json data.letters.statement %>
+```
+
+```php
+Invoiced\Letter JSON: <%= json data.letters.statement %>
+```
+
+```python
+<Letter id=2678c1e7e6dd1011ce13fb6b76db42df at 0x3fdbf95e4d08> JSON: <%= json data.letters.statement %>
+```
+
+```java
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+com.invoiced.entity.Letter@1bfbb8ee JSON: <%= json data.letters.statement %>
+```
+
+This endpoint sends an account statement by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
+
+The letter will automatically be sent to the customer's billing address.
+
+### HTTP Request
+
+`POST /customers/:id/letters`
+
+<aside class="info">
+A successful response means that your letter has been added to the send queue.
+</aside>
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**type** | *string* | Statement type, `balance_forward` or `open_item`
+**start** | *timestamp* | Used with balance forward statements
+**end** | *timestamp* | Used with balance forward statements
+**items** | *string* | Optional; can be set to `past_due` for open item statements
 
 ## Create a contact
 
