@@ -1,0 +1,32 @@
+{
+    "id": "5d9e31d812151",
+    "gateway": "test",
+    "timestamp": 1570648536,
+    "status": "succeeded",
+    "currency": "usd",
+    "amount": 2000,
+    "message": null,
+    "source": {
+        "id": null,
+        "gateway": null,
+        "brand": "Visa",
+        "last4": "4242",
+        "exp_month": "9",
+        "exp_year": 2024,
+        "funding": "credit",
+        "issuing_country": "US",
+        "name": "Acme Inc.",
+        "address": {
+            "address1": "123 Main St",
+            "address2": "null",
+            "city": "Austin",
+            "state": "TX",
+            "postal_code": "78704",
+            "country": "US",
+            "object": "address"
+        },
+        "customer": 401558,
+        "object": "card"
+    },
+    "object": "charge"
+}
