@@ -7,23 +7,23 @@ A plan describes a fixed amount that is billed to customers over a recurring int
 ### Attributes
 
 ```shell
-<%= json data.pricing.plans.object %>
+<%= json data.plans.object %>
 ```
 
 ```ruby
-#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans.object %>
+#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.plans.object %>
 ```
 
 ```php
-Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
+Invoiced\Plan JSON: <%= json data.plans.object %>
 ```
 
 ```python
-<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
+<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.plans.object %>
 ```
 
 ```java
-com.invoiced.entity.Plan@192cafae JSON: <%= json data.pricing.plans.object %>
+com.invoiced.entity.Plan@192cafae JSON: <%= json data.plans.object %>
 ```
 
 Parameter | Type | Description
@@ -109,23 +109,23 @@ plan.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.plans.object %>
+<%= json data.plans.object %>
 ```
 
 ```ruby
-#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans.object %>
+#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.plans.object %>
 ```
 
 ```php
-Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
+Invoiced\Plan JSON: <%= json data.plans.object %>
 ```
 
 ```python
-<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
+<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.plans.object %>
 ```
 
 ```java
-com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans.object %>
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans.object %>
 ```
 
 Create a new plan with this endpoint.
@@ -179,23 +179,23 @@ Plan plan = invoiced.newPlan().retrieve({PLAN_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.plans.object %>
+<%= json data.plans.object %>
 ```
 
 ```ruby
-#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans.object %>
+#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.plans.object %>
 ```
 
 ```php
-Invoiced\Plan JSON: <%= json data.pricing.plans.object %>
+Invoiced\Plan JSON: <%= json data.plans.object %>
 ```
 
 ```python
-<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object %>
+<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.plans.object %>
 ```
 
 ```java
-com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans.object %>
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans.object %>
 ```
 
 This endpoint retrieves a specific plan.
@@ -238,23 +238,23 @@ plan.save();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.plans._update %>
+<%= json data.plans._update %>
 ```
 
 ```ruby
-#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans._update %>
+#<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.plans._update %>
 ```
 
 ```php
-Invoiced\Plan JSON: <%= json data.pricing.plans._update %>
+Invoiced\Plan JSON: <%= json data.plans._update %>
 ```
 
 ```python
-<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans._update %>
+<Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.plans._update %>
 ```
 
 ```java
-com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.pricing.plans._update %>
+com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans._update %>
 ```
 
 Use this endpoint to update a plan.
@@ -335,31 +335,31 @@ EntityList<Plan> plans = conn.newPlan().listAll();
 
 ```shell
 [
-  <%= json data.pricing.plans.object, 1 %>
+  <%= json data.plans.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.pricing.plans.object, 1 %>
+  #<Invoiced::Plan:0x3fdbf95e4d08 id=starter> JSON: <%= json data.plans.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Plan JSON: <%= json data.pricing.plans.object, 1 %>
+  Invoiced\Plan JSON: <%= json data.plans.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.pricing.plans.object, 1 %>
+  <Plan id=starter at 0x3fdbf95e4d08> JSON: <%= json data.plans.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Plan@c509a57 JSON: <%= json data.pricing.plans.object, 1 %>
+  com.invoiced.entity.Plan@c509a57 JSON: <%= json data.plans.object, 1 %>
 ]
 ```
 

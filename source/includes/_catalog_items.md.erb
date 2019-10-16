@@ -7,23 +7,23 @@ A catalog item represents a product or service that you sell. Catalog items can 
 ### Attributes
 
 ```shell
-<%= json data.pricing.catalog_items.object %>
+<%= json data.catalog_items.object %>
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items.object %>
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
+Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@192cafae JSON: <%= json data.pricing.catalog_items.object %>
+com.invoiced.entity.CatalogItem@192cafae JSON: <%= json data.catalog_items.object %>
 ```
 
 Parameter | Type | Description
@@ -95,23 +95,23 @@ catalogItem.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.catalog_items.object %>
+<%= json data.catalog_items.object %>
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items.object %>
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
+Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
+com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items.object %>
 ```
 
 Create a new catalog item with this endpoint.
@@ -165,23 +165,23 @@ CatalogItem catalogItem = invoiced.newCatalogItem().retrieve({CITEM_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.catalog_items.object %>
+<%= json data.catalog_items.object %>
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items.object %>
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object %>
+Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object %>
+<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.catalog_items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.pricing.catalog_items.object %>
+com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items.object %>
 ```
 
 This endpoint retrieves a specific catalog item.
@@ -224,23 +224,23 @@ catalogItem.save();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.catalog_items._update %>
+<%= json data.catalog_items._update %>
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items._update %>
+#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.catalog_items._update %>
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items._update %>
+Invoiced\CatalogItem JSON: <%= json data.catalog_items._update %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items._update %>
+<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.catalog_items._update %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.pricing.catalog_items._update %>
+com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items._update %>
 ```
 
 Use this endpoint to update a catalog item.
@@ -323,31 +323,31 @@ EntityList<CatalogItem> catalogItems = conn.newCatalogItem().listAll();
 
 ```shell
 [
-  <%= json data.pricing.catalog_items.object, 1 %>
+  <%= json data.catalog_items.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.pricing.catalog_items.object, 1 %>
+  #<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.catalog_items.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\CatalogItem JSON: <%= json data.pricing.catalog_items.object, 1 %>
+  Invoiced\CatalogItem JSON: <%= json data.catalog_items.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.pricing.catalog_items.object, 1 %>
+  <CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.catalog_items.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.CatalogItem@c509a57 JSON: <%= json data.pricing.catalog_items.object, 1 %>
+  com.invoiced.entity.CatalogItem@c509a57 JSON: <%= json data.catalog_items.object, 1 %>
 ]
 ```
 

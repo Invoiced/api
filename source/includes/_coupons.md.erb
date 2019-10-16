@@ -7,23 +7,23 @@ A coupon describes a discount that can be applied to [invoices](#invoice-object)
 ### Attributes
 
 ```shell
-<%= json data.pricing.coupons.object %>
+<%= json data.coupons.object %>
 ```
 
 ```ruby
-#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons.object %>
+#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.coupons.object %>
 ```
 
 ```php
-Invoiced\Coupon JSON: <%= json data.pricing.coupons.object %>
+Invoiced\Coupon JSON: <%= json data.coupons.object %>
 ```
 
 ```python
-<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons.object %>
+<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.coupons.object %>
 ```
 
 ```java
-com.invoiced.entity.Coupon@192cafae JSON: <%= json data.pricing.coupons.object %>
+com.invoiced.entity.Coupon@192cafae JSON: <%= json data.coupons.object %>
 ```
 
 Parameter | Type | Description
@@ -87,23 +87,23 @@ coupon.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.coupons.object %>
+<%= json data.coupons.object %>
 ```
 
 ```ruby
-#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons.object %>
+#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.coupons.object %>
 ```
 
 ```php
-Invoiced\Coupon JSON: <%= json data.pricing.coupons.object %>
+Invoiced\Coupon JSON: <%= json data.coupons.object %>
 ```
 
 ```python
-<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons.object %>
+<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.coupons.object %>
 ```
 
 ```java
-com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.pricing.coupons.object %>
+com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
 ```
 
 Create a new coupon with this endpoint.
@@ -155,23 +155,23 @@ Coupon coupon = invoiced.newCoupon().retrieve({TXRAT_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.coupons.object %>
+<%= json data.coupons.object %>
 ```
 
 ```ruby
-#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons.object %>
+#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.coupons.object %>
 ```
 
 ```php
-Invoiced\Coupon JSON: <%= json data.pricing.coupons.object %>
+Invoiced\Coupon JSON: <%= json data.coupons.object %>
 ```
 
 ```python
-<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons.object %>
+<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.coupons.object %>
 ```
 
 ```java
-com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.pricing.coupons.object %>
+com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
 ```
 
 This endpoint retrieves a specific coupon.
@@ -214,23 +214,23 @@ coupon.save();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.coupons._update %>
+<%= json data.coupons._update %>
 ```
 
 ```ruby
-#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons._update %>
+#<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.coupons._update %>
 ```
 
 ```php
-Invoiced\Coupon JSON: <%= json data.pricing.coupons._update %>
+Invoiced\Coupon JSON: <%= json data.coupons._update %>
 ```
 
 ```python
-<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons._update %>
+<Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.coupons._update %>
 ```
 
 ```java
-com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.pricing.coupons._update %>
+com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons._update %>
 ```
 
 Use this endpoint to update a coupon.
@@ -311,31 +311,31 @@ EntityList<Coupon> coupon = conn.newCoupon().listAll();
 
 ```shell
 [
-  <%= json data.pricing.coupons.object, 1 %>
+  <%= json data.coupons.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.pricing.coupons.object, 1 %>
+  #<Invoiced::Coupon:0x3fdbf95e4d08 id=S8L47J> JSON: <%= json data.coupons.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Coupon JSON: <%= json data.pricing.coupons.object, 1 %>
+  Invoiced\Coupon JSON: <%= json data.coupons.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.pricing.coupons.object, 1 %>
+  <Coupon id=S8L47J at 0x3fdbf95e4d08> JSON: <%= json data.coupons.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Coupon@c509a57 JSON: <%= json data.pricing.coupons.object, 1 %>
+  com.invoiced.entity.Coupon@c509a57 JSON: <%= json data.coupons.object, 1 %>
 ]
 ```
 

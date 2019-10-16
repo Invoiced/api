@@ -7,23 +7,23 @@ A tax rate describes a tax that customers should be charged. Tax rates can be ap
 ### Attributes
 
 ```shell
-<%= json data.pricing.tax_rates.object %>
+<%= json data.tax_rates.object %>
 ```
 
 ```ruby
-#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates.object %>
+#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```php
-Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates.object %>
+Invoiced\TaxRate JSON: <%= json data.tax_rates.object %>
 ```
 
 ```python
-<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates.object %>
+<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```java
-com.invoiced.entity.TaxRate@192cafae JSON: <%= json data.pricing.tax_rates.object %>
+com.invoiced.entity.TaxRate@192cafae JSON: <%= json data.tax_rates.object %>
 ```
 
 Parameter | Type | Description
@@ -85,23 +85,23 @@ tax_rate.create();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.tax_rates.object %>
+<%= json data.tax_rates.object %>
 ```
 
 ```ruby
-#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates.object %>
+#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```php
-Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates.object %>
+Invoiced\TaxRate JSON: <%= json data.tax_rates.object %>
 ```
 
 ```python
-<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates.object %>
+<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```java
-com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.pricing.tax_rates.object %>
+com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates.object %>
 ```
 
 Create a new tax rate with this endpoint.
@@ -151,23 +151,23 @@ TaxRate taxRate = invoiced.newTaxRate().retrieve({TXRAT_ID});
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.tax_rates.object %>
+<%= json data.tax_rates.object %>
 ```
 
 ```ruby
-#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates.object %>
+#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```php
-Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates.object %>
+Invoiced\TaxRate JSON: <%= json data.tax_rates.object %>
 ```
 
 ```python
-<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates.object %>
+<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.tax_rates.object %>
 ```
 
 ```java
-com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.pricing.tax_rates.object %>
+com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates.object %>
 ```
 
 This endpoint retrieves a specific tax rate.
@@ -210,23 +210,23 @@ taxRate.save();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.pricing.tax_rates._update %>
+<%= json data.tax_rates._update %>
 ```
 
 ```ruby
-#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates._update %>
+#<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.tax_rates._update %>
 ```
 
 ```php
-Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates._update %>
+Invoiced\TaxRate JSON: <%= json data.tax_rates._update %>
 ```
 
 ```python
-<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates._update %>
+<TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.tax_rates._update %>
 ```
 
 ```java
-com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.pricing.tax_rates._update %>
+com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates._update %>
 ```
 
 Use this endpoint to update a tax rate.
@@ -307,31 +307,31 @@ EntityList<TaxRate> taxRate = conn.newTaxRate().listAll();
 
 ```shell
 [
-  <%= json data.pricing.tax_rates.object, 1 %>
+  <%= json data.tax_rates.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.pricing.tax_rates.object, 1 %>
+  #<Invoiced::TaxRate:0x3fdbf95e4d08 id=vat> JSON: <%= json data.tax_rates.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\TaxRate JSON: <%= json data.pricing.tax_rates.object, 1 %>
+  Invoiced\TaxRate JSON: <%= json data.tax_rates.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.pricing.tax_rates.object, 1 %>
+  <TaxRate id=vat at 0x3fdbf95e4d08> JSON: <%= json data.tax_rates.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.TaxRate@c509a57 JSON: <%= json data.pricing.tax_rates.object, 1 %>
+  com.invoiced.entity.TaxRate@c509a57 JSON: <%= json data.tax_rates.object, 1 %>
 ]
 ```
 
