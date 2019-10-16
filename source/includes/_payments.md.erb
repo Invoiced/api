@@ -555,13 +555,13 @@ Parameter | Description
 ## Initiate a charge
 
 ```shell
-Example (Tokenized Payment Info)
+(Tokenized Payment Info)
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
   --data '{"customer":401558,"currency":"usd","amount":2000,"splits":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","invoiced_token":"acdf7f31da641970cdb9c6c46a373577"}'
 
-Example (Saved Payment Source)
+(Saved Payment Source)
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
@@ -647,7 +647,7 @@ charge.create();
 ```
 
 ```ruby
-#<Invoiced::Charge:0x3fdbf95e4d08 id=30939> JSON: <%= json data.charges.create %>
+#<Invoiced::Charge:0x3fdbf95e4d08 id=5d9e31d812151> JSON: <%= json data.charges.create %>
 ```
 
 ```php
@@ -655,7 +655,7 @@ Invoiced\Charge JSON: <%= json data.charges.create %>
 ```
 
 ```python
-<Charge id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.charges.create %>
+<Charge id=5d9e31d812151 at 0x3fdbf95e4d08> JSON: <%= json data.charges.create %>
 ```
 
 ```java
