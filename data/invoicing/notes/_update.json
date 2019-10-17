@@ -1,0 +1,16 @@
+{
+	"created_at": 1571338027,
+	"customer": 15444,
+	"id": 501,
+	"notes": "Customer called 10/2, sent check arriving Thu.",
+	"object": "note",
+	"user": {
+		"created_at": 1563810757,
+		"email": "invoiced@example.com",
+		"first_name": "John",
+		"id": 1946,
+		"last_name": "Smith",
+		"two_factor_enabled": true,
+		"registered": true
+	}
+}
