@@ -1,0 +1,72 @@
+{
+  "id": 46225,
+  "object": "invoice",
+  "customer": 15444,
+  "name": "Consolidated Invoice",
+  "currency": "usd",
+  "draft": false,
+  "closed": false,
+  "paid": false,
+  "status": "not_sent",
+  "autopay": false,
+  "attempt_count": 0,
+  "next_payment_attempt": null,
+  "subscription": null,
+  "number": "INV-0017",
+  "date": 1416290400,
+  "due_date": 1417500000,
+  "payment_terms": "NET 14",
+  "items": [
+    {
+      "id": 7,
+      "object": "line_item",
+      "catalog_item": null,
+      "type": "product",
+      "name": "Copy Paper, Case",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 45,
+      "amount": 45,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    },
+    {
+      "id": 8,
+      "object": "line_item",
+      "catalog_item": "delivery",
+      "type": "service",
+      "name": "Delivery",
+      "description": null,
+      "quantity": 1,
+      "unit_cost": 10,
+      "amount": 10,
+      "discountable": true,
+      "discounts": [],
+      "taxable": true,
+      "taxes": [],
+      "metadata": {}
+    }
+  ],
+  "notes": null,
+  "subtotal": 55,
+  "discounts": [],
+  "taxes": [
+    {
+      "id": 20554,
+      "object": "tax",
+      "amount": 3.85,
+      "tax_rate": null
+    }
+  ],
+  "total": 51.15,
+  "balance": 51.15,
+  "url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY",
+  "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
+  "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
+  "created_at": 1415229884,
+  "metadata": {},
+  "payment_plan": null
+}

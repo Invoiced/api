@@ -715,6 +715,65 @@ This endpoint retrieves a list of files attached to a specific invoice.
 
 `GET /invoices/:id/attachments`
 
+## Create a consolidated invoice
+
+```shell
+curl "https://api.invoiced.com/customers/:id/consolidate_invoices" \
+  -u {API_KEY}: \
+```
+
+```ruby
+customer.consolidate_invoices
+```
+
+```php
+<?php
+
+$customer->consolidateInvoices();
+```
+
+```python
+customer.consolidate_invoices()
+```
+
+```java
+customer.consolidateInvoices();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.invoicing.invoices.consolidated %>
+```
+
+```ruby
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.consolidated %>
+```
+
+```php
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.consolidated %>
+```
+
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.consolidated %>
+```
+
+```java
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.consolidated %>
+```
+
+Consolidate all of a customer's open invoices to a single invoice with this endpoint.
+
+### HTTP Request
+
+`POST /customers/:id/consolidate_invoices`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**cutoff_date** | *timestamp* | Optional cutoff date
+
 ## Void an invoice
 
 ```shell
