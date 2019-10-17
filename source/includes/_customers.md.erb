@@ -113,6 +113,46 @@ Parameter | Type | Description
 **country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 **created_at** | *timestamp* | Timestamp when created
 
+## Task Object
+
+Task objects represent to-do items associated with collection efforts for a customer.
+
+### Attributes
+
+```shell
+<%= json data.tasks.object %>
+```
+
+```ruby
+#<Invoiced::Task:0x3fdbf95e4d08 id=788> JSON: <%= json data.tasks.object %>
+```
+
+```php
+Invoiced\Task JSON: <%= json data.tasks.object %>
+```
+
+```python
+<Task id=788 at 0x3fdbf95e4d08> JSON: <%= json data.tasks.object %>
+```
+
+```java
+com.invoiced.entity.Task@3a0fa320 JSON: <%= json data.tasks.object %>
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The task's unique ID
+**name** | *string* | Task name
+**action** | *string* | Action type, one of `phone`, `letter`, `email`, `review`
+**customer_id** | *integer* | Associated customer ID
+**user_id** | *integer* | ID of user assigned to task
+**due_date** | *timestamp* | Task due date
+**complete** | *boolean* | Task complete?
+**completed_date** | *timestamp* | Date task was marked complete
+**completed_by_user_id** | *integer* | User ID who completed task
+**chase_step_id** | *integer* | Chasing step ID that created task
+**created_at** | *timestamp* | Timestamp when created
+
 ## Create a customer
 
 ```shell
@@ -1004,3 +1044,358 @@ Parameter | Description
 **payment_source** *boolean* | When set only returns customers with (or without) a payment source
 **balance** *boolean* | When set only returns customers with (or without) a credit balance
 **updated_after** *timestamp* | Only gets records updated after the given timestamp
+
+## Create a task
+
+```shell
+curl "https://api.invoiced.com/tasks" \
+  -u {API_KEY}: \
+  -d customer_id=481594 \
+  -d name="Call customer" \
+  -d action="phone" \
+  -d due_date=1571288400 \
+  -d user_id=1976
+
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+customer.tasks.create(
+  :customer_id => 481594,
+  :name => "Call customer",
+  :action => "phone",
+  :due_date => 1571288400,
+  :user_id => 1976
+)
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+$customer->tasks()->create([
+  'customer_id' => 481594,
+  'name' => "Call customer",
+  'action' => "phone",
+  'due_date' => 1571288400,
+  'user_id' => 1976
+]);
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+customer.tasks().create(
+  customer_id=481594,
+  name="Call customer",
+  action="phone",
+  due_date=1571288400,
+  user_id=1976
+)
+```
+
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+Task task = customer.newTask();
+task.customer_id = 481594,
+task.name = "Call customer",
+task.action = "phone",
+task.due_date = 1571288400,
+task.user_id = 1976
+task.create();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.tasks.object %>
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.tasks.object %>
+```
+
+```php
+Invoiced\Contact JSON: <%= json data.tasks.object %>
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.tasks.object %>
+```
+
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.tasks.object %>
+```
+
+Create a new task with this endpoint.
+
+### HTTP Request
+
+`POST /tasks`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**name** | *string* | Task name
+**action** | *string* | Action type, one of `phone`, `letter`, `email`, `review`
+**customer_id** | *integer* | Associated customer ID
+**user_id** | *integer* | ID of user assigned to task
+**due_date** | *timestamp* | Task due date
+
+## TODO Retrieve a task
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+contact = customer.contacts.retrieve("{CONTACT_ID}")
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+$contact = $customer->contacts()->retrieve("{CONTACT_ID}");
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+contact = customer.contacts().retrieve("{CONTACT_ID}")
+```
+
+```java
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+Contact contact = customer.newContact().retrieve({CONTACT_ID});
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.contacts.object %>
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.contacts.object %>
+```
+
+```php
+Invoiced\Contact JSON: <%= json data.contacts.object %>
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.contacts.object %>
+```
+
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts.object %>
+```
+
+
+This endpoint retrieves a specific contact.
+
+### HTTP Request
+
+`GET /customers/:customer_id/contacts/:id`
+
+## TODO Update a task
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}: \
+  -d address1="507 Grove Avenue" \
+  -d city="Oklahoma City" \
+  -d state="OK" \
+  -d postal_code="73102" \
+  -X PATCH
+```
+
+```ruby
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postal_code = "73102"
+contact.save
+```
+
+```php
+<?php
+
+contact->address1 = "507 Grove Avenue"
+contact->city = "Oklahoma City"
+contact->state = "OK"
+contact->postal_code = "73102"
+$contact->save();
+```
+
+```python
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postal_code = "73102"
+contact.save()
+```
+
+```java 
+contact.address1 = "507 Grove Avenue"
+contact.city = "Oklahoma City"
+contact.state = "OK"
+contact.postalCode = "73102"
+contact.save()
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.contacts._update %>
+```
+
+```ruby
+#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.contacts._update %>
+```
+
+```php
+Invoiced\Contact JSON: <%= json data.contacts._update %>
+```
+
+```python
+<Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.contacts._update %>
+```
+
+```java
+com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts._update %>
+```
+
+Use this endpoint to update a contact.
+
+### HTTP Request
+
+`PATCH /customers/:customer_id/contacts/:id`
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**name** | *string* | Contact name
+**title** | *string* | Job title
+**email** | *string* | Email address
+**phone** | *string* | Phone number
+**primary** | *boolean* | When true the contact will be copied on any account communications
+**sms_enabled** | *boolean* | When true the contact can be contacted via text message
+**department** | *string* | Department
+**address1** | *string* | First address line
+**address2** | *string* | Optional second address line
+**city** | *string* | City
+**state** | *string* | State or province
+**postal_code** | *string* | Zip or postal code
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+## TODO Delete a task
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+  -u {API_KEY}: \
+  -X DELETE
+```
+
+```ruby
+contact.delete
+```
+
+```php
+<?php
+
+$contact->delete();
+```
+
+```python
+contact.delete()
+```
+
+```java
+contact.delete();
+```
+
+> The above command returns `204 No Content`
+
+This endpoint deletes a specific contact.
+
+### HTTP Request
+
+`DELETE /customers/:customer_id/contacts/:id`
+
+## TODO List all tasks
+
+```shell
+curl "https://api.invoiced.com/customers/:customer_id/contacts" \
+  -u {API_KEY}:
+```
+
+```ruby
+customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
+contacts, metadata = customer.contacts.list(:per_page => 3)
+```
+
+```php
+<?php
+
+$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
+list($contacts, $metadata) = $customer->contacts()->all(['per_page' => 3]);
+```
+
+```python
+customer = client.Customer.retrieve("{CUSTOMER_ID}")
+contacts, metadata = customer.contacts().list(per_page=3)
+```
+
+```java
+Customer customer = conn.newCustomer().retrieve({CUSTOMER_ID});
+EntityList<Contact> contacts = customer.newContact().listAll();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  <%= json data.contacts._update, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.contacts._update, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\Contact JSON: <%= json data.contacts._update, 1 %>
+]
+```
+
+```python
+[
+  <Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.contacts._update, 1 %>
+]
+```
+
+```java
+[
+  com.invoiced.entity.Contact@1701e31a JSON: <%= json data.contacts._update, 1 %>
+]
+```
+
+This endpoint retrieves all contacts.
+
+### HTTP Request
+
+`GET /customers/:customer_id/contacts`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+**sort** *string* | Column to sort by, i.e. `name asc`
+**filter** *object* | Filter object
