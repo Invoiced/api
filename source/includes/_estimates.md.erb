@@ -38,7 +38,7 @@ Parameter | Type | Description
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
 **closed** | *boolean* | When true, an estimate is closed and considered bad debt. No further payments are allowed.
 **approved** | *boolean* | Estimate approved?
-**status** | *string* | Estimate state, one of `draft`, `not_sent`, `sent`, `approved`, `invoiced`, `declined`
+**status** | *string* | Estimate state, one of `draft`, `not_sent`, `sent`, `approved`, `invoiced`, `declined`, `voided`
 **date** | *timestamp* | Estimate date
 **expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
@@ -564,6 +564,59 @@ This endpoint retrieves a list of files attached to a specific estimate.
 ### HTTP Request
 
 `GET /estimates/:id/attachments`
+
+## Void an estimate
+
+```shell
+curl "https://api.invoiced.com/estimates/:id/void" \
+  -u {API_KEY}: \
+```
+
+```ruby
+estimate.void
+```
+
+```php
+<?php
+
+$estimate->void();
+```
+
+```python
+estimate.void()
+```
+
+```java
+estimate.void();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.estimates.voided %>
+```
+
+```ruby
+#<Invoiced::Estimate:0x3fdbf95e4d08 id=2048> JSON: <%= json data.estimates.voided %>
+```
+
+```php
+Invoiced\Estimate JSON: <%= json data.estimates.voided %>
+```
+
+```python
+<Estimate id=2048 at 0x3fdbf95e4d08> JSON: <%= json data.estimates.voided %>
+```
+
+```java
+com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.voided %>
+```
+
+Use this endpoint to void an estimate.
+
+### HTTP Request
+
+`POST /estimates/:id/void`
 
 ## Delete an estimate
 

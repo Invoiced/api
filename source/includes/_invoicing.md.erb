@@ -40,7 +40,7 @@ Parameter | Type | Description
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
 **closed** | *boolean* | When true, an invoice is closed and considered bad debt. No further payments are allowed.
 **paid** | *boolean* | Indicates whether an invoice has been paid in full
-**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`
+**status** | *string* | Invoice state, one of `draft`, `not_sent`, `sent`, `viewed`, `past_due`, `pending`, `paid`, `voided`
 **attempt_count** | *integer* | # of payment attempts
 **next_payment_attempt** | *timestamp* | Next scheduled charge attempt, when in automatic collection
 **subscription** | *integer* | Subscription ID if invoice came from subscription
@@ -679,6 +679,59 @@ This endpoint retrieves a list of files attached to a specific invoice.
 ### HTTP Request
 
 `GET /invoices/:id/attachments`
+
+## Void an invoice
+
+```shell
+curl "https://api.invoiced.com/invoices/:id/void" \
+  -u {API_KEY}: \
+```
+
+```ruby
+invoice.void
+```
+
+```php
+<?php
+
+$invoice->void();
+```
+
+```python
+invoice.void()
+```
+
+```java
+invoice.void();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.invoicing.invoices.voided %>
+```
+
+```ruby
+#<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.invoicing.invoices.voided %>
+```
+
+```php
+Invoiced\Invoice JSON: <%= json data.invoicing.invoices.voided %>
+```
+
+```python
+<Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.invoices.voided %>
+```
+
+```java
+com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.voided %>
+```
+
+Use this endpoint to void an invoice.
+
+### HTTP Request
+
+`POST /invoices/:id/void`
 
 ## Delete an invoice
 
