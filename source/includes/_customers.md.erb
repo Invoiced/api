@@ -1111,19 +1111,19 @@ task.create();
 ```
 
 ```ruby
-#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.tasks.object %>
+#<Invoiced::Task:0x3fdbf95e4d08 id=788> JSON: <%= json data.tasks.object %>
 ```
 
 ```php
-Invoiced\Contact JSON: <%= json data.tasks.object %>
+Invoiced\Task JSON: <%= json data.tasks.object %>
 ```
 
 ```python
-<Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.tasks.object %>
+<Task id=788 at 0x3fdbf95e4d08> JSON: <%= json data.tasks.object %>
 ```
 
 ```java
-com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.tasks.object %>
+com.invoiced.entity.Task@cb8fd89 JSON: <%= json data.tasks.object %>
 ```
 
 Create a new task with this endpoint.
@@ -1145,60 +1145,57 @@ Parameter | Type | Description
 ## TODO Retrieve a task
 
 ```shell
-curl "https://api.invoiced.com/customers/:customer_id/contacts/:id" \
+curl "https://api.invoiced.com/tasks/:id" \
   -u {API_KEY}:
 ```
 
 ```ruby
-customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
-contact = customer.contacts.retrieve("{CONTACT_ID}")
+task = invoiced.Task.retrieve("{TASK_ID}")
 ```
 
 ```php
 <?php
 
-$customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
-$contact = $customer->contacts()->retrieve("{CONTACT_ID}");
+$task = $invoiced->Task->retrieve("{TASK_ID}");
 ```
 
 ```python
-customer = client.Customer.retrieve("{CUSTOMER_ID}")
-contact = customer.contacts().retrieve("{CONTACT_ID}")
+task = client.Task.retrieve("{TASK_ID}")
 ```
 
 ```java
-Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
-Contact contact = customer.newContact().retrieve({CONTACT_ID});
+Task task = invoiced.newTask();
+Task taskToRetrieve = task.retrieve({TASK_ID});
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.contacts.object %>
+<%= json data.tasks.object %>
 ```
 
 ```ruby
-#<Invoiced::Contact:0x3fdbf95e4d08 id=10403> JSON: <%= json data.contacts.object %>
+#<Invoiced::Task:0x3fdbf95e4d08 id=788> JSON: <%= json data.tasks.object %>
 ```
 
 ```php
-Invoiced\Contact JSON: <%= json data.contacts.object %>
+Invoiced\Task JSON: <%= json data.tasks.object %>
 ```
 
 ```python
-<Contact id=10403 at 0x3fdbf95e4d08> JSON: <%= json data.contacts.object %>
+<Task id=788 at 0x3fdbf95e4d08> JSON: <%= json data.tasks.object %>
 ```
 
 ```java
-com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts.object %>
+com.invoiced.entity.Task@cb8fd89 JSON: <%= json data.tasks.object %>
 ```
 
 
-This endpoint retrieves a specific contact.
+This endpoint retrieves a specific task.
 
 ### HTTP Request
 
-`GET /customers/:customer_id/contacts/:id`
+`GET /tasks/:id`
 
 ## TODO Update a task
 
