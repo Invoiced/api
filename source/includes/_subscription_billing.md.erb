@@ -205,6 +205,93 @@ Parameter | Type | Description
 **cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
+## Preview a subscription
+
+```shell
+curl "https://api.invoiced.com/subscriptions/preview" \
+  -u {API_KEY}: \
+  -d customer=481594 \
+  -d plan="starter" \
+```
+
+```ruby
+invoiced.Subscription.preview(
+	:customer => 481594,
+	:plan => "starter"
+)
+```
+
+```php
+<?php
+
+$invoiced->Subscription->preview([
+	'customer' => 481594,
+	'plan' => "starter"
+]);
+```
+
+```python
+client.Subscription.preview(
+	customer=481594,
+	plan="starter"
+)
+```
+
+```java
+Subscription subscription = invoiced.newSubscription();
+subscription.customer = 481594;
+subscription.plan = "starter";
+subscription.preview();
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.subscriptions._preview %>
+```
+
+```ruby
+#<Invoiced::Subscription:0x3fdbf95e4d08 id=false> JSON: <%= json data.subscriptions._preview %>
+```
+
+```php
+Invoiced\Subscription JSON: <%= json data.subscriptions._preview %>
+```
+
+```python
+<Subscription id=false at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions._preview %>
+```
+
+```java
+com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions._preview %>
+```
+
+This endpoint allows you to preview the first invoice that would be created from a new subscription, wtihout actually creating the subscription.
+
+### HTTP Request
+
+`POST /subscriptions/preview`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**customer** | *integer* | Customer ID, required
+**plan** | *string* | Plan ID, required
+**start_date** | *integer* | Timestamp subscription begins, defaults to `now`
+**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
+**quantity** | *integer* | Plan quantity. Defaults to 1
+**addons** | *array* | Collection of optional Subscription Addons
+**discounts** | *array* | Collection of Coupon IDs
+**cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
+**snap_to_nth_day** | *integer* | Snap billing cycles to a specific day of the month (also known as calendar billing), off by default
+**paused** | *boolean* | When true, subscription is paused
+**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
+**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
+**taxes** | *array* | Collection of Tax Rate IDs
+**cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
+**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
 ## Retrieve a subscription
 
 ```shell
