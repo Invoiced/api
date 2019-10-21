@@ -280,19 +280,11 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **customer** | *integer* | Customer ID, required
 **plan** | *string* | Plan ID, required
-**start_date** | *integer* | Timestamp subscription begins, defaults to `now`
-**bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **addons** | *array* | Collection of optional Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs
-**cycles** | *integer* | Number of billing cycles the subscription runs for, when `null` runs until canceled (default).
-**snap_to_nth_day** | *integer* | Snap billing cycles to a specific day of the month (also known as calendar billing), off by default
-**paused** | *boolean* | When true, subscription is paused
-**contract_renewal_cycles** | *integer* | Number of billing cycles in next contract period
-**contract_renewal_mode** | *string* | `auto`, `manual`, `renew_once`, or `none`
 **taxes** | *array* | Collection of Tax Rate IDs
-**cancel_at_period_end** | *boolean* | When true the subscription will be canceled at the end of the current billing period
-**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**pending_line_items** | *array* | Collection of pending line items
 
 ## Retrieve a subscription
 
