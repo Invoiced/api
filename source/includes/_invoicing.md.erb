@@ -103,41 +103,6 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID, only present when type is `plan`
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
-## Note Object
-
-Represents an internal note related to an invoice. These notes appear in the Invoiced dashboard only and are distinct from the customer-facing `notes` field on the invoice object.
-
-### Attributes
-
-```shell
-<%= json data.invoicing.notes.create %>
-```
-
-```ruby
-#<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.invoicing.notes.create %>
-```
-
-```php
-Invoiced\Note JSON: <%= json data.invoicing.notes.create %>
-```
-
-```python
-<Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.notes.create %>
-```
-
-```java
-com.invoiced.entity.Note@e48fa2a JSON: <%= json data.invoicing.notes.create %>
-```
-
-Parameter | Type | Description
---------- | ---- | -----------
-**id** | *integer* | The note's unique ID
-**object** | *string* | Object type, `note`
-**notes** | *string* | Contents of note
-**customer** | *integer* | Customer associated with note
-**created_at** | *timestamp* | Timestamp when created
-**user** | *object* | Object describing user who created note
-
 ## Discount Object
 
 Represents the application of a discount to an invoice or line item.
@@ -764,6 +729,8 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.conso
 
 Consolidate all of a customer's open invoices to a single invoice with this endpoint.
 
+Requests will fail if there are no invoices to consolidate, or if the customer does not have consolidation enabled.
+
 ### HTTP Request
 
 `POST /customers/:id/consolidate_invoices`
@@ -935,6 +902,43 @@ Parameter | Description
 **end_date** *timestamp* | Restricts the results to invoices *on or before* the given timestamp
 **updated_after** *timestamp* | Only gets records updated after the given timestamp
 
+# Notes
+
+Represents an internal note related to a customer or invoice. These notes appear in the Invoiced dashboard only and are distinct from the customer-facing `notes` field on the invoice object.
+
+## Note Object
+
+### Attributes
+
+```shell
+<%= json data.invoicing.notes.create %>
+```
+
+```ruby
+#<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.invoicing.notes.create %>
+```
+
+```php
+Invoiced\Note JSON: <%= json data.invoicing.notes.create %>
+```
+
+```python
+<Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.notes.create %>
+```
+
+```java
+com.invoiced.entity.Note@e48fa2a JSON: <%= json data.invoicing.notes.create %>
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The note's unique ID
+**object** | *string* | Object type, `note`
+**notes** | *string* | Contents of note
+**customer** | *integer* | Customer associated with note
+**created_at** | *timestamp* | Timestamp when created
+**user** | *object* | Object describing user who created note
+
 ## Create a note
 
 ```shell
@@ -996,7 +1000,9 @@ Invoiced\Note JSON: <%= json data.invoicing.notes.create %>
 com.invoiced.entity.Note@e48fa2a JSON: <%= json data.invoicing.notes.create %>
 ```
 
-Use this endpoint to create a note related to an invoice.
+Use this endpoint to create a note related to a customer or invoice.
+
+Either `customer_id` or `invoice_id` is required, but not both.
 
 ### HTTP Request
 
@@ -1006,6 +1012,7 @@ Use this endpoint to create a note related to an invoice.
 
 Parameter | Type | Description
 --------- | ---- | -----------
+**customer_id** | *integer* | Associated customer's unique ID
 **invoice_id** | *integer* | Associated invoice's unique ID
 **notes** | *string* | Contents of note
 
@@ -1056,11 +1063,11 @@ Invoiced\Note JSON: <%= json data.invoicing.notes.create %>
 com.invoiced.entity.Note@e48fa2a JSON: <%= json data.invoicing.notes.create %>
 ```
 
-Use this endpoint to retrieve notes associated with a certain invoice.
+Use this endpoint to retrieve notes associated with a certain customer or invoice.
 
 ### HTTP Request
 
-`GET /invoice/:id/notes`
+`GET /customer/:id/notes` or `GET /invoice/:id/notes`
 
 ## Update a note
 
