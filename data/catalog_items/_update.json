@@ -1,0 +1,16 @@
+{
+  "id": "delivery",
+  "object": "catalog_item",
+  "name": "Delivery",
+  "currency": "usd",
+  "unit_cost": 100,
+  "description": null,
+  "type": "product",
+  "taxes": [],
+  "gl_account": null,
+  "discountable": true,
+  "taxable": true,
+  "avalara_tax_code": null,
+  "created_at": 1477327516,
+  "metadata": {}
+}
