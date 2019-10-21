@@ -3,6 +3,9 @@ Changelog
 ### October 21, 2019
 - Added endpoint to perform a charge.
 - Added endpoint to preview a new subscription without committing the transaction.
+- New endpoints for voiding invoices, credit notes, and estimates.
+- Added invoice consolidation endpoint.
+- Added notes object and endpoints
 - Added task object and endpoints.
 
 ### October 20, 2019
