@@ -555,13 +555,13 @@ Parameter | Description
 ## Initiate a charge
 
 ```shell
-(Tokenized Payment Info)
+# (Tokenized Payment Info)
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
   --data '{"customer":401558,"currency":"usd","amount":2000,"splits":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","invoiced_token":"acdf7f31da641970cdb9c6c46a373577"}'
 
-(Saved Payment Source)
+# (Saved Payment Source)
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
@@ -577,10 +577,10 @@ invoiced.Charge.create(
   :splits => [...], # excluded for brevity
   :method => "credit_card",
 
-  (Tokenized Payment Info)
+# (Tokenized Payment Info)
   :invoiced_token => "acdf7f31da641970cdb9c6c46a373577",
 
-  (Saved Payment Source)
+# (Saved Payment Source)
   :payment_source_type => "card",
   :payment_source_id => 1234
 )
@@ -596,10 +596,10 @@ $invoiced->Charge->create([
   'splits' => [...], // excluded for brevity
   'method' => "credit_card",
 
-  (Tokenized Payment Info)
+// (Tokenized Payment Info)
   'invoiced_token' => "acdf7f31da641970cdb9c6c46a373577",
 
-  (Saved Payment Source)
+// (Saved Payment Source)
   'payment_source_type' => "card",
   'payment_source_id' => 1234
 ]);
@@ -613,10 +613,10 @@ client.Charge.create(
   splits = [...], # excluded for brevity
   method = "credit_card",
 
-  (Tokenized Payment Info)
+# (Tokenized Payment Info)
   invoiced_token = "acdf7f31da641970cdb9c6c46a373577",
 
-  (Saved Payment Source)
+# (Saved Payment Source)
   payment_source_type = "card",
   payment_source_id = 1234
 )
@@ -630,10 +630,10 @@ charge.amount = 2000;
 charge.splits = [...]; // excluded for brevity
 charge.method = "credit_card";
 
-(Tokenized Payment Info)
+// (Tokenized Payment Info)
 charge.invoiced_token = "acdf7f31da641970cdb9c6c46a373577";
 
-(Saved Payment Source)
+// (Saved Payment Source)
 charge.payment_source_type = "card";
 charge.payment_source_id = 1234;
 
@@ -647,19 +647,19 @@ charge.create();
 ```
 
 ```ruby
-#<Invoiced::Charge:0x3fdbf95e4d08 id=5d9e31d812151> JSON: <%= json data.charges.create %>
+#<Invoiced::Transaction:0x3fdbf95e4d08 id=5d9e31d812151> JSON: <%= json data.charges.create %>
 ```
 
 ```php
-Invoiced\Charge JSON: <%= json data.charges.create %>
+Invoiced\Transaction JSON: <%= json data.charges.create %>
 ```
 
 ```python
-<Charge id=5d9e31d812151 at 0x3fdbf95e4d08> JSON: <%= json data.charges.create %>
+<Transaction id=5d9e31d812151 at 0x3fdbf95e4d08> JSON: <%= json data.charges.create %>
 ```
 
 ```java
-com.invoiced.entity.Charge@4ed0a875 JSON: <%= json data.charges.create %>
+com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.charges.create %>
 ```
 
 Initiate a new charge with this endpoint.
