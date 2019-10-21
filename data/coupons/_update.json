@@ -1,0 +1,13 @@
+{
+  "id": "S8L47J",
+  "object": "coupon",
+  "name": "Nonprofits",
+  "currency": null,
+  "value": 20,
+  "is_percent": true,
+  "created_at": 1477415090,
+  "metadata": {},
+  "exclusive": false,
+  "expiration_date": null,
+  "max_redemptions": 0
+}

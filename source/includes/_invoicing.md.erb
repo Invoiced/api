@@ -473,7 +473,7 @@ Parameter | Type | Description
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
 
-## Send an invoice
+## Send an invoice email
 
 ```shell
 curl "https://api.invoiced.com/invoices/:id/emails" \
@@ -547,6 +547,10 @@ This endpoint sends an invoice to your customer.
 
 `POST /invoices/:id/emails`
 
+<aside class="info">
+A successful response means that your email has been added to the send queue.
+</aside>
+
 ### Request Parameters
 
 Parameter | Type | Description
@@ -556,8 +560,147 @@ Parameter | Type | Description
 **subject** | *string* | Optional subject
 **message** | *string* | Optional message body, otherwise the appropriate invoice template is used
 
+## Send an invoice SMS
+
+```shell
+curl "https://api.invoiced.com/invoices/:id/text_messages" \
+  -u {API_KEY}: \
+  -d message="{{company_name}}: You have a new invoice {{invoice_number}} {{url}}" \
+  -X POST
+```
+
+```ruby
+text_messages = invoice.send_text(:message => "{{company_name}}: You have a new invoice {{invoice_number}} {{url}}")
+```
+
+```php
+<?php
+
+$textMessages = $invoice->sendText(['message' => "{{company_name}}: You have a new invoice {{invoice_number}} {{url}}"]);
+```
+
+```python
+text_messages = invoice.send_text(type="open_item", message="{{company_name}}: You have a new invoice {{invoice_number}} {{url}}")
+```
+
+```java
+TextRequest textRequest = new TextRequest();
+textRequest.message = "{{company_name}}: You have a new invoice {{invoice_number}} {{url}}";
+TextMessage[] textMessages = invoice.sendText(textRequest);
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::TextMessage:0x3fdbf95e4d08 id=f96fc863e58300167a252af8eeef158b> JSON: <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\TextMessage JSON: <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+```python
+[
+<TextMessage id=f96fc863e58300167a252af8eeef158b at 0x3fdbf95e4d08> JSON: <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+```java
+//To pretty print a array of Objects use Arrays.toString(Object[]);
+
+[
+  com.invoiced.entity.TextMessage@1bfbb8ee JSON: <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+This endpoint sends an invoice by SMS to a customer using [Twilio](https://invoiced.com/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
+
+Text messages can only be sent to customer contacts marked as `sms_enabled`.
+
+### HTTP Request
+
+`POST /invoices/:id/text_messages`
+
 <aside class="info">
-A successful response means that your email has been added to the send queue.
+A successful response means that your text message has been added to the send queue.
+</aside>
+
+### Request Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**message** | *string* | Full text of message - **required**
+**to** | *array* | Optional array of recipients like:<br/>`[{"phone": "11234567890", "name": "Bob Loblaw"}]`
+
+## Send an invoice letter
+
+```shell
+curl "https://api.invoiced.com/invoices/:id/letters" \
+  -u {API_KEY}: \
+  -X POST
+```
+
+```ruby
+letters = invoice.send_letter
+```
+
+```php
+<?php
+
+$letters = $invoice->sendLetter();
+```
+
+```python
+letters = invoice.send_letter()
+```
+
+```java
+LetterRequest letterRequest = new LetterRequest();
+Letter[] letters = invoice.sendLetter(letterRequest);
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.letters.invoice %>
+```
+
+```ruby
+#<Invoiced::Letter:0x3fdbf95e4d08 id=995503c4fc2c853b23de3023e84bba72> JSON: <%= json data.letters.invoice %>
+```
+
+```php
+Invoiced\Letter JSON: <%= json data.letters.invoice %>
+```
+
+```python
+<Letter id=995503c4fc2c853b23de3023e84bba72 at 0x3fdbf95e4d08> JSON: <%= json data.letters.invoice %>
+```
+
+```java
+com.invoiced.entity.Letter@2ce1cfd8 JSON: <%= json data.letters.invoice %>
+```
+
+This endpoint sends an invoice by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
+
+There are no request parameters; the letter will automatically be sent to the customer's billing address.
+
+### HTTP Request
+
+`POST /invoices/:id/letters`
+
+<aside class="info">
+A successful response means that your letter has been added to the send queue.
 </aside>
 
 ## Pay an invoice

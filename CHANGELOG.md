@@ -1,5 +1,13 @@
 Changelog
 =========
+### October 21, 2019
+- Added endpoint to perform a charge.
+- Added endpoint to preview a new subscription without committing the transaction.
+- Added task object and endpoints.
+
+### October 20, 2019
+- Added create, retrieve, update, delete, and list endpoints for catalog items, plans, tax rates, and coupons.
+
 ### October 11, 2019
 - Added `avalara_tax_code` and `gl_account` properties to the catalog item object.
 - Added `department`, `phone`, `sms_enabled` and `title` properties to the contact object.

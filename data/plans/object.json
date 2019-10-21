@@ -1,0 +1,15 @@
+{
+  "id": "starter",
+  "object": "plan",
+  "name": "Starter",
+  "currency": "usd",
+  "amount": 49,
+  "interval": "month",
+  "interval_count": 1,
+  "catalog_item": "software-subscription",
+  "created_at": 1477418268,
+  "metadata": {},
+  "pricing_mode": "per_unit",
+  "quantity_type": "constant",
+  "tiers": null
+}
