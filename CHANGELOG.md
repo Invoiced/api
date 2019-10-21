@@ -1,5 +1,8 @@
 Changelog
 =========
+### October 21, 2019
+- Added endpoint to perform a charge.
+
 ### October 20, 2019
 - Added create, retrieve, update, delete, and list endpoints for catalog items, plans, tax rates, and coupons.
 
