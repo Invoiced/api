@@ -325,6 +325,7 @@ Parameter | Type | Description
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
+**calculate_taxes** | *bool* | Disables tax calculation, default is `true`
 
 ## Retrieve an invoice
 
@@ -472,6 +473,7 @@ Parameter | Type | Description
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
+**calculate_taxes** | *bool* | Recalculate taxes, default is `false`
 
 ## Send an invoice email
 

@@ -1,5 +1,8 @@
 Changelog
 =========
+### October 25, 2019
+- The create and update endpoints for documents (invoices, estimates, credit notes) now have a `calculate_taxes` parameter.
+
 ### October 21, 2019
 - Added endpoint to perform a charge.
 - Added endpoint to preview a new subscription without committing the transaction.

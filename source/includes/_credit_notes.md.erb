@@ -208,6 +208,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the credit note
+**calculate_taxes** | *bool* | Disables tax calculation, default is `true`
 
 ## Retrieve a credit note
 
@@ -351,6 +352,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the credit note. Replaces existing attachments. Not providing this keeps existing attachments.
+**calculate_taxes** | *bool* | Recalculate taxes, default is `false`
 
 ## Send a credit note
 
