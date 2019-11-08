@@ -144,19 +144,19 @@ client.CreditNote.create(
 
 ```java
 CreditNote creditNote = invoiced.newCreditNote();
-creditNote.customer = 15444;
-creditNote.invoice = 46225;
+creditNote.customer = 15444L;
+creditNote.invoice = 46225L;
 LineItem[] items = new LineItem[2];
 items[0] = new LineItem();
 items[0].name = "Copy paper, Case";
-items[0].quantity = 1;
-items[0].unitCost = 45;
+items[0].quantity = 1D;
+items[0].unitCost = 45D;
 items[1] = new LineItem();
 items[1].catalogItem = "delivery";
-items[1].quantity = 1;
+items[1].quantity = 1D;
 Tax[] taxes = new Tax[1];
 taxes[0] = new Tax();
-taxes[0].amount = 3.85;
+taxes[0].amount = 3.85D;
 creditNote.items = items;
 creditNote.taxes = taxes;
 creditNote.create();
