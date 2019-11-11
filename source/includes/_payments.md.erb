@@ -570,7 +570,7 @@ curl 'https://api.invoiced.com/charges' \
 
 ```ruby
 
-invoiced.Charge.create(
+charge = transaction.initiate_charge(
   :customer => 401558,
   :currency => "usd",
   :amount => 2000,
@@ -589,7 +589,7 @@ invoiced.Charge.create(
 ```php
 <?php
 
-$invoiced->Charge->create([
+$charge = $transaction->initiateCharge([
   'customer' => 401558,
   'currency' => "usd",
   'amount' => 2000,
@@ -606,7 +606,7 @@ $invoiced->Charge->create([
 ```
 
 ```python
-client.Charge.create(
+charge = transaction.initiate_charge(
   customer = 401558,
   currency = "usd",
   amount = 2000,
@@ -623,21 +623,21 @@ client.Charge.create(
 ```
 
 ```java
-Charge charge = invoiced.newCharge();
-charge.customer = 401558;
-charge.currency = "usd";
-charge.amount = 2000;
-charge.splits = [...]; // excluded for brevity
-charge.method = "credit_card";
+ChargeRequest chargeRequest = invoiced.newChargeRequest();
+chargeRequest.customer = 401558;
+chargeRequest.currency = "usd";
+chargeRequest.amount = 2000;
+chargeRequest.splits = [...]; // excluded for brevity
+chargeRequest.method = "credit_card";
 
 // (Tokenized Payment Info)
-charge.invoiced_token = "acdf7f31da641970cdb9c6c46a373577";
+chargeRequest.invoiced_token = "acdf7f31da641970cdb9c6c46a373577";
 
 // (Saved Payment Source)
-charge.payment_source_type = "card";
-charge.payment_source_id = 1234;
+chargeRequest.payment_source_type = "card";
+chargeRequest.payment_source_id = 1234;
 
-charge.create();
+Transaction charge = invoiced.newTransaction().initiateCharge(chargeRequest);
 ```
 
 > The above command returns JSON structured like this:

@@ -72,9 +72,9 @@ client.Note.create(
 ```
 
 ```java
-Note note = invoiced.newNote();
-note.invoice_id = 46225;
-note.notes = "Customer called 10/1, clarified account terms."
+Invoice invoice = invoiced.newInvoice().retrieve(46225);
+Note note = invoice.newNote();
+note.notes = "Customer called 10/1, clarified account terms.";
 note.create();
 ```
 
@@ -138,7 +138,8 @@ notes = client.Invoice.retrieve_notes("{INVOICE_ID}")
 ```
 
 ```java
-EntityList<Note> notes = invoiced.newInvoice().retrieveNotes({INVOICE_ID});
+Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
+EntityList<Note> notes = invoice.newNote().listAll();
 ```
 
 > The above command returns JSON structured like this:
