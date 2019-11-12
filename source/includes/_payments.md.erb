@@ -623,7 +623,7 @@ charge = transaction.initiate_charge(
 ```
 
 ```java
-ChargeRequest chargeRequest = invoiced.newChargeRequest();
+ChargeRequest chargeRequest = new ChargeRequest();
 chargeRequest.customer = 401558;
 chargeRequest.currency = "usd";
 chargeRequest.amount = 2000;
