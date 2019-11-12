@@ -95,11 +95,11 @@ customer.tasks().create(
 ```java
 Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
 Task task = customer.newTask();
-task.customer_id = 481594,
-task.name = "Call customer",
-task.action = "phone",
-task.due_date = 1571288400,
-task.user_id = 1976
+task.customer_id = 481594;
+task.name = "Call customer";
+task.action = "phone";
+task.due_date = 1571288400;
+task.user_id = 1976;
 task.create();
 ```
 
