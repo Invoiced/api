@@ -8,6 +8,7 @@
         "created_at": null,
         "currency": "usd",
         "customer": -1,
+        "ship_to": null,
         "date": 1571410119,
         "draft": true,
         "due_date": null,

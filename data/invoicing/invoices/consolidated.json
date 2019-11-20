@@ -2,6 +2,7 @@
   "id": 46225,
   "object": "invoice",
   "customer": 15444,
+  "ship_to": null,
   "name": "Consolidated Invoice",
   "currency": "usd",
   "draft": false,

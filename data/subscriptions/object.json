@@ -2,6 +2,7 @@
   "id": 595,
   "object": "subscription",
   "customer": 15444,
+  "ship_to": null,
   "plan": "starter",
   "cycles": null,
   "quantity": 1,

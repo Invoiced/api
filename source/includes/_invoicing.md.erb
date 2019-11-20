@@ -54,6 +54,7 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Taxes
 **total** | *number* | Total
 **balance** | *number* | Balance owed
+**ship_to** | *object* | Shipipng Detail object
 **payment_plan** | *integer* | Payment plan ID
 **url** | *string* | URL to view the invoice in the billing portal
 **payment_url** | *string* | URL for the invoice payment page
@@ -169,6 +170,43 @@ Parameter | Type | Description
 **object** | *string* | Object type, `tax`
 **amount** | *number* | Tax amount
 **tax_rate** | *object* | Tax Rate the tax was computed from, if any
+
+## Shipping Details Object
+
+Represents the shipipng details of an invoice.
+
+### Attributes
+
+```shell
+<%= json data.invoicing.shipping.object %>
+```
+
+```ruby
+#<Invoiced::ShippingDetail:0x3fdbf95e4d08 id=20554> JSON: <%= json data.invoicing.shipping.object %>
+```
+
+```php
+Invoiced\ShippingDetail JSON: <%= json data.invoicing.shipping.object %>
+```
+
+```python
+<ShippingDetail id=20554 at 0x3fdbf95e4d08> JSON: <%= json data.invoicing.shipping.object %>
+```
+
+```java
+com.invoiced.entity.ShippingDetail@31d5f331 JSON: <%= json data.invoicing.shipping.object %>
+```
+
+Parameter | Type     | Description
+--------- | -------- | -----------
+**name**  | *string* | Ship to name
+**attention_to** | *string* | Used for ATTN: address line
+**address1** | *string* | First address line
+**address2** | *string* | Optional second address line
+**city** | *string* | City
+**state** | *string* | State or province
+**postal_code** | *string* | Zip or postal code
+**country** | *string* | [Two-letter ISO code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
 ## Create an invoice
 
@@ -322,6 +360,7 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**ship_to** | *object* | Shipipng Detail object
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
@@ -470,6 +509,7 @@ Parameter | Type | Description
 **notes** | *string* | Additional notes displayed on invoice
 **discounts** | *array* | Collection of Discounts
 **taxes** | *array* | Collection of Taxes
+**ship_to** | *object* | Shipipng Detail object
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **attachments** | *array* | A list of [File](#file-object) IDs to attach to the invoice. Replaces existing attachments. Not providing this keeps existing attachments.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this invoice, i.e. `["credit_card", "wire_transfer"]`.
