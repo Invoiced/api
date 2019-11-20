@@ -125,19 +125,19 @@ curl "https://api.invoiced.com/invoice/:id/notes" \
 
 ```ruby
 invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
-notes, metadata = customer.notes.list(:per_page => 3)
+notes, metadata = invoice.notes.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
 $invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
-list($notes, $metadata) = $customer->notes()->all(['per_page' => 3]);
+list($notes, $metadata) = $invoice->notes()->all(['per_page' => 3]);
 ```
 
 ```python
 invoice = client.Invoice.retrieve("{INVOICE_ID}")
-notes, metadata = customer.list_notes().list(per_page=3)
+notes, metadata = invoice.list_notes().list(per_page=3)
 ```
 
 ```java
@@ -177,7 +177,7 @@ EntityList<Note> notes = invoice.newNote().retrieve();
 ]
 ```
 
-Use this endpoint to retrieve notes associated with a certain customer or invoice.
+Use this endpoint to retrieve a list of notes associated with a certain customer or invoice. Retrieving a specific note by `id`, e.g. `/notes/:id`, is not supported.
 
 ### HTTP Request
 
