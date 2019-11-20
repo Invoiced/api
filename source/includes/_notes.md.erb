@@ -145,23 +145,33 @@ EntityList<Note> notes = invoice.newNote().listAll();
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.notes.create %>
+[
+  <%= json data.notes.create %>
+]
 ```
 
 ```ruby
-#<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create %>
+[
+  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create %>
+]
 ```
 
 ```php
-Invoiced\Note JSON: <%= json data.notes.create %>
+[
+  Invoiced\Note JSON: <%= json data.notes.create %>
+]
 ```
 
 ```python
-<Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create %>
+[
+  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create %>
+]
 ```
 
 ```java
-com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
+[
+  com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
+]
 ```
 
 Use this endpoint to retrieve notes associated with a certain customer or invoice.
