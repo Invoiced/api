@@ -157,30 +157,30 @@ Parameter | Type | Description
 ## Retrieve payment sources
 
 ```shell
-curl "https://api.invoiced.com/customers/:customer_id/payment_sources/:id" \
+curl "https://api.invoiced.com/customers/:customer_id/payment_sources" \
   -u {API_KEY}
 ```
 
 ```ruby
 customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
-payment_source = customer.payment_sources.retrieve("{SOURCE_ID}")
+payment_source = customer.payment_sources.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
 $customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
-$paymentSource = $customer->paymentSources()->retrieve("{SOURCE_ID}");
+$paymentSource = $customer->paymentSources()->all(['per_page' => 3]);
 ```
 
 ```python
 customer = client.Customer.retrieve("{CUSTOMER_ID}")
-payment_source = customer.payment_sources().retrieve("{SOURCE_ID}")
+payment_source = customer.payment_sources().list(per_page=3)
 ```
 
 ```java
 Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
-PaymentSource paymentSource = customer.newPaymentSource().retrieve({SOURCE_ID});
+PaymentSource paymentSource = customer.newPaymentSource().listAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -224,7 +224,7 @@ Retrieve payment sources associated with a certain customer using this endpoint.
 ## Delete a payment source
 
 ```shell
-curl "https://api.invoiced.com/customers/:customer_id/card/:id" \
+curl "https://api.invoiced.com/customers/:customer_id/cards/:id" \
   -u {API_KEY}: \
   -X DELETE
 ```
@@ -253,6 +253,6 @@ This endpoint deletes a specific payment source. The endpoint differs by type.
 
 ### HTTP Request
 
-`DELETE /customers/:customer_id/card/:id` or
+`DELETE /customers/:customer_id/cards/:id` or
 
-`DELETE /customers/:customer_id/bank_account/:id`
+`DELETE /customers/:customer_id/bank_accounts/:id`
