@@ -149,31 +149,31 @@ EntityList<Note> notes = invoice.newNote().retrieve();
 
 ```shell
 [
-  <%= json data.notes.create %>
+  <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create %>
+  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Note JSON: <%= json data.notes.create %>
+  Invoiced\Note JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```python
 [
-  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create %>
+  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
+  com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
