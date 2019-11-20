@@ -290,17 +290,17 @@ curl "https://api.invoiced.com/notes" \
 ```
 
 ```ruby
-notes = invoiced.Note.list(:per_page => 3)
+notes, metadata = invoiced.Note.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-notes = $invoiced->Note->all(['per_page' => 3]);
+list($notes, $metadata) = $invoiced->Note->all(['per_page' => 3]);
 ```
 
 ```python
-notes = invoiced.Note.list(per_page=3)
+notes, metadata = invoiced.Note.list(per_page=3)
 ```
 
 ```java

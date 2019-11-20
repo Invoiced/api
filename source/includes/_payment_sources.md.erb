@@ -163,24 +163,24 @@ curl "https://api.invoiced.com/customers/:customer_id/payment_sources" \
 
 ```ruby
 customer = invoiced.Customer.retrieve("{CUSTOMER_ID}")
-payment_source = customer.payment_sources.list(:per_page => 3)
+payment_sources, metadata = customer.payment_sources.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
 $customer = $invoiced->Customer->retrieve("{CUSTOMER_ID}");
-$paymentSource = $customer->paymentSources()->all(['per_page' => 3]);
+list($payment_sources, $metadata) = $customer->paymentSources()->all(['per_page' => 3]);
 ```
 
 ```python
 customer = client.Customer.retrieve("{CUSTOMER_ID}")
-payment_source = customer.payment_sources().list(per_page=3)
+payment_sources, metadata = customer.payment_sources().list(per_page=3)
 ```
 
 ```java
 Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
-PaymentSource paymentSource = customer.newPaymentSource().listAll();
+EntityList<PaymentSource> paymentSources = customer.newPaymentSource().listAll();
 ```
 
 > The above command returns JSON structured like this:
