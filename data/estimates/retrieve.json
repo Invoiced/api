@@ -2,6 +2,7 @@
   "id": 2048,
   "object": "estimate",
   "customer": 15444,
+  "ship_to": null,
   "invoice": null,
   "name": null,
   "currency": "usd",
