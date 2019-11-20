@@ -124,22 +124,25 @@ curl "https://api.invoiced.com/invoice/:id/notes" \
 ```
 
 ```ruby
-notes = invoiced.Invoice.retrieve_notes("{INVOICE_ID}")
+invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
+notes, metadata = customer.notes.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-$notes = $invoiced->Invoice->retrieveNotes("{INVOICE_ID}");
+$invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
+list($notes, $metadata) = $customer->notes()->all(['per_page' => 3]);
 ```
 
 ```python
-notes = client.Invoice.retrieve_notes("{INVOICE_ID}")
+invoice = client.Invoice.retrieve("{INVOICE_ID}")
+notes, metadata = customer.list_notes().list(per_page=3)
 ```
 
 ```java
 Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
-EntityList<Note> notes = invoice.newNote().listAll();
+EntityList<Note> notes = invoice.newNote().retrieve();
 ```
 
 > The above command returns JSON structured like this:
