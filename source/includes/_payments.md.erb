@@ -631,11 +631,11 @@ chargeRequest.splits = [...]; // excluded for brevity
 chargeRequest.method = "credit_card";
 
 // (Tokenized Payment Info)
-chargeRequest.invoiced_token = "acdf7f31da641970cdb9c6c46a373577";
+chargeRequest.invoicedToken = "acdf7f31da641970cdb9c6c46a373577";
 
 // (Saved Payment Source)
-chargeRequest.payment_source_type = "card";
-chargeRequest.payment_source_id = 1234;
+chargeRequest.paymentSourceType = "card";
+chargeRequest.paymentSourceId = 1234;
 
 Transaction charge = invoiced.newTransaction().initiateCharge(chargeRequest);
 ```

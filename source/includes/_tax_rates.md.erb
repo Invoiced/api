@@ -75,11 +75,11 @@ client.TaxRate.create(
 ```
 
 ```java
-TaxRate tax_rate = invoiced.newTaxRate();
-tax_rate.id = "vat";
-tax_rate.name = "VAT";
-tax_rate.value = 5;
-tax_rate.create();
+TaxRate taxRate = invoiced.newTaxRate();
+taxRate.id = "vat";
+taxRate.name = "VAT";
+taxRate.value = 5;
+taxRate.create();
 ```
 
 > The above command returns JSON structured like this:
