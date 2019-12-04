@@ -39,6 +39,7 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
 **bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
+**bill_in_advance_days** | *integer* | Issues invoices N days before billing period when `bill_in=advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **addons** | *array* | Collection of Subscription Addons
 **discounts** | *array* | Collection of Coupon Objects
@@ -194,6 +195,7 @@ Parameter | Type | Description
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
+**bill_in_advance_days** | *integer* | Issues invoices N days before billing period when `bill_in=advance`
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **addons** | *array* | Collection of optional Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs

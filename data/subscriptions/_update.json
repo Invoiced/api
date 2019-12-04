@@ -30,6 +30,7 @@
   "created_at": 1420391704,
   "metadata": {},
   "bill_in": "advance",
+  "bill_in_advance_days": 0,
   "contract_period_end": 1449249304,
   "contract_period_start": 1446657304,
   "contract_renewal_cycles": null,

@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 3, 2019
+- Add the `bill_in_advance_days` property to subscriptions for advance billing.
+
 ### November 20, 2019
 - The invoice, estimate, and subscription objects now have a `ship_to` property.
 
