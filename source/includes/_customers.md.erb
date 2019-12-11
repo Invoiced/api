@@ -558,27 +558,42 @@ Parameter | Type | Description
 ```shell
 curl "https://api.invoiced.com/customers/:id/text_messages" \
   -u {API_KEY}: \
+  -d to[0][phone]="11234567890" \
+  -d to[0][name]="Bob Loblaw" \
   -d message="{{company_name}}: You have a new statement {{url}}"
   -d type="open_item" \
   -X POST
 ```
 
 ```ruby
-text_messages = customer.send_statement_text(:type => "open_item", :message => "{{company_name}}: You have a new statement {{url}}")
+text_messages = customer.send_statement_text(
+  :type => "open_item",
+  :to => [{"phone" => "11234567890", "name" => "Bob Loblaw"}],
+  :message => "{{company_name}}: You have a new statement {{url}}")
 ```
 
 ```php
 <?php
 
-$textMessages = $customer->sendStatementText(['type' => 'open_item', 'message' => "{{company_name}}: You have a new statement {{url}}"]);
+$textMessages = $customer->sendStatementText([
+  'type' => 'open_item',
+  'to' => [['phone' => "11234567890", 'name' => "Bob Loblaw"]],
+  'message' => "{{company_name}}: You have a new statement {{url}}"]);
 ```
 
 ```python
-text_messages = customer.send_statement_text(type="open_item", message="{{company_name}}: You have a new statement {{url}}")
+text_messages = customer.send_statement_text(
+  type="open_item",
+  to=[{"phone": "11234567890", "name": "Bob Loblaw"}],
+  message="{{company_name}}: You have a new statement {{url}}")
 ```
 
 ```java
 TextRequest textRequest = new TextRequest();
+TextRecipient recipient = new TextRecipient();
+recipient.name = "Bob Loblaw";
+recipient.phone = "11234567890";
+textRequest.to = new TextRecipient[]{recipient};
 textRequest.message = "{{company_name}}: You have a new statement {{url}}";
 textRequest.type = "open_item";
 TextMessage[] textMessages = customer.sendStatementText(textRequest);
@@ -634,8 +649,8 @@ A successful response means that your text message has been added to the send qu
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**message** | *string* | Full text of message - **required**
-**to** | *array* | Optional array of recipients like:<br/>`[{"phone": "11234567890", "name": "Bob Loblaw"}]`
+**message** | *string* | Full text of message
+**to** | *array* | Array of recipients like:<br/>`[{"phone": "11234567890", "name": "Bob Loblaw"}]`
 **type** | *string* | Statement type, `balance_forward` or `open_item`
 **start** | *timestamp* | Used with balance forward statements
 **end** | *timestamp* | Used with balance forward statements
