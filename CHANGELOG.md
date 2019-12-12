@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 10, 2019
+- Added create, retrieve, delete and list endpoints for payment sources.
+
 ### December 3, 2019
 - Add the `bill_in_advance_days` property to subscriptions for advance billing.
 

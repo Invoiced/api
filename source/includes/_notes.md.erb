@@ -124,57 +124,60 @@ curl "https://api.invoiced.com/invoice/:id/notes" \
 ```
 
 ```ruby
-notes = invoiced.Invoice.retrieve_notes("{INVOICE_ID}")
+invoice = invoiced.Invoice.retrieve("{INVOICE_ID}")
+notes, metadata = invoice.notes.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-$notes = $invoiced->Invoice->retrieveNotes("{INVOICE_ID}");
+$invoice = $invoiced->Invoice->retrieve("{INVOICE_ID}");
+list($notes, $metadata) = $invoice->notes()->all(['per_page' => 3]);
 ```
 
 ```python
-notes = client.Invoice.retrieve_notes("{INVOICE_ID}")
+invoice = client.Invoice.retrieve("{INVOICE_ID}")
+notes, metadata = invoice.list_notes().list(per_page=3)
 ```
 
 ```java
 Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
-EntityList<Note> notes = invoice.newNote().listAll();
+EntityList<Note> notes = invoice.newNote().retrieve();
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
 [
-  <%= json data.notes.create %>
+  <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create %>
+  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Note JSON: <%= json data.notes.create %>
+  Invoiced\Note JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```python
 [
-  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create %>
+  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
+  com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
-Use this endpoint to retrieve notes associated with a certain customer or invoice.
+Use this endpoint to retrieve a list of notes associated with a certain customer or invoice.
 
 ### HTTP Request
 
@@ -287,17 +290,17 @@ curl "https://api.invoiced.com/notes" \
 ```
 
 ```ruby
-notes = invoiced.Note.list(:per_page => 3)
+notes, metadata = invoiced.Note.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-notes = $invoiced->Note->all(['per_page' => 3]);
+list($notes, $metadata) = $invoiced->Note->all(['per_page' => 3]);
 ```
 
 ```python
-notes = invoiced.Note.list(per_page=3)
+notes, metadata = invoiced.Note.list(per_page=3)
 ```
 
 ```java
