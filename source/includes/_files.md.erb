@@ -28,6 +28,10 @@ Invoiced\File JSON: <%= json data.files.object %>
 com.invoiced.entity.File@192cafae JSON: <%= json data.files.object %>
 ```
 
+```csharp
+Invoiced.File<13> <%= json data.files.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The file's unique ID
@@ -87,6 +91,15 @@ file.type = "image/png";
 file.create();
 ```
 
+```csharp
+var file = invoiced.NewFile();
+file.Url = "https://invoiced.com/img/logo-invoice.png";
+file.Size = 6936;
+file.Name = "logo-invoice.png";
+file.Type = "image/png";
+file.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -107,6 +120,10 @@ Invoiced\File JSON: <%= json data.files.object %>
 
 ```java
 com.invoiced.entity.File@106505f5 JSON: <%= json data.files.object %>
+```
+
+```csharp
+Invoiced.File<13> <%= json data.files.object %>
 ```
 
 Create a new file profile with this endpoint.
@@ -149,6 +166,10 @@ file = client.File.retrieve("{FILE_ID}")
 File file = invoiced.newFile().retrieve({FILE_ID});
 ```
 
+```csharp
+var file = invoice.NewFile().Retrieve({FILE_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -169,6 +190,10 @@ Invoiced\File JSON: <%= json data.files.object %>
 
 ```java
 com.invoiced.entity.File@106505f5 JSON: <%= json data.files.object %>
+```
+
+```csharp
+Invoiced.File<13> <%= json data.files.object %>
 ```
 
 This endpoint retrieves a specific file.
@@ -201,6 +226,10 @@ file.delete()
 
 ```java
 file.delete();
+```
+
+```csharp
+file.Delete();
 ```
 
 > The above command returns `204 No Content`
