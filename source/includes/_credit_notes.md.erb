@@ -30,6 +30,10 @@ Invoiced\CreditNote JSON: <%= json data.credit_notes.object %>
 com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.object %>
 ```
 
+```csharp
+Invoiced.CreditNote<2048> <%= json data.credit_notes.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The credit note's unique ID
@@ -162,6 +166,26 @@ creditNote.taxes = taxes;
 creditNote.create();
 ```
 
+```csharp
+var creditNote = invoiced.NewCreditNote();
+creditNote.Customer = 15444;
+creditNote.Invoice = 46225;
+LineItem[] items = new LineItem[2];
+items[0] = new LineItem();
+items[0].Name = "Copy paper, Case";
+items[0].Quantity = 1;
+items[0].UnitCost = 45;
+items[1] = new LineItem();
+items[1].CatalogItem = "delivery";
+items[1].Quantity = 1;
+Tax[] taxes = new Tax[1];
+taxes[0] = new Tax();
+taxes[0].amount = 3.85;
+creditNote.Items = items;
+creditNote.Taxes = taxes;
+creditNote.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -182,6 +206,10 @@ Invoiced\CreditNote JSON: <%= json data.credit_notes.create %>
 
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.create %>
+```
+
+```csharp
+Invoiced.CreditNote<2048> <%= json data.credit_notes.create %>
 ```
 
 Create a new credit note with this endpoint.
@@ -218,21 +246,25 @@ curl "https://api.invoiced.com/credit_notes/:id" \
 ```
 
 ```ruby
-creditNote = invoiced.CreditNote.retrieve("{CNOICE_ID}")
+creditNote = invoiced.CreditNote.retrieve("{CREDIT_ID}")
 ```
 
 ```php
 <?php
 
-$creditNote = $invoiced->CreditNote->retrieve("{CNOICE_ID}");
+$creditNote = $invoiced->CreditNote->retrieve("{CREDIT_ID}");
 ```
 
 ```python
-creditNote = client.CreditNote.retrieve("{CNOICE_ID}")
+creditNote = client.CreditNote.retrieve("{CREDIT_ID}")
 ```
 
 ```java
-CreditNote creditNote = invoiced.newCreditNote().retrieve({CNOICE_ID});
+CreditNote creditNote = invoiced.newCreditNote().retrieve({CREDIT_ID});
+```
+
+```csharp
+var creditNote = invoiced.NewCreditNote().Retrieve({CREDIT_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -255,6 +287,10 @@ Invoiced\CreditNote JSON: <%= json data.credit_notes.retrieve %>
 
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.retrieve %>
+```
+
+```csharp
+Invoiced.CreditNote<2048> <%= json data.credit_notes.retrieve %>
 ```
 
 This endpoint retrieves a specific credit note.
@@ -302,10 +338,17 @@ creditNote.save()
 ```
 
 ```java
-creditNote.name =  "July Paper Delivery";
+creditNote.name = "July Paper Delivery";
 creditNote.notes = "The order was delivered on Jul 20, 2015";
 creditNote.sent = true;
 creditNote.save();
+```
+
+```csharp
+creditNote.Name = "July Paper Delivery";
+creditNote.Notes = "The order was delivered on Jul 20, 2015";
+creditNote.Sent = true;
+creditNote.SaveAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -328,6 +371,10 @@ Invoiced\CreditNote JSON: <%= json data.credit_notes._update %>
 
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes._update %>
+```
+
+```csharp
+Invoiced.CreditNote<2048> <%= json data.credit_notes._update %>
 ```
 
 Use this endpoint to update a credit note.
@@ -390,6 +437,20 @@ emailRequest.message = "Dear Client, a new credite note for $51.15 has been crea
 Email[] emails = creditNote.send(emailRequest);
 ```
 
+```csharp
+var emailRequest = new EmailRequest();
+var emailRecipients = new EmailRecipient[1];
+emailRecipients[0] = new EmailRecipient();
+emailRecipients[0].Name = "Client";
+emailRecipients[0].Email = "client@example.com";
+
+emailRequest.To = emailRecipients;
+emailRequest.Subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
+emailRequest.Message = "Dear Client, a new credite note for $51.15 has been created on your account. Thank you!";
+
+var emails = creditNote.SendEmail(emailRequest);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -419,6 +480,12 @@ Email[] emails = creditNote.send(emailRequest);
 ```java
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: <%= json data.emails.credit_note, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.credit_note, 1 %>
 ]
 ```
 
@@ -466,6 +533,10 @@ attachments, metadata = creditNote.attachments()
 Attachment[] attachments = creditNote.listAttachments();
 ```
 
+```csharp
+var attachments = creditNote.ListAttachments();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -495,6 +566,12 @@ Attachment[] attachments = creditNote.listAttachments();
 ```java
 [
   com.invoiced.entity.Attachment@1759eafd JSON: <%= json data.credit_notes.list_attachments, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Attachment<13> <%= json data.credit_notes.list_attachments, 1 %>
 ]
 ```
 
@@ -529,6 +606,10 @@ creditNote.void()
 creditNote.voidCreditNote();
 ```
 
+```csharp
+creditNote.Void();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -549,6 +630,10 @@ Invoiced\CreditNote JSON: <%= json data.credit_notes.voided %>
 
 ```java
 com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.voided %>
+```
+
+```csharp
+Invoiced.CreditNote<2048> <%= json data.credit_notes.voided %>
 ```
 
 Use this endpoint to void a credit note.
@@ -581,6 +666,10 @@ creditNote.delete()
 
 ```java
 creditNote.delete();
+```
+
+```csharp
+creditNote.Delete();
 ```
 
 > The above command returns `204 No Content`
@@ -616,6 +705,10 @@ creditNotes, metadata = invoiced.CreditNote.list(per_page=3)
 EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 ```
 
+```csharp
+var creditNotes = invoiced.NewCreditNote().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -645,6 +738,12 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 ```java
 [
   com.invoiced.entity.CreditNote@c509a57 JSON: <%= json data.credit_notes.list_all, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.CreditNote<2048> <%= json data.credit_notes.list_all, 1 %>
 ]
 ```
 
