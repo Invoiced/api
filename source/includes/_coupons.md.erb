@@ -88,6 +88,14 @@ coupon.value = 20;
 coupon.create();
 ```
 
+```csharp
+var coupon = invoiced.NewCoupon();
+coupon.Id = "S8L47J";
+coupon.Name = "Non-profit Discount";
+coupon.Value = 20;
+coupon.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -108,6 +116,10 @@ Invoiced\Coupon JSON: <%= json data.coupons.object %>
 
 ```java
 com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
+```
+
+```csharp
+Invoiced.Coupon<S8L47J> <%= json data.coupons.object %>
 ```
 
 Create a new coupon with this endpoint.
@@ -138,22 +150,25 @@ curl "https://api.invoiced.com/coupons/:id" \
 ```
 
 ```ruby
-coupon = invoiced.Coupon.retrieve("{TXRAT_ID}")
+coupon = invoiced.Coupon.retrieve("{COUPON_ID}")
 ```
 
 ```php
 <?php
 
-$coupon = $invoiced->Coupon->retrieve("{TXRAT_ID}");
+$coupon = $invoiced->Coupon->retrieve("{COUPON_ID}");
 ```
 
 ```python
-coupon = client.Coupon.retrieve("{TXRAT_ID}")
+coupon = client.Coupon.retrieve("{COUPON_ID}")
 ```
 
 ```java
-Coupon coupon = invoiced.newCoupon().retrieve({TXRAT_ID});
+Coupon coupon = invoiced.newCoupon().retrieve({COUPON_ID});
+```
 
+```csharp
+var coupon = invoiced.NewCoupon().Retrieve({COUPON_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -176,6 +191,10 @@ Invoiced\Coupon JSON: <%= json data.coupons.object %>
 
 ```java
 com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
+```
+
+```csharp
+Invoiced.Coupon<S8L47J> <%= json data.coupons.object %>
 ```
 
 This endpoint retrieves a specific coupon.
@@ -215,6 +234,11 @@ coupon.name = "Nonprofits";
 coupon.save();
 ```
 
+```csharp
+coupon.Name = "Nonprofits";
+coupon.SaveAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -235,6 +259,10 @@ Invoiced\Coupon JSON: <%= json data.coupons._update %>
 
 ```java
 com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons._update %>
+```
+
+```csharp
+Invoiced.Coupon<S8L47J> <%= json data.coupons._update %>
 ```
 
 Use this endpoint to update a coupon.
@@ -278,6 +306,10 @@ coupon.delete()
 coupon.delete();
 ```
 
+```csharp
+coupon.Delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific coupon.
@@ -311,6 +343,10 @@ coupons, metadata = invoiced.Coupon.list(per_page=3)
 EntityList<Coupon> coupon = conn.newCoupon().listAll();
 ```
 
+```csharp
+var coupons = invoiced.NewCoupon().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -340,6 +376,12 @@ EntityList<Coupon> coupon = conn.newCoupon().listAll();
 ```java
 [
   com.invoiced.entity.Coupon@c509a57 JSON: <%= json data.coupons.object, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Coupon<S8L47J> <%= json data.coupons.object, 1 %>
 ]
 ```
 
