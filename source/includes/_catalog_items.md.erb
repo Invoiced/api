@@ -26,6 +26,14 @@ Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 com.invoiced.entity.CatalogItem@192cafae JSON: <%= json data.catalog_items.object %>
 ```
 
+```csharp
+Invoiced.CatalogItem<delivery> <%= json data.catalog_items.object %>
+```
+
+```go
+<CatalogItem id=delivery at 192cafae> JSON: <%= json data.catalog_items.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *string* | The catalog item's unique ID
@@ -92,6 +100,24 @@ catalogItem.unitCost = 100;
 catalogItem.create();
 ```
 
+```csharp
+var catalogItem = invoiced.NewCatalogItem();
+catalogItem.Id = "delivery";
+catalogItem.Name = "Delivery";
+catalogItem.Type = "service";
+catalogItem.UnitCost = 100;
+catalogItem.Create();
+```
+
+```go
+catalogItem := invoiced.NewCatalogItem()
+catalogItem.Id = "delivery"
+catalogItem.Name = "Delivery"
+catalogItem.Type = "service"
+catalogItem.UnitCost = 100
+catalogItem, err = catalogItem.Create(catalogItem)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -112,6 +138,14 @@ Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 
 ```java
 com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items.object %>
+```
+
+```csharp
+Invoiced.CatalogItem<delivery> <%= json data.catalog_items.object %>
+```
+
+```go
+<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.catalog_items.object %>
 ```
 
 Create a new catalog item with this endpoint.
@@ -159,7 +193,14 @@ catalogItem = client.CatalogItem.retrieve("{CITEM_ID}")
 
 ```java
 CatalogItem catalogItem = invoiced.newCatalogItem().retrieve({CITEM_ID});
+```
 
+```csharp
+var catalogItem = invoiced.NewCatalogItem().Retrieve({CITEM_ID});
+```
+
+```go
+catalogItem = invoiced.NewCatalogItem().Retrieve({CITEM_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -182,6 +223,14 @@ Invoiced\CatalogItem JSON: <%= json data.catalog_items.object %>
 
 ```java
 com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items.object %>
+```
+
+```csharp
+Invoiced.CatalogItem<delivery> <%= json data.catalog_items.object %>
+```
+
+```go
+<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.catalog_items.object %>
 ```
 
 This endpoint retrieves a specific catalog item.
@@ -221,6 +270,16 @@ catalogItem.type = "product";
 catalogItem.save();
 ```
 
+```csharp
+catalogItem.Type = "product";
+catalogItem.SaveAll();
+```
+
+```go
+catalogItem.Type = "product"
+catalogItem.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -241,6 +300,14 @@ Invoiced\CatalogItem JSON: <%= json data.catalog_items._update %>
 
 ```java
 com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.catalog_items._update %>
+```
+
+```csharp
+Invoiced.CatalogItem<delivery> <%= json data.catalog_items._update %>
+```
+
+```go
+<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.catalog_items._update %>
 ```
 
 Use this endpoint to update a catalog item.
@@ -286,6 +353,14 @@ catalogItem.delete()
 catalogItem.delete();
 ```
 
+```csharp
+catalogItem.Delete();
+```
+
+```go
+catalogItem.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific catalog item.
@@ -319,6 +394,14 @@ catalog_items, metadata = invoiced.CatalogItem.list(per_page=3)
 EntityList<CatalogItem> catalogItems = conn.newCatalogItem().listAll();
 ```
 
+```csharp
+var catalogItems = catalogItem.ListAll();
+```
+
+```go
+list, err := invoiced.NewCatalogItem().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -348,6 +431,18 @@ EntityList<CatalogItem> catalogItems = conn.newCatalogItem().listAll();
 ```java
 [
   com.invoiced.entity.CatalogItem@c509a57 JSON: <%= json data.catalog_items.object, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.CatalogItem<delivery> <%= json data.catalog_items.object, 1 %>
+]
+```
+
+```go
+[
+  <CatalogItem id=delivery at 192cafae> JSON: <%= json data.catalog_items.object, 1 %>
 ]
 ```
 
