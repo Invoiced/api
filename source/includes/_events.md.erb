@@ -28,6 +28,10 @@ Invoiced\Event JSON: <%= json data.events.object %>
 com.invoiced.entity.Event@1c5119e JSON: <%= json data.events.object %>
 ```
 
+```csharp
+Invoiced.Event<1228003> <%= json data.events.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The event's unique ID
@@ -112,8 +116,11 @@ event = client.Event.retrieve("{EVENT_ID}")
 ```
 
 ```java
-Event event = invoiced.newEvent();
-Event eventToRetrieve = event.retrieve({EVENT_ID});
+Event event = invoiced.newEvent().retrieve({EVENT_ID});
+```
+
+```csharp
+var event = invoiced.NewEvent().Retrieve({EVENT_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -136,6 +143,10 @@ Invoiced\Event JSON: <%= json data.events.retrieve %>
 
 ```java
 com.invoiced.entity.Event@cb8fd58 JSON: <%= json data.events.retrieve %>
+```
+
+```csharp
+Invoiced.Event<1228003> <%= json data.events.retrieve %>
 ```
 
 This endpoint retrieves a specific event.
@@ -169,6 +180,10 @@ events, metadata = invoiced.Event.list(per_page=3)
 EntityList<Event> events = connection.newEvent().listAll();
 ```
 
+```csharp
+var events = invoiced.NewEvent().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -199,6 +214,12 @@ EntityList<Event> events = connection.newEvent().listAll();
 [
   com.invoiced.entity.Event@1c5119e JSON: <%= json data.events.list_all, 1 %>
 ] 
+```
+
+```csharp
+[
+  Invoiced.Event<1228003> <%= json data.events.list_all, 1 %>
+]
 ```
 
 This endpoint retrieves all events in reverse chronological order. You can also retrieve events related to a specific object.
