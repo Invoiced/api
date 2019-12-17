@@ -68,6 +68,8 @@ under the License.
           <% language_tabs.each do |lang| %>
             <% if lang.is_a? Hash %>
               <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% elsif lang == 'csharp' %>
+              <a href="#" data-language-name="<%= lang %>">.NET</a>
             <% else %>
               <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
             <% end %>
@@ -104,6 +106,8 @@ under the License.
             <% language_tabs.each do |lang| %>
               <% if lang.is_a? Hash %>
                 <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% elsif lang == 'csharp' %>
+                <a href="#" data-language-name="<%= lang %>">.NET</a>
               <% else %>
                 <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
               <% end %>
