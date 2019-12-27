@@ -28,6 +28,10 @@ Invoiced\Customer JSON: <%= json data.customers.object %>
 com.invoiced.entity.Customer@d72919f JSON: <%= json data.customers.object %>
 ```
 
+```csharp
+Invoiced.Customer<15444> <%= json data.customers.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The customer's unique ID
@@ -92,6 +96,10 @@ Invoiced\Contact JSON: <%= json data.contacts.object %>
 
 ```java
 com.invoiced.entity.Contact@3a0fa320 JSON: <%= json data.contacts.object %>
+```
+
+```csharp
+Invoiced.Contact<10403> <%= json data.contacts.object %>
 ```
 
 Parameter | Type | Description
@@ -162,6 +170,15 @@ customer.type = "company";
 customer.create();
 ```
 
+```csharp
+var customer = invoiced.NewCustomer();
+customer.Name = "Acme";
+customer.Email = "billing@acmecorp,com";
+customer.PaymentTerms = "NET 30";
+customer.Type = "company";
+customer.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -182,6 +199,10 @@ Invoiced\Customer JSON: <%= json data.customers.create %>
 
 ```java
 com.invoiced.entity.Customer@cb8fd57 JSON: <%= json data.customers.create %>
+```
+
+```csharp
+Invoiced.Customer<15444> <%= json data.customers.create %>
 ```
 
 Create a new customer profile with this endpoint.
@@ -250,8 +271,11 @@ customer = client.Customer.retrieve("{CUSTOMER_ID}")
 ```
 
 ```java
-Customer customer = invoiced.newCustomer();
-Customer customerToRetrieve = customer.retrieve({CUSTOMER_ID});
+Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
+```
+
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -274,6 +298,10 @@ Invoiced\Customer JSON: <%= json data.customers.retrieve %>
 
 ```java
 com.invoiced.entity.Customer@cb8fd58 JSON: <%= json data.customers.retrieve %>
+```
+
+```csharp
+Invoiced.Customer<15444> <%= json data.customers.retrieve %>
 ```
 
 This endpoint retrieves a specific customer.
@@ -347,6 +375,19 @@ customer.taxId = "893-934835";
 customer.phone = "(820) 297-2983";
 customer.save();
 ```
+
+```csharp
+customer.PaymentTerms = "NET 14";
+customer.AttentionTo = "Sarah Fisher";
+customer.Address1 = "342 Amber St";
+customer.City = "Hill Valley";
+customer.State = "CA";
+customer.PostalCode = "94523";
+customer.TaxId = "893-934835";
+customer.Phone = "(820) 297-2983";
+customer.SaveAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -367,6 +408,10 @@ Invoiced\Customer JSON: <%= json data.customers.retrieve %>
 
 ```java
 com.invoiced.entity.Customer@cb8fd59 JSON: <%= json data.customers.retrieve %>
+```
+
+```csharp
+Invoiced.Customer<15444> <%= json data.customers.retrieve %>
 ```
 
 Use this endpoint to update a customer profile.
@@ -437,6 +482,10 @@ customer.balance()
 Balance balance = customer.getBalance();
 ```
 
+```csharp
+var balance = customer.GetBalance();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -457,6 +506,10 @@ Balance balance = customer.getBalance();
 
 ```java
 com.invoiced.entity.Balance@cb8fd60 JSON: <%= json data.customers.balance %>
+```
+
+```csharp
+Invoiced<Balance> <%= json data.customers.retrieve %>
 ```
 
 This endpoint returns the customer's current credit balance, credit balance history, and the current amount outstanding.
@@ -499,6 +552,18 @@ emailRequest.message = "Dear Client, we have attached your latest account statem
 Email[] emails = customer.sendStatement(emailRequest);
 ```
 
+```csharp
+var emailRequest = new EmailRequest();
+var emailRecipients = new EmailRecipient[1];
+emailRecipients[0] = new EmailRecipient();
+emailRecipients[0].Name = "Client";
+emailRecipients[0].Email = "client@example.com";
+emailRequest.To = emailRecipients;
+emailRequest.Subject = "Statement from Dunder Mifflin, Inc.";
+emailRequest.Message = "Dear Client, we have attached your latest account statement. Thank you!";
+var emails = customer.SendStatementEmail(emailRequest);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -529,6 +594,12 @@ Email[] emails = customer.sendStatement(emailRequest);
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 [
   com.invoiced.entity.Email@1bfbb8ee JSON: <%= json data.emails.statement, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.statement, 1 %>
 ]
 ```
 
@@ -601,6 +672,17 @@ textRequest.type = "open_item";
 TextMessage[] textMessages = customer.sendStatementText(textRequest);
 ```
 
+```csharp
+var textRequest = new TextRequest();
+var recipient = new TextRecipient();
+recipient.Name = "Bob Loblaw";
+recipient.Phone = "11234567890";
+textRequest.To = new TextRecipient[]{recipient};
+textRequest.Message = "{{company_name}}: You have a new statement {{url}}";
+textRequest.Type = "open_item";
+var textMessages = customer.SendStatementText(textRequest);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -632,6 +714,12 @@ TextMessage[] textMessages = customer.sendStatementText(textRequest);
 
 [
   com.invoiced.entity.TextMessage@1bfbb8ee JSON: <%= json data.text_messages.statement, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.TextMessage<c05c9cae8c5799da1e5723a0fff355b3> <%= json data.text_messages.statement, 1 %>
 ]
 ```
 
@@ -684,7 +772,13 @@ letters = customer.send_statement_letter()
 ```java
 LetterRequest letterRequest = new LetterRequest();
 letterRequest.type = "open_item";
-Letter[] letters = customer.sendStatementLetter(letterRequest);
+Letter letters = customer.sendStatementLetter(letterRequest);
+```
+
+```csharp
+var letterRequest = new LetterRequest();
+letterRequest.Type = "open_item";
+var letter = customer.SendStatementLetter(letterRequest);
 ```
 
 > The above command returns JSON structured like this:
@@ -708,6 +802,10 @@ Invoiced\Letter JSON: <%= json data.letters.statement %>
 ```java
 //To pretty print a array of Objects use Arrays.toString(Object[]);
 com.invoiced.entity.Letter@1bfbb8ee JSON: <%= json data.letters.statement %>
+```
+
+```csharp
+Invoiced.Letter<2678c1e7e6dd1011ce13fb6b76db42df> <%= json data.letters.statement %>
 ```
 
 This endpoint sends an account statement by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
@@ -774,6 +872,14 @@ contact.email = "nancy.talty@example.com";
 contact.create();
 ```
 
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
+var contact = customer.NewContact();
+contact.Name = "Nancy Talty";
+contact.Email = "nancy.talty@example.com";
+contact.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -794,6 +900,10 @@ Invoiced\Contact JSON: <%= json data.contacts.object %>
 
 ```java
 com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts.object %>
+```
+
+```csharp
+Invoiced.Contact<10403> <%= json data.contacts.object %>
 ```
 
 Create a new contact with this endpoint.
@@ -849,6 +959,11 @@ Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
 Contact contact = customer.newContact().retrieve({CONTACT_ID});
 ```
 
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
+var contact = customer.NewContact().Retrieve({CONTACT_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -871,6 +986,9 @@ Invoiced\Contact JSON: <%= json data.contacts.object %>
 com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts.object %>
 ```
 
+```csharp
+Invoiced.Contact<10403> <%= json data.contacts.object %>
+```
 
 This endpoint retrieves a specific contact.
 
@@ -924,6 +1042,14 @@ contact.postalCode = "73102"
 contact.save()
 ```
 
+```csharp
+contact.Address1 = "507 Grove Avenue";
+contact.City = "Oklahome City";
+contact.State = "OK";
+contact.PostalCode = "73102";
+contact.SaveAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -944,6 +1070,10 @@ Invoiced\Contact JSON: <%= json data.contacts._update %>
 
 ```java
 com.invoiced.entity.Contact@cb8fd89 JSON: <%= json data.contacts._update %>
+```
+
+```csharp
+Invoiced.Contact<10403> <%= json data.contacts._update %>
 ```
 
 Use this endpoint to update a contact.
@@ -996,6 +1126,10 @@ contact.delete()
 contact.delete();
 ```
 
+```csharp
+contact.Delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific contact.
@@ -1033,6 +1167,11 @@ Customer customer = conn.newCustomer().retrieve({CUSTOMER_ID});
 EntityList<Contact> contacts = customer.newContact().listAll();
 ```
 
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
+var contacts = customer.NewContact.ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1062,6 +1201,12 @@ EntityList<Contact> contacts = customer.newContact().listAll();
 ```java
 [
   com.invoiced.entity.Contact@1701e31a JSON: <%= json data.contacts._update, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Contact<10403> <%= json data.contacts._update, 1 %>
 ]
 ```
 
@@ -1104,6 +1249,10 @@ customer.delete()
 customer.delete();
 ```
 
+```csharp
+customer.Delete();
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific customer.
@@ -1137,6 +1286,10 @@ customers, metadata = invoiced.Customer.list(per_page=3)
 EntityList<Customer> customers = connection.newCustomer().listAll();
 ```
 
+```csharp
+var customers = invoiced.NewCustomer().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1167,7 +1320,12 @@ EntityList<Customer> customers = connection.newCustomer().listAll();
 [
   com.invoiced.entity.Customer@1701d31a JSON: <%= json data.customers.retrieve, 1 %>
 ]
+```
 
+```csharp
+[
+  Invoiced.Customer<15444> <%= json data.customers.retrieve, 1 %>
+]
 ```
 
 This endpoint retrieves all customers.

@@ -27,6 +27,10 @@ Invoiced\Card JSON: <%= json data.sources.cards.object %>
 com.invoiced.entity.PaymentSource@2fdf31f4 JSON: <%= json data.sources.cards.object %>
 ```
 
+```csharp
+Invoiced.Card<850> <%= json data.sources.cards.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The card's unique ID
@@ -58,8 +62,11 @@ Invoiced\BankAccount JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 ```java
-//PaymentSource can be used for both Card Object and Bank Account Object
-com.invoiced.entity.PaymentSource@3fdf31f4 JSON: <%= json data.sources.bank_accounts.object %>
+com.invoiced.entity.BankAccount@3fdf31f4 JSON: <%= json data.sources.bank_accounts.object %>
+```
+
+```csharp
+Invoiced.BankAccount<4321> <%= json data.sources.bank_accounts.object %>
 ```
 
 Parameter | Type | Description
@@ -116,6 +123,15 @@ sourceRequest.invoicedToken = "abcdefghijklmnopqrstuvwxyz";
 PaymentSource paymentSource = customer.createPaymentSource(sourceRequest);
 ```
 
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
+var sourceRequest = new SourceRequest();
+sourceRequest.Method = "credit_card";
+sourceRequest.InvoicedToken = "abcdefghijklmnopqrstuvwxyz";
+
+var paymentSource = customer.CreatePaymentSource(sourceRequest);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -136,6 +152,10 @@ Invoiced\Card JSON: <%= json data.sources.cards.object %>
 
 ```java
 com.invoiced.entity.Card@e48fa2a JSON: <%= json data.sources.cards.object %>
+```
+
+```csharp
+Invoiced.Card<850> <%= json data.sources.cards.object %>
 ```
 
 Associate a payment method with a customer using this endpoint.
@@ -184,6 +204,11 @@ Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
 EntityList<PaymentSource> paymentSources = customer.listPaymentSources();
 ```
 
+```csharp
+var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
+var paymentSources = customer.ListPaymentSources();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -213,6 +238,12 @@ EntityList<PaymentSource> paymentSources = customer.listPaymentSources();
 ```java
 [
   com.invoiced.entity.Card@e48fa2a JSON: <%= json data.sources.cards.object, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Card<850> <%= json data.sources.cards.object, 1 %>
 ]
 ```
 
@@ -246,6 +277,10 @@ payment_source.delete()
 
 ```java
 paymentSource.delete();
+```
+
+```csharp
+paymentSource.Delete();
 ```
 
 > The above command returns `204 No Content`

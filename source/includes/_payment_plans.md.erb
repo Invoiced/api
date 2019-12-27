@@ -28,6 +28,10 @@ Invoiced\PaymentPlan JSON: <%= json data.payment_plans.object %>
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.object %>
 ```
 
+```csharp
+Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The payment plan's unique ID
@@ -147,6 +151,26 @@ paymentPlan.installments = installments;
 paymentPlan.create();
 ```
 
+```csharp
+var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
+var paymentPlan = invoice.NewPaymentPlan();
+var installments = new Installment[4];
+installments[0] = new Installment();
+installments[0].Date = 1480572000;
+installments[0].Amount = 500;
+installments[1] = new Installment();
+installments[1].Date = 1481176800;
+installments[1].Amount = 500;
+installments[2] = new Installment();
+installments[2].Date = 1481781600;
+installments[2].Amount = 500;
+installments[3] = new Installment();
+installments[3].Date = 1480572000;
+installments[3].Amount = 500;
+paymentPlan.Installments = installments;
+paymentPlan.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -167,6 +191,10 @@ Invoiced\PaymentPlan JSON: <%= json data.payment_plans.object %>
 
 ```java
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.object %>
+```
+
+```csharp
+Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
 ```
 
 ### HTTP Request
@@ -208,6 +236,11 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 PaymentPlan paymentPlan = invoice.newPaymentPlan().retrieve();
 ```
 
+```csharp
+var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
+var paymentPlan = invoice.NewPaymentPlan().Retrieve();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -228,6 +261,10 @@ Invoiced\PaymentPlan JSON: <%= json data.payment_plans.object %>
 
 ```java
 com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.object %>
+```
+
+```csharp
+Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
 ```
 
 This endpoint retrieves the payment plan for a given invoice.
@@ -260,6 +297,10 @@ payment_plan.cancel()
 
 ```java
 paymentPlan.cancel();
+```
+
+```csharp
+paymentPlan.Cancel();
 ```
 
 > The above command returns `204 No Content`

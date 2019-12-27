@@ -26,6 +26,10 @@ Invoiced\Estimate JSON: <%= json data.estimates.object %>
 com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.object %>
 ```
 
+```csharp
+Invoiced.Estimate<2048> <%= json data.estimates.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The estimate's unique ID
@@ -162,6 +166,26 @@ estimate.taxes = taxes;
 estimate.create();
 ```
 
+```csharp
+var estimate = invoiced.NewEstimate();
+estimate.Customer = 15444;
+estimate.PaymentTerms = "NET 14";
+var items = new LineItem[2];
+items[0] = new LineItem();
+items[0].Name = "Copy paper, Case";
+items[0].Quantity = 1;
+items[0].UnitCost = 45;
+items[1] = new LineItem();
+items[1].CatalogItem = "delivery";
+items[1].Quantity = 1;
+var taxes = new Tax[1];
+taxes[0] = new Tax();
+taxes[0].Amount = 3.85;
+estimate.Items = items;
+estimate.Taxes = taxes;
+estimate.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -182,6 +206,10 @@ Invoiced\Estimate JSON: <%= json data.estimates.create %>
 
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.create %>
+```
+
+```csharp
+Invoiced.Estimate<2048> <%= json data.estimates.create %>
 ```
 
 Create a new estimate with this endpoint.
@@ -224,21 +252,25 @@ curl "https://api.invoiced.com/estimates/:id" \
 ```
 
 ```ruby
-estimate = invoiced.Estimate.retrieve("{ESTOICE_ID}")
+estimate = invoiced.Estimate.retrieve("{ESTIMATE_ID}")
 ```
 
 ```php
 <?php
 
-$estimate = $invoiced->Estimate->retrieve("{ESTOICE_ID}");
+$estimate = $invoiced->Estimate->retrieve("{ESTIMATE_ID}");
 ```
 
 ```python
-estimate = client.Estimate.retrieve("{ESTOICE_ID}")
+estimate = client.Estimate.retrieve("{ESTIMATE_ID}")
 ```
 
 ```java
-Estimate estimate = invoiced.newEstimate().retrieve({ESTOICE_ID});
+Estimate estimate = invoiced.newEstimate().retrieve({ESTIMATE_ID});
+```
+
+```csharp
+var estimate = invoiced.NewEstimate().Retrieve({ESTIMATE_ID});
 ```
 
 > The above command returns JSON structured like this:
@@ -261,6 +293,10 @@ Invoiced\Estimate JSON: <%= json data.estimates.retrieve %>
 
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.retrieve %>
+```
+
+```csharp
+Invoiced.Estimate<2048> <%= json data.estimates.retrieve %>
 ```
 
 This endpoint retrieves a specific estimate.
@@ -308,10 +344,17 @@ estimate.save()
 ```
 
 ```java
-estimate.name =  "July Paper Delivery";
+estimate.name = "July Paper Delivery";
 estimate.notes = "The order was delivered on Jul 20, 2015";
 estimate.sent = true;
 estimate.save();
+```
+
+```csharp
+estimate.Name = "July Paper Delivery";
+estimate.Notes = "The order was delivered on Jul 20, 2015";
+estimate.Sent = true;
+estimate.Save();
 ```
 
 > The above command returns JSON structured like this:
@@ -334,6 +377,10 @@ Invoiced\Estimate JSON: <%= json data.estimates._update %>
 
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates._update %>
+```
+
+```csharp
+Invoiced.Estimate<2048> <%= json data.estimates._update %>
 ```
 
 Use this endpoint to update an estimate.
@@ -402,6 +449,20 @@ emailRequest.message = "Dear Client, a new estimate for $51.15 has been created 
 Email[] emails = estimate.send(emailRequest);
 ```
 
+```csharp
+var emailRequest = new EmailRequest();
+var emailRecipients = new EmailRecipient[1];
+emailRecipients[0] = new EmailRecipient();
+emailRecipients[0].Name = "Client";
+emailRecipients[0].Email = "client@example.com";
+
+emailRequest.To = emailRecipients;
+emailRequest.Subject = "New Estimate from Dunder Mifflin, Inc.: EST-0016";
+emailRequest.Message = "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!";
+
+var emails = estimate.SendEmail(emailRequest);
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -431,6 +492,12 @@ Email[] emails = estimate.send(emailRequest);
 ```java
 [
   com.invoiced.entity.Email@2ce1cfd8 JSON: <%= json data.emails.estimate, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.estimate, 1 %>
 ]
 ```
 
@@ -479,6 +546,10 @@ invoice = estimate.invoice()
 Invoice invoice = estimate.invoice();
 ```
 
+```csharp
+var invoice = estimate.Invoice();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -499,6 +570,10 @@ Invoiced\Invoice JSON: <%= json data.estimates.generate_invoice %>
 
 ```java 
 com.invoiced.entity.Invoice@3df85de JSON: <%= json data.estimates.generate_invoice %>
+```
+
+```csharp
+Invoiced.Invoice<2048> <%= json data.estimates.generate_invoice %>
 ```
 
 This endpoint generates an invoice from an estimate.
@@ -530,6 +605,10 @@ attachments, metadata = estimate.attachments()
 
 ```java
 Attachment[] attachments = estimate.listAttachments();
+```
+
+```csharp
+var attachments = estimate.ListAttachments();
 ```
 
 > The above command returns JSON structured like this:
@@ -564,6 +643,12 @@ Attachment[] attachments = estimate.listAttachments();
 ]
 ```
 
+```csharp
+[
+  Invoiced.Attachment<13> <%= json data.estimates.list_attachments, 1 %>
+]
+```
+
 This endpoint retrieves a list of files attached to a specific estimate.
 
 ### HTTP Request
@@ -595,6 +680,10 @@ estimate.void()
 estimate.voidEstimate();
 ```
 
+```csharp
+estimate.Void();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -615,6 +704,10 @@ Invoiced\Estimate JSON: <%= json data.estimates.voided %>
 
 ```java
 com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.voided %>
+```
+
+```csharp
+Invoiced.Estimate<2048> <%= json data.estimates.voided %>
 ```
 
 Use this endpoint to void an estimate.
@@ -647,6 +740,10 @@ estimate.delete()
 
 ```java
 estimate.delete();
+```
+
+```csharp
+estimate.Delete();
 ```
 
 > The above command returns `204 No Content`
@@ -682,6 +779,10 @@ estimates, metadata = invoiced.Estimate.list(per_page=3)
 EntityList<Estimate> estimates = conn.newEstimate().listAll();
 ```
 
+```csharp
+var estimates = invoiced.NewEstimate.ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -711,6 +812,12 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 ```java
 [
   com.invoiced.entity.Estimate@c509a57 JSON: <%= json data.estimates.list_all, 1 %> 
+]
+```
+
+```csharp
+[
+  Invoiced.Estimate<2048> <%= json data.estimates.list_all, 1 %>
 ]
 ```
 

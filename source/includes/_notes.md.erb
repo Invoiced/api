@@ -30,6 +30,10 @@ Invoiced\Note JSON: <%= json data.notes.create %>
 com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
 ```
 
+```csharp
+Invoiced.Note<501> <%= json data.notes.create %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The note's unique ID
@@ -78,6 +82,13 @@ note.notes = "Customer called 10/1, clarified account terms.";
 note.create();
 ```
 
+```csharp
+var invoice = invoiced.NewInvoice().Retrieve(46225);
+var note = invoice.NetNote();
+note.Notes = "Customer called 10/1, clarified account terms.";
+note.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -98,6 +109,10 @@ Invoiced\Note JSON: <%= json data.notes.create %>
 
 ```java
 com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
+```
+
+```csharp
+Invoiced.Note<501> <%= json data.notes.create %>
 ```
 
 Use this endpoint to create a note related to a customer or invoice.
@@ -142,7 +157,12 @@ notes, metadata = invoice.list_notes().list(per_page=3)
 
 ```java
 Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
-EntityList<Note> notes = invoice.newNote().retrieve();
+EntityList<Note> notes = invoice.newNote().listAll();
+```
+
+```csharp
+var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
+var notes = invoice.NewNote().ListAll();
 ```
 
 > The above command returns JSON structured like this:
@@ -174,6 +194,12 @@ EntityList<Note> notes = invoice.newNote().retrieve();
 ```java
 [
   com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Note<501> <%= json data.notes.create, 1 %>
 ]
 ```
 
@@ -214,6 +240,11 @@ note.notes = "Customer called 10/2, sent check arriving Thu.";
 note.save();
 ```
 
+```csharp
+note.Notes = "Customer called 10/2, sent check arriving Thu.";
+note.SaveAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -234,6 +265,10 @@ Invoiced\Note JSON: <%= json data.notes._update %>
 
 ```java
 com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes._update %>
+```
+
+```csharp
+Invoiced.Note<501> <%= json data.notes._update %>
 ```
 
 Use this endpoint to update a note.
@@ -274,6 +309,10 @@ note.delete()
 note.delete();
 ```
 
+```csharp
+note.Delete();
+```
+
 > The above command returns `204 No Content`
 
 Use this endpoint to delete a note.
@@ -307,6 +346,10 @@ notes, metadata = invoiced.Note.list(per_page=3)
 EntityList<Note> notes = conn.newNote().listAll();
 ```
 
+```csharp
+var notes = invoiced.NewNote().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -317,25 +360,31 @@ EntityList<Note> notes = conn.newNote().listAll();
 
 ```ruby
 [
-  #<Invoiced::Invoice:0x3fdbf95e4d08 id=46225> JSON: <%= json data.notes.create, 1 %>
+  #<Invoiced::Note:0x3fdbf95e4d08 id=501> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Invoice JSON: <%= json data.notes.create, 1 %>
+  Invoiced\Note JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```python
 [
-  <Invoice id=46225 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create, 1 %>
+  <Note id=501 at 0x3fdbf95e4d08> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
 ```java
 [
   com.invoiced.entity.Note@c509a57 JSON: <%= json data.notes.create, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Note<501> <%= json data.notes.create, 1 %>
 ]
 ```
 

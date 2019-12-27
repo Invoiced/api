@@ -26,9 +26,14 @@ Invoiced\Subscription JSON: <%= json data.subscriptions.object %>
 
 ```python
 <Subscription id=595 at 0x3fdbf95e4d08> JSON: <%= json data.subscriptions.object %>
-``` 
+```
+
 ```java
 com.invoiced.entity.Subscription@74f0915b JSON: <%= json data.subscriptions.object %>
+```
+
+```csharp
+Invoiced.Subscription<595> <%= json data.subscriptions.object %>
 ```
 
 Parameter | Type | Description
@@ -84,6 +89,10 @@ Invoiced\SubscriptionAddon JSON: <%= json data.subscriptions.addon_object %>
 
 ```java
 com.invoiced.entity.SubscriptionAddon@6ec9001c JSON: <%= json data.subscriptions.addon_object %>
+```
+
+```csharp
+Invoiced.SubscriptionAddon<3> <%= json data.subscriptions.addon_object %>
 ```
 
 Parameter | Type | Description
@@ -159,6 +168,17 @@ subscription.addons[0].quantity = 11;
 subscription.create();
 ```
 
+```csharp
+var subscription = invoiced.NewSubscription();
+subscription.Customer = 15444;
+subscription.Plan = "starter";
+subscription.Addons = new SubscriptionAddon[1];
+subscription.Addons[0] = new SubscriptionAddon();
+subscription.Addons[0].Plan = "ipad-license";
+subscription.Addons[0].Quantity = 11;
+subscription.Create();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -179,6 +199,10 @@ Invoiced\Subscription JSON: <%= json data.subscriptions.create %>
 
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.create %>
+```
+
+```csharp
+Invoiced.Subscription<595> <%= json data.subscriptions.create %>
 ```
 
 Create a new subscription with this endpoint.
@@ -248,6 +272,13 @@ subscription.plan = "starter";
 subscription.preview();
 ```
 
+```csharp
+var subscription = invoiced.NewSubscription();
+subscription.Customer = 481594;
+subscription.Plan = "starter";
+subscription.Preview();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -268,6 +299,10 @@ subscription.preview();
 
 ```java
 com.invoiced.entity.SubscriptionPreview@46bbce72 JSON: <%= json data.subscriptions._preview %>
+```
+
+```csharp
+Invoiced<SubscriptionPreview> <%= json data.subscriptions._preview %>
 ```
 
 The subscription preview endpoint lets you get an estimate of the first invoice, recurring total, and MRR of a subscription without creating a customer, subscription, or any other data.
@@ -315,6 +350,10 @@ subscription = client.Subscription.retrieve("{SUBSCRIPTION_ID}")
 Subscription subscription = invoiced.newSubscription().retrieve({SUBSCRIPTION_ID});
 ```
 
+```csharp
+var subscription = invoiced.NewSubscription().Retrieve({SUBSCRIPTION_ID});
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -335,6 +374,10 @@ Invoiced\Subscription JSON: <%= json data.subscriptions.object %>
 
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.object %>
+```
+
+```csharp
+Invoiced.Subscription<595> <%= json data.subscriptions.object %>
 ```
 
 This endpoint retrieves a specific subscription.
@@ -374,6 +417,11 @@ subscription.plan = "pro";
 subscription.save();
 ```
 
+```csharp
+subscription.Plan = "pro";
+subscription.SaveAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -394,6 +442,10 @@ Invoiced\Subscription JSON: <%= json data.subscriptions._update %>
 
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions._update %>
+```
+
+```csharp
+Invoiced.Subscription<595> <%= json data.subscriptions._update %>
 ```
 
 Use this endpoint to update a subscription.
@@ -447,6 +499,10 @@ subscription.cancel()
 subscription.cancel();
 ```
 
+```csharp
+subscription.Cancel();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -467,6 +523,10 @@ Invoiced\Subscription JSON: <%= json data.subscriptions.cancel %>
 
 ```java
 com.invoiced.entity.Subscription@46bbce72 JSON: <%= json data.subscriptions.cancel %>
+```
+
+```csharp
+Invoiced.Subscription<595> <%= json data.subscriptions.cancel %>
 ```
 
 This endpoint cancels a subscription.
@@ -500,6 +560,10 @@ subscriptions, metadata = invoiced.Subscription.list(per_page=3)
 EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 ```
 
+```csharp
+var subscriptions = invoiced.NewSubscription().ListAll();
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -529,6 +593,12 @@ EntityList<Subscription> subscriptions = invoiced.newSubscription().listAll();
 ```java
 [
   com.invoiced.entity.Subscription@20b4fc7b JSON: <%= json data.subscriptions._update, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.Subscription<595> <%= json data.subscriptions._update, 1 %>
 ]
 ```
 

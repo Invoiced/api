@@ -7,6 +7,7 @@ language_tabs:
   - php
   - python
   - java
+  - csharp
 
 toc_footers:
   - <a href="mailto:support@invoiced.com">Contact Us</a>
@@ -117,6 +118,12 @@ import com.invoiced.entity.Connection;
 Connection invoiced = new Connection("{YOUR_API_KEY}",false);
 ```
 
+```csharp
+import Invoiced;
+
+var invoiced = new Connection("{YOUR_API_KEY}", Invoiced.Environment.production);
+```
+
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
 
 <aside class="notice">
@@ -151,6 +158,12 @@ client = invoiced.Client("{YOUR_SANDBOX_API_KEY}", True)
 import com.invoiced.entity.Connection;
 
 Connection invoiced = new Connection("{YOUR_API_KEY}",true);
+```
+
+```csharp
+import Invoiced;
+
+var invoiced = new Connection("{YOUR_API_KEY}", Invoiced.Environment.sandbox);
 ```
 
 You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com) and request an API key there. The steps for requesting an API key are the same as production.
@@ -240,7 +253,7 @@ client.Customer.create(
 )
 ```
 
-```java 
+```java
 HashMap<String, Object> params = new HashMap<String, Object>();
 params.put("icp_number", "1234567890");
 params.put("account_rep","Jan");
@@ -248,6 +261,16 @@ Customer customer = invoiced.newCustomer();
 customer.name = "Acme";
 customer.metadata = params;
 customer.create();
+```
+
+```csharp
+Dictionary<string, string> params = new Dictionary<string, string>();
+params["icp_number"] = "1234567890";
+params["account_rep"] = "Jan";
+var customer = invoiced.NewCustomer();
+customer.Name = "Acme";
+customer.Metadata = params;
+customer.Create();
 ```
 
 > The above command returns JSON structured like this:
@@ -270,6 +293,10 @@ Invoiced\Customer JSON: <%= json data.customers.object %>
 
 ```java
 com.invoiced.entity.Customer@cb8fd59 JSON: <%= json data.customers.object %>
+```
+
+```csharp
+Invoiced.Customer<15444> <%= json data.customers.object %>
 ```
 
 Most Invoiced objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
@@ -313,6 +340,12 @@ invoice = client.Invoice.retrieve("{INVOICE_ID}", {
 HashMap<String, Object> params = new HashMap<String, Object>();
 params.put("expand", "customer");
 Invoice invoice = invoiced.newInvoice().retrieve("{INVOICE_ID}", params);
+```
+
+```csharp
+Dictionary<string, string> params = new Dictionary<string, string>();
+params["expand"] = "customer";
+var invoice = invoiced.NewInvoice().Retrieve("{INVOICE_ID}", params);
 ```
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
@@ -370,6 +403,14 @@ params.put("filter[customer]", 1234);
 EntityList<Invoice> invoices = invoiced.newInvoice().listAll(filter);
 ```
 
+```csharp
+Dictionary<string, string> params = new Dictionary<string, string>();
+params["filter[paid]"] = false;
+params["filter[closed]"] = false;
+params["filter[customer]"] = 1234;
+var invoices = invoiced.NewInvoice().ListAll(params);
+```
+
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
 
 The `filter` parameter is an object whose keys are the properties that should be matched.
@@ -413,6 +454,12 @@ customer = client.Customer.list(
 HashMap<String, Object> params = new HashMap<String, Object>();
 params.put("metadata[account-rep]", "Jan");
 EntityList<Customer> customers = invoiced.newCustomer().listAll(params);
+```
+
+```csharp
+Dictionary<string, string> params = new Dictionary<string, string>();
+params["metadata[account-rep]"] = "Jan";
+var customers = invoiced.NewCustomer().ListAll(params);
 ```
 
 The `metadata` parameter behaves in a similar fashion to the `filter` parameter. It allows you to search entities that have an exactly matching metadata value for each constraint given. It can be used on any of the list endpoints for objects that support metadata.
