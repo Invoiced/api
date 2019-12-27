@@ -496,16 +496,16 @@ var emails = creditNote.SendEmail(emailRequest);
 ```
 
 ```go
-var emailRequest invdendpoint.EmailRequest;
+var emailRequest invdendpoint.EmailRequest
 var emailRecipients []invdendpoint.EmailDetail
-emailRecipients[0].Name = "Client";
-emailRecipients[0].Email = "client@example.com";
+emailRecipients[0].Name = "Client"
+emailRecipients[0].Email = "client@example.com"
 
-emailRequest.To = emailRecipients;
-emailRequest.Subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
-emailRequest.Message = "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!";
+emailRequest.To = emailRecipients
+emailRequest.Subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016"
+emailRequest.Message = "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!"
 
-emails, err := creditNote.SendEmail(&emailRequest);
+emails, err := creditNote.SendEmail(&emailRequest)
 ```
 
 > The above command returns JSON structured like this:
