@@ -34,6 +34,10 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.object %
 Invoiced.CreditNote<2048> <%= json data.credit_notes.object %>
 ```
 
+```go
+<CreditNote id=2048 at e48fa2a> JSON: <%= json data.credit_notes.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The credit note's unique ID
@@ -186,6 +190,23 @@ creditNote.Taxes = taxes;
 creditNote.Create();
 ```
 
+```go
+creditNote := invoiced.NewCreditNote()
+creditNote.Customer = 15444
+creditNote.Invoice = 46225
+var items []invdendpoint.LineItem
+items[0].Name = "Copy paper, Case"
+items[0].Quantity = 1
+items[0].UnitCost = 45
+items[1].CatalogItem = "delivery"
+items[1].Quantity = 1
+var taxes []invdendpoint.Tax
+taxes[0].Amount = 3.85
+creditNote.Items = items
+creditNote.Taxes = taxes
+creditNote, err := creditNote.Create(creditNote)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -210,6 +231,10 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.create %
 
 ```csharp
 Invoiced.CreditNote<2048> <%= json data.credit_notes.create %>
+```
+
+```go
+<CreditNote id=2048 at e48fa2a> JSON: <%= json data.credit_notes.create %>
 ```
 
 Create a new credit note with this endpoint.
@@ -267,6 +292,10 @@ CreditNote creditNote = invoiced.newCreditNote().retrieve({CREDIT_ID});
 var creditNote = invoiced.NewCreditNote().Retrieve({CREDIT_ID});
 ```
 
+```go
+creditNote, err := invoiced.NewCreditNote().Retrieve({CREDIT_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -291,6 +320,10 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.retrieve
 
 ```csharp
 Invoiced.CreditNote<2048> <%= json data.credit_notes.retrieve %>
+```
+
+```go
+<CreditNote id=2048 at e48fa2a> JSON: <%= json data.credit_notes.retrieve %>
 ```
 
 This endpoint retrieves a specific credit note.
@@ -351,6 +384,13 @@ creditNote.Sent = true;
 creditNote.SaveAll();
 ```
 
+```go
+creditNote.Name = "July Paper Delivery"
+creditNote.Notes = "The order was delivered on Jul 20, 2015"
+creditNote.Sent = true
+err := creditNote.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -375,6 +415,10 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes._update 
 
 ```csharp
 Invoiced.CreditNote<2048> <%= json data.credit_notes._update %>
+```
+
+```go
+<CreditNote id=2048 at e48fa2a> JSON: <%= json data.credit_notes._update %>
 ```
 
 Use this endpoint to update a credit note.
@@ -432,7 +476,7 @@ emailRecipients[0].email = "client@example.com";
 
 emailRequest.to = emailRecipients;
 emailRequest.subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
-emailRequest.message = "Dear Client, a new credite note for $51.15 has been created on your account. Thank you!";
+emailRequest.message = "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!";
 
 Email[] emails = creditNote.send(emailRequest);
 ```
@@ -446,9 +490,22 @@ emailRecipients[0].Email = "client@example.com";
 
 emailRequest.To = emailRecipients;
 emailRequest.Subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
-emailRequest.Message = "Dear Client, a new credite note for $51.15 has been created on your account. Thank you!";
+emailRequest.Message = "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!";
 
 var emails = creditNote.SendEmail(emailRequest);
+```
+
+```go
+var emailRequest invdendpoint.EmailRequest;
+var emailRecipients []invdendpoint.EmailDetail
+emailRecipients[0].Name = "Client";
+emailRecipients[0].Email = "client@example.com";
+
+emailRequest.To = emailRecipients;
+emailRequest.Subject = "New Credit Note from Dunder Mifflin, Inc.: CN-0016";
+emailRequest.Message = "Dear Client, a new credit note for $51.15 has been created on your account. Thank you!";
+
+emails, err := creditNote.SendEmail(&emailRequest);
 ```
 
 > The above command returns JSON structured like this:
@@ -486,6 +543,12 @@ var emails = creditNote.SendEmail(emailRequest);
 ```csharp
 [
   Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.credit_note, 1 %>
+]
+```
+
+```go
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 2ce1cfd8> JSON: <%= json data.emails.credit_note, 1 %>
 ]
 ```
 
@@ -537,6 +600,10 @@ Attachment[] attachments = creditNote.listAttachments();
 var attachments = creditNote.ListAttachments();
 ```
 
+```go
+attachments, err := creditNote.ListAttachments()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -575,6 +642,12 @@ var attachments = creditNote.ListAttachments();
 ]
 ```
 
+```go
+[
+  <Attachment id=13 at 1759eafd> JSON: <%= json data.credit_notes.list_attachments, 1 %>
+]
+```
+
 This endpoint retrieves a list of files attached to a specific credit note.
 
 ### HTTP Request
@@ -610,6 +683,10 @@ creditNote.voidCreditNote();
 creditNote.Void();
 ```
 
+```go
+creditNote, err := creditNote.Void()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -634,6 +711,10 @@ com.invoiced.entity.CreditNote@e48fa2a JSON: <%= json data.credit_notes.voided %
 
 ```csharp
 Invoiced.CreditNote<2048> <%= json data.credit_notes.voided %>
+```
+
+```go
+<CreditNote id=2048 at e48fa2a> JSON: <%= json data.credit_notes.voided %>
 ```
 
 Use this endpoint to void a credit note.
@@ -670,6 +751,10 @@ creditNote.delete();
 
 ```csharp
 creditNote.Delete();
+```
+
+```go
+creditNote.Delete()
 ```
 
 > The above command returns `204 No Content`
@@ -709,6 +794,10 @@ EntityList<CreditNote> creditNotes = conn.newCreditNote().listAll();
 var creditNotes = invoiced.NewCreditNote().ListAll();
 ```
 
+```go
+creditNotes, err := invoiced.NewCreditNote().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -744,6 +833,12 @@ var creditNotes = invoiced.NewCreditNote().ListAll();
 ```csharp
 [
   Invoiced.CreditNote<2048> <%= json data.credit_notes.list_all, 1 %>
+]
+```
+
+```go
+[
+  <CreditNote id=2048 at c509a57> JSON: <%= json data.credit_notes.list_all, 1 %>
 ]
 ```
 
