@@ -30,6 +30,10 @@ com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.object %>
 Invoiced.Estimate<2048> <%= json data.estimates.object %>
 ```
 
+```go
+<Estimate id=2048 at e48fa2a> JSON: <%= json data.estimates.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The estimate's unique ID
@@ -186,6 +190,23 @@ estimate.Taxes = taxes;
 estimate.Create();
 ```
 
+```go
+estimate := invoiced.NewEstimate()
+estimate.Customer = 15444
+estimate.PaymentTerms = "NET 14"
+var items []invdendpoint.LineItem
+items[0].Name = "Copy paper, Case"
+items[0].Quantity = 1
+items[0].UnitCost = 45
+items[1].CatalogItem = "delivery"
+items[1].Quantity = 1
+var taxes []invdendpoint.Tax
+taxes[0].Amount = 3.85
+estimate.Items = items
+estimate.Taxes = taxes
+estimate, err := estimate.Create(estimate)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -210,6 +231,10 @@ com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.create %>
 
 ```csharp
 Invoiced.Estimate<2048> <%= json data.estimates.create %>
+```
+
+```go
+<Estimate id=2048 at e48fa2a> JSON: <%= json data.estimates.create %>
 ```
 
 Create a new estimate with this endpoint.
@@ -273,6 +298,10 @@ Estimate estimate = invoiced.newEstimate().retrieve({ESTIMATE_ID});
 var estimate = invoiced.NewEstimate().Retrieve({ESTIMATE_ID});
 ```
 
+```go
+estimate, err := invoiced.NewEstimate().Retrieve({ESTIMATE_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -297,6 +326,10 @@ com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.retrieve %>
 
 ```csharp
 Invoiced.Estimate<2048> <%= json data.estimates.retrieve %>
+```
+
+```go
+<Estimate id=2048 at e48fa2a> JSON: <%= json data.estimates.retrieve %>
 ```
 
 This endpoint retrieves a specific estimate.
@@ -357,6 +390,13 @@ estimate.Sent = true;
 estimate.Save();
 ```
 
+```go
+estimate.Name = "July Paper Delivery"
+estimate.Notes = "The order was delivered on Jul 20, 2015"
+estimate.Sent = true
+estimate, err := estimate.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -381,6 +421,10 @@ com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates._update %>
 
 ```csharp
 Invoiced.Estimate<2048> <%= json data.estimates._update %>
+```
+
+```go
+<Estimate id=2048 at e48fa2a> JSON: <%= json data.estimates._update %>
 ```
 
 Use this endpoint to update an estimate.
@@ -463,6 +507,19 @@ emailRequest.Message = "Dear Client, a new estimate for $51.15 has been created 
 var emails = estimate.SendEmail(emailRequest);
 ```
 
+```go
+var emailRequest invdendpoint.EmailRequest
+var emailRecipients []invdendpoint.EmailDetail
+emailRecipients[0].Name = "Client"
+emailRecipients[0].Email = "client@example.com"
+
+emailRequest.To = emailRecipients
+emailRequest.Subject = "New Estimate from Dunder Mifflin, Inc.: EST-0016"
+emailRequest.Message = "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!"
+
+emails, err := estimate.SendEmail(&emailRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -498,6 +555,12 @@ var emails = estimate.SendEmail(emailRequest);
 ```csharp
 [
   Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.estimate, 1 %>
+]
+```
+
+```go
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 2ce1cfd8> JSON: <%= json data.emails.estimate, 1 %>
 ]
 ```
 
@@ -550,6 +613,10 @@ Invoice invoice = estimate.invoice();
 var invoice = estimate.Invoice();
 ```
 
+```go
+invoice, err := estimate.GenerateInvoice()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -574,6 +641,10 @@ com.invoiced.entity.Invoice@3df85de JSON: <%= json data.estimates.generate_invoi
 
 ```csharp
 Invoiced.Invoice<2048> <%= json data.estimates.generate_invoice %>
+```
+
+```go
+<Invoice id=2048 at 3df85de> JSON: <%= json data.estimates.generate_invoice %>
 ```
 
 This endpoint generates an invoice from an estimate.
@@ -609,6 +680,10 @@ Attachment[] attachments = estimate.listAttachments();
 
 ```csharp
 var attachments = estimate.ListAttachments();
+```
+
+```go
+attachments, err := estimate.ListAttachments()
 ```
 
 > The above command returns JSON structured like this:
@@ -649,6 +724,12 @@ var attachments = estimate.ListAttachments();
 ]
 ```
 
+```go
+[
+  <Attachment id=13 at 1759eafd> JSON: <%= json data.estimates.list_attachments, 1 %>
+]
+```
+
 This endpoint retrieves a list of files attached to a specific estimate.
 
 ### HTTP Request
@@ -684,6 +765,10 @@ estimate.voidEstimate();
 estimate.Void();
 ```
 
+```go
+estimate, err := estimate.Void()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -708,6 +793,10 @@ com.invoiced.entity.Estimate@e48fa2a JSON: <%= json data.estimates.voided %>
 
 ```csharp
 Invoiced.Estimate<2048> <%= json data.estimates.voided %>
+```
+
+```go
+<Estimate id=2048 at e48fa2a> JSON: <%= json data.estimates.voided %>
 ```
 
 Use this endpoint to void an estimate.
@@ -746,6 +835,10 @@ estimate.delete();
 estimate.Delete();
 ```
 
+```go
+err := estimate.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific estimate.
@@ -780,7 +873,11 @@ EntityList<Estimate> estimates = conn.newEstimate().listAll();
 ```
 
 ```csharp
-var estimates = invoiced.NewEstimate.ListAll();
+var estimates = invoiced.NewEstimate().ListAll();
+```
+
+```go
+estimates, err := invoiced.NewEstimate().ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:
@@ -818,6 +915,12 @@ var estimates = invoiced.NewEstimate.ListAll();
 ```csharp
 [
   Invoiced.Estimate<2048> <%= json data.estimates.list_all, 1 %>
+]
+```
+
+```go
+[
+  <Estimate id=2048 at c509a57> JSON: <%= json data.estimates.list_all, 1 %>
 ]
 ```
 
