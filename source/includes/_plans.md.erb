@@ -30,6 +30,10 @@ com.invoiced.entity.Plan@192cafae JSON: <%= json data.plans.object %>
 Invoiced.Plan<starter> <%= json data.plans.object %>
 ```
 
+```go
+<Plan id=starter at 192cafae> JSON: <%= json data.plans.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *string* | The plan's unique ID
@@ -122,6 +126,18 @@ plan.PricingMode = "per_unit";
 plan.Create();
 ```
 
+```go
+plan := invoiced.NewPlan()
+plan.Id = "starter"
+plan.Name = "Starter"
+plan.CatalogItem = "software-subscription"
+plan.Amount = 49
+plan.Interval = "month"
+plan.IntervalCount = 1
+plan.PricingMode = "per_unit"
+plan, err := plan.Create(plan)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -146,6 +162,10 @@ com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans.object %>
 
 ```csharp
 Invoiced.Plan<starter> <%= json data.plans.object %>
+```
+
+```go
+<Plan id=starter at 192cafae> JSON: <%= json data.plans.object %>
 ```
 
 Create a new plan with this endpoint.
@@ -199,6 +219,10 @@ Plan plan = invoiced.newPlan().retrieve({PLAN_ID});
 var plan = invoiced.NewPlan().Retrieve({PLAN_ID});
 ```
 
+```go
+plan, err := invoiced.NewPlan().Retrieve({PLAN_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -223,6 +247,10 @@ com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans.object %>
 
 ```csharp
 Invoiced.Plan<starter> <%= json data.plans.object %>
+```
+
+```go
+<Plan id=starter at 192cafae> JSON: <%= json data.plans.object %>
 ```
 
 This endpoint retrieves a specific plan.
@@ -267,6 +295,11 @@ plan.Name = "Standard";
 plan.SaveAll();
 ```
 
+```go
+plan.Name = "Standard"
+err := plan.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -291,6 +324,10 @@ com.invoiced.entity.Plan@cb8fd57 JSON: <%= json data.plans._update %>
 
 ```csharp
 Invoiced.Plan<starter> <%= json data.plans._update %>
+```
+
+```go
+<Plan id=starter at 192cafae> JSON: <%= json data.plans._update %>
 ```
 
 Use this endpoint to update a plan.
@@ -338,6 +375,10 @@ plan.delete();
 plan.Delete();
 ```
 
+```go
+err := plan.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific plan.
@@ -375,6 +416,10 @@ EntityList<Plan> plans = conn.newPlan().listAll();
 var plans = invoiced.NewPlan().ListAll();
 ```
 
+```go
+plans, err := invoiced.NewPlan().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -410,6 +455,12 @@ var plans = invoiced.NewPlan().ListAll();
 ```csharp
 [
   Invoiced.Plan<starter> <%= json data.plans.object, 1 %>
+]
+```
+
+```go
+[
+  <Plan id=starter at 192cafae> JSON: <%= json data.plans.object, 1 %>
 ]
 ```
 
