@@ -758,11 +758,10 @@ var textMessages = customer.SendStatementText(textRequest);
 ```go
 var textRequest invdendpoint.TextRequest
 var textRecipients []invdendpoint.TextDetail
-textRecipients[0].Name = "Client"
-textRecipients[0].Email = "client@example.com"
+textRecipients[0].Name = "Bob Loblaw"
+textRecipients[0].Phone = "11234567890"
 
 textRequest.To = textRecipients
-textRequest.Subject = "Statement from Dunder Mifflin, Inc."
 textRequest.Type = "open_item"
 textRequest.Message = "{{company_name}}: You have a new statement {{url}}"
 

@@ -32,6 +32,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.objec
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices.object %>
 ```
 
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The invoice's unique ID
@@ -94,6 +98,10 @@ com.invoiced.entity.LineItem@1b13d4f3 JSON: <%= json data.invoicing.line_items.o
 Invoiced.LineItem<8> <%= json data.invoicing.line_items.object %>
 ```
 
+```go
+<LineItem id=8 at 1b13d4f3> JSON: <%= json data.invoicing.line_items.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The line item's unique ID
@@ -142,6 +150,10 @@ com.invoiced.entity.Discount@2abc1f10 JSON: <%= json data.invoicing.discounts.ob
 Invoiced.Discount<20553> <%= json data.invoicing.discounts.object %>
 ```
 
+```go
+<Discount id=20553 at 2abc1f10> JSON: <%= json data.invoicing.discounts.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The discount's unique ID
@@ -180,6 +192,10 @@ com.invoiced.entity.Tax@31d5f331 JSON: <%= json data.invoicing.taxes.object %>
 Invoiced.Tax<20554> <%= json data.invoicing.taxes.object %>
 ```
 
+```go
+<Tax id=20554 at 31d5f331> JSON: <%= json data.invoicing.taxes.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The tax's unique ID
@@ -215,6 +231,10 @@ com.invoiced.entity.ShippingDetail@31d5f331 JSON: <%= json data.invoicing.shippi
 
 ```csharp
 Invoiced.ShippingDetail<20554> <%= json data.invoicing.shipping.object %>
+```
+
+```go
+<ShippingDetail id=20554 at 31d5f331> JSON: <%= json data.invoicing.shipping.object %>
 ```
 
 Parameter | Type     | Description
@@ -354,6 +374,23 @@ invoice.Taxes = taxes;
 invoice.Create();
 ```
 
+```go
+invoice := invoiced.NewInvoice()
+invoice.Customer = 15444
+invoice.PaymentTerms = "NET 14"
+var items []invdendpoint.LineItem
+items[0].Name = "Copy paper, Case"
+items[0].Quantity = 1
+items[0].UnitCost = 45
+items[1].CatalogItem = "delivery"
+items[1].Quantity = 1
+var taxes []invdendpoint.Tax
+taxes[0].Amount = 3.85
+invoice.Items = items
+invoice.Taxes = taxes
+invoice, err := invoice.Create(invoice)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -378,6 +415,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.objec
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices.object %>
+```
+
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 Create a new invoice with this endpoint.
@@ -439,6 +480,10 @@ Invoice invoice = invoiced.newInvoice().retrieve({INVOICE_ID});
 var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
 ```
 
+```go
+invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -463,6 +508,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.objec
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices.object %>
+```
+
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices.object %>
 ```
 
 This endpoint retrieves a specific invoice.
@@ -523,6 +572,13 @@ invoice.Sent = true;
 invoice.SaveAll();
 ```
 
+```go
+invoice.Name = "July Paper Delivery"
+invoice.Notes = "The order was delivered on Jul 20, 2015"
+invoice.Sent = true
+err := invoice.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -547,6 +603,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices._upda
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices._update %>
+```
+
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices._update %>
 ```
 
 Use this endpoint to update an invoice.
@@ -628,6 +688,19 @@ emailRequest.Message = "Dear Client, a new invoice for $51.15 has been created o
 var emails = invoice.SendEmail(emailRequest);
 ```
 
+```go
+var emailRequest invdendpoint.EmailRequest
+var emailRecipients []invdendpoint.EmailDetail
+emailRecipients[0].Name = "Client"
+emailRecipients[0].Email = "client@example.com"
+
+emailRequest.To = emailRecipients
+emailRequest.Subject = "New Invoice from Dunder Mifflin, Inc.: INV-0016"
+emailRequest.Message = "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!"
+
+emails, err := invoice.SendEmail(&emailRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -663,6 +736,12 @@ var emails = invoice.SendEmail(emailRequest);
 ```csharp
 [
   Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.invoice, 1 %>
+]
+```
+
+```go
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 2ce1cfd8> JSON: <%= json data.emails.invoice, 1 %>
 ]
 ```
 
@@ -737,6 +816,18 @@ textRequest.Message = "{{company_name}}: You have a new invoice {{invoice_number
 var textMessages = invoice.SendText(textRequest);
 ```
 
+```go
+var textRequest invdendpoint.TextRequest
+var textRecipients []invdendpoint.TextDetail
+textRecipients[0].Name = "Bob Loblaw"
+textRecipients[0].Phone = "11234567890"
+
+textRequest.To = textRecipients
+textRequest.Message = "{{company_name}}: You have a new invoice {{invoice_number}} {{url}}"
+
+texts, err := invoice.SendText(&textRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -774,6 +865,12 @@ var textMessages = invoice.SendText(textRequest);
 ```csharp
 [
   Invoiced.TextMessage<f96fc863e58300167a252af8eeef158b> <%= json data.text_messages.invoice, 1 %>
+]
+```
+
+```go
+[
+  <TextMessage id=f96fc863e58300167a252af8eeef158b at 1bfbb8ee> JSON: <%= json data.text_messages.invoice, 1 %>
 ]
 ```
 
@@ -828,6 +925,10 @@ var letterRequest = new LetterRequest();
 var letter = invoice.SendLetter(letterRequest);
 ```
 
+```go
+letter, err := invoice.SendLetter()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -852,6 +953,10 @@ com.invoiced.entity.Letter@2ce1cfd8 JSON: <%= json data.letters.invoice %>
 
 ```csharp
 Invoiced.Letter<995503c4fc2c853b23de3023e84bba72> <%= json data.letters.invoice %>
+```
+
+```go
+<Letter id=995503c4fc2c853b23de3023e84bba72 at 2ce1cfd8> JSON: <%= json data.letters.invoice %>
 ```
 
 This endpoint sends an invoice by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
@@ -896,6 +1001,10 @@ invoice.pay();
 invoice.Pay();
 ```
 
+```go
+err := invoice.Pay()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -920,6 +1029,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.pay %
 
 ```csharp
 Invoiced.Invoice<46226> <%= json data.invoicing.invoices.pay %>
+```
+
+```go
+<Invoice id=46226 at e48fa2a> JSON: <%= json data.invoicing.invoices.pay %>
 ```
 
 When an invoice is automatically collected we will perform the charge automatically. If a payment attempts fails then another attempt will be scheduled according to your retry settings. Or, you can trigger a charge attempt manually using this endpoint.
@@ -961,6 +1074,10 @@ Attachment[] attachments = invoice.listAttachments();
 var attachments = invoice.ListAttachments();
 ```
 
+```go
+files, err := invoice.ListAttachments()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -999,6 +1116,12 @@ var attachments = invoice.ListAttachments();
 ]
 ```
 
+```go
+[
+  <Attachment id=13 at 1759eafd> JSON: <%= json data.invoicing.invoices.list_attachments, 1 %>
+]
+```
+
 This endpoint retrieves a list of files attached to a specific invoice.
 
 ### HTTP Request
@@ -1034,6 +1157,10 @@ customer.consolidateInvoices();
 customer.ConsolidateInvoices();
 ```
 
+```go
+customer.ConsolidateInvoices()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1058,6 +1185,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.conso
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices.consolidated %>
+```
+
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices.consolidated %>
 ```
 
 Consolidate all of a customer's open invoices to a single invoice with this endpoint.
@@ -1103,6 +1234,10 @@ invoice.voidInvoice();
 invoice.Void();
 ```
 
+```go
+invoice.Void()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -1127,6 +1262,10 @@ com.invoiced.entity.Invoice@e48fa2a JSON: <%= json data.invoicing.invoices.voide
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.invoicing.invoices.voided %>
+```
+
+```go
+<Invoice id=46225 at e48fa2a> JSON: <%= json data.invoicing.invoices.voided %>
 ```
 
 Use this endpoint to void an invoice.
@@ -1165,6 +1304,10 @@ invoice.delete();
 invoice.Delete();
 ```
 
+```go
+invoice.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific invoice.
@@ -1199,7 +1342,11 @@ EntityList<Invoice> invoices = conn.newInvoice().listAll();
 ```
 
 ```csharp
-var invoices = invoiced.NewInvoice.ListAll();
+var invoices = invoiced.NewInvoice().ListAll();
+```
+
+```go
+invoices, err := invoiced.NewInvoice().ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:
@@ -1237,6 +1384,12 @@ var invoices = invoiced.NewInvoice.ListAll();
 ```csharp
 [
   Invoiced.Invoice<46225> <%= json data.invoicing.invoices.object, 1 %>
+]
+```
+
+```go
+[
+  <Invoice id=46225 at c509a57> JSON: <%= json data.invoicing.invoices.object, 1 %>
 ]
 ```
 
