@@ -619,7 +619,7 @@ var emails = customer.SendStatementEmail(emailRequest);
 
 ```go
 var emailRequest invdendpoint.EmailRequest
-var emailRecipients []invdendpoint.EmailDetail
+emailRecipients := make([]invdendpoint.EmailDetail, 1)
 emailRecipients[0].Name = "Client"
 emailRecipients[0].Email = "client@example.com"
 
@@ -757,7 +757,7 @@ var textMessages = customer.SendStatementText(textRequest);
 
 ```go
 var textRequest invdendpoint.TextRequest
-var textRecipients []invdendpoint.TextDetail
+textRecipients := make([]invdendpoint.TextDetail, 1)
 textRecipients[0].Name = "Bob Loblaw"
 textRecipients[0].Phone = "11234567890"
 

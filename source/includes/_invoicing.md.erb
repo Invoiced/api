@@ -378,13 +378,13 @@ invoice.Create();
 invoice := invoiced.NewInvoice()
 invoice.Customer = 15444
 invoice.PaymentTerms = "NET 14"
-var items []invdendpoint.LineItem
+items := make([]invdendpoint.LineItem, 2)
 items[0].Name = "Copy paper, Case"
 items[0].Quantity = 1
 items[0].UnitCost = 45
 items[1].CatalogItem = "delivery"
 items[1].Quantity = 1
-var taxes []invdendpoint.Tax
+taxes := make([]invdendpoint.Tax, 1)
 taxes[0].Amount = 3.85
 invoice.Items = items
 invoice.Taxes = taxes
@@ -690,7 +690,7 @@ var emails = invoice.SendEmail(emailRequest);
 
 ```go
 var emailRequest invdendpoint.EmailRequest
-var emailRecipients []invdendpoint.EmailDetail
+emailRecipients := make([]invdendpoint.EmailDetail, 1)
 emailRecipients[0].Name = "Client"
 emailRecipients[0].Email = "client@example.com"
 
@@ -818,7 +818,7 @@ var textMessages = invoice.SendText(textRequest);
 
 ```go
 var textRequest invdendpoint.TextRequest
-var textRecipients []invdendpoint.TextDetail
+textRecipients := make([]invdendpoint.TextDetail, 1)
 textRecipients[0].Name = "Bob Loblaw"
 textRecipients[0].Phone = "11234567890"
 

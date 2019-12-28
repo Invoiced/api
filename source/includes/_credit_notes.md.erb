@@ -194,13 +194,13 @@ creditNote.Create();
 creditNote := invoiced.NewCreditNote()
 creditNote.Customer = 15444
 creditNote.Invoice = 46225
-var items []invdendpoint.LineItem
+items := make([]invdendpoint.LineItem, 2)
 items[0].Name = "Copy paper, Case"
 items[0].Quantity = 1
 items[0].UnitCost = 45
 items[1].CatalogItem = "delivery"
 items[1].Quantity = 1
-var taxes []invdendpoint.Tax
+taxes := make([]invdendpoint.Tax, 1)
 taxes[0].Amount = 3.85
 creditNote.Items = items
 creditNote.Taxes = taxes
@@ -497,7 +497,7 @@ var emails = creditNote.SendEmail(emailRequest);
 
 ```go
 var emailRequest invdendpoint.EmailRequest
-var emailRecipients []invdendpoint.EmailDetail
+emailRecipients := make([]invdendpoint.EmailDetail, 1)
 emailRecipients[0].Name = "Client"
 emailRecipients[0].Email = "client@example.com"
 
