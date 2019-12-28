@@ -34,6 +34,10 @@ com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
 Invoiced.Note<501> <%= json data.notes.create %>
 ```
 
+```go
+<Note id=501 at f95e4d08> JSON: <%= json data.notes.create %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The note's unique ID
@@ -84,9 +88,14 @@ note.create();
 
 ```csharp
 var invoice = invoiced.NewInvoice().Retrieve(46225);
-var note = invoice.NetNote();
+var note = invoice.NewNote();
 note.Notes = "Customer called 10/1, clarified account terms.";
 note.Create();
+```
+
+```go
+request := invdendpoint.CreateNoteRequest{InvoiceID:int64(46225)}
+note, err := invoiced.NewNote().Create(request)
 ```
 
 > The above command returns JSON structured like this:
@@ -113,6 +122,10 @@ com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes.create %>
 
 ```csharp
 Invoiced.Note<501> <%= json data.notes.create %>
+```
+
+```go
+<Note id=501 at e48fa2a> JSON: <%= json data.notes.create %>
 ```
 
 Use this endpoint to create a note related to a customer or invoice.
@@ -165,6 +178,11 @@ var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
 var notes = invoice.NewNote().ListAll();
 ```
 
+```go
+invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
+notes, err := invoice.RetrieveNotes()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -200,6 +218,12 @@ var notes = invoice.NewNote().ListAll();
 ```csharp
 [
   Invoiced.Note<501> <%= json data.notes.create, 1 %>
+]
+```
+
+```go
+[
+  <Note id=501 at e48fa2a> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
@@ -245,6 +269,11 @@ note.Notes = "Customer called 10/2, sent check arriving Thu.";
 note.SaveAll();
 ```
 
+```go
+note.Notes = "Customer called 10/2, sent check arriving Thu."
+err := note.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -269,6 +298,10 @@ com.invoiced.entity.Note@e48fa2a JSON: <%= json data.notes._update %>
 
 ```csharp
 Invoiced.Note<501> <%= json data.notes._update %>
+```
+
+```go
+<Note id=501 at e48fa2a> JSON: <%= json data.notes._update %>
 ```
 
 Use this endpoint to update a note.
@@ -313,6 +346,10 @@ note.delete();
 note.Delete();
 ```
 
+```go
+err := note.Delete()
+```
+
 > The above command returns `204 No Content`
 
 Use this endpoint to delete a note.
@@ -350,6 +387,10 @@ EntityList<Note> notes = conn.newNote().listAll();
 var notes = invoiced.NewNote().ListAll();
 ```
 
+```go
+notes, err := invoiced.NewNote().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -385,6 +426,12 @@ var notes = invoiced.NewNote().ListAll();
 ```csharp
 [
   Invoiced.Note<501> <%= json data.notes.create, 1 %>
+]
+```
+
+```go
+[
+  <Note id=501 at c509a57> JSON: <%= json data.notes.create, 1 %>
 ]
 ```
 
