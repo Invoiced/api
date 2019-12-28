@@ -52,6 +52,10 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object
 Invoiced.Transaction<20939> <%= json data.transactions.object %>
 ```
 
+```go
+<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The transaction's unique ID
@@ -133,6 +137,15 @@ transaction.Amount = 800;
 transaction.Create();
 ```
 
+```go
+transaction := invoiced.NewTransaction()
+transaction.Invoice = 44648
+transaction.Method = "check"
+transaction.GatewayId = "1450"
+transaction.Amount = 800
+transaction, err := transaction.Create(transaction)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -157,6 +170,10 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.create
 
 ```csharp
 Invoiced.Transaction<20939> <%= json data.transactions.create %>
+```
+
+```go
+<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.create %>
 ```
 
 Create a new transaction with this endpoint.
@@ -212,6 +229,10 @@ Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
 var transaction = invoiced.NewTransaction().Retrieve({TRANSACTION_ID});
 ```
 
+```go
+transaction, err := invoiced.NewTransaction().Retrieve({TRANSACTION_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -236,6 +257,10 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object
 
 ```csharp
 Invoiced.Transaction<20939> <%= json data.transactions.object %>
+```
+
+```go
+<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.object %>
 ```
 
 This endpoint retrieves a specific transaction.
@@ -280,6 +305,11 @@ transaction.Notes = "Check was received by Jan";
 transaction.SaveAll();
 ```
 
+```go
+transaction.Notes = "Check was received by Jan"
+err := transaction.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -304,6 +334,10 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions._updat
 
 ```csharp
 Invoiced.Transaction<20939> <%= json data.transactions._update %>
+```
+
+```go
+<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions._update %>
 ```
 
 Use this endpoint to update a transaction.
@@ -372,6 +406,19 @@ emailRequest.Message = "Dear Client, we have attached a receipt for your most re
 var emails = transaction.SendEmail(emailRequest);
 ```
 
+```go
+var emailRequest invdendpoint.EmailRequest
+emailRecipients := make([]invdendpoint.EmailDetail, 1)
+emailRecipients[0].Name = "Client"
+emailRecipients[0].Email = "client@example.com"
+
+emailRequest.To = emailRecipients
+emailRequest.Subject = "Receipt for your recent payment to Dunder Mifflin, Inc."
+emailRequest.Message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!"
+
+emails, err := transaction.SendEmail(&emailRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -408,6 +455,12 @@ var emails = transaction.SendEmail(emailRequest);
 ```csharp
 [
   Invoiced.Email<f45382c6fbc44d44aa7f9a55eb2ce731> <%= json data.emails.receipt, 1 %>
+]
+```
+
+```go
+[
+  <Email id=f45382c6fbc44d44aa7f9a55eb2ce731 at 12497547> JSON: <%= json data.emails.receipt, 1 %>
 ]
 ```
 
@@ -460,6 +513,10 @@ Transaction refund = transaction.refund(400);
 var refund = transaction.Refund(400);
 ```
 
+```go
+err := transaction.Refund(400)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -484,6 +541,10 @@ com.invoiced.entity.Transaction@424ba398 JSON: <%= json data.transactions.refund
 
 ```csharp
 Invoiced.Transaction<20952> <%= json data.transactions.refund %>
+```
+
+```go
+<Transaction id=20952 at 424ba398> JSON: <%= json data.transactions.refund %>
 ```
 
 You can issue a refund for `charge` and `payment` transactions. When a refund is issued for a `charge` transaction we will attempt to initiate the refund over the payment gateway it happened on.
@@ -536,6 +597,10 @@ transaction.delete();
 transaction.Delete();
 ```
 
+```go
+transaction.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific transaction.
@@ -573,6 +638,10 @@ EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
 var transactions = invoiced.NewTransaction().ListAll();
 ```
 
+```go
+transactions, err := invoiced.NewTransaction().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -608,6 +677,12 @@ var transactions = invoiced.NewTransaction().ListAll();
 ```csharp
 [
   Invoiced.Transaction<20939> <%= json data.transactions.object, 1 %>
+]
+```
+
+```go
+[
+  <Transaction id=20939 at 52638766> JSON: <%= json data.transactions.object, 1 %>
 ]
 ```
 
@@ -734,6 +809,25 @@ chargeRequest.PaymentSourceId = 1234;
 var charge = invoiced.NewTransaction().InitiateCharge(chargeRequest);
 ```
 
+```go
+chargeRequest := new(invdendpoint.ChargeRequest)
+
+chargeRequest.Customer = 401558
+chargeRequest.Currency = "usd"
+chargeRequest.Amount = 2000
+chargeRequest.Splits = [...] // excluded for brevity
+chargeRequest.Method = "credit_card"
+
+// (Tokenized Payment Info)
+chargeRequest.InvoicedToken = "acdf7f31da641970cdb9c6c46a373577"
+
+// (Saved Payment Source)
+chargeRequest.PaymentSourceType = "card"
+chargeRequest.PaymentSourceId = 1234
+
+charge := invoiced.NewTransaction().InitiateCharge(chargeRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -758,6 +852,10 @@ com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.charges.create %>
 
 ```csharp
 Invoiced.Transaction<5d9e31d812151> <%= json data.charges.create %>
+```
+
+```go
+<Transaction id=5d9e31d812151 at 4ed0a875> JSON: <%= json data.charges.create %>
 ```
 
 Initiate a new charge with this endpoint.
