@@ -1,5 +1,11 @@
 Changelog
 =========
+### December 30, 2019
+- The Go library has been updated to support all of the latest API capabilities and the documentation now includes Go code examples.
+
+### December 27, 2019
+- The .NET library has been updated to support all of the latest API capabilities and the documentation now includes .NET code examples.
+
 ### December 10, 2019
 - Added create, retrieve, delete and list endpoints for payment sources.
 
