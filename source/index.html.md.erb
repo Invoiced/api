@@ -125,6 +125,14 @@ import Invoiced;
 var invoiced = new Connection("{YOUR_API_KEY}", Invoiced.Environment.production);
 ```
 
+```go
+import (
+    "invdapi"
+)
+
+invoiced := NewConnection("{YOUR_API_KEY}", false)
+```
+
 The API key must be passed in through the username with the password left blank. The right sidebar has an example request with authorization
 
 <aside class="notice">
@@ -165,6 +173,14 @@ Connection invoiced = new Connection("{YOUR_API_KEY}",true);
 import Invoiced;
 
 var invoiced = new Connection("{YOUR_API_KEY}", Invoiced.Environment.sandbox);
+```
+
+```go
+import (
+    "invdapi"
+)
+
+invoiced := NewConnection("{YOUR_API_KEY}", true)
 ```
 
 You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com) and request an API key there. The steps for requesting an API key are the same as production.
@@ -274,6 +290,16 @@ customer.Metadata = params;
 customer.Create();
 ```
 
+```go
+params := make(map[string]interface{})
+params["icp_number"] = "1234567890"
+params["account_rep"] = "Jan"
+customer := invoiced.NewCustomer()
+customer.Name = "Acme"
+customer.Metadata = params
+customer, err := customer.Create(customer)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -298,6 +324,10 @@ com.invoiced.entity.Customer@cb8fd59 JSON: <%= json data.customers.object %>
 
 ```csharp
 Invoiced.Customer<15444> <%= json data.customers.object %>
+```
+
+```go
+<Customer id=15444 at cb8fd59> JSON: <%= json data.customers.object %>
 ```
 
 Most Invoiced objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
@@ -347,6 +377,10 @@ Invoice invoice = invoiced.newInvoice().retrieve("{INVOICE_ID}", params);
 Dictionary<string, string> params = new Dictionary<string, string>();
 params["expand"] = "customer";
 var invoice = invoiced.NewInvoice().Retrieve("{INVOICE_ID}", params);
+```
+
+```go
+// Expands in the Go library are not currently supported.
 ```
 
 Usually you need to request more than just an invoice. Often, you might want data about the associated customer. There is a built-in way to do this that saves extra API requests.
@@ -412,6 +446,14 @@ params["filter[customer]"] = 1234;
 var invoices = invoiced.NewInvoice().ListAll(params);
 ```
 
+```go
+filter := invdendpoint.NewFilter()
+filter.Set("paid", false)
+filter.Set("closed", false)
+filter.Set("customer", 1234)
+invoices, err := invoiced.NewInvoice().ListAll(filter, nil)
+```
+
 The `filter` parameter allows you to search entities based on an exact match. While it is not meant to replace a search API, the `filter` parameter can be useful if you need to look up a customer by name or want to list all overdue invoices. It can be used on many of the list endpoints.
 
 The `filter` parameter is an object whose keys are the properties that should be matched.
@@ -461,6 +503,12 @@ EntityList<Customer> customers = invoiced.newCustomer().listAll(params);
 Dictionary<string, string> params = new Dictionary<string, string>();
 params["metadata[account-rep]"] = "Jan";
 var customers = invoiced.NewCustomer().ListAll(params);
+```
+
+```go
+filter := invdendpoint.NewMetadataFilter()
+filter.Set("account-rep", "Jan")
+customers, err := invoiced.NewCustomer().ListAll(filter, nil)
 ```
 
 The `metadata` parameter behaves in a similar fashion to the `filter` parameter. It allows you to search entities that have an exactly matching metadata value for each constraint given. It can be used on any of the list endpoints for objects that support metadata.
