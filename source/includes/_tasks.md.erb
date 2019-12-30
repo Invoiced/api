@@ -34,6 +34,10 @@ com.invoiced.entity.Task@3a0fa320 JSON: <%= json data.tasks.object %>
 Invoiced.Task<788> <%= json data.tasks.object %>
 ```
 
+```go
+<Task id=788 at 3a0fa320> JSON: <%= json data.tasks.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The task's unique ID
@@ -118,6 +122,16 @@ task.UserId = 1976;
 task.Create();
 ```
 
+```go
+task := invoiced.NewTask()
+task.CustomerId = 481594
+task.Name = "Call customer"
+task.Action = "phone"
+task.DueDate = 1571288400
+task.UserId = 1976
+task, err := task.Create(task)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -142,6 +156,10 @@ com.invoiced.entity.Task@cb8fd89 JSON: <%= json data.tasks.object %>
 
 ```csharp
 Invoiced.Task<788> <%= json data.tasks.object %>
+```
+
+```go
+<Task id=788 at 3a0fa320> JSON: <%= json data.tasks.object %>
 ```
 
 Create a new task with this endpoint.
@@ -189,6 +207,10 @@ Task task = conn.newTask().retrieve({TASK_ID});
 var task = invoiced.NewTask().Retrieve({TASK_ID});
 ```
 
+```go
+task, err := invoiced.NewTask().Retrieve({TASK_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -215,6 +237,9 @@ com.invoiced.entity.Task@cb8fd89 JSON: <%= json data.tasks.object %>
 Invoiced.Task<788> <%= json data.tasks.object %>
 ```
 
+```go
+<Task id=788 at 3a0fa320> JSON: <%= json data.tasks.object %>
+```
 
 This endpoint retrieves a specific task.
 
@@ -258,6 +283,11 @@ task.DueDate = 1587366000;
 task.SaveAll();
 ```
 
+```go
+task.DueDate = 1587366000
+err := task.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -282,6 +312,10 @@ com.invoiced.entity.Task@cb8fd89 JSON: <%= json data.tasks._update %>
 
 ```csharp
 Invoiced.Task<788> <%= json data.tasks._update %>
+```
+
+```go
+<Task id=788 at cb8fd89> JSON: <%= json data.tasks._update %>
 ```
 
 Use this endpoint to update a task.
@@ -329,6 +363,10 @@ task.delete();
 task.Delete();
 ```
 
+```go
+err := task.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific task.
@@ -366,6 +404,10 @@ EntityList<Task> tasks = invoiced.newTask().listAll();
 var tasks = invoiced.NewTask().ListAll();
 ```
 
+```go
+tasks, err := invoiced.NewTask().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -401,6 +443,12 @@ var tasks = invoiced.NewTask().ListAll();
 ```csharp
 [
   Invoiced.Task<788> <%= json data.tasks._update, 1 %>
+]
+```
+
+```go
+[
+  <Task id=788 at 1701e31a> JSON: <%= json data.tasks._update, 1 %>
 ]
 ```
 

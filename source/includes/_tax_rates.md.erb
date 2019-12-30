@@ -30,6 +30,10 @@ com.invoiced.entity.TaxRate@192cafae JSON: <%= json data.tax_rates.object %>
 Invoiced.TaxRate<vat> <%= json data.tax_rates.object %>
 ```
 
+```go
+<TaxRate id=vat at 192cafae> JSON: <%= json data.tax_rates.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *string* | The tax rate's unique ID
@@ -94,6 +98,14 @@ taxRate.Value = 5;
 taxRate.Create();
 ```
 
+```go
+taxRate := invoiced.NewTaxRate()
+taxRate.Id = "vat"
+taxRate.Name = "VAT"
+taxRate.Value = 5
+taxRate, err := taxRate.Create(taxRate)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -118,6 +130,10 @@ com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates.object %>
 
 ```csharp
 Invoiced.TaxRate<vat> <%= json data.tax_rates.object %>
+```
+
+```go
+<TaxRate id=vat at cb8fd57> JSON: <%= json data.tax_rates.object %>
 ```
 
 Create a new tax rate with this endpoint.
@@ -167,6 +183,10 @@ TaxRate taxRate = invoiced.newTaxRate().retrieve({TXRAT_ID});
 var taxRate = invoiced.NewTaxRate().Retrieve({TXRAT_ID});
 ```
 
+```go
+taxRate, err := invoiced.NewTaxRate().Retrieve({TXRAT_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -191,6 +211,10 @@ com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates.object %>
 
 ```csharp
 Invoiced.TaxRate<vat> <%= json data.tax_rates.object %>
+```
+
+```go
+<TaxRate id=vat at cb8fd57> JSON: <%= json data.tax_rates.object %>
 ```
 
 This endpoint retrieves a specific tax rate.
@@ -235,6 +259,11 @@ taxRate.Name = "GST";
 taxRate.SaveAll();
 ```
 
+```go
+taxRate.Name = "GST"
+err := taxRate.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -259,6 +288,10 @@ com.invoiced.entity.TaxRate@cb8fd57 JSON: <%= json data.tax_rates._update %>
 
 ```csharp
 Invoiced.TaxRate<vat> <%= json data.tax_rates._update %>
+```
+
+```go
+<TaxRate id=vat at cb8fd57> JSON: <%= json data.tax_rates._update %>
 ```
 
 Use this endpoint to update a tax rate.
@@ -306,6 +339,10 @@ taxRate.delete();
 taxRate.Delete();
 ```
 
+```go
+err := taxRate.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific tax rate.
@@ -343,6 +380,10 @@ EntityList<TaxRate> taxRates = conn.newTaxRate().listAll();
 var taxRates = invoiced.NewTaxRate().ListAll();
 ```
 
+```go
+taxRates, err := invoiced.NewTaxRate().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -378,6 +419,12 @@ var taxRates = invoiced.NewTaxRate().ListAll();
 ```csharp
 [
   Invoiced.TaxRate<vat> <%= json data.tax_rates.object, 1 %>
+]
+```
+
+```go
+[
+  <TaxRate id=vat at c509a57> JSON: <%= json data.tax_rates.object, 1 %>
 ]
 ```
 

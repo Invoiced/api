@@ -32,6 +32,10 @@ com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.objec
 Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
 ```
 
+```go
+<PaymentPlan id=6 at 754f2c43> JSON: <%= json data.payment_plans.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The payment plan's unique ID
@@ -171,6 +175,22 @@ paymentPlan.Installments = installments;
 paymentPlan.Create();
 ```
 
+```go
+invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
+request := invoiced.NewPaymentPlanRequest()
+installments := make(invdendpoint.PaymentPlanInstallments, 4)
+installments[0].Date = 1480572000;
+installments[0].Amount = 500;
+installments[1].Date = 1481176800;
+installments[1].Amount = 500;
+installments[2].Date = 1481781600;
+installments[2].Amount = 500;
+installments[3].Date = 1480572000;
+installments[3].Amount = 500;
+request.Installments = installments;
+paymentPlan, err := = invoice.CreatePaymentPlan(request)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -195,6 +215,10 @@ com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.objec
 
 ```csharp
 Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
+```
+
+```go
+<PaymentPlan id=6 at 754f2c43> JSON: <%= json data.payment_plans.object %>
 ```
 
 ### HTTP Request
@@ -241,6 +265,11 @@ var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
 var paymentPlan = invoice.NewPaymentPlan().Retrieve();
 ```
 
+```go
+invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
+paymentPlan, err := invoice.RetrievePaymentPlan()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -265,6 +294,10 @@ com.invoiced.entity.PaymentPlan@754f2c43 JSON: <%= json data.payment_plans.objec
 
 ```csharp
 Invoiced.PaymentPlan<6> <%= json data.payment_plans.object %>
+```
+
+```go
+<PaymentPlan id=6 at 754f2c43> JSON: <%= json data.payment_plans.object %>
 ```
 
 This endpoint retrieves the payment plan for a given invoice.
@@ -301,6 +334,10 @@ paymentPlan.cancel();
 
 ```csharp
 paymentPlan.Cancel();
+```
+
+```go
+invoice.CancelPaymentPlan()
 ```
 
 > The above command returns `204 No Content`

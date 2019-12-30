@@ -30,6 +30,10 @@ com.invoiced.entity.Coupon@192cafae JSON: <%= json data.coupons.object %>
 Invoiced.Coupon<S8L47J> <%= json data.coupons.object %>
 ```
 
+```go
+<Coupon id=S8L47J at 192cafae> JSON: <%= json data.coupons.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *string* | The coupon's unique ID
@@ -96,6 +100,14 @@ coupon.Value = 20;
 coupon.Create();
 ```
 
+```go
+coupon := invoiced.NewCoupon()
+coupon.Id = "S8L47J"
+coupon.Name = "Non-profit Discount"
+coupon.Value = 20
+coupon, err := coupon.Create(coupon)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -120,6 +132,10 @@ com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
 
 ```csharp
 Invoiced.Coupon<S8L47J> <%= json data.coupons.object %>
+```
+
+```go
+<Coupon id=S8L47J at cb8fd57> JSON: <%= json data.coupons.object %>
 ```
 
 Create a new coupon with this endpoint.
@@ -171,6 +187,10 @@ Coupon coupon = invoiced.newCoupon().retrieve({COUPON_ID});
 var coupon = invoiced.NewCoupon().Retrieve({COUPON_ID});
 ```
 
+```go
+coupon, err := invoiced.NewCoupon().Retrieve({COUPON_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -195,6 +215,10 @@ com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons.object %>
 
 ```csharp
 Invoiced.Coupon<S8L47J> <%= json data.coupons.object %>
+```
+
+```go
+<Coupon id=S8L47J at cb8fd57> JSON: <%= json data.coupons.object %>
 ```
 
 This endpoint retrieves a specific coupon.
@@ -239,6 +263,11 @@ coupon.Name = "Nonprofits";
 coupon.SaveAll();
 ```
 
+```go
+coupon.Name = "Nonprofits"
+err := coupon.Save()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -263,6 +292,10 @@ com.invoiced.entity.Coupon@cb8fd57 JSON: <%= json data.coupons._update %>
 
 ```csharp
 Invoiced.Coupon<S8L47J> <%= json data.coupons._update %>
+```
+
+```go
+<Coupon id=S8L47J at cb8fd57> JSON: <%= json data.coupons._update %>
 ```
 
 Use this endpoint to update a coupon.
@@ -310,6 +343,10 @@ coupon.delete();
 coupon.Delete();
 ```
 
+```go
+err := coupon.Delete()
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific coupon.
@@ -347,6 +384,10 @@ EntityList<Coupon> coupon = conn.newCoupon().listAll();
 var coupons = invoiced.NewCoupon().ListAll();
 ```
 
+```go
+coupons, err := invoiced.NewCoupon().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -382,6 +423,12 @@ var coupons = invoiced.NewCoupon().ListAll();
 ```csharp
 [
   Invoiced.Coupon<S8L47J> <%= json data.coupons.object, 1 %>
+]
+```
+
+```go
+[
+  <Coupon id=S8L47J at c509a57> JSON: <%= json data.coupons.object, 1 %>
 ]
 ```
 

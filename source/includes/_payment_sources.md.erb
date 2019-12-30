@@ -31,6 +31,10 @@ com.invoiced.entity.PaymentSource@2fdf31f4 JSON: <%= json data.sources.cards.obj
 Invoiced.Card<850> <%= json data.sources.cards.object %>
 ```
 
+```go
+<Card id=850 at 2fdf31f4> JSON: <%= json data.sources.cards.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The card's unique ID
@@ -67,6 +71,10 @@ com.invoiced.entity.BankAccount@3fdf31f4 JSON: <%= json data.sources.bank_accoun
 
 ```csharp
 Invoiced.BankAccount<4321> <%= json data.sources.bank_accounts.object %>
+```
+
+```go
+<BankAccount id=4321 at 3fdf31f4> JSON: <%= json data.sources.bank_accounts.object %>
 ```
 
 Parameter | Type | Description
@@ -132,6 +140,16 @@ sourceRequest.InvoicedToken = "abcdefghijklmnopqrstuvwxyz";
 var paymentSource = customer.CreatePaymentSource(sourceRequest);
 ```
 
+```go
+customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
+sourceRequest := invoiced.NewPaymentSource()
+
+sourceRequest.Method = "credit_card"
+sourceRequest.InvoicedToken = "abcdefghijklmnopqrstuvwxyz"
+
+source, err := customer.CreatePaymentSource(sourceRequest)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -156,6 +174,10 @@ com.invoiced.entity.Card@e48fa2a JSON: <%= json data.sources.cards.object %>
 
 ```csharp
 Invoiced.Card<850> <%= json data.sources.cards.object %>
+```
+
+```go
+<Card id=850 at 2fdf31f4> JSON: <%= json data.sources.cards.object %>
 ```
 
 Associate a payment method with a customer using this endpoint.
@@ -209,6 +231,11 @@ var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
 var paymentSources = customer.ListPaymentSources();
 ```
 
+```go
+customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
+sources, err := customer.ListAllPaymentSources()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -247,6 +274,12 @@ var paymentSources = customer.ListPaymentSources();
 ]
 ```
 
+```go
+[
+  <Card id=850 at 2fdf31f4> JSON: <%= json data.sources.cards.object, 1 %>
+]
+```
+
 Retrieve payment sources associated with a certain customer using this endpoint.
 
 ### HTTP Request
@@ -281,6 +314,12 @@ paymentSource.delete();
 
 ```csharp
 paymentSource.Delete();
+```
+
+```go
+customer.DeleteCard({CARD_ID}) 
+// or
+customer.DeleteBankAccount({ACCOUNT_ID})
 ```
 
 > The above command returns `204 No Content`

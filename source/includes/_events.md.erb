@@ -32,6 +32,10 @@ com.invoiced.entity.Event@1c5119e JSON: <%= json data.events.object %>
 Invoiced.Event<1228003> <%= json data.events.object %>
 ```
 
+```go
+<Event id=1228003 at 1c5119e> JSON: <%= json data.events.object %>
+```
+
 Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The event's unique ID
@@ -123,6 +127,10 @@ Event event = invoiced.newEvent().retrieve({EVENT_ID});
 var event = invoiced.NewEvent().Retrieve({EVENT_ID});
 ```
 
+```go
+event, err := invoiced.NewEvent().Retrieve({EVENT_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -147,6 +155,10 @@ com.invoiced.entity.Event@cb8fd58 JSON: <%= json data.events.retrieve %>
 
 ```csharp
 Invoiced.Event<1228003> <%= json data.events.retrieve %>
+```
+
+```go
+<Event id=1228003 at cb8fd58> JSON: <%= json data.events.retrieve %>
 ```
 
 This endpoint retrieves a specific event.
@@ -184,6 +196,10 @@ EntityList<Event> events = connection.newEvent().listAll();
 var events = invoiced.NewEvent().ListAll();
 ```
 
+```go
+events, err := invoiced.NewEvent().ListAll(nil, nil)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -219,6 +235,12 @@ var events = invoiced.NewEvent().ListAll();
 ```csharp
 [
   Invoiced.Event<1228003> <%= json data.events.list_all, 1 %>
+]
+```
+
+```go
+[
+  <Event id=1228003 at 1c5119e> JSON: <%= json data.events.list_all, 1 %>
 ]
 ```
 

@@ -47,6 +47,13 @@ pli.CatalogItem = "delivery";
 pli.Create();
 ```
 
+```go
+customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
+pli := customer.NewPendingLineItem()
+pli.CatalogItem = "delivery"
+pli, err = customer.CreatePendingLineItem(pli)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -71,6 +78,10 @@ com.invoiced.entity.PendingLineItem@754f2c43 JSON: <%= json data.pending_line_it
 
 ```csharp
 Invoiced.PendingLineItem<8> <%= json data.pending_line_items.object %>
+```
+
+```go
+<PendingLineItem id=8 at f95e4d08> JSON: <%= json data.pending_line_items.object %>
 ```
 
 Create a new pending line item with this endpoint.
@@ -129,6 +140,11 @@ var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
 var pli = customer.NewPendingLineItem().Retrieve({LINE_ITEM_ID});
 ```
 
+```go
+customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
+pli, err := customer.RetrievePendingLineItem({LINE_ITEM_ID})
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -153,6 +169,10 @@ com.invoiced.entity.PendingLineItem@754f2c43 JSON: <%= json data.pending_line_it
 
 ```csharp
 Invoiced.PendingLineItem<8> <%= json data.pending_line_items.object %>
+```
+
+```go
+<PendingLineItem id=8 at f95e4d08> JSON: <%= json data.pending_line_items.object %>
 ```
 
 This endpoint retrieves a specific pending line item.
@@ -199,6 +219,12 @@ pli.Quantity = 2;
 pli.SaveAll();
 ```
 
+```go
+pli, err := customer.RetrievePendingLineItem({LINE_ITEM_ID})
+pli.Quantity = 2
+pli, err = customer.UpdatePendingLineItem(pli)
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -223,6 +249,10 @@ com.invoiced.entity.PendingLineItem@754f2c43 JSON: <%= json data.pending_line_it
 
 ```csharp
 Invoiced.PendingLineItem<8> <%= json data.pending_line_items._update %>
+```
+
+```go
+<PendingLineItem id=8 at f95e4d08> JSON: <%= json data.pending_line_items._update %>
 ```
 
 Use this endpoint to update a pending line item.
@@ -276,6 +306,10 @@ Invoice invoice = customer.invoice();
 var invoice = customer.Invoice();
 ```
 
+```go
+invoice, err := customer.TriggerInvoice()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -300,6 +334,10 @@ com.invoiced.entity.Invoice@3df85de JSON: <%= json data.pending_line_items.trigg
 
 ```csharp
 Invoiced.Invoice<46225> <%= json data.pending_line_items.trigger %>
+```
+
+```go
+<Invoice id=46225 at f95e4d08> JSON: <%= json data.pending_line_items.trigger %>
 ```
 
 This endpoint generates an invoice for a customer with its pending line items.
@@ -344,6 +382,10 @@ var pli = customer.NewPendingLineItem().Retrieve({LINE_ITEM_ID});
 pli.Delete();
 ```
 
+```go
+err := customer.DeletePendingLineItem({LINE_ITEM_ID})
+```
+
 > The above command returns `204 No Content`
 
 This endpoint deletes a specific pending line item.
@@ -385,6 +427,10 @@ EntityList<PendingLineItem> plis = pli.listAll();
 var plis = customer.NewPendingLineItem().ListAll();
 ```
 
+```go
+plis, err := customer.ListAllPendingLineItems()
+```
+
 > The above command returns JSON structured like this:
 
 ```shell
@@ -420,6 +466,12 @@ var plis = customer.NewPendingLineItem().ListAll();
 ```csharp
 [
   Invoiced.PendingLineItem<8> <%= json data.pending_line_items.object, 1 %>
+]
+```
+
+```go
+[
+  <PendingLineItem id=8 at f95e4d08> JSON: <%= json data.pending_line_items.object, 1 %>
 ]
 ```
 
