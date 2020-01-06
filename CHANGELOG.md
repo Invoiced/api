@@ -1,5 +1,8 @@
 Changelog
 =========
+### January 6, 2020
+- A `template` parameter has been added when sending emails to use a custom email template.
+
 ### December 30, 2019
 - The Go library has been updated to support all of the latest API capabilities and the documentation now includes Go code examples.
 

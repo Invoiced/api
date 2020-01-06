@@ -761,8 +761,9 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **to** | *array* | Optional array of recipients like:<br/>`[{"name": "Client", "email": "client@example.com"}]`
 **bcc** | *string* | Optional comma-separated list of email addresses to be blind carbon copied
-**subject** | *string* | Optional subject
-**message** | *string* | Optional message body, otherwise the appropriate invoice template is used
+**template** | *string* | Optional email template ID, otherwise a standard email template is selected
+**subject** | *string* | Optional subject to override the template
+**message** | *string* | Optional message body to override the template
 
 ## Send an invoice SMS
 
