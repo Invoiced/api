@@ -46,7 +46,7 @@ We designed the Invoiced API around [REST](https://en.wikipedia.org/wiki/Represe
 Here's a few pages that might be helpful in addition to this API reference.
 
 - [Sign up for Invoiced](https://invoiced.com/signup)
-- [Developer Documentation](https://invoiced.com/docs/dev)
+- [Developer Documentation](https://invoiced.com/resources/docs/dev)
 - [Invoiced Sandbox](https://sandbox.invoiced.com/)
 
 ### API Endpoint
@@ -334,7 +334,7 @@ Most Invoiced objects have a `metadata` attribute. This parameter allows you to 
 
 There are many use cases for metadata. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and in the dashboard. Customers will not see this data unless you choose to display it with a custom field.
 
-Our [custom fields](https://invoiced.com/docs/guides/custom-fields) feature is backed by the metadata store. If you are using custom fields then be sure to use the ID of your custom field as the key for your metadata value in order to link it with the right custom field. Custom fields are not required in order to use metadata.
+Our [custom fields](https://invoiced.com/resources/docs/guides/custom-fields) feature is backed by the metadata store. If you are using custom fields then be sure to use the ID of your custom field as the key for your metadata value in order to link it with the right custom field. Custom fields are not required in order to use metadata.
 
 Metadata can include up to **10 keys per object**. Each key can be up to 40 characters long and values may be up to 255 characters long.
 

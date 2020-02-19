@@ -66,11 +66,11 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Tax Rate IDs
 **tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/resources/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
-**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **sign_up_url** | *string* | URL where customer can purchase a subscription, when a sign up page is assigned
 **statement_pdf_url** | *string* | URL to download the latest account statement
 **created_at** | *timestamp* | Timestamp when created
@@ -262,11 +262,11 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Tax Rate IDs
 **tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/resources/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`. Defaults to `company`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
-**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
 
@@ -494,11 +494,11 @@ Parameter | Type | Description
 **taxes** | *array* | Collection of Tax Rate IDs
 **tax_id** | *string* | Tax ID to be displayed on documents
 **avalara_entity_use_code** | *string* | [Avalara-specific entity use code](https://help.avalara.com/Avalara_AvaTax_Update/Exemption_Reason_Matrix_for_US_and_Canada)
-**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/docs/integrations/avalara)
+**avalara_exemption_number** | *string* | Tax-exempt number to pass to [Avalara](https://invoiced.com/resources/docs/integrations/avalara)
 **type** | *string* | Organization type, `company` or `person`
 **parent_customer** | *integer* | Parent customer ID
 **notes** | *string* | Private customer notes
-**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/docs/guides/sign-up-pages) ID
+**sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
 
@@ -815,7 +815,7 @@ texts, err := customer.SendStatementText(&textRequest)
 ]
 ```
 
-This endpoint sends an account statement by SMS to a customer using [Twilio](https://invoiced.com/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
+This endpoint sends an account statement by SMS to a customer using [Twilio](https://invoiced.com/resources/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
 
 Text messages can only be sent to customer contacts marked as `sms_enabled`.
 
@@ -910,7 +910,7 @@ Invoiced.Letter<2678c1e7e6dd1011ce13fb6b76db42df> <%= json data.letters.statemen
 <Letter id=2678c1e7e6dd1011ce13fb6b76db42df at cb8fd59> JSON: <%= json data.letters.statement %>
 ```
 
-This endpoint sends an account statement by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
+This endpoint sends an account statement by mail to a customer using [Lob](https://invoiced.com/resources/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
 
 The letter will automatically be sent to the customer's billing address.
 

@@ -875,7 +875,7 @@ texts, err := invoice.SendText(&textRequest)
 ]
 ```
 
-This endpoint sends an invoice by SMS to a customer using [Twilio](https://invoiced.com/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
+This endpoint sends an invoice by SMS to a customer using [Twilio](https://invoiced.com/resources/docs/integrations/twilio). Twilio must be connected to Invoiced for requests to succeed.
 
 Text messages can only be sent to customer contacts marked as `sms_enabled`.
 
@@ -960,7 +960,7 @@ Invoiced.Letter<995503c4fc2c853b23de3023e84bba72> <%= json data.letters.invoice 
 <Letter id=995503c4fc2c853b23de3023e84bba72 at 2ce1cfd8> JSON: <%= json data.letters.invoice %>
 ```
 
-This endpoint sends an invoice by mail to a customer using [Lob](https://invoiced.com/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
+This endpoint sends an invoice by mail to a customer using [Lob](https://invoiced.com/resources/docs/integrations/lob). Lob must be connected to Invoiced for requests to succeed.
 
 There are no request parameters; the letter will automatically be sent to the customer's billing address.
 
