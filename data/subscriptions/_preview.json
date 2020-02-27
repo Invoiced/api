@@ -14,7 +14,6 @@
         "due_date": null,
         "id": false,
         "name": "Starter",
-        "needs_attention": null,
         "next_chase_on": null,
         "next_payment_attempt": null,
         "notes": null,
