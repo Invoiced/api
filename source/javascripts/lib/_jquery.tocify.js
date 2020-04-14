@@ -8,7 +8,7 @@
  * lag spikes below 30 fps */
 
 // Immediately-Invoked Function Expression (IIFE) [Ben Alman Blog Post](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) that calls another IIFE that contains all of the plugin logic.  I used this pattern so that anyone viewing this code would not have to scroll to the bottom of the page to view the local parameters that were passed to the main IIFE.
-(function(tocify) {
+(function (tocify) {
     // ECMAScript 5 Strict Mode: [John Resig Blog Post](http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/)
     'use strict';
 
@@ -16,7 +16,7 @@
     tocify(window.jQuery, window, document);
 })(
     // Locally passes in `jQuery`, the `window` object, the `document` object, and an `undefined` variable.  The `jQuery`, `window` and `document` objects are passed in locally, to improve performance, since javascript first searches for a variable match within the local variables set before searching the global variables set.  All of the global variables are also passed in locally to be minifier friendly. `undefined` can be passed in locally, because it is not a reserved word in JavaScript.
-    function($, window, document, undefined) {
+    function ($, window, document, undefined) {
         // ECMAScript 5 Strict Mode: [John Resig Blog Post](http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/)
         'use strict';
 
@@ -135,7 +135,7 @@
             // _Create
             // -------
             //      Constructs the plugin.  Only called once.
-            _create: function() {
+            _create: function () {
                 var self = this;
 
                 self.tocifyWrapper = $('.tocify-wrapper');
@@ -153,7 +153,7 @@
                 // Adds CSS classes to the newly generated table of contents HTML
                 self._addCSSClasses();
 
-                self.webkit = (function() {
+                self.webkit = (function () {
                     for (var prop in window) {
                         if (prop) {
                             if (prop.toLowerCase().indexOf('webkit') !== -1) {
@@ -169,15 +169,15 @@
                 self._setEventHandlers();
 
                 // Binding to the Window load event to make sure the correct scrollTop is calculated
-                $(window).load(function() {
+                $(window).load(function () {
                     // Sets the active TOC item
                     self._setActiveElement(true);
 
                     // Once all animations on the page are complete, this callback function will be called
                     $('html, body')
                         .promise()
-                        .done(function() {
-                            setTimeout(function() {
+                        .done(function () {
+                            setTimeout(function () {
                                 self.extendPageScroll = false;
                             }, 0);
                         });
@@ -187,7 +187,7 @@
             // _generateToc
             // ------------
             //      Generates the HTML for the dynamic table of contents
-            _generateToc: function() {
+            _generateToc: function () {
                 // _Local variables_
 
                 // Stores the plugin context in the self variable
@@ -221,7 +221,7 @@
                 self.element.addClass(tocClassName);
 
                 // Loops through each top level selector
-                firstElem.each(function(index) {
+                firstElem.each(function (index) {
                     //If the element matches the ignoreSelector then we skip it
                     if ($(this).is(ignoreSelector)) {
                         return;
@@ -241,13 +241,13 @@
                     // Finds all of the HTML tags between the header and subheader elements
                     $(this)
                         .nextUntil(this.nodeName.toLowerCase())
-                        .each(function() {
+                        .each(function () {
                             // If there are no nested subheader elemements
                             if ($(this).find(self.options.selectors).length === 0) {
                                 // Loops through all of the subheader elements
                                 $(this)
                                     .filter(self.options.selectors)
-                                    .each(function() {
+                                    .each(function () {
                                         //If the element matches the ignoreSelector then we skip it
                                         if ($(this).is(ignoreSelector)) {
                                             return;
@@ -262,7 +262,7 @@
                                 // Loops through all of the subheader elements
                                 $(this)
                                     .find(self.options.selectors)
-                                    .each(function() {
+                                    .each(function () {
                                         //If the element matches the ignoreSelector then we skip it
                                         if ($(this).is(ignoreSelector)) {
                                             return;
@@ -275,7 +275,7 @@
                 });
             },
 
-            _setActiveElement: function(pageload) {
+            _setActiveElement: function (pageload) {
                 var self = this,
                     hash = window.location.hash.substring(1),
                     elem = self.element.find("li[data-unique='" + hash + "']");
@@ -298,10 +298,7 @@
 
                     if (!hash.length && pageload && self.options.highlightDefault) {
                         // Highlights the first TOC item if no other items are highlighted
-                        self.element
-                            .find(itemClass)
-                            .first()
-                            .addClass(self.focusClass);
+                        self.element.find(itemClass).first().addClass(self.focusClass);
                     }
                 }
 
@@ -311,10 +308,10 @@
             // _nestElements
             // -------------
             //      Helps create the table of contents list by appending nested list items
-            _nestElements: function(self, index) {
+            _nestElements: function (self, index) {
                 var arr, item, hashValue;
 
-                arr = $.grep(this.items, function(item) {
+                arr = $.grep(this.items, function (item) {
                     return item === self.text();
                 });
 
@@ -364,7 +361,7 @@
             // _generateHashValue
             // ------------------
             //      Generates the hash value that will be used to refer to each item.
-            _generateHashValue: function(arr, self, index) {
+            _generateHashValue: function (arr, self, index) {
                 var hashValue = '',
                     hashGeneratorOption = this.options.hashGenerator;
 
@@ -372,10 +369,7 @@
                     // remove weird characters
 
                     // prettify the text
-                    hashValue = self
-                        .text()
-                        .toLowerCase()
-                        .replace(/\s/g, '-');
+                    hashValue = self.text().toLowerCase().replace(/\s/g, '-');
 
                     // ADDED BY ROBERT
                     // remove weird characters
@@ -411,14 +405,12 @@
             // ---------------
             //      Helps create the table of contents list by appending subheader elements
 
-            _appendSubheaders: function(self, ul) {
+            _appendSubheaders: function (self, ul) {
                 // The current element index
                 var index = $(this).index(self.options.selectors),
                     // Finds the previous header DOM element
                     previousHeader = $(self.options.selectors).eq(index - 1),
-                    currentTagName = +$(this)
-                        .prop('tagName')
-                        .charAt(1),
+                    currentTagName = +$(this).prop('tagName').charAt(1),
                     previousTagName = +previousHeader.prop('tagName').charAt(1),
                     lastSubheader;
 
@@ -457,7 +449,7 @@
             // _setEventHandlers
             // ----------------
             //      Adds jQuery event handlers to the newly generated table of contents
-            _setEventHandlers: function() {
+            _setEventHandlers: function () {
                 // _Local variables_
 
                 // Stores the plugin context in the self variable
@@ -468,7 +460,7 @@
                     duration;
 
                 // Event delegation that looks for any clicks on list item elements inside of the HTML element calling the plugin
-                this.element.on('click.tocify', 'li', function(event) {
+                this.element.on('click.tocify', 'li', function (event) {
                     if (self.options.history) {
                         window.location.hash = $(this).attr('data-unique');
                     }
@@ -492,7 +484,7 @@
                 // Mouseenter and Mouseleave event handlers for the list item's within the HTML element calling the plugin
                 this.element.find('li').on({
                     // Mouseenter event handler
-                    'mouseenter.tocify': function() {
+                    'mouseenter.tocify': function () {
                         // Adds a hover CSS class to the current list item
                         $(this).addClass(self.hoverClass);
 
@@ -501,7 +493,7 @@
                     },
 
                     // Mouseleave event handler
-                    'mouseleave.tocify': function() {
+                    'mouseleave.tocify': function () {
                         if (self.options.theme !== 'bootstrap') {
                             // Removes the hover CSS class from the current list item
                             $(this).removeClass(self.hoverClass);
@@ -511,16 +503,16 @@
 
                 // Reset height cache on scroll
 
-                $(window).on('resize', function() {
+                $(window).on('resize', function () {
                     self.calculateHeights();
                 });
 
                 // Window scroll event handler
-                $(window).on('scroll.tocify', function() {
+                $(window).on('scroll.tocify', function () {
                     // Once all animations on the page are complete, this callback function will be called
                     $('html, body')
                         .promise()
-                        .done(function() {
+                        .done(function () {
                             // Local variables
 
                             // Stores how far the user has scrolled
@@ -546,11 +538,7 @@
                                 ) {
                                     if (!$(extendPageClass).length) {
                                         lastElem = $(
-                                            'div[data-unique="' +
-                                                $(itemClass)
-                                                    .last()
-                                                    .attr('data-unique') +
-                                                '"]'
+                                            'div[data-unique="' + $(itemClass).last().attr('data-unique') + '"]'
                                         );
 
                                         if (!lastElem.length) return;
@@ -581,7 +569,7 @@
                             }
 
                             // The zero timeout ensures the following code is run after the scroll events
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 // _Local variables_
 
                                 // Stores the distance to the closest anchor
@@ -597,7 +585,7 @@
                                 var scrollTop = $(window).scrollTop();
 
                                 // Determines the index of the closest anchor
-                                self.cachedAnchors.each(function(idx) {
+                                self.cachedAnchors.each(function (idx) {
                                     if (self.cachedHeights[idx] - scrollTop < 0) {
                                         closestAnchorIdx = idx;
                                     } else {
@@ -663,12 +651,12 @@
             // calculateHeights
             // ----
             //      ADDED BY ROBERT
-            calculateHeights: function() {
+            calculateHeights: function () {
                 var self = this;
                 self.cachedHeights = [];
                 self.cachedAnchors = [];
                 var anchors = $(self.options.context).find('div[data-unique]');
-                anchors.each(function(idx) {
+                anchors.each(function (idx) {
                     var distance =
                         ($(this).next().length ? $(this).next() : $(this)).offset().top - self.options.highlightOffset;
                     self.cachedHeights[idx] = distance;
@@ -679,7 +667,7 @@
             // Show
             // ----
             //      Opens the current sub-header
-            show: function(elem, scroll) {
+            show: function (elem, scroll) {
                 // Stores the plugin context in the `self` variable
                 var self = this,
                     element = elem;
@@ -746,12 +734,7 @@
                 else {
                     // Hides all non-active sub-headers
                     self.hide(
-                        $(subheaderClass).not(
-                            elem
-                                .closest(headerClass)
-                                .find(subheaderClass)
-                                .not(elem.siblings())
-                        )
+                        $(subheaderClass).not(elem.closest(headerClass).find(subheaderClass).not(elem.siblings()))
                     );
                 }
 
@@ -762,7 +745,7 @@
             // Hide
             // ----
             //      Closes the current sub-header
-            hide: function(elem) {
+            hide: function (elem) {
                 // Stores the plugin context in the `self` variable
                 var self = this;
 
@@ -806,7 +789,7 @@
             // _triggerShow
             // ------------
             //      Determines what elements get shown on scroll and click
-            _triggerShow: function(elem, scroll) {
+            _triggerShow: function (elem, scroll) {
                 var self = this;
 
                 // If the current element's parent is a header element or the next element is a nested subheader element
@@ -828,7 +811,7 @@
             // _addCSSClasses
             // --------------
             //      Adds CSS classes to the newly generated table of contents HTML
-            _addCSSClasses: function() {
+            _addCSSClasses: function () {
                 // If the user wants a jqueryUI theme
                 if (this.options.theme === 'jqueryui') {
                     this.focusClass = 'ui-state-default';
@@ -868,7 +851,7 @@
             // setOption
             // ---------
             //      Sets a single Tocify option after the plugin is invoked
-            setOption: function() {
+            setOption: function () {
                 // Calls the jQueryUI Widget Factory setOption method
                 $.Widget.prototype._setOption.apply(this, arguments);
             },
@@ -876,7 +859,7 @@
             // setOptions
             // ----------
             //      Sets a single or multiple Tocify options after the plugin is invoked
-            setOptions: function() {
+            setOptions: function () {
                 // Calls the jQueryUI Widget Factory setOptions method
                 $.Widget.prototype._setOptions.apply(this, arguments);
             },
@@ -884,7 +867,7 @@
             // _scrollTo
             // ---------
             //      Scrolls to a specific element
-            _scrollTo: function(elem) {
+            _scrollTo: function (elem) {
                 var self = this,
                     duration = self.options.smoothScroll || 0,
                     scrollTo = self.options.scrollTo;
@@ -892,7 +875,7 @@
                 // Once all animations on the page are complete, this callback function will be called
                 $('html, body')
                     .promise()
-                    .done(function() {
+                    .done(function () {
                         // Animates the html and body element scrolltops
                         $('html, body').animate(
                             {

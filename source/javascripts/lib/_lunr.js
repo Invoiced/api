@@ -5,7 +5,7 @@
  * @license
  */
 
-(function() {
+(function () {
     /**
      * Convenience function for instantiating a new lunr index and configuring it
      * with the default pipeline functions and the passed config function.
@@ -41,7 +41,7 @@
      * @returns {lunr.Index}
      *
      */
-    var lunr = function(config) {
+    var lunr = function (config) {
         var idx = new lunr.Index();
 
         idx.pipeline.add(lunr.trimmer, lunr.stopWordFilter, lunr.stemmer);
@@ -68,8 +68,8 @@
      * @param {String} message The message to be printed.
      * @memberOf Utils
      */
-    lunr.utils.warn = (function(global) {
-        return function(message) {
+    lunr.utils.warn = (function (global) {
+        return function (message) {
             if (global.console && console.warn) {
                 console.warn(message);
             }
@@ -86,7 +86,7 @@
      *
      * @constructor
      */
-    lunr.EventEmitter = function() {
+    lunr.EventEmitter = function () {
         this.events = {};
     };
 
@@ -99,14 +99,14 @@
      * @param {Function} handler The function to call when an event is fired.
      * @memberOf EventEmitter
      */
-    lunr.EventEmitter.prototype.addListener = function() {
+    lunr.EventEmitter.prototype.addListener = function () {
         var args = Array.prototype.slice.call(arguments),
             fn = args.pop(),
             names = args;
 
         if (typeof fn !== 'function') throw new TypeError('last argument must be a function');
 
-        names.forEach(function(name) {
+        names.forEach(function (name) {
             if (!this.hasHandler(name)) this.events[name] = [];
             this.events[name].push(fn);
         }, this);
@@ -119,7 +119,7 @@
      * @param {Function} handler The function to remove from an event.
      * @memberOf EventEmitter
      */
-    lunr.EventEmitter.prototype.removeListener = function(name, fn) {
+    lunr.EventEmitter.prototype.removeListener = function (name, fn) {
         if (!this.hasHandler(name)) return;
 
         var fnIndex = this.events[name].indexOf(fn);
@@ -137,12 +137,12 @@
      * @param {String} eventName The name of the event to emit.
      * @memberOf EventEmitter
      */
-    lunr.EventEmitter.prototype.emit = function(name) {
+    lunr.EventEmitter.prototype.emit = function (name) {
         if (!this.hasHandler(name)) return;
 
         var args = Array.prototype.slice.call(arguments, 1);
 
-        this.events[name].forEach(function(fn) {
+        this.events[name].forEach(function (fn) {
             fn.apply(undefined, args);
         });
     };
@@ -154,7 +154,7 @@
      * @private
      * @memberOf EventEmitter
      */
-    lunr.EventEmitter.prototype.hasHandler = function(name) {
+    lunr.EventEmitter.prototype.hasHandler = function (name) {
         return name in this.events;
     };
 
@@ -171,10 +171,10 @@
      * @param {String} obj The string to convert into tokens
      * @returns {Array}
      */
-    lunr.tokenizer = function(obj) {
+    lunr.tokenizer = function (obj) {
         if (!arguments.length || obj == null || obj == undefined) return [];
         if (Array.isArray(obj))
-            return obj.map(function(t) {
+            return obj.map(function (t) {
                 return t.toLowerCase();
             });
 
@@ -189,10 +189,10 @@
 
         return str
             .split(/(?:\s+|\-)/)
-            .filter(function(token) {
+            .filter(function (token) {
                 return !!token;
             })
-            .map(function(token) {
+            .map(function (token) {
                 return token.toLowerCase();
             });
     };
@@ -230,7 +230,7 @@
      *
      * @constructor
      */
-    lunr.Pipeline = function() {
+    lunr.Pipeline = function () {
         this._stack = [];
     };
 
@@ -249,7 +249,7 @@
      * @param {String} label The label to register this function with
      * @memberOf Pipeline
      */
-    lunr.Pipeline.registerFunction = function(fn, label) {
+    lunr.Pipeline.registerFunction = function (fn, label) {
         if (label in this.registeredFunctions) {
             lunr.utils.warn('Overwriting existing registered function: ' + label);
         }
@@ -265,7 +265,7 @@
      * @private
      * @memberOf Pipeline
      */
-    lunr.Pipeline.warnIfFunctionNotRegistered = function(fn) {
+    lunr.Pipeline.warnIfFunctionNotRegistered = function (fn) {
         var isRegistered = fn.label && fn.label in this.registeredFunctions;
 
         if (!isRegistered) {
@@ -287,10 +287,10 @@
      * @returns {lunr.Pipeline}
      * @memberOf Pipeline
      */
-    lunr.Pipeline.load = function(serialised) {
+    lunr.Pipeline.load = function (serialised) {
         var pipeline = new lunr.Pipeline();
 
-        serialised.forEach(function(fnName) {
+        serialised.forEach(function (fnName) {
             var fn = lunr.Pipeline.registeredFunctions[fnName];
 
             if (fn) {
@@ -311,10 +311,10 @@
      * @param {Function} functions Any number of functions to add to the pipeline.
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.add = function() {
+    lunr.Pipeline.prototype.add = function () {
         var fns = Array.prototype.slice.call(arguments);
 
-        fns.forEach(function(fn) {
+        fns.forEach(function (fn) {
             lunr.Pipeline.warnIfFunctionNotRegistered(fn);
             this._stack.push(fn);
         }, this);
@@ -330,7 +330,7 @@
      * @param {Function} newFn The new function to add to the pipeline.
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.after = function(existingFn, newFn) {
+    lunr.Pipeline.prototype.after = function (existingFn, newFn) {
         lunr.Pipeline.warnIfFunctionNotRegistered(newFn);
 
         var pos = this._stack.indexOf(existingFn) + 1;
@@ -347,7 +347,7 @@
      * @param {Function} newFn The new function to add to the pipeline.
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.before = function(existingFn, newFn) {
+    lunr.Pipeline.prototype.before = function (existingFn, newFn) {
         lunr.Pipeline.warnIfFunctionNotRegistered(newFn);
 
         var pos = this._stack.indexOf(existingFn);
@@ -360,7 +360,7 @@
      * @param {Function} fn The function to remove from the pipeline.
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.remove = function(fn) {
+    lunr.Pipeline.prototype.remove = function (fn) {
         var pos = this._stack.indexOf(fn);
         this._stack.splice(pos, 1);
     };
@@ -373,7 +373,7 @@
      * @returns {Array}
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.run = function(tokens) {
+    lunr.Pipeline.prototype.run = function (tokens) {
         var out = [],
             tokenLength = tokens.length,
             stackLength = this._stack.length;
@@ -397,7 +397,7 @@
      *
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.reset = function() {
+    lunr.Pipeline.prototype.reset = function () {
         this._stack = [];
     };
 
@@ -409,8 +409,8 @@
      * @returns {Array}
      * @memberOf Pipeline
      */
-    lunr.Pipeline.prototype.toJSON = function() {
-        return this._stack.map(function(fn) {
+    lunr.Pipeline.prototype.toJSON = function () {
+        return this._stack.map(function (fn) {
             lunr.Pipeline.warnIfFunctionNotRegistered(fn);
 
             return fn.label;
@@ -427,7 +427,7 @@
      *
      * @constructor
      */
-    lunr.Vector = function() {
+    lunr.Vector = function () {
         this._magnitude = null;
         this.list = undefined;
         this.length = 0;
@@ -444,7 +444,7 @@
      * @constructor
      * @memberOf Vector
      */
-    lunr.Vector.Node = function(idx, val, next) {
+    lunr.Vector.Node = function (idx, val, next) {
         this.idx = idx;
         this.val = val;
         this.next = next;
@@ -457,7 +457,7 @@
      * @param {Object} The object to insert in the vector.
      * @memberOf Vector.
      */
-    lunr.Vector.prototype.insert = function(idx, val) {
+    lunr.Vector.prototype.insert = function (idx, val) {
         var list = this.list;
 
         if (!list) {
@@ -487,7 +487,7 @@
      * @returns {Number}
      * @memberOf Vector
      */
-    lunr.Vector.prototype.magnitude = function() {
+    lunr.Vector.prototype.magnitude = function () {
         if (this._magniture) return this._magnitude;
         var node = this.list,
             sumOfSquares = 0,
@@ -509,7 +509,7 @@
      * @returns {Number}
      * @memberOf Vector
      */
-    lunr.Vector.prototype.dot = function(otherVector) {
+    lunr.Vector.prototype.dot = function (otherVector) {
         var node = this.list,
             otherNode = otherVector.list,
             dotProduct = 0;
@@ -538,7 +538,7 @@
      * @returns {Number}
      * @memberOf Vector
      */
-    lunr.Vector.prototype.similarity = function(otherVector) {
+    lunr.Vector.prototype.similarity = function (otherVector) {
         return this.dot(otherVector) / (this.magnitude() * otherVector.magnitude());
     };
     /*!
@@ -552,7 +552,7 @@
      *
      * @constructor
      */
-    lunr.SortedSet = function() {
+    lunr.SortedSet = function () {
         this.length = 0;
         this.elements = [];
     };
@@ -564,7 +564,7 @@
      * @returns {lunr.SortedSet}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.load = function(serialisedData) {
+    lunr.SortedSet.load = function (serialisedData) {
         var set = new this();
 
         set.elements = serialisedData;
@@ -580,8 +580,8 @@
      * @param {Object} The objects to add to this set.
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.add = function() {
-        Array.prototype.slice.call(arguments).forEach(function(element) {
+    lunr.SortedSet.prototype.add = function () {
+        Array.prototype.slice.call(arguments).forEach(function (element) {
             if (~this.indexOf(element)) return;
             this.elements.splice(this.locationFor(element), 0, element);
         }, this);
@@ -595,7 +595,7 @@
      * @returns {Array}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.toArray = function() {
+    lunr.SortedSet.prototype.toArray = function () {
         return this.elements.slice();
     };
 
@@ -612,7 +612,7 @@
      * @returns {Array}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.map = function(fn, ctx) {
+    lunr.SortedSet.prototype.map = function (fn, ctx) {
         return this.elements.map(fn, ctx);
     };
 
@@ -627,7 +627,7 @@
      * @memberOf SortedSet
      * for the function fn.
      */
-    lunr.SortedSet.prototype.forEach = function(fn, ctx) {
+    lunr.SortedSet.prototype.forEach = function (fn, ctx) {
         return this.elements.forEach(fn, ctx);
     };
 
@@ -643,7 +643,7 @@
      * @returns {Number}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.indexOf = function(elem, start, end) {
+    lunr.SortedSet.prototype.indexOf = function (elem, start, end) {
         var start = start || 0,
             end = end || this.elements.length,
             sectionLength = end - start,
@@ -678,7 +678,7 @@
      * @returns {Number}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.locationFor = function(elem, start, end) {
+    lunr.SortedSet.prototype.locationFor = function (elem, start, end) {
         var start = start || 0,
             end = end || this.elements.length,
             sectionLength = end - start,
@@ -702,7 +702,7 @@
      * @returns {lunr.SortedSet}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.intersect = function(otherSet) {
+    lunr.SortedSet.prototype.intersect = function (otherSet) {
         var intersectSet = new lunr.SortedSet(),
             i = 0,
             j = 0,
@@ -740,7 +740,7 @@
      * @returns {lunr.SortedSet}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.clone = function() {
+    lunr.SortedSet.prototype.clone = function () {
         var clone = new lunr.SortedSet();
 
         clone.elements = this.toArray();
@@ -757,7 +757,7 @@
      * @returns {lunr.SortedSet}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.union = function(otherSet) {
+    lunr.SortedSet.prototype.union = function (otherSet) {
         var longSet, shortSet, unionSet;
 
         if (this.length >= otherSet.length) {
@@ -779,7 +779,7 @@
      * @returns {Array}
      * @memberOf SortedSet
      */
-    lunr.SortedSet.prototype.toJSON = function() {
+    lunr.SortedSet.prototype.toJSON = function () {
         return this.toArray();
     };
     /*!
@@ -794,7 +794,7 @@
      *
      * @constructor
      */
-    lunr.Index = function() {
+    lunr.Index = function () {
         this._fields = [];
         this._ref = 'id';
         this.pipeline = new lunr.Pipeline();
@@ -809,7 +809,7 @@
             'add',
             'remove',
             'update',
-            function() {
+            function () {
                 this._idfCache = {};
             }.bind(this)
         );
@@ -824,7 +824,7 @@
      * @param {Function} handler The serialised set to load.
      * @memberOf Index
      */
-    lunr.Index.prototype.on = function() {
+    lunr.Index.prototype.on = function () {
         var args = Array.prototype.slice.call(arguments);
         return this.eventEmitter.addListener.apply(this.eventEmitter, args);
     };
@@ -836,7 +836,7 @@
      * @param {Function} handler The serialised set to load.
      * @memberOf Index
      */
-    lunr.Index.prototype.off = function(name, fn) {
+    lunr.Index.prototype.off = function (name, fn) {
         return this.eventEmitter.removeListener(name, fn);
     };
 
@@ -850,7 +850,7 @@
      * @returns {lunr.Index}
      * @memberOf Index
      */
-    lunr.Index.load = function(serialisedData) {
+    lunr.Index.load = function (serialisedData) {
         if (serialisedData.version !== lunr.version) {
             lunr.utils.warn('version mismatch: current ' + lunr.version + ' importing ' + serialisedData.version);
         }
@@ -886,7 +886,7 @@
      * @returns {lunr.Index}
      * @memberOf Index
      */
-    lunr.Index.prototype.field = function(fieldName, opts) {
+    lunr.Index.prototype.field = function (fieldName, opts) {
         var opts = opts || {},
             field = { name: fieldName, boost: opts.boost || 1 };
 
@@ -907,7 +907,7 @@
      * @returns {lunr.Index}
      * @memberOf Index
      */
-    lunr.Index.prototype.ref = function(refName) {
+    lunr.Index.prototype.ref = function (refName) {
         this._ref = refName;
         return this;
     };
@@ -927,13 +927,13 @@
      * @param {Boolean} emitEvent Whether or not to emit events, default true.
      * @memberOf Index
      */
-    lunr.Index.prototype.add = function(doc, emitEvent) {
+    lunr.Index.prototype.add = function (doc, emitEvent) {
         var docTokens = {},
             allDocumentTokens = new lunr.SortedSet(),
             docRef = doc[this._ref],
             emitEvent = emitEvent === undefined ? true : emitEvent;
 
-        this._fields.forEach(function(field) {
+        this._fields.forEach(function (field) {
             var fieldTokens = this.pipeline.run(lunr.tokenizer(doc[field.name]));
 
             docTokens[field.name] = fieldTokens;
@@ -945,12 +945,12 @@
 
         for (var i = 0; i < allDocumentTokens.length; i++) {
             var token = allDocumentTokens.elements[i];
-            var tf = this._fields.reduce(function(memo, field) {
+            var tf = this._fields.reduce(function (memo, field) {
                 var fieldLength = docTokens[field.name].length;
 
                 if (!fieldLength) return memo;
 
-                var tokenCount = docTokens[field.name].filter(function(t) {
+                var tokenCount = docTokens[field.name].filter(function (t) {
                     return t === token;
                 }).length;
 
@@ -981,7 +981,7 @@
      * @param {Boolean} emitEvent Whether to emit remove events, defaults to true
      * @memberOf Index
      */
-    lunr.Index.prototype.remove = function(doc, emitEvent) {
+    lunr.Index.prototype.remove = function (doc, emitEvent) {
         var docRef = doc[this._ref],
             emitEvent = emitEvent === undefined ? true : emitEvent;
 
@@ -991,7 +991,7 @@
 
         this.documentStore.remove(docRef);
 
-        docTokens.forEach(function(token) {
+        docTokens.forEach(function (token) {
             this.tokenStore.remove(token, docRef);
         }, this);
 
@@ -1018,7 +1018,7 @@
      * @see Index.prototype.add
      * @memberOf Index
      */
-    lunr.Index.prototype.update = function(doc, emitEvent) {
+    lunr.Index.prototype.update = function (doc, emitEvent) {
         var emitEvent = emitEvent === undefined ? true : emitEvent;
 
         this.remove(doc, false);
@@ -1035,7 +1035,7 @@
      * @private
      * @memberOf Index
      */
-    lunr.Index.prototype.idf = function(term) {
+    lunr.Index.prototype.idf = function (term) {
         var cacheKey = '@' + term;
         if (Object.prototype.hasOwnProperty.call(this._idfCache, cacheKey)) return this._idfCache[cacheKey];
 
@@ -1073,25 +1073,25 @@
      * @see Index.prototype.documentVector
      * @memberOf Index
      */
-    lunr.Index.prototype.search = function(query) {
+    lunr.Index.prototype.search = function (query) {
         var queryTokens = this.pipeline.run(lunr.tokenizer(query)),
             queryVector = new lunr.Vector(),
             documentSets = [],
-            fieldBoosts = this._fields.reduce(function(memo, f) {
+            fieldBoosts = this._fields.reduce(function (memo, f) {
                 return memo + f.boost;
             }, 0);
 
-        var hasSomeToken = queryTokens.some(function(token) {
+        var hasSomeToken = queryTokens.some(function (token) {
             return this.tokenStore.has(token);
         }, this);
 
         if (!hasSomeToken) return [];
 
-        queryTokens.forEach(function(token, i, tokens) {
+        queryTokens.forEach(function (token, i, tokens) {
             var tf = (1 / tokens.length) * this._fields.length * fieldBoosts,
                 self = this;
 
-            var set = this.tokenStore.expand(token).reduce(function(memo, key) {
+            var set = this.tokenStore.expand(token).reduce(function (memo, key) {
                 var pos = self.corpusTokens.indexOf(key),
                     idf = self.idf(key),
                     similarityBoost = 1,
@@ -1111,7 +1111,7 @@
                 if (pos > -1) queryVector.insert(pos, tf * idf * similarityBoost);
 
                 // add all the documents that have this key into a set
-                Object.keys(self.tokenStore.get(key)).forEach(function(ref) {
+                Object.keys(self.tokenStore.get(key)).forEach(function (ref) {
                     set.add(ref);
                 });
 
@@ -1121,15 +1121,15 @@
             documentSets.push(set);
         }, this);
 
-        var documentSet = documentSets.reduce(function(memo, set) {
+        var documentSet = documentSets.reduce(function (memo, set) {
             return memo.intersect(set);
         });
 
         return documentSet
-            .map(function(ref) {
+            .map(function (ref) {
                 return { ref: ref, score: queryVector.similarity(this.documentVector(ref)) };
             }, this)
-            .sort(function(a, b) {
+            .sort(function (a, b) {
                 return b.score - a.score;
             });
     };
@@ -1148,7 +1148,7 @@
      * @private
      * @memberOf Index
      */
-    lunr.Index.prototype.documentVector = function(documentRef) {
+    lunr.Index.prototype.documentVector = function (documentRef) {
         var documentTokens = this.documentStore.get(documentRef),
             documentTokensLength = documentTokens.length,
             documentVector = new lunr.Vector();
@@ -1170,7 +1170,7 @@
      * @returns {Object}
      * @memberOf Index
      */
-    lunr.Index.prototype.toJSON = function() {
+    lunr.Index.prototype.toJSON = function () {
         return {
             version: lunr.version,
             fields: this._fields,
@@ -1208,7 +1208,7 @@
      * @param {Function} plugin The plugin to apply.
      * @memberOf Index
      */
-    lunr.Index.prototype.use = function(plugin) {
+    lunr.Index.prototype.use = function (plugin) {
         var args = Array.prototype.slice.call(arguments, 1);
         args.unshift(this);
         plugin.apply(this, args);
@@ -1225,7 +1225,7 @@
      * @constructor
      * @module
      */
-    lunr.Store = function() {
+    lunr.Store = function () {
         this.store = {};
         this.length = 0;
     };
@@ -1237,11 +1237,11 @@
      * @returns {lunr.Store}
      * @memberOf Store
      */
-    lunr.Store.load = function(serialisedData) {
+    lunr.Store.load = function (serialisedData) {
         var store = new this();
 
         store.length = serialisedData.length;
-        store.store = Object.keys(serialisedData.store).reduce(function(memo, key) {
+        store.store = Object.keys(serialisedData.store).reduce(function (memo, key) {
             memo[key] = lunr.SortedSet.load(serialisedData.store[key]);
             return memo;
         }, {});
@@ -1256,7 +1256,7 @@
      * @param {Object} tokens The tokens to store against the key.
      * @memberOf Store
      */
-    lunr.Store.prototype.set = function(id, tokens) {
+    lunr.Store.prototype.set = function (id, tokens) {
         if (!this.has(id)) this.length++;
         this.store[id] = tokens;
     };
@@ -1268,7 +1268,7 @@
      * @returns {Object}
      * @memberOf Store
      */
-    lunr.Store.prototype.get = function(id) {
+    lunr.Store.prototype.get = function (id) {
         return this.store[id];
     };
 
@@ -1279,7 +1279,7 @@
      * @returns {Boolean}
      * @memberOf Store
      */
-    lunr.Store.prototype.has = function(id) {
+    lunr.Store.prototype.has = function (id) {
         return id in this.store;
     };
 
@@ -1289,7 +1289,7 @@
      * @param {Object} id The id to remove from the store.
      * @memberOf Store
      */
-    lunr.Store.prototype.remove = function(id) {
+    lunr.Store.prototype.remove = function (id) {
         if (!this.has(id)) return;
 
         delete this.store[id];
@@ -1302,7 +1302,7 @@
      * @returns {Object}
      * @memberOf Store
      */
-    lunr.Store.prototype.toJSON = function() {
+    lunr.Store.prototype.toJSON = function () {
         return {
             store: this.store,
             length: this.length,
@@ -1324,7 +1324,7 @@
      * @returns {String}
      * @see lunr.Pipeline
      */
-    lunr.stemmer = (function() {
+    lunr.stemmer = (function () {
         var step2list = {
                 ational: 'ate',
                 tional: 'tion',
@@ -1545,7 +1545,7 @@
      * @returns {String}
      * @see lunr.Pipeline
      */
-    lunr.stopWordFilter = function(token) {
+    lunr.stopWordFilter = function (token) {
         if (lunr.stopWordFilter.stopWords.indexOf(token) === -1) return token;
     };
 
@@ -1694,7 +1694,7 @@
      * @returns {String}
      * @see lunr.Pipeline
      */
-    lunr.trimmer = function(token) {
+    lunr.trimmer = function (token) {
         return token.replace(/^\W+/, '').replace(/\W+$/, '');
     };
 
@@ -1711,7 +1711,7 @@
      *
      * @constructor
      */
-    lunr.TokenStore = function() {
+    lunr.TokenStore = function () {
         this.root = { docs: {} };
         this.length = 0;
     };
@@ -1723,7 +1723,7 @@
      * @returns {lunr.TokenStore}
      * @memberOf TokenStore
      */
-    lunr.TokenStore.load = function(serialisedData) {
+    lunr.TokenStore.load = function (serialisedData) {
         var store = new this();
 
         store.root = serialisedData.root;
@@ -1745,7 +1745,7 @@
      * is used.
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.add = function(token, doc, root) {
+    lunr.TokenStore.prototype.add = function (token, doc, root) {
         var root = root || this.root,
             key = token[0],
             rest = token.slice(1);
@@ -1771,7 +1771,7 @@
      * @param {Object} root An optional node at which to start
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.has = function(token) {
+    lunr.TokenStore.prototype.has = function (token) {
         if (!token) return false;
 
         var node = this.root;
@@ -1797,7 +1797,7 @@
      * @see TokenStore.prototype.get
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.getNode = function(token) {
+    lunr.TokenStore.prototype.getNode = function (token) {
         if (!token) return {};
 
         var node = this.root;
@@ -1822,11 +1822,11 @@
      * @returns {Object}
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.get = function(token, root) {
+    lunr.TokenStore.prototype.get = function (token, root) {
         return this.getNode(token, root).docs || {};
     };
 
-    lunr.TokenStore.prototype.count = function(token, root) {
+    lunr.TokenStore.prototype.count = function (token, root) {
         return Object.keys(this.get(token, root)).length;
     };
 
@@ -1842,7 +1842,7 @@
      * @returns {Object}
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.remove = function(token, ref) {
+    lunr.TokenStore.prototype.remove = function (token, ref) {
         if (!token) return;
         var node = this.root;
 
@@ -1862,14 +1862,14 @@
      * @returns {Array}
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.expand = function(token, memo) {
+    lunr.TokenStore.prototype.expand = function (token, memo) {
         var root = this.getNode(token),
             docs = root.docs || {},
             memo = memo || [];
 
         if (Object.keys(docs).length) memo.push(token);
 
-        Object.keys(root).forEach(function(key) {
+        Object.keys(root).forEach(function (key) {
             if (key === 'docs') return;
 
             memo.concat(this.expand(token + key, memo));
@@ -1884,7 +1884,7 @@
      * @returns {Object}
      * @memberOf TokenStore
      */
-    lunr.TokenStore.prototype.toJSON = function() {
+    lunr.TokenStore.prototype.toJSON = function () {
         return {
             root: this.root,
             length: this.length,
@@ -1895,7 +1895,7 @@
      * export the module via AMD, CommonJS or as a browser global
      * Export code from https://github.com/umdjs/umd/blob/master/returnExports.js
      */
-    (function(root, factory) {
+    (function (root, factory) {
         if (typeof define === 'function' && define.amd) {
             // AMD. Register as an anonymous module.
             define(factory);
@@ -1910,7 +1910,7 @@
             // Browser globals (root is window)
             root.lunr = factory();
         }
-    })(this, function() {
+    })(this, function () {
         /**
          * Just return a value to define the module export.
          * This example returns an object, but the module

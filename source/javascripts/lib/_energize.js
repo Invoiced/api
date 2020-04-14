@@ -5,7 +5,7 @@
  * https://github.com/davidcalhoun/energize.js
  */
 
-(function() {
+(function () {
     // Sandbox
     /**
      * Don't add to non-touch devices, which don't need to be sped up
@@ -27,7 +27,7 @@
      * and only fire simulated click event if the coordinates
      * are nearby. (don't want clicking to be confused with a swipe)
      */
-    isThresholdReached = function(startXY, xy) {
+    isThresholdReached = function (startXY, xy) {
         return Math.abs(startXY[0] - xy[0]) > 5 || Math.abs(startXY[1] - xy[1]) > 5;
     };
 
@@ -36,7 +36,7 @@
      *
      * Save xy coordinates when the user starts touching the screen
      */
-    touchstart = function(e) {
+    touchstart = function (e) {
         this.startXY = [e.touches[0].clientX, e.touches[0].clientY];
         this.threshold = false;
     };
@@ -48,7 +48,7 @@
      * Have to check here because touchend will not always fire
      * on some tested devices (Kindle Fire?)
      */
-    touchmove = function(e) {
+    touchmove = function (e) {
         // NOOP if the threshold has already been reached
         if (this.threshold) return false;
 
@@ -63,7 +63,7 @@
      *
      * (This will fire before a native click)
      */
-    touchend = function(e) {
+    touchend = function (e) {
         // Don't fire a click if the user scrolled past the threshold
         if (
             this.threshold ||
@@ -107,7 +107,7 @@
      * and suppress them as necessary.
      */
 
-    click = function(e) {
+    click = function (e) {
         /**
          * Prevent ghost clicks by only allowing clicks we created
          * in the click event we fired (look for e.simulated)
@@ -152,7 +152,7 @@
          */
         if (!target || !target.classList) return;
         target.classList.add('energize-focus');
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             target.classList.remove('energize-focus');
         }, 150);
     };
@@ -167,7 +167,7 @@
      * Starts at node and goes up the DOM tree looking for a
      * matching nodeName, continuing until hitting document.body
      */
-    closest = function(node, tagName) {
+    closest = function (node, tagName) {
         var curNode = node;
 
         while (curNode !== document.body) {

@@ -1,14 +1,14 @@
 //= require ../lib/_jquery_ui
 //= require ../lib/_jquery.tocify
-(function(global) {
+(function (global) {
     'use strict';
 
-    var closeToc = function() {
+    var closeToc = function () {
         $('.tocify-wrapper').removeClass('open');
         $('#nav-button').removeClass('open');
     };
 
-    var makeToc = function() {
+    var makeToc = function () {
         global.toc = $('#toc')
             .tocify({
                 selectors: 'h1, h2',
@@ -21,13 +21,13 @@
                 highlightOffset: 60,
                 scrollTo: -1,
                 scrollHistory: true,
-                hashGenerator: function(text, element) {
+                hashGenerator: function (text, element) {
                     return element.prop('id');
                 },
             })
             .data('toc-tocify');
 
-        $('#nav-button').click(function() {
+        $('#nav-button').click(function () {
             $('.tocify-wrapper').toggleClass('open');
             $('#nav-button').toggleClass('open');
             return false;
@@ -40,7 +40,7 @@
     // Hack to make already open sections to start opened,
     // instead of displaying an ugly animation
     function animate() {
-        setTimeout(function() {
+        setTimeout(function () {
             toc.setOption('showEffectSpeed', 180);
         }, 50);
     }

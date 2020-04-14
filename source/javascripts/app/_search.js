@@ -1,6 +1,6 @@
 //= require ../lib/_lunr
 //= require ../lib/_jquery.highlight
-(function() {
+(function () {
     'use strict';
 
     var content, searchResults;
@@ -17,7 +17,7 @@
     $(bind);
 
     function populate() {
-        $('h1, h2').each(function() {
+        $('h1, h2').each(function () {
             var title = $(this);
             var body = title.nextUntil('h1, h2');
             index.add({
@@ -43,13 +43,13 @@
         if (event.keyCode === 27) this.value = '';
 
         if (this.value) {
-            var results = index.search(this.value).filter(function(r) {
+            var results = index.search(this.value).filter(function (r) {
                 return r.score > 0.0001;
             });
 
             if (results.length) {
                 searchResults.empty();
-                $.each(results, function(index, result) {
+                $.each(results, function (index, result) {
                     var elem = document.getElementById(result.ref);
                     searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + '</a></li>');
                 });

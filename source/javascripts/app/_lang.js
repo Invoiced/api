@@ -13,7 +13,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 */
-(function(global) {
+(function (global) {
     'use strict';
 
     var languages = [];
@@ -36,9 +36,7 @@ under the License.
 
         // scroll to the new location of the position
         if ($(window.location.hash).get(0)) {
-            $(window.location.hash)
-                .get(0)
-                .scrollIntoView(true);
+            $(window.location.hash).get(0).scrollIntoView(true);
         }
     }
 
@@ -56,7 +54,7 @@ under the License.
             return {};
         }
 
-        return str.split('&').reduce(function(ret, param) {
+        return str.split('&').reduce(function (ret, param) {
             var parts = param.replace(/\+/g, ' ').split('=');
             var key = parts[0];
             var val = parts[1];
@@ -82,13 +80,13 @@ under the License.
         return obj
             ? Object.keys(obj)
                   .sort()
-                  .map(function(key) {
+                  .map(function (key) {
                       var val = obj[key];
 
                       if (Array.isArray(val)) {
                           return val
                               .sort()
-                              .map(function(val2) {
+                              .map(function (val2) {
                                   return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
                               })
                               .join('&');
@@ -160,14 +158,14 @@ under the License.
     }
 
     // if we click on a language tab, activate that language
-    $(function() {
-        $('.lang-selector a').on('click', function() {
+    $(function () {
+        $('.lang-selector a').on('click', function () {
             var language = $(this).data('language-name');
             pushURL(language);
             activateLanguage(language);
             return false;
         });
-        window.onpopstate = function() {
+        window.onpopstate = function () {
             activateLanguage(getLanguageFromQueryString());
         };
     });
