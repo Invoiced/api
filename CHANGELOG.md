@@ -1,5 +1,9 @@
 Changelog
 =========
+### April 14, 2020
+- Added `avalara_location_code` property to the Item object.
+- The Catalog Item object has been renamed to Item.
+
 ### January 6, 2020
 - A `template` parameter has been added when sending emails to use a custom email template.
 
