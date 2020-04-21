@@ -1,5 +1,8 @@
 Changelog
 =========
+### April 21, 2020
+- Added the Payment object.
+
 ### April 14, 2020
 - Added `avalara_location_code` property to the Item object.
 - The Catalog Item object has been renamed to Item.

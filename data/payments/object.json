@@ -1,0 +1,17 @@
+{
+	"amount": 39,
+	"balance": 39,
+	"created_at": 1586880432,
+	"currency": "usd",
+	"customer": null,
+	"date": 1586880431,
+	"id": 61,
+	"matched": true,
+	"method": "other",
+	"notes": null,
+	"object": "payment",
+	"reference": null,
+	"ach_sender_id": null,
+	"source": "bank_feed",
+	"voided": false
+}

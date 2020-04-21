@@ -75,9 +75,59 @@ Parameter | Type | Description
 **notes** | *string* | Internal notes
 **failure_reason** | *string* | Failure message from the payment gateway (only available when `status` = `failed`)
 **parent_transaction** | *integer* | ID of the original transaction for refunds
-**pdf_url** | *string* | URL to download the invoice as a PDF
+**pdf_url** | *string* | URL to download the receipt as a PDF
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+
+## Payment Object
+
+### Attributes
+
+```shell
+<%= json data.payments.object %>
+```
+
+```ruby
+#<Invoiced::Payment:0x3fdbf95e4d08 id=61> JSON: <%= json data.payments.object %>
+```
+
+```php
+Invoiced\Payment JSON: <%= json data.payments.object %>
+```
+
+```python
+<Payment id=61 at 0x3fdbf95e4d08> JSON: <%= json data.payments.object %>
+```
+
+```java
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments.object %>
+```
+
+```csharp
+Invoiced.Payment<61> <%= json data.payments.object %>
+```
+
+```go
+<Payment id=61 at 4ed0a875> JSON: <%= json data.payments.object %>
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The payment's unique ID
+**object** | *string* | Object type, `payment`
+**customer** | *integer* | Associated Customer, if any
+**date** | *timestamp* | Payment date
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Payment amount
+**balance** | *number* | Unapplied amount remaining
+**matched** | *boolean* | When true there is a CashMatch suggestion
+**voided** | *boolean* | Indicates that the payment was voided
+**method** | *string* | Payment instrument used to facilitate transaction
+**ach_sender_id** | *string* | ACH PPD ID
+**reference** | *string* | Reference number, i.e. check #
+**source** | *string* | Source of the payment
+**notes** | *string* | Internal notes
+**created_at** | *timestamp* | Timestamp when created
 
 ## Create a transaction
 
