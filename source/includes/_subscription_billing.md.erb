@@ -237,7 +237,7 @@ Create a new subscription with this endpoint.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**customer** | *integer* | Optional customer ID
+**customer** | *integer* | Customer ID, required
 **plan** | *string* | Plan ID, required
 **start_date** | *integer* | Timestamp subscription begins, defaults to `now`
 **bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
@@ -351,8 +351,8 @@ The plan and any referenced items must exist.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**customer** | *integer* | Customer ID, required
 **plan** | *string* | Plan ID, required
+**customer** | *integer* | Optional customer ID
 **quantity** | *integer* | Plan quantity. Defaults to 1
 **addons** | *array* | Collection of optional Subscription Addons
 **discounts** | *array* | Collection of Coupon IDs
