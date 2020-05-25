@@ -15,7 +15,7 @@ An item represents a product or service that you sell. Items can be used to gene
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.items.object %>
+Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
@@ -75,7 +75,7 @@ invoiced.CatalogItem.create(
 ```php
 <?php
 
-$invoiced->CatalogItem->create([
+$invoiced->Item->create([
   'id' => "delivery",
   'name' => "Delivery",
   'type' => "service",
@@ -130,7 +130,7 @@ item, err := item.Create(item)
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.items.object %>
+Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
@@ -186,7 +186,7 @@ item = invoiced.CatalogItem.retrieve("{CITEM_ID}")
 ```php
 <?php
 
-$item = $invoiced->CatalogItem->retrieve("{CITEM_ID}");
+$item = $invoiced->Item->retrieve("{CITEM_ID}");
 ```
 
 ```python
@@ -216,7 +216,7 @@ item, err := invoiced.NewCatalogItem().Retrieve({CITEM_ID})
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.items.object %>
+Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
@@ -293,7 +293,7 @@ err := item.Save()
 ```
 
 ```php
-Invoiced\CatalogItem JSON: <%= json data.items._update %>
+Invoiced\Item JSON: <%= json data.items._update %>
 ```
 
 ```python
@@ -385,7 +385,7 @@ items, metadata = invoiced.CatalogItem.list(:per_page => 3)
 ```php
 <?php
 
-list($items, $metadata) = $invoiced->CatalogItem->all(['per_page' => 3]);
+list($items, $metadata) = $invoiced->Item->all(['per_page' => 3]);
 ```
 
 ```python
@@ -420,7 +420,7 @@ items, err := item.ListAll(nil, nil)
 
 ```php
 [
-  Invoiced\CatalogItem JSON: <%= json data.items.object, 1 %>
+  Invoiced\Item JSON: <%= json data.items.object, 1 %>
 ]
 ```
 
