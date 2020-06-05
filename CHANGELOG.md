@@ -1,5 +1,8 @@
 Changelog
 =========
+### June 5, 2020
+- Setting the `invoice` property on credit notes is no longer required.
+
 ### April 21, 2020
 - Added the Payment object.
 

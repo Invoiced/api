@@ -2,7 +2,6 @@
   "id": 2048,
   "object": "credit_note",
   "customer": 15444,
-  "invoice": 46225,
   "name": null,
   "currency": "usd",
   "draft": false,

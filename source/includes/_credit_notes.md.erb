@@ -43,7 +43,6 @@ Parameter | Type | Description
 **id** | *integer* | The credit note's unique ID
 **object** | *string* | Object type, `credit_note`
 **customer** | *integer* | Customer ID
-**invoice** | *integer* | Invoice ID
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
 **number** | *string* | The reference number assigned to the credit note for use in the dashboard
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
@@ -70,7 +69,6 @@ Parameter | Type | Description
 curl "https://api.invoiced.com/credit_notes" \
   -u {API_KEY}: \
   -d customer=15444 \
-  -d invoice=46225 \
   -d items[0][name]="Copy paper, Case" \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=45 \
@@ -82,7 +80,6 @@ curl "https://api.invoiced.com/credit_notes" \
 ```ruby
 invoiced.CreditNote.create(
   :customer => 15444,
-  :invoice => 46225,
   :items => [
     {
       :name => "Copy paper, Case",
@@ -107,7 +104,6 @@ invoiced.CreditNote.create(
 
 $creditNote = $invoiced->CreditNote->create([
   'customer' => 15444,
-  'invoice' => 46225,
   'items' => [
     [
       'name' => "Copy paper, Case",
@@ -130,7 +126,6 @@ $creditNote = $invoiced->CreditNote->create([
 ```python
 client.CreditNote.create(
   customer=15444,
-  invoice=46225,
   items=[
     {
       'name': "Copy paper, Case",
@@ -153,7 +148,6 @@ client.CreditNote.create(
 ```java
 CreditNote creditNote = invoiced.newCreditNote();
 creditNote.customer = 15444L;
-creditNote.invoice = 46225L;
 LineItem[] items = new LineItem[2];
 items[0] = new LineItem();
 items[0].name = "Copy paper, Case";
@@ -173,7 +167,6 @@ creditNote.create();
 ```csharp
 var creditNote = invoiced.NewCreditNote();
 creditNote.Customer = 15444;
-creditNote.Invoice = 46225;
 LineItem[] items = new LineItem[2];
 items[0] = new LineItem();
 items[0].Name = "Copy paper, Case";
@@ -193,7 +186,6 @@ creditNote.Create();
 ```go
 creditNote := invoiced.NewCreditNote()
 creditNote.Customer = 15444
-creditNote.Invoice = 46225
 items := make([]invdendpoint.LineItem, 2)
 items[0].Name = "Copy paper, Case"
 items[0].Quantity = 1
@@ -248,7 +240,6 @@ Create a new credit note with this endpoint.
 Parameter | Type | Description
 --------- | ---- | -----------
 **customer** | *integer* | Customer ID - **required**
-**invoice** | *integer* | Invoice ID
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
 **number** | *string* | The reference number assigned to the credit note, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
