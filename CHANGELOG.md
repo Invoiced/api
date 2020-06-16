@@ -1,5 +1,8 @@
 Changelog
 =========
+### June 16, 2020
+- Added a `currency` query parameter to the get current balance endpoint.
+
 ### June 5, 2020
 - Setting the `invoice` property on credit notes is no longer required.
 
