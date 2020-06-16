@@ -1,15 +1,19 @@
 {
   "available_credits": 50,
+  "currency": "usd",
   "history": [
     {
       "timestamp": 1464041624,
+      "currency": "usd",
       "balance": 50
     },
     {
       "timestamp": 1464040550,
+      "currency": "usd",
       "balance": 100
     }
   ],
   "past_due": false,
-  "total_outstanding": 470
+  "total_outstanding": 470,
+  "due_now": 0
 }
