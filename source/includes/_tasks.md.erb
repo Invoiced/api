@@ -383,21 +383,21 @@ curl "https://api.invoiced.com/tasks" \
 ```
 
 ```ruby
-tasks = tasks.list(:per_page => 3)
+tasks, metadata = invoiced.Task.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-$tasks = $tasks->all(['per_page' => 3]);
+list($tasks, $metadata) = $invoiced->Task->all(['per_page' => 3]);
 ```
 
 ```python
-tasks = tasks.list(per_page=3)
+tasks, metadata = invoiced.Task.list(per_page=3)
 ```
 
 ```java
-EntityList<Task> tasks = invoiced.newTask().listAll();
+EntityList<Task> tasks = conn.newTask().listAll();
 ```
 
 ```csharp
