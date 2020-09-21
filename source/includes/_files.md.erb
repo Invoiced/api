@@ -143,7 +143,7 @@ Invoiced.File<13> <%= json data.files.object %>
 <File id=13 at 106505f5> JSON: <%= json data.files.object %>
 ```
 
-Create a new file profile with this endpoint.
+Create a new file object with this endpoint.
 
 ### HTTP Request
 
@@ -151,12 +151,7 @@ Create a new file profile with this endpoint.
 
 ### Attributes
 
-Parameter | Type | Description
---------- | ---- | -----------
-**name** | *string* | Filename
-**size** | *int* | File size in bytes
-**type** | *string* | MIME type
-**url** | *string* | File URL
+The file should be uploaded as [multipart/form-data](https://tools.ietf.org/html/rfc7578). The `name` parameter on the uploaded part should be `file`. Any other parts in the request will be ignored. If a part with `name=file` is not supplied then the request will fail.
 
 ## Retrieve a file
 

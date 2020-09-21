@@ -1,5 +1,8 @@
 Changelog
 =========
+### September 21, 2020
+- The create file upload endpoint now supports multipart/form-data uploads.
+
 ### June 16, 2020
 - Added a `currency` query parameter to the get current balance endpoint.
 
