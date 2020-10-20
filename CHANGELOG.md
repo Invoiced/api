@@ -1,5 +1,8 @@
 Changelog
 =========
+### October 20, 2020
+- The perform charge endpoint now supports processing payments for estimate deposits and advance payments.
+
 ### September 21, 2020
 - The create file upload endpoint now supports multipart/form-data uploads.
 
