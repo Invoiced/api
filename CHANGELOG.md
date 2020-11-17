@@ -2,6 +2,7 @@ Changelog
 =========
 ### November 17, 2020
 - Added `payment.*` webhook events.
+- Changed the structure of the perform charge endpoint.
 
 ### October 20, 2020
 - The perform charge endpoint now supports processing payments for estimate deposits and advance payments.

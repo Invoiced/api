@@ -761,13 +761,13 @@ Parameter | Description
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
-  --data '{"customer":401558,"currency":"usd","amount":2000,"splits":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","invoiced_token":"acdf7f31da641970cdb9c6c46a373577"}'
+  --data '{"customer":401558,"currency":"usd","amount":2000,"applied_to":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","invoiced_token":"acdf7f31da641970cdb9c6c46a373577"}'
 
 # (Saved Payment Source)
 
 curl 'https://api.invoiced.com/charges' \
   -u API_KEY: \
-  --data '{"customer":401558,"currency":"usd","amount":2000,"splits":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","payment_source_type":"card","payment_source_id":1234}'
+  --data '{"customer":401558,"currency":"usd","amount":2000,"applied_to":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","payment_source_type":"card","payment_source_id":1234}'
 ```
 
 ```ruby
@@ -776,7 +776,7 @@ charge = transaction.initiate_charge(
   :customer => 401558,
   :currency => "usd",
   :amount => 2000,
-  :splits => [...], # excluded for brevity
+  :applied_to => [...], # excluded for brevity
   :method => "credit_card",
 
 # (Tokenized Payment Info)
@@ -795,7 +795,7 @@ $charge = $transaction->initiateCharge([
   'customer' => 401558,
   'currency' => "usd",
   'amount' => 2000,
-  'splits' => [...], // excluded for brevity
+  'applied_to' => [...], // excluded for brevity
   'method' => "credit_card",
 
 // (Tokenized Payment Info)
@@ -812,7 +812,7 @@ charge = transaction.initiate_charge(
   customer = 401558,
   currency = "usd",
   amount = 2000,
-  splits = [...], # excluded for brevity
+  applied_to = [...], # excluded for brevity
   method = "credit_card",
 
 # (Tokenized Payment Info)
@@ -829,7 +829,7 @@ ChargeRequest chargeRequest = new ChargeRequest();
 chargeRequest.customer = 401558;
 chargeRequest.currency = "usd";
 chargeRequest.amount = 2000;
-chargeRequest.splits = [...]; // excluded for brevity
+chargeRequest.appliedTo = [...]; // excluded for brevity
 chargeRequest.method = "credit_card";
 
 // (Tokenized Payment Info)
@@ -847,7 +847,7 @@ var chargeRequest = new ChargeRequest();
 chargeRequest.Customer = 401558;
 chargeRequest.Currency = "usd";
 chargeRequest.Amount = 2000;
-chargeRequest.Splits = [...]; // excluded for brevity
+chargeRequest.AppliedTo = [...]; // excluded for brevity
 chargeRequest.Method = "credit_card";
 
 // (Tokenized Payment Info)
@@ -866,7 +866,7 @@ chargeRequest := new(invdendpoint.ChargeRequest)
 chargeRequest.Customer = 401558
 chargeRequest.Currency = "usd"
 chargeRequest.Amount = 2000
-chargeRequest.Splits = [...] // excluded for brevity
+chargeRequest.AppliedTo = [...] // excluded for brevity
 chargeRequest.Method = "credit_card"
 
 // (Tokenized Payment Info)
@@ -932,13 +932,13 @@ Parameter | Type | Description
 **vault_method** | *boolean* | Optional; when true, vaults the payment source on the customer's account
 **make_default** | *boolean* | Optional; when this and `vault_method` are true, saves payment as default on customer's account
 **receipt_email** | *string* | Optional; where the payment receipt is sent
-**splits** | *array* | Required, payment application
+**applied_to** | *array* | Required, payment application
 
 #### Payment application data structure
 
 Parameter | Type | Description
 --------- | ---- | -----------
 **amount** | *number* | Amount to apply
-**type** | *string* | One of `advance`, `estimate`, or `invoice`
+**type** | *string* | One of `credit`, `estimate`, or `invoice`
 **invoice** | *integer* | Invoice ID, required when `type=invoice`
 **estimate** | *integer* | Estimate ID, required when `type=estimate`
