@@ -36,6 +36,7 @@
             "postal_code": null,
             "country": "US",
             "language": null,
+            "currency": null,
             "tax_id": null,
             "phone": null,
             "notes": null,

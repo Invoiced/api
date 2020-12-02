@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 2, 2020
+- Added `currency` property to customers.
+
 ### November 17, 2020
 - Added `payment.*` webhook events.
 - Changed the structure of the perform charge endpoint.
