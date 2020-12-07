@@ -1,5 +1,8 @@
 Changelog
 =========
+### December 7, 2020
+- Added Payment, Charge, and Refund objects. Payment objects replace Transactions with some added features to handle more complex cash application scenarios.
+
 ### December 2, 2020
 - Added `currency` property to customers.
 

@@ -1,83 +1,8 @@
 # Payments
 
-On Invoiced we use the Transaction concept to represent any monetary value that is transferred between a merchant and customer. In our world, if an invoice describes a balance owed by a customer then a transaction represents the payment of that balance. Transactions can also describe other types of value transfer beyond payments, like refunds and credits.
+Payments are used to represent a customer payment. Payments encompass payments processed through Invoiced, cash receipts (like wire transfers and check), application of credit note and spending credit balances.
 
-A transaction can be one of these types:
-
-- `charge`: an electronic charge or payment
-- `payment`: offline payment received from the customer, i.e. a check
-- `refund`: money refunded to the customer
-- `adjustment`: a debit or credit to the customer's credit balance
-
-We automatically record `charge` and `refund` transactions that happen through Invoiced for you. Transactions can be associated with a document, like an invoice or credit note, however not all transactions will reference a document.
-
-We currently support the following payment methods on transactions:
-
-- `credit_card`
-- `ach`
-- `direct_debit`
-- `paypal`
-- `wire_transfer`
-- `check`
-- `cash`
-- `other`
-
-`adjustment` transactions will always use the `balance` payment method. Since our system is designed from the perspective of the merchant, a negative adjustment represents a credit to the customer and a positive adjustment represents a charge to the customer. For example, if you wanted to credit your customer for $20 then you would create an `adjustment` transaction for -$20. Furthermore, adjustments can have a credit note associated.
-
-## Transaction Object
-
-### Attributes
-
-```shell
-<%= json data.transactions.object %>
-```
-
-```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object %>
-```
-
-```php
-Invoiced\Transaction JSON: <%= json data.transactions.object %>
-```
-
-```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object %>
-```
-
-```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object %>
-```
-
-```csharp
-Invoiced.Transaction<20939> <%= json data.transactions.object %>
-```
-
-```go
-<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.object %>
-```
-
-Parameter | Type | Description
---------- | ---- | -----------
-**id** | *integer* | The transaction's unique ID
-**object** | *string* | Object type, `transaction`
-**customer** | *integer* | Associated Customer
-**invoice** | *integer* | Associated Invoice, if any
-**credit_note** | *integer* | Associated Credit Note, if any
-**date** | *timestamp* | Transaction date
-**type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment`
-**method** | *string* | Payment instrument used to facilitate transaction
-**status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`
-**gateway** | *string* | Payment gateway that processed the transaction, if any
-**gateway_id** | *string* | Transaction ID from the payment gateway
-**payment_source** | *object* | Payment source used for transaction, if any
-**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
-**amount** | *number* | Transaction amount
-**notes** | *string* | Internal notes
-**failure_reason** | *string* | Failure message from the payment gateway (only available when `status` = `failed`)
-**parent_transaction** | *integer* | ID of the original transaction for refunds
-**pdf_url** | *string* | URL to download the receipt as a PDF
-**created_at** | *timestamp* | Timestamp when created
-**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+It is not required for payments to be associated with a customer or be fully applied, although the goal is to eventually apply the payment in full. The balance on payments represents the amount that is unapplied. Payments can only be associated with a single customer at a time. A payment without an associated customer means that the payment came from a data source where the customer that originated the payment is not yet known.
 
 ## Payment Object
 
@@ -122,314 +47,437 @@ Parameter | Type | Description
 **balance** | *number* | Unapplied amount remaining
 **matched** | *boolean* | When true there is a CashMatch suggestion
 **voided** | *boolean* | Indicates that the payment was voided
-**method** | *string* | Payment instrument used to facilitate transaction
+**method** | *string* | Payment instrument used
 **ach_sender_id** | *string* | ACH PPD ID
 **reference** | *string* | Reference number, i.e. check #
 **source** | *string* | Source of the payment
 **notes** | *string* | Internal notes
+**charge** | *object* | [Charge object](#charge-object) included for processed payments
+**applied_to** | *array* | List of [Payment Applications](#payment-application)
+**pdf_url** | *string* | URL where receipt PDF can be downloaded
 **created_at** | *timestamp* | Timestamp when created
 
-## Create a transaction
+### Payment Application
+
+A payment application describes how a payment is applied. Payments can have multiple applications as long as the applied amounts do not exceed the payment amount.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**amount** | *number* | Amount to apply
+**type** | *string* | One of `credit`, `estimate`, or `invoice`
+**invoice** | *integer* | Invoice ID, required when `type=invoice`
+**estimate** | *integer* | Estimate ID, required when `type=estimate`
+
+## Charge Object
+
+### Attributes
 
 ```shell
-curl "https://api.invoiced.com/transactions" \
-  -u {API_KEY}: \
-  -d invoice=44648 \
-  -d method="check" \
-  -d gateway_id="1450" \
-  -d amount=800
+<%= json data.charges.object %>
 ```
 
 ```ruby
-invoiced.Transaction.create(
-  :invoice => 44648,
+#<Invoiced::Charge:0x3fdbf95e4d08 id=46374> JSON: <%= json data.charges.object %>
+```
+
+```php
+Invoiced\Charge JSON: <%= json data.charges.object %>
+```
+
+```python
+<Charge id=46374 at 0x3fdbf95e4d08> JSON: <%= json data.charges.object %>
+```
+
+```java
+com.invoiced.entity.Charge@4ed0a875 JSON: <%= json data.charges.object %>
+```
+
+```csharp
+Invoiced.Charge<46374> <%= json data.charges.object %>
+```
+
+```go
+<Charge id=46374 at 4ed0a875> JSON: <%= json data.charges.object %>
+```
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The charge's unique ID
+**object** | *string* | Object type, `charge`
+**customer** | *integer* | Associated Customer
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Charge amount
+**gateway** | *string* | Payment gateway on which payment was processed
+**gateway_id** | *string* | Transaction ID on payment gateway
+**status** | *string* | Transaction status on payment gateway
+**receipt_email** | *string* | Email address where receipt was sent
+**failure_message** | *string* | Failure reason if charge fails
+**payment_source** | *object* | [Payment Source](#payment-sources) that was used
+**amount_refunded** | *number* | Total amount refunded
+**refunded** | *boolean* | True if fully refunded
+**refunds** | *array* | List of [Refunds](#refund-object)
+**disputed** | *boolean* | True if charge has been disputed
+**created_at** | *timestamp* | Timestamp when created
+
+## Refund Object
+
+### Attributes
+
+```shell
+<%= json data.refunds.object %>
+```
+
+```ruby
+#<Invoiced::Refund:0x3fdbf95e4d08 id=5309> JSON: <%= json data.refunds.object %>
+```
+
+```php
+Invoiced\Refund JSON: <%= json data.refunds.object %>
+```
+
+```python
+<Refund id=5309 at 0x3fdbf95e4d08> JSON: <%= json data.refunds.object %>
+```
+
+```java
+com.invoiced.entity.Refund@4ed0a875 JSON: <%= json data.refunds.object %>
+```
+
+```csharp
+Invoiced.Refund<5309> <%= json data.refunds.object %>
+```
+
+```go
+<Refund id=5309 at 4ed0a875> JSON: <%= json data.refunds.object %>
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *integer* | The refund's unique ID
+**object** | *string* | Object type, `refund`
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Payment amount
+**charge** | *integer* | Original charge ID
+**gateway** | *string* | Payment gateway on which refund was processed
+**gateway_id** | *string* | Transaction ID on payment gateway
+**status** | *string* | Refund status on payment gateway
+**failure_message** | *string* | Failure reason if refund fails
+**created_at** | *timestamp* | Timestamp when created
+
+## Create a payment
+
+```shell
+curl "https://api.invoiced.com/payments" \
+  -u {API_KEY}: \
+  -d amount=800 \
+  -d method="check" \
+  -d reference="1450" \
+  -d applied_to[0][type]="invoice" \
+  -d applied_to[0][amount]=800 \
+  -d applied_to[0][invoice]=44648
+```
+
+```ruby
+invoiced.Payment.create(
+  :amount => 800,
   :method => "check",
-  :gateway_id => "1450",
-  :amount => 800
+  :reference => "1450",
+  :applied_to => [{
+    :type => "invoice",
+    :invoice => 44648,
+    :amount => 800
+  }]
 )
 ```
 
 ```php
 <?php
 
-$invoiced->Transaction->create([
-  'invoice' => 44648,
+$invoiced->Payment->create([
+  'amount' => 800,
   'method' => "check",
-  'gateway_id' => "1450",
-  'amount' => 800
+  'reference' => "1450",
+  'applied_to' => [[
+    'type' => 'invoice',
+    'invoice' => 44648,
+    'amount' => 800,
+  ]]
 ]);
 ```
 
 ```python
-client.Transaction.create(
-  invoice=44648,
+client.Payment.create(
+  amount=800,
   method="check",
-  gateway_id="1450",
-  amount=800
+  reference="1450",
+  applied_to=[{
+    'type': 'invoice',
+    'invoice': 44648,
+    'amount': 800
+  }]
 )
 ```
 
 ```java
-Transaction transaction = invoiced.newTransaction();
-transaction.invoice = 44648;
-transaction.method = "check";
-transaction.gatewayId = "1450";
-transaction.amount = 800;
-transaction.create();
+Payment payment = invoiced.newPayment();
+payment.amount = 800;
+payment.method = "check";
+payment.reference = "1450";
+payment.invoice = 44648;
+payment.create();
 ```
 
 ```csharp
-var transaction = invoiced.NewTransaction();
-transaction.Invoice = 44648;
-transaction.Method = "check";
-transaction.GatewayId = "1450";
-transaction.Amount = 800;
-transaction.Create();
+var payment = invoiced.NewPayment();
+payment.Amount = 800;
+payment.Method = "check";
+payment.Reference = "1450";
+payment.Invoice = 44648;
+payment.Create();
 ```
 
 ```go
-transaction := invoiced.NewTransaction()
-transaction.Invoice = 44648
-transaction.Method = "check"
-transaction.GatewayId = "1450"
-transaction.Amount = 800
-transaction, err := transaction.Create(transaction)
+payment := invoiced.NewPayment()
+payment.Amount = 800
+payment.Method = "check"
+payment.Reference = "1450"
+payment.Invoice = 44648
+payment, err := payment.Create(payment)
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.transactions.create %>
+<%= json data.payments.create %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=30939> JSON: <%= json data.transactions.create %>
+#<Invoiced::Payment:0x3fdbf95e4d08 id=30939> JSON: <%= json data.payments.create %>
 ```
 
 ```php
-Invoiced\Transaction JSON: <%= json data.transactions.create %>
+Invoiced\Payment JSON: <%= json data.payments.create %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.create %>
+<Payment id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.payments.create %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.create %>
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments.create %>
 ```
 
 ```csharp
-Invoiced.Transaction<20939> <%= json data.transactions.create %>
+Invoiced.Payment<20939> <%= json data.payments.create %>
 ```
 
 ```go
-<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.create %>
+<Payment id=20939 at 4ed0a875> JSON: <%= json data.payments.create %>
 ```
 
-Create a new transaction with this endpoint.
+Create a new payment with this endpoint.
 
 ### HTTP Request
 
-`POST /transactions`
+`POST /payments`
 
 ### Attributes
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**customer** | *integer* | Customer ID, required if invoice ID is not supplied
-**invoice** | *integer* | Invoice ID, if any
-**credit_note** | *integer* | Associated Credit Note, if any
-**type** | *string* | Transaction type, `charge`, `payment`, `refund`, or `adjustment` - **required**
-**date** | *timestamp* | Transaction date, defaults to current timestamp
-**method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
-**status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
-**gateway** | *string* | Payment gateway that processed the transaction, if any
-**gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
+**customer** | *integer* | Customer ID, optional
+**date** | *timestamp* | Payment date, defaults to current timestamp
+**method** | *string* | Payment instrument used, defaults to `other`
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
-**amount** | *number* | Transaction amount
+**amount** | *number* | Payment amount
+**reference** | *string* | Reference number, i.e. check #
+**ach_sender_id** | *string* | Originator ID (ACH payments)
+**source** | *string* | Source of the payment, defualts to `keyed`
 **notes** | *string* | Internal notes
-**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**applied_to** | *array* | List of [Payment Applications](#payment-application)
 
-## Retrieve a transaction
+## Retrieve a payment
 
 ```shell
-curl "https://api.invoiced.com/transactions/:id" \
+curl "https://api.invoiced.com/payments/:id" \
   -u {API_KEY}:
 ```
 
 ```ruby
-transaction = invoiced.Transaction.retrieve("{TRANSACTION_ID}")
+payment = invoiced.Payment.retrieve("{PAYMENT_ID}")
 ```
 
 ```php
 <?php
 
-$transaction = $invoiced->Transaction->retrieve("{TRANSACTION_ID}");
+$payment = $invoiced->Payment->retrieve("{PAYMENT_ID}");
 ```
 
 ```python
-transaction = client.Transaction.retrieve("{TRANSACTION_ID}")
+payment = client.Payment.retrieve("{PAYMENT_ID}")
 ```
 
 ```java
-Transaction transaction = invoiced.newTransaction().retrieve({TRANSACTION_ID});
+Payment payment = invoiced.newPayment().retrieve({PAYMENT_ID});
 ```
 
 ```csharp
-var transaction = invoiced.NewTransaction().Retrieve({TRANSACTION_ID});
+var payment = invoiced.NewPayment().Retrieve({PAYMENT_ID});
 ```
 
 ```go
-transaction, err := invoiced.NewTransaction().Retrieve({TRANSACTION_ID})
+payment, err := invoiced.NewPayment().Retrieve({PAYMENT_ID})
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.transactions.object %>
+<%= json data.payments.object %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object %>
+#<Invoiced::Payment:0x3fdbf95e4d08 id=20939> JSON: <%= json data.payments.object %>
 ```
 
 ```php
-Invoiced\Transaction JSON: <%= json data.transactions.object %>
+Invoiced\Payment JSON: <%= json data.payments.object %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object %>
+<Payment id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.payments.object %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions.object %>
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments.object %>
 ```
 
 ```csharp
-Invoiced.Transaction<20939> <%= json data.transactions.object %>
+Invoiced.Payment<20939> <%= json data.payments.object %>
 ```
 
 ```go
-<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions.object %>
+<Payment id=20939 at 4ed0a875> JSON: <%= json data.payments.object %>
 ```
 
-This endpoint retrieves a specific transaction.
+This endpoint retrieves a specific payment. If you want to see how the payment is applied then you must add `?include=applied_to` to the request.
 
 ### HTTP Request
 
-`GET /transactions/:id`
+`GET /payments/:id`
 
-## Update a transaction
+## Update a payment
 
 ```shell
-curl "https://api.invoiced.com/transactions/:id" \
+curl "https://api.invoiced.com/payments/:id" \
   -u {API_KEY}: \
   -d notes="Check was received by Jan" \
   -X PATCH
 ```
 
 ```ruby
-transaction.notes = "Check was received by Jan"
-transaction.save
+payment.notes = "Check was received by Jan"
+payment.save
 ```
 
 ```php
 <?php
 
-$transaction->notes = "Check was received by Jan";
-$transaction->save();
+$payment->notes = "Check was received by Jan";
+$payment->save();
 ```
 
 ```python
-transaction.notes = "Check was received by Jan"
-transaction.save()
+payment.notes = "Check was received by Jan"
+payment.save()
 ```
 
 ```java
-transaction.notes = "Check was received by Jan";
-transaction.save();
+payment.notes = "Check was received by Jan";
+payment.save();
 ```
 
 ```csharp
-transaction.Notes = "Check was received by Jan";
-transaction.SaveAll();
+payment.Notes = "Check was received by Jan";
+payment.SaveAll();
 ```
 
 ```go
-transaction.Notes = "Check was received by Jan"
-err := transaction.Save()
+payment.Notes = "Check was received by Jan"
+err := payment.Save()
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.transactions._update %>
+<%= json data.payments._update %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions._update %>
+#<Invoiced::Payment:0x3fdbf95e4d08 id=20939> JSON: <%= json data.payments._update %>
 ```
 
 ```php
-Invoiced\Transaction JSON: <%= json data.transactions._update %>
+Invoiced\Payment JSON: <%= json data.payments._update %>
 ```
 
 ```python
-<Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions._update %>
+<Payment id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.payments._update %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.transactions._update %>
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments._update %>
 ```
 
 ```csharp
-Invoiced.Transaction<20939> <%= json data.transactions._update %>
+Invoiced.Payment<20939> <%= json data.payments._update %>
 ```
 
 ```go
-<Transaction id=20939 at 4ed0a875> JSON: <%= json data.transactions._update %>
+<Payment id=20939 at 4ed0a875> JSON: <%= json data.payments._update %>
 ```
 
-Use this endpoint to update a transaction.
+Use this endpoint to update a payment.
 
 ### HTTP Request
 
-`PATCH /transactions/:id`
+`PATCH /payments/:id`
 
 ### Request Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**date** | *timestamp* | Transaction date, defaults to current timestamp
-**method** | *string* | Payment instrument used to facilitate transaction, defaults to `other`
-**status** | *string* | Transaction status, one of `succeeded`, `pending`, or `failed`, defaults to `succeeded`
-**gateway** | *string* | Payment gateway that processed the transaction, if any
-**gateway_id** | *string* | Transaction ID from the payment gateway, or check # if method is `check`
+**customer** | *integer* | Customer ID, optional
+**date** | *timestamp* | Payment date, defaults to current timestamp
+**method** | *string* | Payment instrument used, defaults to `other`
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
-**amount** | *number* | Transaction amount
+**amount** | *number* | Payment amount
+**reference** | *string* | Reference number, i.e. check #
+**ach_sender_id** | *string* | Originator ID (ACH payments)
+**source** | *string* | Source of the payment, defualts to `keyed`
 **notes** | *string* | Internal notes
-**metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
+**applied_to** | *array* | Payment application
 
 ## Send a receipt
 
 ```shell
-curl "https://api.invoiced.com/transactions/:id/emails" \
+curl "https://api.invoiced.com/payments/:id/emails" \
   -u {API_KEY}: \
   -X POST
 ```
 
 ```ruby
-emails = transaction.send
+emails = payment.send
 ```
 
 ```php
 <?php
 
-$emails = $transaction->send();
+$emails = $payment->send();
 ```
 
 ```python
-emails = transaction.send()
+emails = payment.send()
 ```
 
 ```java
@@ -441,7 +489,7 @@ emailRecipients[0].email = "client@example.com";
 emailRequest.to = emailRecipients;
 emailRequest.subject = "Receipt for your recent payment to Dunder Mifflin, Inc.";
 emailRequest.message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!";
-Email[] emails = transaction.send(emailRequest);
+Email[] emails = payment.send(emailRequest);
 ```
 
 ```csharp
@@ -453,7 +501,7 @@ emailRecipients[0].Email = "client@example.com";
 emailRequest.To = emailRecipients;
 emailRequest.Subject = "Receipt for your recent payment to Dunder Mifflin, Inc.";
 emailRequest.Message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!";
-var emails = transaction.SendEmail(emailRequest);
+var emails = payment.SendEmail(emailRequest);
 ```
 
 ```go
@@ -466,7 +514,7 @@ emailRequest.To = emailRecipients
 emailRequest.Subject = "Receipt for your recent payment to Dunder Mifflin, Inc."
 emailRequest.Message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!"
 
-emails, err := transaction.SendEmail(&emailRequest)
+emails, err := payment.SendEmail(&emailRequest)
 ```
 
 > The above command returns JSON structured like this:
@@ -518,7 +566,7 @@ This endpoint sends a PDF receipt to the customer.
 
 ### HTTP Request
 
-`POST /transactions/:id/emails`
+`POST /payments/:id/emails`
 
 ### Request Parameters
 
@@ -534,214 +582,158 @@ Parameter | Type | Description
 A successful response means that your email has been added to the send queue.
 </aside>
 
-## Refund a transaction
+## Void a payment
 
 ```shell
-curl "https://api.invoiced.com/transactions/:id/refunds" \
-  -u {API_KEY}: \
-  -X POST
-```
-
-```ruby
-refund = transaction.refund(:amount => 400)
-```
-
-```php
-<?php
-
-$refund = $transaction->refund(['amount' => 400]);
-```
-
-```python
-refund = transaction.refund(amount=400)
-```
-
-```java
-Transaction refund = transaction.refund(400);
-```
-
-```csharp
-var refund = transaction.Refund(400);
-```
-
-```go
-err := transaction.Refund(400)
-```
-
-> The above command returns JSON structured like this:
-
-```shell
-<%= json data.transactions.refund %>
-```
-
-```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=20952> JSON: <%= json data.transactions.refund %>
-```
-
-```php
-Invoiced\Transaction JSON: <%= json data.transactions.refund %>
-```
-
-```python
-<Transaction id=20952 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.refund %>
-```
-
-```java
-com.invoiced.entity.Transaction@424ba398 JSON: <%= json data.transactions.refund %>
-```
-
-```csharp
-Invoiced.Transaction<20952> <%= json data.transactions.refund %>
-```
-
-```go
-<Transaction id=20952 at 424ba398> JSON: <%= json data.transactions.refund %>
-```
-
-You can issue a refund for `charge` and `payment` transactions. When a refund is issued for a `charge` transaction we will attempt to initiate the refund over the payment gateway it happened on.
-
-Of course, when refunding `payment` transactions you would have to return the money to your customer. This endpoint simply provides a means to track any refunds that you issue for offline payments.
-
-Partial refunds are allowed, however, the total amount refunded cannot exceed the original transaction amount.
-
-### HTTP Request
-
-`POST /transactions/:id/refunds`
-
-### Request Parameters
-
-Parameter | Type | Description
---------- | ---- | -----------
-**amount** | *number* | Amount to refund - **required**
-
-<aside class="notice">
-We will initiate the refund through the payment gateway for <code>charge</code> transactions that have a valid payment gateway attached.
-</aside>
-
-## Delete a transaction
-
-```shell
-curl "https://api.invoiced.com/transactions/:id" \
+curl "https://api.invoiced.com/payments/:id" \
   -u {API_KEY}: \
   -X DELETE
 ```
 
 ```ruby
-transaction.delete
+payment.delete
 ```
 
 ```php
 <?php
 
-$transaction->delete();
+$payment->delete();
 ```
 
 ```python
-transaction.delete()
+payment.delete()
 ```
 
 ```java
-transaction.delete();
+payment.delete();
 ```
 
 ```csharp
-transaction.Delete();
+payment.Delete();
 ```
 
 ```go
-transaction.Delete()
+payment.Delete()
 ```
 
-> The above command returns `204 No Content`
+> The above command returns JSON structured like this:
 
-This endpoint deletes a specific transaction.
+```shell
+<%= json data.payments.void %>
+```
+
+```ruby
+#<Invoiced::Payment:0x3fdbf95e4d08 id=20939> JSON: <%= json data.payments.void %>
+```
+
+```php
+Invoiced\Payment JSON: <%= json data.payments.void %>
+```
+
+```python
+<Payment id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.payments.void %>
+```
+
+```java
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments.void %>
+```
+
+```csharp
+Invoiced.Payment<20939> <%= json data.payments.void %>
+```
+
+```go
+<Payment id=20939 at 4ed0a875> JSON: <%= json data.payments.void %>
+```
+
+This endpoint voids a specific payment.
 
 ### HTTP Request
 
-`DELETE /transactions/:id`
+`DELETE /payments/:id`
 
-## List all transactions
+## List all payments
 
 ```shell
-curl "https://api.invoiced.com/transactions" \
+curl "https://api.invoiced.com/payments" \
   -u {API_KEY}:
 ```
 
 ```ruby
-transactions, metadata = invoiced.Transaction.list(:per_page => 3)
+payments, metadata = invoiced.Payment.list(:per_page => 3)
 ```
 
 ```php
 <?php
 
-list($transactions, $metadata) = $invoiced->Transaction->all(['per_page' => 3]);
+list($payments, $metadata) = $invoiced->Payment->all(['per_page' => 3]);
 ```
 
 ```python
-transactions, metadata = client.Transaction.list(per_page=3)
+payments, metadata = client.Payment.list(per_page=3)
 ```
 
 ```java
-EntityList<Transaction> transactions = invoiced.newTransaction().listAll();
+EntityList<Payment> payments = invoiced.newPayment().listAll();
 ```
 
 ```csharp
-var transactions = invoiced.NewTransaction().ListAll();
+var payments = invoiced.NewPayment().ListAll();
 ```
 
 ```go
-transactions, err := invoiced.NewTransaction().ListAll(nil, nil)
+payments, err := invoiced.NewPayment().ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
 [
-	<%= json data.transactions.object, 1 %>
+	<%= json data.payments.object, 1 %>
 ]
 ```
 
 ```ruby
 [
-  #<Invoiced::Transaction:0x3fdbf95e4d08 id=20939> JSON: <%= json data.transactions.object, 1 %>
+  #<Invoiced::Payment:0x3fdbf95e4d08 id=20939> JSON: <%= json data.payments.object, 1 %>
 ]
 ```
 
 ```php
 [
-  Invoiced\Transaction JSON: <%= json data.transactions.object, 1 %>
+  Invoiced\Payment JSON: <%= json data.payments.object, 1 %>
 ]
 ```
 
 ```python
 [
-  <Transaction id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.transactions.object, 1 %>
+  <Payment id=20939 at 0x3fdbf95e4d08> JSON: <%= json data.payments.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.Transaction@52638766 JSON: <%= json data.transactions.object, 1 %>
+  com.invoiced.entity.Payment@52638766 JSON: <%= json data.payments.object, 1 %>
 ]
 ```
 
 ```csharp
 [
-  Invoiced.Transaction<20939> <%= json data.transactions.object, 1 %>
+  Invoiced.Payment<20939> <%= json data.payments.object, 1 %>
 ]
 ```
 
 ```go
 [
-  <Transaction id=20939 at 52638766> JSON: <%= json data.transactions.object, 1 %>
+  <Payment id=20939 at 52638766> JSON: <%= json data.payments.object, 1 %>
 ]
 ```
 
-This endpoint retrieves all transactions.
+This endpoint retrieves all payments.
 
 ### HTTP Request
 
-`GET /transactions`
+`GET /payments`
 
 ### Query Parameters
 
@@ -749,12 +741,11 @@ Parameter | Description
 --------- | -----------
 **sort** *string* | Column to sort by, i.e. `name asc`
 **filter** *object* | Filter object
-**metadata** *object* | Metadata filter object
-**start_date** *timestamp* | Restricts the results to transactions *on or after* the given timestamp
-**end_date** *timestamp* | Restricts the results to transactions *on or before* the given timestamp
+**start_date** *timestamp* | Restricts the results to payments *on or after* the given timestamp
+**end_date** *timestamp* | Restricts the results to payments *on or before* the given timestamp
 **updated_after** *timestamp* | Only gets records updated after the given timestamp
 
-## Initiate a charge
+## Create a charge
 
 ```shell
 # (Tokenized Payment Info)
@@ -770,9 +761,9 @@ curl 'https://api.invoiced.com/charges' \
   --data '{"customer":401558,"currency":"usd","amount":2000,"applied_to":[{"type":"invoice","invoice":2112620,"amount":1710},{"type":"invoice","invoice":2112622,"amount":290}],"method":"credit_card","payment_source_type":"card","payment_source_id":1234}'
 ```
 
-```ruby
 
-charge = transaction.initiate_charge(
+```ruby
+invoiced.Charge.create(
   :customer => 401558,
   :currency => "usd",
   :amount => 2000,
@@ -791,7 +782,7 @@ charge = transaction.initiate_charge(
 ```php
 <?php
 
-$charge = $transaction->initiateCharge([
+$charge = $invoiced->Charge->create([
   'customer' => 401558,
   'currency' => "usd",
   'amount' => 2000,
@@ -808,7 +799,7 @@ $charge = $transaction->initiateCharge([
 ```
 
 ```python
-charge = transaction.initiate_charge(
+client.Charge.create(
   customer = 401558,
   currency = "usd",
   amount = 2000,
@@ -839,7 +830,7 @@ chargeRequest.invoicedToken = "acdf7f31da641970cdb9c6c46a373577";
 chargeRequest.paymentSourceType = "card";
 chargeRequest.paymentSourceId = 1234;
 
-Transaction charge = invoiced.newTransaction().initiateCharge(chargeRequest);
+Charge charge = invoiced.newCharge().create(chargeRequest);
 ```
 
 ```csharp
@@ -857,7 +848,7 @@ chargeRequest.InvoicedToken = "acdf7f31da641970cdb9c6c46a373577";
 chargeRequest.PaymentSourceType = "card";
 chargeRequest.PaymentSourceId = 1234;
 
-var charge = invoiced.NewTransaction().InitiateCharge(chargeRequest);
+var charge = invoiced.NewCharge().Create(chargeRequest);
 ```
 
 ```go
@@ -876,40 +867,40 @@ chargeRequest.InvoicedToken = "acdf7f31da641970cdb9c6c46a373577"
 chargeRequest.PaymentSourceType = "card"
 chargeRequest.PaymentSourceId = 1234
 
-charge := invoiced.NewTransaction().InitiateCharge(chargeRequest)
+charge := invoiced.NewCharge().Create(chargeRequest)
 ```
 
 > The above command returns JSON structured like this:
 
 ```shell
-<%= json data.charges.create %>
+<%= json data.payments.charge %>
 ```
 
 ```ruby
-#<Invoiced::Transaction:0x3fdbf95e4d08 id=5d9e31d812151> JSON: <%= json data.charges.create %>
+#<Invoiced::Payment:0x3fdbf95e4d08 id=32554> JSON: <%= json data.payments.charge %>
 ```
 
 ```php
-Invoiced\Transaction JSON: <%= json data.charges.create %>
+Invoiced\Payment JSON: <%= json data.payments.charge %>
 ```
 
 ```python
-<Transaction id=5d9e31d812151 at 0x3fdbf95e4d08> JSON: <%= json data.charges.create %>
+<Payment id=32554 at 0x3fdbf95e4d08> JSON: <%= json data.payments.charge %>
 ```
 
 ```java
-com.invoiced.entity.Transaction@4ed0a875 JSON: <%= json data.charges.create %>
+com.invoiced.entity.Payment@4ed0a875 JSON: <%= json data.payments.charge %>
 ```
 
 ```csharp
-Invoiced.Transaction<5d9e31d812151> <%= json data.charges.create %>
+Invoiced.Payment<32554> <%= json data.payments.charge %>
 ```
 
 ```go
-<Transaction id=5d9e31d812151 at 4ed0a875> JSON: <%= json data.charges.create %>
+<Payment id=32554 at 4ed0a875> JSON: <%= json data.payments.charge %>
 ```
 
-Initiate a new charge with this endpoint.
+This endpoint allows you to process a payment.
 
 ### HTTP Request
 
@@ -932,13 +923,86 @@ Parameter | Type | Description
 **vault_method** | *boolean* | Optional; when true, vaults the payment source on the customer's account
 **make_default** | *boolean* | Optional; when this and `vault_method` are true, saves payment as default on customer's account
 **receipt_email** | *string* | Optional; where the payment receipt is sent
-**applied_to** | *array* | Required, payment application
+**applied_to** | *array* | Required, List of [Payment Applications](#payment-application)
 
-#### Payment application data structure
+## Refund a charge
+
+```shell
+curl "https://api.invoiced.com/charges/:id/refunds" \
+  -u {API_KEY}: \
+  -X POST
+```
+
+```ruby
+refund = invoiced.Refund.create("{CHARGE_ID}", :amount => 400)
+```
+
+```php
+<?php
+
+$refund = $invoiced->Refund->create("{CHARGE_ID}", ['amount' => 400]);
+```
+
+```python
+refund = client.Refund.create("{CHARGE_ID}", amount=400)
+```
+
+```java
+Refund refund = invoiced.newRefund().create(CHARGE_ID, 400);
+```
+
+```csharp
+var refund = invoiced.NewRefund().Create(CHARGE_ID, 400);
+```
+
+```go
+err := invoiced.NewRefund().Create(CHARGE_ID, 400)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.refunds.create %>
+```
+
+```ruby
+#<Invoiced::Refund:0x3fdbf95e4d08 id=5309> JSON: <%= json data.refunds.create %>
+```
+
+```php
+Invoiced\Refund JSON: <%= json data.refunds.create %>
+```
+
+```python
+<Refund id=5309 at 0x3fdbf95e4d08> JSON: <%= json data.refunds.create %>
+```
+
+```java
+com.invoiced.entity.Refund@424ba398 JSON: <%= json data.refunds.create %>
+```
+
+```csharp
+Invoiced.Refund<5309> <%= json data.refunds.create %>
+```
+
+```go
+<Refund id=5309 at 424ba398> JSON: <%= json data.refunds.create %>
+```
+
+You can issue a refund for a charge that was processed through Invoiced. When a refund is created we will attempt to initiate the refund over the payment gateway it happened on. If the refund operation fails on the payment gateway for any reason then the refund will not be created an an error will be returned.
+
+Partial refunds are allowed, however, the total amount refunded cannot exceed the original charge amount.
+
+### HTTP Request
+
+`POST /charges/:id/refunds`
+
+### Request Parameters
 
 Parameter | Type | Description
 --------- | ---- | -----------
-**amount** | *number* | Amount to apply
-**type** | *string* | One of `credit`, `estimate`, or `invoice`
-**invoice** | *integer* | Invoice ID, required when `type=invoice`
-**estimate** | *integer* | Estimate ID, required when `type=estimate`
+**amount** | *number* | Amount to refund - **required**
+
+<aside class="notice">
+We will initiate the refund through the original payment gateway for the requested amount.
+</aside>

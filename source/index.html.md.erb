@@ -15,9 +15,9 @@ toc_footers:
 
 includes:
   - customers
-  - payment_sources
   - invoicing
   - payments
+  - payment_sources
   - subscription_billing
   - metered_billing
   - payment_plans
@@ -332,7 +332,7 @@ Invoiced.Customer<15444> <%= json data.customers.object %>
 
 Most Invoiced objects have a `metadata` attribute. This parameter allows you to store custom key-value data on supported objects.
 
-There are many use cases for metadata. Any time you want to store custom, structured data on an object, like a Customer, Invoice, or Transaction, then metadata is a great fit. Metadata is only visible within the API and in the dashboard. Customers will not see this data unless you choose to display it with a custom field.
+There are many use cases for metadata. Any time you want to store custom, structured data on an object, like a Customer or Invoice, then metadata is a great fit. Metadata is only visible within the API and in the dashboard. Customers will not see this data unless you choose to display it with a custom field.
 
 Our [custom fields](https://invoiced.com/resources/docs/guides/custom-fields) feature is backed by the metadata store. If you are using custom fields then be sure to use the ID of your custom field as the key for your metadata value in order to link it with the right custom field. Custom fields are not required in order to use metadata.
 

@@ -1,0 +1,33 @@
+{
+	"amount": 2000,
+	"amount_refunded": 0,
+	"created_at": 1607152637,
+	"currency": "usd",
+	"customer": 401558,
+	"disputed": false,
+	"failure_message": null,
+	"gateway": "test",
+	"gateway_id": "5d9e31d812151",
+	"id": 46374,
+	"receipt_email": null,
+	"refunded": false,
+	"status": "succeeded",
+	"payment_source": {
+		"brand": "Visa",
+		"chargeable": true,
+		"created_at": 1601919571,
+		"exp_month": 8,
+		"exp_year": 2025,
+		"failure_reason": null,
+		"funding": "credit",
+		"gateway": null,
+		"gateway_customer": null,
+		"gateway_id": null,
+		"id": 448165,
+		"last4": "8550",
+		"merchant_account": 2353,
+		"receipt_email": null,
+		"object": "card"
+	},
+	"refunds": []
+}
