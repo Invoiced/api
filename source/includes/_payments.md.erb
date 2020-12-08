@@ -64,9 +64,11 @@ A payment application describes how a payment is applied. Payments can have mult
 Parameter | Type | Description
 --------- | ---- | -----------
 **amount** | *number* | Amount to apply
-**type** | *string* | One of `credit`, `estimate`, or `invoice`
+**type** | *string* | One of `credit`, `credit_note`, `estimate`, or `invoice`
 **invoice** | *integer* | Invoice ID, required when `type=invoice`
 **estimate** | *integer* | Estimate ID, required when `type=estimate`
+**credit_note** | *integer* | Credit Note ID, required when `type=credit_note`
+**document_type** | *string* | One of `estimate` or `invoice`, required when `type=credit_note`
 
 ## Charge Object
 
