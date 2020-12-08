@@ -11,7 +11,7 @@ An item represents a product or service that you sell. Items can be used to gene
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
+#<Invoiced::Item:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
 ```
 
 ```php
@@ -19,19 +19,19 @@ Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
+<Item id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@192cafae JSON: <%= json data.items.object %>
+com.invoiced.entity.Item@192cafae JSON: <%= json data.items.object %>
 ```
 
 ```csharp
-Invoiced.CatalogItem<delivery> <%= json data.items.object %>
+Invoiced.Item<delivery> <%= json data.items.object %>
 ```
 
 ```go
-<CatalogItem id=delivery at 192cafae> JSON: <%= json data.items.object %>
+<Item id=delivery at 192cafae> JSON: <%= json data.items.object %>
 ```
 
 Parameter | Type | Description
@@ -55,7 +55,7 @@ Parameter | Type | Description
 ## Create an item
 
 ```shell
-curl "https://api.invoiced.com/catalog_items" \
+curl "https://api.invoiced.com/items" \
   -u {API_KEY}: \
   -d id="delivery" \
   -d name="Delivery" \
@@ -64,7 +64,7 @@ curl "https://api.invoiced.com/catalog_items" \
 ```
 
 ```ruby
-invoiced.CatalogItem.create(
+invoiced.Item.create(
   :id => "delivery",
   :name => "Delivery",
   :type => "service",
@@ -84,7 +84,7 @@ $invoiced->Item->create([
 ```
 
 ```python
-client.CatalogItem.create(
+client.Item.create(
   id="delivery",
   name="Delivery",
   type="service",
@@ -93,7 +93,7 @@ client.CatalogItem.create(
 ```
 
 ```java
-CatalogItem item = invoiced.newCatalogItem();
+Item item = invoiced.newItem();
 item.id = "delivery";
 item.name = "Delivery";
 item.type = "service";
@@ -102,7 +102,7 @@ item.create();
 ```
 
 ```csharp
-var item = invoiced.NewCatalogItem();
+var item = invoiced.NewItem();
 item.Id = "delivery";
 item.Name = "Delivery";
 item.Type = "service";
@@ -111,7 +111,7 @@ item.Create();
 ```
 
 ```go
-item := invoiced.NewCatalogItem()
+item := invoiced.NewItem()
 item.Id = "delivery"
 item.Name = "Delivery"
 item.Type = "service"
@@ -126,7 +126,7 @@ item, err := item.Create(item)
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
+#<Invoiced::Item:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
 ```
 
 ```php
@@ -134,26 +134,26 @@ Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
+<Item id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.items.object %>
+com.invoiced.entity.Item@cb8fd57 JSON: <%= json data.items.object %>
 ```
 
 ```csharp
-Invoiced.CatalogItem<delivery> <%= json data.items.object %>
+Invoiced.Item<delivery> <%= json data.items.object %>
 ```
 
 ```go
-<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.items.object %>
+<Item id=delivery at cb8fd57> JSON: <%= json data.items.object %>
 ```
 
 Create a new item with this endpoint.
 
 ### HTTP Request
 
-`POST /catalog_items`
+`POST /items`
 
 ### Attributes
 
@@ -175,12 +175,12 @@ Parameter | Type | Description
 ## Retrieve an item
 
 ```shell
-curl "https://api.invoiced.com/catalog_items/:id" \
+curl "https://api.invoiced.com/items/:id" \
   -u {API_KEY}:
 ```
 
 ```ruby
-item = invoiced.CatalogItem.retrieve("{CITEM_ID}")
+item = invoiced.Item.retrieve("{CITEM_ID}")
 ```
 
 ```php
@@ -190,19 +190,19 @@ $item = $invoiced->Item->retrieve("{CITEM_ID}");
 ```
 
 ```python
-item = client.CatalogItem.retrieve("{CITEM_ID}")
+item = client.Item.retrieve("{CITEM_ID}")
 ```
 
 ```java
-CatalogItem item = invoiced.newCatalogItem().retrieve({CITEM_ID});
+Item item = invoiced.newItem().retrieve({CITEM_ID});
 ```
 
 ```csharp
-var item = invoiced.NewCatalogItem().Retrieve({CITEM_ID});
+var item = invoiced.NewItem().Retrieve({CITEM_ID});
 ```
 
 ```go
-item, err := invoiced.NewCatalogItem().Retrieve({CITEM_ID})
+item, err := invoiced.NewItem().Retrieve({CITEM_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -212,7 +212,7 @@ item, err := invoiced.NewCatalogItem().Retrieve({CITEM_ID})
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
+#<Invoiced::Item:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object %>
 ```
 
 ```php
@@ -220,31 +220,31 @@ Invoiced\Item JSON: <%= json data.items.object %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
+<Item id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.items.object %>
+com.invoiced.entity.Item@cb8fd57 JSON: <%= json data.items.object %>
 ```
 
 ```csharp
-Invoiced.CatalogItem<delivery> <%= json data.items.object %>
+Invoiced.Item<delivery> <%= json data.items.object %>
 ```
 
 ```go
-<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.items.object %>
+<Item id=delivery at cb8fd57> JSON: <%= json data.items.object %>
 ```
 
 This endpoint retrieves a specific item.
 
 ### HTTP Request
 
-`GET /catalog_items/:id`
+`GET /items/:id`
 
 ## Update an item
 
 ```shell
-curl "https://api.invoiced.com/catalog_items/:id" \
+curl "https://api.invoiced.com/items/:id" \
   -u {API_KEY}: \
   -X PATCH \
   -d type="product"
@@ -289,7 +289,7 @@ err := item.Save()
 ```
 
 ```ruby
-#<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items._update %>
+#<Invoiced::Item:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items._update %>
 ```
 
 ```php
@@ -297,19 +297,19 @@ Invoiced\Item JSON: <%= json data.items._update %>
 ```
 
 ```python
-<CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items._update %>
+<Item id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items._update %>
 ```
 
 ```java
-com.invoiced.entity.CatalogItem@cb8fd57 JSON: <%= json data.items._update %>
+com.invoiced.entity.Item@cb8fd57 JSON: <%= json data.items._update %>
 ```
 
 ```csharp
-Invoiced.CatalogItem<delivery> <%= json data.items._update %>
+Invoiced.Item<delivery> <%= json data.items._update %>
 ```
 
 ```go
-<CatalogItem id=delivery at cb8fd57> JSON: <%= json data.items._update %>
+<Item id=delivery at cb8fd57> JSON: <%= json data.items._update %>
 ```
 
 Use this endpoint to update an item.
@@ -318,7 +318,7 @@ The properties that can be updated via this endpoint are limited. For other upda
 
 ### HTTP Request
 
-`PATCH /catalog_items/:id`
+`PATCH /items/:id`
 
 ### Attributes
 
@@ -332,7 +332,7 @@ Parameter | Type | Description
 ## Delete an item
 
 ```shell
-curl "https://api.invoiced.com/catalog_items/:id" \
+curl "https://api.invoiced.com/items/:id" \
   -u {API_KEY}: \
   -X DELETE
 ```
@@ -369,17 +369,17 @@ This endpoint deletes a specific item.
 
 ### HTTP Request
 
-`DELETE /catalog_items/:id`
+`DELETE /items/:id`
 
 ## List all items
 
 ```shell
-curl "https://api.invoiced.com/catalog_items" \
+curl "https://api.invoiced.com/items" \
   -u {API_KEY}:
 ```
 
 ```ruby
-items, metadata = invoiced.CatalogItem.list(:per_page => 3)
+items, metadata = invoiced.Item.list(:per_page => 3)
 ```
 
 ```php
@@ -389,11 +389,11 @@ list($items, $metadata) = $invoiced->Item->all(['per_page' => 3]);
 ```
 
 ```python
-items, metadata = client.CatalogItem.list(per_page=3)
+items, metadata = client.Item.list(per_page=3)
 ```
 
 ```java
-EntityList<CatalogItem> items = conn.newCatalogItem().listAll();
+EntityList<Item> items = conn.newItem().listAll();
 ```
 
 ```csharp
@@ -414,7 +414,7 @@ items, err := item.ListAll(nil, nil)
 
 ```ruby
 [
-  #<Invoiced::CatalogItem:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object, 1 %>
+  #<Invoiced::Item:0x3fdbf95e4d08 id=delivery> JSON: <%= json data.items.object, 1 %>
 ]
 ```
 
@@ -426,25 +426,25 @@ items, err := item.ListAll(nil, nil)
 
 ```python
 [
-  <CatalogItem id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object, 1 %>
+  <Item id=delivery at 0x3fdbf95e4d08> JSON: <%= json data.items.object, 1 %>
 ]
 ```
 
 ```java
 [
-  com.invoiced.entity.CatalogItem@c509a57 JSON: <%= json data.items.object, 1 %>
+  com.invoiced.entity.Item@c509a57 JSON: <%= json data.items.object, 1 %>
 ]
 ```
 
 ```csharp
 [
-  Invoiced.CatalogItem<delivery> <%= json data.items.object, 1 %>
+  Invoiced.Item<delivery> <%= json data.items.object, 1 %>
 ]
 ```
 
 ```go
 [
-  <CatalogItem id=delivery at cb8fd57> JSON: <%= json data.items.object, 1 %>
+  <Item id=delivery at cb8fd57> JSON: <%= json data.items.object, 1 %>
 ]
 ```
 
@@ -452,7 +452,7 @@ This endpoint retrieves all items.
 
 ### HTTP Request
 
-`GET /catalog_items`
+`GET /items`
 
 ### Query Parameters
 

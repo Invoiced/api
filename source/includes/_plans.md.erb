@@ -106,7 +106,7 @@ client.Plan.create(
 Plan plan = invoiced.newPlan();
 plan.id = "starter";
 plan.name = "Starter";
-plan.catalogItem = "software-subscription";
+plan.item = "software-subscription";
 plan.amount = 49;
 plan.interval = "month";
 plan.intervalCount = 1;
@@ -118,7 +118,7 @@ plan.create();
 var plan = invoiced.NewPlan();
 plan.Id = "starter";
 plan.Name = "Starter";
-plan.CatalogItem = "software-subscription";
+plan.Item = "software-subscription";
 plan.Amount = 49;
 plan.Interval = "month";
 plan.IntervalCount = 1;
@@ -130,7 +130,7 @@ plan.Create();
 plan := invoiced.NewPlan()
 plan.Id = "starter"
 plan.Name = "Starter"
-plan.CatalogItem = "software-subscription"
+plan.Item = "software-subscription"
 plan.Amount = 49
 plan.Interval = "month"
 plan.IntervalCount = 1
@@ -395,7 +395,7 @@ curl "https://api.invoiced.com/plans" \
 ```
 
 ```ruby
-catalog_items, metadata = invoiced.Plan.list(:per_page => 3)
+items, metadata = invoiced.Plan.list(:per_page => 3)
 ```
 
 ```php

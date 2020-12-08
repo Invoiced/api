@@ -36,21 +36,21 @@ customer.line_items().create(
 ```java
 Customer customer = invoiced.newCustomer().retrieve({CUSTOMER_ID});
 PendingLineItem pli = customer.newPendingLineItem();
-pli.catalogItem = "delivery";
+pli.item = "delivery";
 pli.create();
 ```
 
 ```csharp
 var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
 var pli = customer.NewPendingLineItem();
-pli.CatalogItem = "delivery";
+pli.Item = "delivery";
 pli.Create();
 ```
 
 ```go
 customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
 pli := customer.NewPendingLineItem()
-pli.CatalogItem = "delivery"
+pli.Item = "delivery"
 pli, err = customer.CreatePendingLineItem(pli)
 ```
 
