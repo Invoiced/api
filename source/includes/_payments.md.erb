@@ -223,10 +223,14 @@ client.Payment.create(
 
 ```java
 Payment payment = invoiced.newPayment();
-payment.amount = 800;
+payment.amount = 800D;
 payment.method = "check";
 payment.reference = "1450";
-payment.invoice = 44648;
+paymentItem = new PaymentItem();
+paymentItem.type = "invoice";
+paymentItem.invoice = 44648L;
+paymentItem.amount = 800D;
+payment.appliedTo = PaymentItem{paymentItem};
 payment.create();
 ```
 
@@ -819,10 +823,14 @@ client.Charge.create(
 
 ```java
 ChargeRequest chargeRequest = new ChargeRequest();
-chargeRequest.customer = 401558;
+chargeRequest.customer = 401558L;
 chargeRequest.currency = "usd";
-chargeRequest.amount = 2000;
-chargeRequest.appliedTo = [...]; // excluded for brevity
+chargeRequest.amount = 2000D;
+paymentItem = new PaymentItem();
+paymentItem.type = "invoice";
+paymentItem.invoice = 44648L;
+paymentItem.amount = 2000D;
+chargeRequest.appliedTo = PaymentItem{paymentItem};
 chargeRequest.method = "credit_card";
 
 // (Tokenized Payment Info)
