@@ -611,7 +611,7 @@ payment.delete()
 ```
 
 ```java
-payment.delete();
+payment.voidPayment();
 ```
 
 ```csharp
@@ -773,7 +773,18 @@ invoiced.Charge.create(
   :customer => 401558,
   :currency => "usd",
   :amount => 2000,
-  :applied_to => [...], # excluded for brevity
+  :applied_to => [
+    {
+      :type => "invoice",
+      :invoice => 2112620,
+      :amount => 1710
+    },
+    {
+      :type => "invoice",
+      :invoice => 2112622,
+      :amount => 290
+    }
+  ],
   :method => "credit_card",
 
 # (Tokenized Payment Info)
@@ -792,7 +803,18 @@ $charge = $invoiced->Charge->create([
   'customer' => 401558,
   'currency' => "usd",
   'amount' => 2000,
-  'applied_to' => [...], // excluded for brevity
+  'applied_to' => [
+    [
+      'type' => 'invoice',
+      'invoice' => 2112620,
+      'amount' => 1710
+    ],
+    [
+      'type' => 'invoice',
+      'invoice' => 2112622,
+      'amount' => 290
+    ],
+  ],
   'method' => "credit_card",
 
 // (Tokenized Payment Info)
@@ -809,7 +831,18 @@ client.Charge.create(
   customer = 401558,
   currency = "usd",
   amount = 2000,
-  applied_to = [...], # excluded for brevity
+  applied_to = [
+    {
+      'type': 'invoice',
+      'invoice': 2112620,
+      'amount': 1710
+    },
+    {
+      'type': 'invoice',
+      'invoice': 2112622,
+      'amount': 290
+    },
+  ],
   method = "credit_card",
 
 # (Tokenized Payment Info)
@@ -826,11 +859,15 @@ ChargeRequest chargeRequest = new ChargeRequest();
 chargeRequest.customer = 401558L;
 chargeRequest.currency = "usd";
 chargeRequest.amount = 2000D;
-paymentItem = new PaymentItem();
-paymentItem.type = "invoice";
-paymentItem.invoice = 44648L;
-paymentItem.amount = 2000D;
-chargeRequest.appliedTo = PaymentItem{paymentItem};
+paymentItem1 = new PaymentItem();
+paymentItem1.type = "invoice";
+paymentItem1.invoice = 2112620L;
+paymentItem1.amount = 1710D;
+paymentItem2 = new PaymentItem();
+paymentItem2.type = "invoice";
+paymentItem2.invoice = 2112622L;
+paymentItem2.amount = 290D;
+chargeRequest.appliedTo = PaymentItem{paymentItem1, paymentItem2};
 chargeRequest.method = "credit_card";
 
 // (Tokenized Payment Info)
@@ -848,7 +885,11 @@ var chargeRequest = new ChargeRequest();
 chargeRequest.Customer = 401558;
 chargeRequest.Currency = "usd";
 chargeRequest.Amount = 2000;
-chargeRequest.AppliedTo = [...]; // excluded for brevity
+chargeRequest.AppliedTo = new[]
+{
+    new PaymentItem {Type = "invoice", Amount = 1710, Invoice = 2112620},
+    new PaymentItem {Type = "invoice", Amount = 290, Invoice = 2112622}
+};
 chargeRequest.Method = "credit_card";
 
 // (Tokenized Payment Info)
