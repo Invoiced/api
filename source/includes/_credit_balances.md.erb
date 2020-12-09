@@ -1,0 +1,432 @@
+# Credit Balances
+
+Invoiced contains an account credit system that lets you grant credits to customers which can be applied to future invoices. Credits can be automatically applied to new invoices or applied at your direction, depending on your Invoiced settings.
+
+Credits are added to a customer account with a [Payment](#payment-object) or [Adjustment](#credit-balance-adjustment-object). They can then be applied to invoices with a [Payment](#payment-object).
+
+## Credit Balance Adjustment Object
+
+A credit balance adjustment allows you to add credits to a customer account when there was no payment. For example, if there was a service outage or a referral credit owed then it can be reflected with an adjustment.
+
+### Attributes
+
+```shell
+<%= json data.credit_balance_adjustments.object %>
+```
+
+```ruby
+#<Invoiced::CreditBalanceAdjustment:0x3fdbf95e4d08 id=starter> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```php
+Invoiced\CreditBalanceAdjustment JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```python
+<CreditBalanceAdjustment id=starter at 0x3fdbf95e4d08> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```java
+com.invoiced.entity.CreditBalanceAdjustment@192cafae JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```csharp
+Invoiced.CreditBalanceAdjustment<starter> <%= json data.credit_balance_adjustments.object %>
+```
+
+```go
+<CreditBalanceAdjustment id=starter at 192cafae> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**id** | *string* | The adjustment's unique ID
+**object** | *string* | Object type, `credit_balance_adjustment`
+**customer** | *number* | Customer ID
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Adjustment amount
+**date** | *timestamp* | Adjustment date
+**notes** | *string* | Notes
+**created_at** | *timestamp* | Timestamp when created
+
+## Create a credit balance adjustment
+
+```shell
+curl "https://api.invoiced.com/credit_balance_adjustments" \
+  -u {API_KEY}: \
+  -d customer=78 \
+  -d amount=50
+```
+
+```ruby
+invoiced.CreditBalanceAdjustment.create(
+  :customer => 78,
+  :amount => 50
+)
+```
+
+```php
+<?php
+
+$invoiced->CreditBalanceAdjustment->create([
+  'customer' => 78,
+  'amount' => 50
+]);
+```
+
+```python
+client.CreditBalanceAdjustment.create(
+  customer=78,
+  amount=49
+)
+```
+
+```java
+CreditBalanceAdjustment creditBalanceAdjustment = invoiced.newCreditBalanceAdjustment();
+creditBalanceAdjustment.customer = 78L;
+creditBalanceAdjustment.amount = 50;
+creditBalanceAdjustment.create();
+```
+
+```csharp
+var creditBalanceAdjustment = invoiced.NewCreditBalanceAdjustment();
+creditBalanceAdjustment.Customer = 78;
+creditBalanceAdjustment.Amount = 50;
+creditBalanceAdjustment.Create();
+```
+
+```go
+creditBalanceAdjustment := invoiced.NewCreditBalanceAdjustment()
+creditBalanceAdjustment.Customer = 78
+creditBalanceAdjustment.Amount = 50
+creditBalanceAdjustment, err := creditBalanceAdjustment.Create(creditBalanceAdjustment)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.credit_balance_adjustments.object %>
+```
+
+```ruby
+#<Invoiced::CreditBalanceAdjustment:0x3fdbf95e4d08 id=starter> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```php
+Invoiced\CreditBalanceAdjustment JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```python
+<CreditBalanceAdjustment id=starter at 0x3fdbf95e4d08> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```java
+com.invoiced.entity.CreditBalanceAdjustment@cb8fd57 JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```csharp
+Invoiced.CreditBalanceAdjustment<starter> <%= json data.credit_balance_adjustments.object %>
+```
+
+```go
+<CreditBalanceAdjustment id=starter at 192cafae> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+Create a new credit balance adjustment with this endpoint.
+
+### HTTP Request
+
+`POST /credit_balance_adjustments`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**customer** | *number* | Customer ID
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Adjustment amount
+**date** | *timestamp* | Adjustment date
+**notes** | *string* | Notes
+
+## Retrieve a credit balance adjustment
+
+```shell
+curl "https://api.invoiced.com/credit_balance_adjustments/:id" \
+  -u {API_KEY}:
+```
+
+```ruby
+creditBalanceAdjustment = invoiced.CreditBalanceAdjustment.retrieve("{PLAN_ID}")
+```
+
+```php
+<?php
+
+$creditBalanceAdjustment = $invoiced->CreditBalanceAdjustment->retrieve("{PLAN_ID}");
+```
+
+```python
+creditBalanceAdjustment = client.CreditBalanceAdjustment.retrieve("{PLAN_ID}")
+```
+
+```java
+CreditBalanceAdjustment creditBalanceAdjustment = invoiced.newCreditBalanceAdjustment().retrieve({PLAN_ID});
+```
+
+```csharp
+var creditBalanceAdjustment = invoiced.NewCreditBalanceAdjustment().Retrieve({PLAN_ID});
+```
+
+```go
+creditBalanceAdjustment, err := invoiced.NewCreditBalanceAdjustment().Retrieve({PLAN_ID})
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.credit_balance_adjustments.object %>
+```
+
+```ruby
+#<Invoiced::CreditBalanceAdjustment:0x3fdbf95e4d08 id=starter> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```php
+Invoiced\CreditBalanceAdjustment JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```python
+<CreditBalanceAdjustment id=starter at 0x3fdbf95e4d08> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```java
+com.invoiced.entity.CreditBalanceAdjustment@cb8fd57 JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+```csharp
+Invoiced.CreditBalanceAdjustment<starter> <%= json data.credit_balance_adjustments.object %>
+```
+
+```go
+<CreditBalanceAdjustment id=starter at 192cafae> JSON: <%= json data.credit_balance_adjustments.object %>
+```
+
+This endpoint retrieves a specific credit balance adjustment.
+
+### HTTP Request
+
+`GET /credit_balance_adjustments/:id`
+
+## Update a credit balance adjustment
+
+```shell
+curl "https://api.invoiced.com/credit_balance_adjustments/:id" \
+  -u {API_KEY}: \
+  -X PATCH \
+  -d notes="Service outage on 12/9/2020"
+```
+
+```ruby
+creditBalanceAdjustment.notes = "Service outage on 12/9/2020"
+creditBalanceAdjustment.save
+```
+
+```php
+<?php
+
+$creditBalanceAdjustment->notes = "Service outage on 12/9/2020";
+$creditBalanceAdjustment->save();
+```
+
+```python
+creditBalanceAdjustment.notes = "Service outage on 12/9/2020"
+creditBalanceAdjustment.save()
+```
+
+```java
+creditBalanceAdjustment.notes = "Service outage on 12/9/2020";
+creditBalanceAdjustment.save();
+```
+
+```csharp
+creditBalanceAdjustment.Notes = "Service outage on 12/9/2020";
+creditBalanceAdjustment.SaveAll();
+```
+
+```go
+creditBalanceAdjustment.Notes = "Service outage on 12/9/2020"
+err := creditBalanceAdjustment.Save()
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+<%= json data.credit_balance_adjustments._update %>
+```
+
+```ruby
+#<Invoiced::CreditBalanceAdjustment:0x3fdbf95e4d08 id=starter> JSON: <%= json data.credit_balance_adjustments._update %>
+```
+
+```php
+Invoiced\CreditBalanceAdjustment JSON: <%= json data.credit_balance_adjustments._update %>
+```
+
+```python
+<CreditBalanceAdjustment id=starter at 0x3fdbf95e4d08> JSON: <%= json data.credit_balance_adjustments._update %>
+```
+
+```java
+com.invoiced.entity.CreditBalanceAdjustment@cb8fd57 JSON: <%= json data.credit_balance_adjustments._update %>
+```
+
+```csharp
+Invoiced.CreditBalanceAdjustment<starter> <%= json data.credit_balance_adjustments._update %>
+```
+
+```go
+<CreditBalanceAdjustment id=starter at 192cafae> JSON: <%= json data.credit_balance_adjustments._update %>
+```
+
+Use this endpoint to update a credit balance adjustment.
+
+The properties that can be updated via this endpoint are limited. For other updates, it is necessary to delete and recreate the credit balance adjustment.
+
+### HTTP Request
+
+`PATCH /credit_balance_adjustments/:id`
+
+### Attributes
+
+Parameter | Type | Description
+--------- | ---- | -----------
+**customer** | *number* | Customer ID
+**currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
+**amount** | *number* | Adjustment amount
+**date** | *timestamp* | Adjustment date
+**notes** | *string* | Notes
+
+## Delete a credit balance adjustment
+
+```shell
+curl "https://api.invoiced.com/credit_balance_adjustments/:id" \
+  -u {API_KEY}: \
+  -X DELETE
+```
+
+```ruby
+creditBalanceAdjustment.delete
+```
+
+```php
+<?php
+
+$creditBalanceAdjustment->delete();
+```
+
+```python
+creditBalanceAdjustment.delete()
+```
+
+```java
+creditBalanceAdjustment.delete();
+```
+
+```csharp
+creditBalanceAdjustment.Delete();
+```
+
+```go
+err := creditBalanceAdjustment.Delete()
+```
+
+> The above command returns `204 No Content`
+
+This endpoint deletes a specific credit balance adjustment.
+
+### HTTP Request
+
+`DELETE /credit_balance_adjustments/:id`
+
+## List all credit balance adjustments
+
+```shell
+curl "https://api.invoiced.com/credit_balance_adjustments" \
+  -u {API_KEY}:
+```
+
+```ruby
+items, metadata = invoiced.CreditBalanceAdjustment.list(:per_page => 3)
+```
+
+```php
+<?php
+
+list($creditBalanceAdjustments, $metadata) = $invoiced->CreditBalanceAdjustment->all(['per_page' => 3]);
+```
+
+```python
+creditBalanceAdjustments, metadata = client.CreditBalanceAdjustment.list(per_page=3)
+```
+
+```java
+EntityList<CreditBalanceAdjustment> creditBalanceAdjustments = conn.newCreditBalanceAdjustment().listAll();
+```
+
+```csharp
+var creditBalanceAdjustments = invoiced.NewCreditBalanceAdjustment().ListAll();
+```
+
+```go
+creditBalanceAdjustments, err := invoiced.NewCreditBalanceAdjustment().ListAll(nil, nil)
+```
+
+> The above command returns JSON structured like this:
+
+```shell
+[
+  <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```ruby
+[
+  #<Invoiced::CreditBalanceAdjustment:0x3fdbf95e4d08 id=starter> JSON: <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```php
+[
+  Invoiced\CreditBalanceAdjustment JSON: <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```python
+[
+  <CreditBalanceAdjustment id=starter at 0x3fdbf95e4d08> JSON: <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```java
+[
+  com.invoiced.entity.CreditBalanceAdjustment@c509a57 JSON: <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```csharp
+[
+  Invoiced.CreditBalanceAdjustment<starter> <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+```go
+[
+  <CreditBalanceAdjustment id=starter at 192cafae> JSON: <%= json data.credit_balance_adjustments.object, 1 %>
+]
+```
+
+This endpoint retrieves all credit balance adjustments.
+
+### HTTP Request
+
+`GET /credit_balance_adjustments`
