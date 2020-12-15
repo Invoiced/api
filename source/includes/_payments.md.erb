@@ -256,7 +256,9 @@ payment := invoiced.NewPayment()
 payment.Amount = 800
 payment.Method = "check"
 payment.Reference = "1450"
-payment.Invoice = 44648
+payment.AppliedTo = []{
+  PaymentItem{Type: "invoice", Amount: 800, Invoice: 44648}
+}
 payment, err := payment.Create(payment)
 ```
 
@@ -916,7 +918,10 @@ chargeRequest := new(invdendpoint.ChargeRequest)
 chargeRequest.Customer = 401558
 chargeRequest.Currency = "usd"
 chargeRequest.Amount = 2000
-chargeRequest.AppliedTo = [...] // excluded for brevity
+chargeRequest.AppliedTo = []{
+  PaymentItem{Type: "invoice", Amount: 1710, Invoice: 2112620},
+  PaymentItem{Type: "invoice", Amount: 290, Invoice: 2112622}
+}
 chargeRequest.Method = "credit_card"
 
 // (Tokenized Payment Info)
