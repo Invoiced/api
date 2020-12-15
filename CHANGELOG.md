@@ -1,5 +1,11 @@
 Changelog
 =========
+### December 15, 2020
+- Added `applied_credit` payment application type for applying credit balances.
+
+### December 9, 2020
+- Added Credit Balance Adjustment object.
+
 ### December 7, 2020
 - Added Payment, Charge, and Refund objects. Payment objects replace Transactions with some added features to handle more complex cash application scenarios.
 
