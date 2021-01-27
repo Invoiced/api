@@ -79,6 +79,22 @@ Parameter | Type | Description
 **credit_note** | *integer* | Credit Note ID, required when `type=credit_note`
 **document_type** | *string* | One of `estimate` or `invoice`, used with `type=credit_note` or `type=applied_credit`
 
+### Payment Methods
+
+These are commonly used payment methods for the `method` attribute. You should use the payment method ID when dealing with the API.
+
+ID              | Description
+----------------|-------------
+`ach`           | ACH
+`cash`          | Cash
+`check`         | Check
+`credit_card`   | Credit Card
+`eft`           | EFT
+`direct_debit`  | Direct Debit
+`other`         | Other
+`paypal`        | PayPal
+`wire_transfer` | Wire Transfer
+
 ## Charge Object
 
 ### Attributes
