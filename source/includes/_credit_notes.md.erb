@@ -45,6 +45,7 @@ Parameter | Type | Description
 **customer** | *integer* | Customer ID
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
 **number** | *string* | The reference number assigned to the credit note for use in the dashboard
+**purchase_order** | *string* | The customer's purchase order number
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
 **draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the credit note is a draft
 **closed** | *boolean* | When true, a credit note is closed and considered bad debt. No further payments are allowed.
@@ -242,6 +243,7 @@ Parameter | Type | Description
 **customer** | *integer* | Customer ID - **required**
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
 **number** | *string* | The reference number assigned to the credit note, defaults to next # in auto-numbering sequence
+**purchase_order** | *string* | The customer's purchase order number
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **date** | *timestamp* | Credit note date - defaults to current timestamp
 **draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the credit note is a draft
@@ -424,6 +426,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **name** | *string* | Credit note name for internal use, defaults to "Credit Note"
 **number** | *string* | The reference number assigned to the credit note, defaults to next # in auto-numbering sequence
+**purchase_order** | *string* | The customer's purchase order number
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **date** | *timestamp* | Credit note date - defaults to current timestamp
 **draft** | *boolean* | When false, the credit note is considered outstanding, or when true, the invoice is a draft

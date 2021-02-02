@@ -10,6 +10,7 @@
     "status": "open",
     "number": "CN-0016",
     "date": 1416290400,
+    "purchase_order": null,
     "items": [
       {
         "id": 7,

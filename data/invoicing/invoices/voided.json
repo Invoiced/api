@@ -17,6 +17,7 @@
   "date": 1416290400,
   "due_date": 1417500000,
   "payment_terms": "NET 14",
+  "purchase_order": null,
   "items": [
     {
       "id": 7,

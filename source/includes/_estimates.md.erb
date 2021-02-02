@@ -50,6 +50,7 @@ Parameter | Type | Description
 **date** | *timestamp* | Estimate date
 **expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
+**purchase_order** | *string* | The customer's purchase order number
 **items** | *array* | Collection of Line Items
 **notes** | *string* | Additional notes displayed on estimate
 **subtotal** | *number* | Subtotal
@@ -255,6 +256,7 @@ Parameter | Type | Description
 **date** | *timestamp* | Estimate date - defaults to current timestamp
 **expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
+**purchase_order** | *string* | The customer's purchase order number
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the estimate is a draft
 **closed** | *boolean* | Marks an estimate as closed
 **items** | *array* | Collection of Line Items
@@ -443,6 +445,7 @@ Parameter | Type | Description
 **date** | *timestamp* | Estimate date - defaults to current timestamp
 **expiration_date** | *timestamp* | Estimate expiration date
 **payment_terms** | *string* | Payment terms for the estimate, i.e. "NET 30"
+**purchase_order** | *string* | The customer's purchase order number
 **draft** | *boolean* | When false, the estimate is considered outstanding, or when true, the invoice is a draft
 **closed** | *boolean* | Marks an estimate as closed
 **items** | *array* | Collection of Line Items

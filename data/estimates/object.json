@@ -12,6 +12,7 @@
   "number": "EST-0016",
   "date": 1416290400,
   "payment_terms": "NET 14",
+  "purchase_order": null,
   "items": [
     {
       "id": 7,

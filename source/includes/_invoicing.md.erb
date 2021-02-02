@@ -55,6 +55,7 @@ Parameter | Type | Description
 **date** | *timestamp* | Invoice date
 **due_date** | *timestamp* | Date payment is due by
 **payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30"
+**purchase_order** | *string* | The customer's purchase order number
 **items** | *array* | Collection of Line Items
 **notes** | *string* | Additional notes displayed on invoice
 **subtotal** | *number* | Subtotal
@@ -437,6 +438,7 @@ Parameter | Type | Description
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
 **autopay** | *boolean* | AutoPay enabled? - inherited from customer by default
 **payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30" - inherited from customer by default
+**purchase_order** | *string* | The customer's purchase order number
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
@@ -622,9 +624,10 @@ Parameter | Type | Description
 **name** | *string* | Invoice name for internal use, defaults to "Invoice"
 **number** | *string* | The reference number assigned to the invoice, defaults to next # in auto-numbering sequence
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217) - defaults to account currency
-**payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30" - inherited from customer by default
 **date** | *timestamp* | Invoice date - defaults to current timestamp
 **due_date** | *timestamp* | Due date - computed from `payment_terms` when not supplied
+**payment_terms** | *string* | Payment terms for the invoice, i.e. "NET 30" - inherited from customer by default
+**purchase_order** | *string* | The customer's purchase order number
 **draft** | *boolean* | When false, the invoice is considered outstanding, or when true, the invoice is a draft
 **sent** | *boolean* | Marks an invoice as sent
 **closed** | *boolean* | Marks an invoice as closed

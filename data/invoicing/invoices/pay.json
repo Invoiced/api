@@ -17,6 +17,7 @@
   "date": 1416290402,
   "due_date": null,
   "payment_terms": "AutoPay",
+  "purchase_order": null,
   "items": [
     {
       "id": 9,

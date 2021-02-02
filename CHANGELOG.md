@@ -1,5 +1,8 @@
 Changelog
 =========
+### February 2, 2021
+- Credit notes, estimates, and invoices have a `purchase_order` property.
+
 ### December 15, 2020
 - Added `applied_credit` payment application type for applying credit balances.
 
