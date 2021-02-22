@@ -62,6 +62,10 @@ All responses will be in [JSON](https://en.wikipedia.org/wiki/JSON). Input data 
 
 In the API dates are represented as [UNIX timestamps](https://en.wikipedia.org/wiki/Unix_time). Each entity like customers or invoices has a unique integer ID.
 
+### PDFs
+
+A few endpoints support returning a PDF response instead of JSON if you set the `Accept` header to `application/pdf`. For example, the retrieve invoice endpoint can return a PDF. The endpoints that support PDFs are notated in the documentation.
+
 ### Client Libraries
 
 We have client libraries available in several languages. If you don't see your language listed then please contact us and we would be happy to help.

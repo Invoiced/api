@@ -1,5 +1,8 @@
 Changelog
 =========
+### February 22, 2021
+- Credit note, estimate, invoice, and receipt PDFs can be downloaded by setting the `Accept` header to `application/pdf`.
+
 ### February 2, 2021
 - Credit notes, estimates, and invoices have a `purchase_order` property.
 
