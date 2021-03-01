@@ -1,5 +1,8 @@
 Changelog
 =========
+### March 1, 2021
+- Added `invoice` property to Note object.
+
 ### February 22, 2021
 - Credit note, estimate, invoice, and receipt PDFs can be downloaded by setting the `Accept` header to `application/pdf`.
 

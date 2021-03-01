@@ -2,6 +2,7 @@
 	"created_at": 1571338027,
 	"customer": 15444,
 	"id": 501,
+	"invoice": null,
 	"notes": "Customer called 10/1, clarified account terms.",
 	"object": "note",
 	"user": {
