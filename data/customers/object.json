@@ -47,5 +47,7 @@
   "credit_limit": null,
   "owner": null,
   "parent_customer": null,
-  "taxable": true
+  "taxable": true,
+  "ach_gateway": null,
+  "cc_gateway": null
 }

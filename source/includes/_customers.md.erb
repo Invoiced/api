@@ -74,6 +74,8 @@ Parameter | Type | Description
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **sign_up_url** | *string* | URL where customer can purchase a subscription, when a sign up page is assigned
 **statement_pdf_url** | *string* | URL to download the latest account statement
+**ach_gateway** | *integer* | Gateway configuration ID to process payments with
+**cc_gateway** | *integer* | Gateway configuration ID to process payments with
 **created_at** | *timestamp* | Timestamp when created
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 
@@ -270,6 +272,8 @@ Parameter | Type | Description
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
+**ach_gateway** | *integer* | Gateway configuration ID to process payments with
+**cc_gateway** | *integer* | Gateway configuration ID to process payments with
 
 ## Retrieve a customer
 
@@ -502,6 +506,8 @@ Parameter | Type | Description
 **sign_up_page** | *integer* | [Sign Up Page](https://invoiced.com/resources/docs/guides/sign-up-pages) ID
 **metadata** | *object* | A hash of key/value pairs that can store additional information about this object.
 **disabled_payment_methods** | *array* | List of payment methods to disable for this customer, i.e. `["credit_card", "wire_transfer"]`.
+**ach_gateway** | *integer* | Gateway configuration ID to process payments with
+**cc_gateway** | *integer* | Gateway configuration ID to process payments with
 
 ## Get current balance
 

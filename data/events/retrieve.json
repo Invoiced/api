@@ -57,7 +57,9 @@
           "object": "card"
         },
         "sign_up_page": 2240,
-        "metadata": {}
+        "metadata": {},
+        "ach_gateway": null,
+        "cc_gateway": null
       },
       "id": 46225,
       "object": "invoice",

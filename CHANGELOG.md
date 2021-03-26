@@ -1,5 +1,8 @@
 Changelog
 =========
+### March 26, 2021
+- Added `ach_gateway` and `cc_gateway` parameters to Customer object to control payment gateway routing for customer.
+
 ### March 19, 2021
 - The `id` property is no longer required when creating items, plans, tax rates, and coupons. If one is not provided it will be auto-generated.
 
