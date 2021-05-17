@@ -1381,7 +1381,8 @@
         var re4_1b_2 = new RegExp('^' + C + v + '[^aeiouwxy]$');
 
         var re_1c = /^(.+?[^aeiou])y$/;
-        var re_2 = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
+        var re_2 =
+            /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
 
         var re_3 = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
 
