@@ -1,5 +1,8 @@
 Changelog
 =========
+### May 17, 2021
+- Added `open_balance` query parameter to List Customers endpoint to filter customers with an open balance.
+
 ### March 26, 2021
 - Added `ach_gateway` and `cc_gateway` parameters to Customer object to control payment gateway routing for customer.
 
