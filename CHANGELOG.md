@@ -2,7 +2,7 @@ Changelog
 =========
 ### July 26, 2021
 - Added `custom` as a new pricing mode to the Plan object.
-- Added `amount` parameter to the Subscription and Subscription Addon object to specify the amount for Plans priced with the `custom` pricing mode.
+- Added `amount` parameter to the Subscription and Subscription Addon objects to specify the amount for Plans priced with the `custom` pricing mode.
 
 ### May 17, 2021
 - Added `open_balance` query parameter to List Customers endpoint to filter customers with an open balance.
