@@ -45,6 +45,7 @@ Parameter | Type | Description
 **id** | *integer* | The subscription's unique ID
 **object** | *string* | Object type, `subscription`
 **customer** | *integer* | Associated Customer
+**amount** | *string* | Subscription price when the plans's pricing mode is `custom`
 **plan** | *string* | Plan ID
 **start_date** | *timestamp* | Timestamp subscription starts (or started)
 **bill_in** | *string* | `advance` or `arrears`. Defaults to `advance`
@@ -107,6 +108,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 **id** | *integer* | The subscription's unique ID
 **object** | *string* | Object type, `subscription_addon`
+**amount** | *string* | Addon price when a plan is set and has pricing mode set to `custom`
 **plan** | *string* | Plan ID
 **quantity** | *integer* | Quantity
 **description** | *string* | Optional description for line items generated from this addon

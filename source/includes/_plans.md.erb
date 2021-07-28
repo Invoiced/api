@@ -41,8 +41,8 @@ Parameter | Type | Description
 **catalog_item** | *string* | Item ID the plan belongs to
 **name** | *string* | Plan name
 **currency** | *string* | [3-letter ISO code](https://en.wikipedia.org/wiki/ISO_4217)
-**amount** | *number* | Plan amount
-**pricing_mode** | *string* | `per_unit`, `volume` or `tiered`
+**amount** | *number* | Plan amount. Not applicable when pricing mode is `custom`.
+**pricing_mode** | *string* | `per_unit`, `volume`, `tiered` or `custom`
 **quantity_type** | *string* | `constant` or `usage`
 **interval** | *string* | One of `day`, `week`, `month`, `year`. The frequency with which a subscription should be billed.
 **interval_count** | *number* | The number of intervals between each subscription billing. Defaults to `1`.
