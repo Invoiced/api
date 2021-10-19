@@ -16,7 +16,7 @@
         "consolidated": false,
         "country": "US",
         "updated_at": 1589566232,
-  "created_at": 1589566232,
+        "created_at": 1589566232,
         "credit_hold": false,
         "credit_limit": null,
         "currency": "usd",
@@ -44,7 +44,7 @@
           "brand": "Visa",
           "chargeable": true,
           "updated_at": 1589566234,
-  "created_at": 1589566234,
+          "created_at": 1589566234,
           "exp_month": 2,
           "exp_year": 2023,
           "failure_reason": null,
@@ -130,7 +130,7 @@
       "payment_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/payment",
       "pdf_url": "https://dundermifflin.invoiced.com/invoices/IZmXbVOPyvfD3GPBmyd6FwXY/pdf",
       "updated_at": 1415229884,
-  "created_at": 1415229884,
+      "created_at": 1415229884,
       "metadata": {}
     }
   },
@@ -147,7 +147,7 @@
   "type": "invoice.paid",
   "user": {
     "updated_at": null,
-  "created_at": null,
+    "created_at": null,
     "email": null,
     "first_name": null,
     "id": -2,
