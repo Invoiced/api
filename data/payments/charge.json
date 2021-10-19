@@ -5,6 +5,7 @@
   "charge": {
     "amount": 2000,
     "amount_refunded": 0,
+    "updated_at": 1607152637,
     "created_at": 1607152637,
     "currency": "usd",
     "customer": 401558,
@@ -19,6 +20,7 @@
     "payment_source": {
       "brand": "Visa",
       "chargeable": true,
+      "updated_at": 1601919571,
       "created_at": 1601919571,
       "exp_month": 8,
       "exp_year": 2025,
@@ -35,6 +37,7 @@
     },
     "refunds": []
   },
+  "updated_at": 1607152637,
   "created_at": 1607152637,
   "currency": "usd",
   "customer": 401558,

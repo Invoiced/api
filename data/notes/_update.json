@@ -1,5 +1,6 @@
 {
 	"created_at": 1571338027,
+	"updated_at": 1571338027,
 	"customer": 15444,
 	"id": 501,
 	"invoice": null,
@@ -7,6 +8,7 @@
 	"object": "note",
 	"user": {
 		"created_at": 1563810757,
+		"updated_at": 1563810757,
 		"email": "invoiced@example.com",
 		"first_name": "John",
 		"id": 1946,
