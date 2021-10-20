@@ -5,6 +5,7 @@
   "currency": null,
   "value": 5,
   "is_percent": true,
+  "updated_at": 1477418268,
   "created_at": 1477418268,
   "metadata": {},
   "inclusive": false

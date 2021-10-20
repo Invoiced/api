@@ -13,20 +13,22 @@
   "canceled_at": null,
   "status": "active",
   "addons": [
-      {
-          "id": 3,
-          "object": "subscription_addon",
-          "plan": "ipad-license",
-          "quantity": 11,
-          "description": "",
-          "created_at": 1420391704
-      }
+    {
+      "id": 3,
+      "object": "subscription_addon",
+      "plan": "ipad-license",
+      "quantity": 11,
+      "description": "",
+      "updated_at": 1420391704,
+      "created_at": 1420391704
+    }
   ],
   "discounts": [],
   "taxes": [],
   "recurring_total": 1200,
   "mrr": 100,
   "url": "https://dundermifflin.invoiced.com/subscriptions/o2mAd2wWVfYy16XZto7xHwXX",
+  "updated_at": 1420391704,
   "created_at": 1420391704,
   "metadata": {},
   "bill_in": "advance",

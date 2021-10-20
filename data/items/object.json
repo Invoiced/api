@@ -12,6 +12,7 @@
   "taxable": true,
   "avalara_tax_code": null,
   "avalara_location_code": null,
+  "updated_at": 1477327516,
   "created_at": 1477327516,
   "metadata": {}
 }

@@ -15,5 +15,6 @@
 	"ach_sender_id": null,
 	"source": "bank_feed",
 	"voided": false,
+	"updated_at": 1607152637,
 	"pdf_url": "https:\/\/dundermifflin.invoiced.com\/payments\/59FHO96idoXFeiBDu1y5Zggg\/pdf"
 }
