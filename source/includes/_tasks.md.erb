@@ -124,13 +124,13 @@ task.Create();
 ```
 
 ```go
-task := invoiced.NewTask()
-task.CustomerId = 481594
-task.Name = "Call customer"
-task.Action = "phone"
-task.DueDate = 1571288400
-task.UserId = 1976
-task, err := task.Create(task)
+task, err := client.Task.Create(&invoiced.TaskRequest{
+  CustomerId: invoiced.Int64(481594),
+  Name: invoiced.String("Call customer"),
+  Action: invoiced.String("phone"),
+  DueDate: invoiced.Int64(1571288400),
+  UserId: invoiced.Int64(1976),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -209,7 +209,7 @@ var task = invoiced.NewTask().Retrieve({TASK_ID});
 ```
 
 ```go
-task, err := invoiced.NewTask().Retrieve({TASK_ID})
+task, err := client.Task.Retrieve({TASK_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -285,8 +285,9 @@ task.SaveAll();
 ```
 
 ```go
-task.DueDate = 1587366000
-err := task.Save()
+task, err := invoiced.Task.Update({TASK_ID}, &invoiced.TaskRequest{
+  DueDate: invoiced.Int64(1587366000),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -365,7 +366,7 @@ task.Delete();
 ```
 
 ```go
-err := task.Delete()
+err := invoiced.Task.Delete({TASK_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -406,7 +407,7 @@ var tasks = invoiced.NewTask().ListAll();
 ```
 
 ```go
-tasks, err := invoiced.NewTask().ListAll(nil, nil)
+tasks, err := client.Task.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

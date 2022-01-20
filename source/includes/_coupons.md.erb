@@ -102,11 +102,11 @@ coupon.Create();
 ```
 
 ```go
-coupon := invoiced.NewCoupon()
-coupon.Id = "S8L47J"
-coupon.Name = "Non-profit Discount"
-coupon.Value = 20
-coupon, err := coupon.Create(coupon)
+coupon, err := client.Coupon.Create(&invoiced.CouponRequest{
+  Id: invoiced.String("S8L47J"),
+  Name: invoiced.String("Non-profit Discount"),
+  Value: invoiced.Float64(20)
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -189,7 +189,7 @@ var coupon = invoiced.NewCoupon().Retrieve({COUPON_ID});
 ```
 
 ```go
-coupon, err := invoiced.NewCoupon().Retrieve({COUPON_ID})
+coupon, err := client.Coupon.Retrieve({COUPON_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -265,8 +265,9 @@ coupon.SaveAll();
 ```
 
 ```go
-coupon.Name = "Nonprofits"
-err := coupon.Save()
+err := client.Coupon.Update({COUPON_ID}, &invoiced.CouponRequest{
+  Name: invoiced.String("Nonprofits")
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -345,7 +346,7 @@ coupon.Delete();
 ```
 
 ```go
-err := coupon.Delete()
+err := client.Coupon.Delete({COUPON_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -386,7 +387,7 @@ var coupons = invoiced.NewCoupon().ListAll();
 ```
 
 ```go
-coupons, err := invoiced.NewCoupon().ListAll(nil, nil)
+coupons, err := client.Coupon.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

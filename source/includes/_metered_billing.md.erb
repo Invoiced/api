@@ -48,10 +48,9 @@ pli.Create();
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-pli := customer.NewPendingLineItem()
-pli.Item = "delivery"
-pli, err = customer.CreatePendingLineItem(pli)
+pli, err := client.Customer.NewPendingLineItem({CUSTOMER_ID}, &invoiced.PendingLineItemRequest{
+  Item: invoiced.String("delivery"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -141,8 +140,7 @@ var pli = customer.NewPendingLineItem().Retrieve({LINE_ITEM_ID});
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-pli, err := customer.RetrievePendingLineItem({LINE_ITEM_ID})
+pli, err := client.Customer.RetrievePendingLineItem({CUSTOMER_ID}, {LINE_ITEM_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -220,9 +218,9 @@ pli.SaveAll();
 ```
 
 ```go
-pli, err := customer.RetrievePendingLineItem({LINE_ITEM_ID})
-pli.Quantity = 2
-pli, err = customer.UpdatePendingLineItem(pli)
+pli, err = client.Customer.UpdatePendingLineItem({CUSTOMER_ID}, {LINE_ITEM_ID}, &invoiced.LineItemRequest{
+  Quantity: invoiced.Float64(2),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -307,7 +305,7 @@ var invoice = customer.Invoice();
 ```
 
 ```go
-invoice, err := customer.TriggerInvoice()
+invoice, err := client.Customer.TriggerInvoice({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -383,7 +381,7 @@ pli.Delete();
 ```
 
 ```go
-err := customer.DeletePendingLineItem({LINE_ITEM_ID})
+err := client.Customer.DeletePendingLineItem({CUSTOMER_ID}, {LINE_ITEM_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -428,7 +426,7 @@ var plis = customer.NewPendingLineItem().ListAll();
 ```
 
 ```go
-plis, err := customer.ListAllPendingLineItems()
+plis, err := client.Customer.ListAllPendingLineItems({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:

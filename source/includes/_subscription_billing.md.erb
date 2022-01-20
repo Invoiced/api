@@ -192,13 +192,16 @@ subscription.Create();
 ```
 
 ```go
-subscription := invoiced.NewSubscription()
-subscription.Customer = 15444
-subscription.Plan = "starter"
-subscription.Addons = make([]invdendpoint.SubscriptionAddon, 1)
-subscription.Addons[0].Plan = "ipad-license"
-subscription.Addons[0].Quantity = 11
-subscription, err := subscription.Create(subscription)
+subscription, err := client.Subscription.Create(&invoiced.SubscriptionRequest{
+  Customer: invoiced.Int64(15444),
+  Plan: invoiced.String("starter"),
+  Addons: []*invoiced.SubscriptionAddon{
+    {
+      Plan: invoiced.String("ipad-license"),
+      Quantity: invoiced.Float64(11),
+    }
+  }
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -306,11 +309,10 @@ subscription.Preview();
 ```
 
 ```go
-subscription := invoiced.NewSubsription()
-previewRequest := invoiced.NewPreviewRequest()
-previewRequest.Customer = 481594
-previewRequest.Plan = "starter"
-preview, err := subscription.Preview(previewRequest)
+preview, err := client.Subscription.Preview(&invoiced.SubscriptionPreviewRequest{
+  Customer: invoiced.Int64(481594),
+  Plan: invoiced.String("starter"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -393,7 +395,7 @@ var subscription = invoiced.NewSubscription().Retrieve({SUBSCRIPTION_ID});
 ```
 
 ```go
-subscription, err := invoiced.NewSubscription().Retrieve({SUBSCRIPTION_ID})
+subscription, err := client.Subscription.Retrieve({SUBSCRIPTION_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -469,8 +471,9 @@ subscription.SaveAll();
 ```
 
 ```go
-subscription.Plan = "pro"
-err := subscription.Save()
+subscription, err := client.Subscription.Update(&invoiced.SubscriptionRequest{
+  Plan: invoiced.String("pro"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -559,7 +562,7 @@ subscription.Cancel();
 ```
 
 ```go
-err := subscription.Cancel()
+err := client.Subscription.Cancel({SUBSCRIPTION_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -628,7 +631,7 @@ var subscriptions = invoiced.NewSubscription().ListAll();
 ```
 
 ```go
-subscriptions, err := invoiced.NewSubscription().ListAll(nil, nil)
+subscriptions, err := client.Subscription.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

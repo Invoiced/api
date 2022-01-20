@@ -106,12 +106,12 @@ file.Create();
 ```
 
 ```go
-file := invoiced.NewFile()
-file.Url = "https://invoiced.com/img/logo-invoice.png"
-file.Size = 6936
-file.Name = "logo-invoice.png"
-file.Type = "image/png"
-file, err := file.Create(file)
+file, err := client.File.Create(&invoiced.FileRequest{
+  Url: invoiced.String("https://invoiced.com/img/logo-invoice.png"),
+  Size: invoiced.Int64(6936),
+  Name: invoiced.String("logo-invoice.png"),
+  Type: invoiced.String("image/png"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -184,7 +184,7 @@ var file = invoice.NewFile().Retrieve({FILE_ID});
 ```
 
 ```go
-file, err := invoice.NewFile().Retrieve({FILE_ID})
+file, err := client.File.Retrieve({FILE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -254,7 +254,7 @@ file.Delete();
 ```
 
 ```go
-err := file.Delete()
+err := client.File.Delete({FILE_ID})
 ```
 
 > The above command returns `204 No Content`

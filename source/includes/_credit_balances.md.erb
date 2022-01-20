@@ -97,10 +97,10 @@ creditBalanceAdjustment.Create();
 ```
 
 ```go
-creditBalanceAdjustment := invoiced.NewCreditBalanceAdjustment()
-creditBalanceAdjustment.Customer = 78
-creditBalanceAdjustment.Amount = 50
-creditBalanceAdjustment, err := creditBalanceAdjustment.Create(creditBalanceAdjustment)
+creditBalanceAdjustment, err := client.CreditBalanceAdjustment.Create(&invoiced.CreditBalanceAdjustmentRequest{
+  Customer: invoiced.Int64(78),
+  Amount: invoiced.Float64(50),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -157,29 +157,29 @@ curl "https://api.invoiced.com/credit_balance_adjustments/:id" \
 ```
 
 ```ruby
-creditBalanceAdjustment = invoiced.CreditBalanceAdjustment.retrieve("{PLAN_ID}")
+creditBalanceAdjustment = invoiced.CreditBalanceAdjustment.retrieve("{ADJUSTMENT_ID}")
 ```
 
 ```php
 <?php
 
-$creditBalanceAdjustment = $invoiced->CreditBalanceAdjustment->retrieve("{PLAN_ID}");
+$creditBalanceAdjustment = $invoiced->CreditBalanceAdjustment->retrieve("{ADJUSTMENT_ID}");
 ```
 
 ```python
-creditBalanceAdjustment = client.CreditBalanceAdjustment.retrieve("{PLAN_ID}")
+creditBalanceAdjustment = client.CreditBalanceAdjustment.retrieve("{ADJUSTMENT_ID}")
 ```
 
 ```java
-CreditBalanceAdjustment creditBalanceAdjustment = invoiced.newCreditBalanceAdjustment().retrieve({PLAN_ID});
+CreditBalanceAdjustment creditBalanceAdjustment = invoiced.newCreditBalanceAdjustment().retrieve({ADJUSTMENT_ID});
 ```
 
 ```csharp
-var creditBalanceAdjustment = invoiced.NewCreditBalanceAdjustment().Retrieve({PLAN_ID});
+var creditBalanceAdjustment = invoiced.NewCreditBalanceAdjustment().Retrieve({ADJUSTMENT_ID});
 ```
 
 ```go
-creditBalanceAdjustment, err := invoiced.NewCreditBalanceAdjustment().Retrieve({PLAN_ID})
+creditBalanceAdjustment, err := client.CreditBalanceAdjustment.Retrieve({ADJUSTMENT_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -255,8 +255,9 @@ creditBalanceAdjustment.SaveAll();
 ```
 
 ```go
-creditBalanceAdjustment.Notes = "Service outage on 12/9/2020"
-err := creditBalanceAdjustment.Save()
+err := invoiced.CreditBalanceAdjustment.Update({ADJUSTMENT_ID}, &invoiced.CreditBalanceAdjustmentRequest{
+  Notes: invoiced.String("Service outage on 12/9/2020"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -338,7 +339,7 @@ creditBalanceAdjustment.Delete();
 ```
 
 ```go
-err := creditBalanceAdjustment.Delete()
+err := client.CreditBalanceAdjustment.Delete({ADJUSTMENT_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -379,7 +380,7 @@ var creditBalanceAdjustments = invoiced.NewCreditBalanceAdjustment().ListAll();
 ```
 
 ```go
-creditBalanceAdjustments, err := invoiced.NewCreditBalanceAdjustment().ListAll(nil, nil)
+creditBalanceAdjustments, err := client.CreditBalanceAdjustment.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

@@ -141,13 +141,10 @@ var paymentSource = customer.CreatePaymentSource(sourceRequest);
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-sourceRequest := invoiced.NewPaymentSource()
-
-sourceRequest.Method = "credit_card"
-sourceRequest.InvoicedToken = "abcdefghijklmnopqrstuvwxyz"
-
-source, err := customer.CreatePaymentSource(sourceRequest)
+source, err := client.Customer.CreatePaymentSource({CUSTOMER_ID}, &invoiced.PaymentSourceRequest{
+  Method: invoiced.String("credit_card"),
+  InvoicedToken: invoiced.String("abcdefghijklmnopqrstuvwxyz"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -232,8 +229,7 @@ var paymentSources = customer.ListPaymentSources();
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-sources, err := customer.ListAllPaymentSources()
+sources, err := client.Customer.ListAllPaymentSources({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -317,9 +313,9 @@ paymentSource.Delete();
 ```
 
 ```go
-customer.DeleteCard({CARD_ID}) 
+client.Customer.DeleteCard({CUSTOMER_ID}, {CARD_ID})
 // or
-customer.DeleteBankAccount({ACCOUNT_ID})
+client.Customer.DeleteBankAccount({CUSTOMER_ID}, {ACCOUNT_ID})
 ```
 
 > The above command returns `204 No Content`

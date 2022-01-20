@@ -193,20 +193,26 @@ estimate.Create();
 ```
 
 ```go
-estimate := invoiced.NewEstimate()
-estimate.Customer = 15444
-estimate.PaymentTerms = "NET 14"
-items := make([]invdendpoint.LineItem, 2)
-items[0].Name = "Copy paper, Case"
-items[0].Quantity = 1
-items[0].UnitCost = 45
-items[1].Item = "delivery"
-items[1].Quantity = 1
-taxes := make([]invdendpoint.Tax, 1)
-taxes[0].Amount = 3.85
-estimate.Items = items
-estimate.Taxes = taxes
-estimate, err := estimate.Create(estimate)
+estimate, err := client.Estimate.Create(&invoiced.EstimateRequest{
+  Customer: invoiced.Int64(15444),
+  PaymentTerms: invoiced.String("NET 14"),
+  Items: []*invoiced.LineItemRequest{
+    {
+      Name: invoiced.String("Copy paper, Case"),
+      Quantity: invoiced.Float64(1),
+      UnitCost: invoiced.Float64(45),
+    },
+    {
+      Item: invoiced.String("delivery"),
+      Quantity: invoiced.Float64(1),
+    },
+  },
+  Taxes: []*invoiced.TaxRequest{
+    {
+      Amount: invoiced.Float64(3.85),
+    },
+  },
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -302,7 +308,7 @@ var estimate = invoiced.NewEstimate().Retrieve({ESTIMATE_ID});
 ```
 
 ```go
-estimate, err := invoiced.NewEstimate().Retrieve({ESTIMATE_ID})
+estimate, err := client.Estimate.Retrieve({ESTIMATE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -396,10 +402,11 @@ estimate.Save();
 ```
 
 ```go
-estimate.Name = "July Paper Delivery"
-estimate.Notes = "The order was delivered on Jul 20, 2015"
-estimate.Sent = true
-estimate, err := estimate.Save()
+estimate, err := client.Estimate.Update({ESTIMATE_ID}, &invoiced.EstimateRequest{
+  Name: invoiced.String("July Paper Delivery"),
+  Notes: invoiced.String("The order was delivered on Jul 20, 2015"),
+  Sent: invoiced.Bool(true),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -514,16 +521,14 @@ var emails = estimate.SendEmail(emailRequest);
 ```
 
 ```go
-var emailRequest invdendpoint.EmailRequest
-emailRecipients := make([]invdendpoint.EmailDetail, 1)
-emailRecipients[0].Name = "Client"
-emailRecipients[0].Email = "client@example.com"
-
-emailRequest.To = emailRecipients
-emailRequest.Subject = "New Estimate from Dunder Mifflin, Inc.: EST-0016"
-emailRequest.Message = "Dear Client, a new estimate for $51.15 has been created on your account. Thank you!"
-
-emails, err := estimate.SendEmail(&emailRequest)
+err := client.Estimate.SendEmail({ESTIMATE_ID}, &invoiced.SendEmailRequest{
+  To: []*invoiced.EmailRecipient{
+    Name: invoiced.String("Client"),
+    Email: "client@example.com",
+  },
+  Subject: invoiced.String("New Estimate from Dunder Mifflin, Inc.: EST-0016"),
+  Message: invoiced.String("Dear Client, a new estimate for $51.15 has been created on your account. Thank you!"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -621,7 +626,7 @@ var invoice = estimate.Invoice();
 ```
 
 ```go
-invoice, err := estimate.GenerateInvoice()
+invoice, err := client.Estimate.GenerateInvoice({ESTIMATE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -690,7 +695,7 @@ var attachments = estimate.ListAttachments();
 ```
 
 ```go
-attachments, err := estimate.ListAttachments()
+attachments, err := client.Estimate.ListAttachments({ESTIMATE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -773,7 +778,7 @@ estimate.Void();
 ```
 
 ```go
-estimate, err := estimate.Void()
+estimate, err := client.Estimate.Void({ESTIMATE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -843,7 +848,7 @@ estimate.Delete();
 ```
 
 ```go
-err := estimate.Delete()
+err := client.Estimate.Delete({ESTIMATE_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -884,7 +889,7 @@ var estimates = invoiced.NewEstimate().ListAll();
 ```
 
 ```go
-estimates, err := invoiced.NewEstimate().ListAll(nil, nil)
+estimates, err := client.Estimate.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

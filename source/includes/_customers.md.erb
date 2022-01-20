@@ -193,12 +193,12 @@ customer.Create();
 ```
 
 ```go
-customer := invoiced.NewCustomer()
-customer.Name = "Acme"
-customer.Email = "billing@acmecorp.com"
-customer.PaymentTerms = "NET 30"
-customer.Type = "company"
-customer, err := customer.Create(customer)
+customer, err := client.Customer.Create(&invoiced.CustomerRequest{
+  Name: invoiced.String("Acme"),
+  Email: invoiced.String("billing@acmecorp.com"),
+  PaymentTerms: invoiced.String("NET 30"),
+  Type: invoiced.String("company"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -307,7 +307,7 @@ var customer = invoiced.NewCustomer().Retrieve({CUSTOMER_ID});
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
+customer, err := client.Customer.Retrieve({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -425,15 +425,16 @@ customer.SaveAll();
 ```
 
 ```go
-customer.PaymentTerms = "NET 14"
-customer.AttentionTo = "Sarah Fisher"
-customer.Address1 = "342 Amber St"
-customer.City = "Hill Valley"
-customer.State = "CA"
-customer.PostalCode = "94523"
-customer.TaxId = "893-934835"
-customer.Phone = "(820) 297-2983"
-err := customer.Save()
+customer, err := client.Customer.Update({CUSTOMER_ID}, &invoiced.CustomerRequest{
+  PaymentTerms: invoiced.String("NET 14"),
+  AttentionTo: invoiced.String("Sarah Fisher"),
+  Address1: invoiced.String("342 Amber St"),
+  City: invoiced.String("Hill Valley"),
+  State: invoiced.String("CA"),
+  PostalCode: invoiced.String("94523"),
+  TaxId: invoiced.String("893-934835"),
+  Phone: invoiced.String("(820) 297-2983"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -541,7 +542,7 @@ var balance = customer.GetBalance();
 ```
 
 ```go
-balance, err := customer.GetBalance()
+balance, err := client.Customer.GetBalance({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -633,16 +634,14 @@ var emails = customer.SendStatementEmail(emailRequest);
 ```
 
 ```go
-var emailRequest invdendpoint.EmailRequest
-emailRecipients := make([]invdendpoint.EmailDetail, 1)
-emailRecipients[0].Name = "Client"
-emailRecipients[0].Email = "client@example.com"
-
-emailRequest.To = emailRecipients
-emailRequest.Subject = "Statement from Dunder Mifflin, Inc."
-emailRequest.Message = "Dear Client, we have attached your latest account statement. Thank you!"
-
-emails, err := customer.SendStatementEmail(&emailRequest)
+err := client.Customer.SendStatementEmail({CUSTOMER_ID}, &invoiced.SendStatementEmailRequest{
+  To: []*invoiced.EmailRecipient{
+    Name: invoiced.String("Client"),
+    Email: "client@example.com",
+  },
+  Subject: invoiced.String("Statement from Dunder Mifflin, Inc."),
+  Message: invoiced.String("Dear Client, we have attached your latest account statement. Thank you!"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -772,16 +771,16 @@ var textMessages = customer.SendStatementText(textRequest);
 ```
 
 ```go
-var textRequest invdendpoint.TextRequest
-textRecipients := make([]invdendpoint.TextDetail, 1)
-textRecipients[0].Name = "Bob Loblaw"
-textRecipients[0].Phone = "11234567890"
-
-textRequest.To = textRecipients
-textRequest.Type = "open_item"
-textRequest.Message = "{{company_name}}: You have a new statement {{url}}"
-
-texts, err := customer.SendStatementText(&textRequest)
+texts, err := client.Customer.SendStatementText(&invoiced.SendStatementTextMessageRequest{
+  To: []*invoiced.TextMessageRecipient{
+    {
+      Name: invoiced.String("Bob Loblaw"),
+      Phone: invoiced.String("11234567890"),
+    }
+  }
+  Type: invoiced.String("open_item"),
+  Message: invoiced.String("{{company_name}}: You have a new statement {{url}}"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -889,9 +888,9 @@ var letter = customer.SendStatementLetter(letterRequest);
 ```
 
 ```go
-var letterRequest invdendpoint.LetterRequest
-letterRequest.Type = "open_item"
-letter, err := customer.SendStatementLetter(letterRequest)
+letter, err := client.Customer.SendStatementLetter(&invoiced.SendStatementLetterRequest{
+  Type: invoiced.String("open_item"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -998,12 +997,10 @@ contact.Create();
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-contact := invoiced.NewContact()
-
-contact.Name = "Nancy Talty"
-contact.Email = "nancy.talty@example.com"
-contact, err = customer.CreateContact(contact)
+contact, err = invoiced.Customer.CreateContact({CUSTOMER_ID}, &invoiced.ContactRequest{
+  Name: invoiced.String("Nancy Talty"),
+  Email: invoiced.String("nancy.talty@example.com"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -1095,8 +1092,7 @@ var contact = customer.NewContact().Retrieve({CONTACT_ID});
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-contact, err := customer.RetrieveContact({CONTACT_ID})
+contact, err := client.Customer.RetrieveContact({CUSTOMER_ID}, {CONTACT_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1183,19 +1179,19 @@ contact.save()
 
 ```csharp
 contact.Address1 = "507 Grove Avenue";
-contact.City = "Oklahome City";
+contact.City = "Oklahoma City";
 contact.State = "OK";
 contact.PostalCode = "73102";
 contact.SaveAll();
 ```
 
 ```go
-contact.Address1 = "507 Grove Avenue"
-contact.City = "Oklahome City"
-contact.State = "OK"
-contact.PostalCode = "73102"
-
-contact, err := customer.UpdateContact(contact)
+contact, err := invoiced.Customer.UpdateContact(&invoiced.ContactRequest{
+  Address1: invoiced.String("507 Grove Avenue"),
+  City: invoiced.String("Oklahoma City"),
+  State: invoiced.String("OK"),
+  PostalCode: invoiced.String("73102"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -1283,7 +1279,7 @@ contact.Delete();
 ```
 
 ```go
-err := customer.DeleteContact({CONTACT_ID})
+err := client.Customer.DeleteContact({CUSTOMER_ID}, {CONTACT_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -1329,8 +1325,7 @@ var contacts = customer.NewContact.ListAll();
 ```
 
 ```go
-customer, err := invoiced.NewCustomer().Retrieve({CUSTOMER_ID})
-contacts, err := customer.ListAllContacts()
+contacts, err := invoiced.Customer.ListAllContacts({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1420,7 +1415,7 @@ customer.Delete();
 ```
 
 ```go
-err := customer.Delete()
+err := invoiced.Customer.Delete({CUSTOMER_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -1461,7 +1456,7 @@ var customers = invoiced.NewCustomer().ListAll();
 ```
 
 ```go
-customers, err := invoiced.NewCustomer().ListAll(nil, nil)
+customers, err := client.Customer.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

@@ -177,19 +177,26 @@ paymentPlan.Create();
 ```
 
 ```go
-invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
-request := invoiced.NewPaymentPlanRequest()
-installments := make(invdendpoint.PaymentPlanInstallments, 4)
-installments[0].Date = 1480572000;
-installments[0].Amount = 500;
-installments[1].Date = 1481176800;
-installments[1].Amount = 500;
-installments[2].Date = 1481781600;
-installments[2].Amount = 500;
-installments[3].Date = 1480572000;
-installments[3].Amount = 500;
-request.Installments = installments;
-paymentPlan, err := = invoice.CreatePaymentPlan(request)
+paymentPlan, err := client.Invoice.CreatePaymentPlan({INVOICE_ID}, &invoiced.PaymentPlanRequest{
+  Installments: []*invoiced.PaymentPlanInstallmentRequest{
+    {
+      Date: invoiced.Int64(1480572000),
+      Amount: invoiced.Float64(500),
+    },
+    {
+      Date: invoiced.Int64(1481176800),
+      Amount: invoiced.Float64(500),
+    },
+    {
+      Date: invoiced.Int64(1481781600),
+      Amount: invoiced.Float64(500),
+    },
+    {
+      Date: invoiced.Int64(1480572000),
+      Amount: invoiced.Float64(500),
+    },
+  },
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -267,8 +274,7 @@ var paymentPlan = invoice.NewPaymentPlan().Retrieve();
 ```
 
 ```go
-invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
-paymentPlan, err := invoice.RetrievePaymentPlan()
+paymentPlan, err := client.Invoice.RetrievePaymentPlan({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -338,7 +344,7 @@ paymentPlan.Cancel();
 ```
 
 ```go
-invoice.CancelPaymentPlan()
+err := client.Invoice.CancelPaymentPlan({INVOICE_ID})
 ```
 
 > The above command returns `204 No Content`

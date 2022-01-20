@@ -377,20 +377,26 @@ invoice.Create();
 ```
 
 ```go
-invoice := invoiced.NewInvoice()
-invoice.Customer = 15444
-invoice.PaymentTerms = "NET 14"
-items := make([]invdendpoint.LineItem, 2)
-items[0].Name = "Copy paper, Case"
-items[0].Quantity = 1
-items[0].UnitCost = 45
-items[1].Item = "delivery"
-items[1].Quantity = 1
-taxes := make([]invdendpoint.Tax, 1)
-taxes[0].Amount = 3.85
-invoice.Items = items
-invoice.Taxes = taxes
-invoice, err := invoice.Create(invoice)
+invoice, err := invoice.Create(&invoiced.InvoiceRequest{
+  Customer: invoiced.Int64(15444),
+  PaymentTerms: invoiced.String("NET 14"),
+  Items: []*invoiced.LineItemRequest{
+    {
+      Name: invoiced.String("Copy paper, Case"),
+      Quantity: invoiced.Float64(1),
+      UnitCost: invoiced.Float64(45),
+    },
+    {
+      Item: invoiced.String("delivery"),
+      Quantity: invoiced.Float64(1),
+    },
+  },
+  Taxes: []*invoiced.TaxRequest{
+    {
+      Amount: invoiced.Float64(3.85),
+    },
+  },
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -484,7 +490,7 @@ var invoice = invoiced.NewInvoice().Retrieve({INVOICE_ID});
 ```
 
 ```go
-invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
+invoice, err := client.Invoice.Retrieve({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -578,10 +584,11 @@ invoice.SaveAll();
 ```
 
 ```go
-invoice.Name = "July Paper Delivery"
-invoice.Notes = "The order was delivered on Jul 20, 2015"
-invoice.Sent = true
-err := invoice.Save()
+invoice, err := invoice.Update({INVOICE_ID}, &invoiced.InvoiceRequest{
+  Name: invoiced.String("July Paper Delivery"),
+  Notes: invoiced.String("The order was delivered on Jul 20, 2015"),
+  Sent: invoiced.Bool(true),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -695,16 +702,14 @@ var emails = invoice.SendEmail(emailRequest);
 ```
 
 ```go
-var emailRequest invdendpoint.EmailRequest
-emailRecipients := make([]invdendpoint.EmailDetail, 1)
-emailRecipients[0].Name = "Client"
-emailRecipients[0].Email = "client@example.com"
-
-emailRequest.To = emailRecipients
-emailRequest.Subject = "New Invoice from Dunder Mifflin, Inc.: INV-0016"
-emailRequest.Message = "Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!"
-
-emails, err := invoice.SendEmail(&emailRequest)
+err := client.Invoice.SendEmail({INVOICE_ID}, &invoiced.SendEmailRequest{
+  To: []*invoiced.EmailRecipient{
+    Name: invoiced.String("Client"),
+    Email: "client@example.com",
+  },
+  Subject: invoiced.String("New Invoice from Dunder Mifflin, Inc.: INV-0016"),
+  Message: invoiced.String("Dear Client, a new invoice for $51.15 has been created on your account. [View and Pay Invoice button] Thank you!"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -824,15 +829,16 @@ var textMessages = invoice.SendText(textRequest);
 ```
 
 ```go
-var textRequest invdendpoint.TextRequest
-textRecipients := make([]invdendpoint.TextDetail, 1)
-textRecipients[0].Name = "Bob Loblaw"
-textRecipients[0].Phone = "11234567890"
-
 textRequest.To = textRecipients
-textRequest.Message = "{{company_name}}: You have a new invoice {{invoice_number}} {{url}}"
+textRequest.
 
-texts, err := invoice.SendText(&textRequest)
+texts, err := client.Invoice.SendText({INVOICE_ID}, &invoiced.SendTextMessageRequest{
+  To: []*invoiced.TextMessageRecipient{
+    Name: invoiced.String("Bob Loblaw"),
+    Phone: invoiced.String("11234567890"),
+  },
+  Message: invoiced.String("{{company_name}}: You have a new invoice {{invoice_number}} {{url}}"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -933,7 +939,7 @@ var letter = invoice.SendLetter(letterRequest);
 ```
 
 ```go
-letter, err := invoice.SendLetter()
+letter, err := client.Invoice.SendLetter({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1009,7 +1015,7 @@ invoice.Pay();
 ```
 
 ```go
-err := invoice.Pay()
+err := client.Invoice.Pay({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1082,7 +1088,7 @@ var attachments = invoice.ListAttachments();
 ```
 
 ```go
-files, err := invoice.ListAttachments()
+files, err := client.Invoice.ListAttachments({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1165,7 +1171,7 @@ customer.ConsolidateInvoices();
 ```
 
 ```go
-customer.ConsolidateInvoices()
+invoice, err := client.Customer.ConsolidateInvoices({CUSTOMER_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1242,7 +1248,7 @@ invoice.Void();
 ```
 
 ```go
-invoice.Void()
+invoice, err := client.Invoice.Void({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -1312,7 +1318,7 @@ invoice.Delete();
 ```
 
 ```go
-invoice.Delete()
+err := client.Invoice.Delete({INVOICE_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -1353,7 +1359,7 @@ var invoices = invoiced.NewInvoice().ListAll();
 ```
 
 ```go
-invoices, err := invoiced.NewInvoice().ListAll(nil, nil)
+invoices, err := client.Invoice.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

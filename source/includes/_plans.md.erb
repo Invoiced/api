@@ -128,15 +128,15 @@ plan.Create();
 ```
 
 ```go
-plan := invoiced.NewPlan()
-plan.Id = "starter"
-plan.Name = "Starter"
-plan.Item = "software-subscription"
-plan.Amount = 49
-plan.Interval = "month"
-plan.IntervalCount = 1
-plan.PricingMode = "per_unit"
-plan, err := plan.Create(plan)
+plan, err := client.Plan.Create(&invoiced.PlanRequest{
+  Id: invoiced.String("starter"),
+  Name: invoiced.String("Starter"),
+  Item: invoiced.String("software-subscription"),
+  Amount: invoiced.Float64(49),
+  Interval: invoiced.String("month"),
+  IntervalCount: invoiced.Int64(1),
+  PricingMode: invoiced.String("per_unit"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -221,7 +221,7 @@ var plan = invoiced.NewPlan().Retrieve({PLAN_ID});
 ```
 
 ```go
-plan, err := invoiced.NewPlan().Retrieve({PLAN_ID})
+plan, err := client.Plan.Retrieve({PLAN_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -297,8 +297,9 @@ plan.SaveAll();
 ```
 
 ```go
-plan.Name = "Standard"
-err := plan.Save()
+err := client.Plan.Update(&invoiced.PlantRequest{
+  Name: invoiced.String("Standard"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -377,7 +378,7 @@ plan.Delete();
 ```
 
 ```go
-err := plan.Delete()
+err := client.Plan.Delete({INVOICED_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -418,7 +419,7 @@ var plans = invoiced.NewPlan().ListAll();
 ```
 
 ```go
-plans, err := invoiced.NewPlan().ListAll(nil, nil)
+plans, err := client.Plan.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

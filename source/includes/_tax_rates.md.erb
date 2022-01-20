@@ -100,11 +100,11 @@ taxRate.Create();
 ```
 
 ```go
-taxRate := invoiced.NewTaxRate()
-taxRate.Id = "vat"
-taxRate.Name = "VAT"
-taxRate.Value = 5
-taxRate, err := taxRate.Create(taxRate)
+taxRate, err := client.TaxRate.Create(&invoiced.TaxRateRequest{
+  Id: invoiced.String("vat"),
+  Name: invoiced.String("VAT"),
+  Value: invoiced.Float64(5),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -163,29 +163,29 @@ curl "https://api.invoiced.com/tax_rates/:id" \
 ```
 
 ```ruby
-tax_rate = invoiced.TaxRate.retrieve("{TXRAT_ID}")
+tax_rate = invoiced.TaxRate.retrieve("{TAX_RATE_ID}")
 ```
 
 ```php
 <?php
 
-$taxRate = $invoiced->TaxRate->retrieve("{TXRAT_ID}");
+$taxRate = $invoiced->TaxRate->retrieve("{TAX_RATE_ID}");
 ```
 
 ```python
-tax_rate = client.TaxRate.retrieve("{TXRAT_ID}")
+tax_rate = client.TaxRate.retrieve("{TAX_RATE_ID}")
 ```
 
 ```java
-TaxRate taxRate = invoiced.newTaxRate().retrieve({TXRAT_ID});
+TaxRate taxRate = invoiced.newTaxRate().retrieve({TAX_RATE_ID});
 ```
 
 ```csharp
-var taxRate = invoiced.NewTaxRate().Retrieve({TXRAT_ID});
+var taxRate = invoiced.NewTaxRate().Retrieve({TAX_RATE_ID});
 ```
 
 ```go
-taxRate, err := invoiced.NewTaxRate().Retrieve({TXRAT_ID})
+taxRate, err := client.TaxRate.Retrieve({TAX_RATE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -261,8 +261,9 @@ taxRate.SaveAll();
 ```
 
 ```go
-taxRate.Name = "GST"
-err := taxRate.Save()
+err := client.TaxRate.Update({TAX_RATE_ID}, &invoiced.TaxRateRequest{
+  Name: invoiced.String("GST"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -341,7 +342,7 @@ taxRate.Delete();
 ```
 
 ```go
-err := taxRate.Delete()
+err := client.TaxRate.Delete({TAX_RATE_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -382,7 +383,7 @@ var taxRates = invoiced.NewTaxRate().ListAll();
 ```
 
 ```go
-taxRates, err := invoiced.NewTaxRate().ListAll(nil, nil)
+taxRates, err := client.TaxRate.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

@@ -272,14 +272,18 @@ payment.Create();
 ```
 
 ```go
-payment := invoiced.NewPayment()
-payment.Amount = 800
-payment.Method = "check"
-payment.Reference = "1450"
-payment.AppliedTo = []{
-  PaymentItem{Type: "invoice", Amount: 800, Invoice: 44648}
-}
-payment, err := payment.Create(payment)
+payment, err := client.Payment.Create(&invoiced.PaymentRequest{
+  Amount: invoiced.Float64(800),
+  Method: invoiced.String("check"),
+  Reference: invoiced.String("1450"),
+  AppliedTo: []*invoiced.PaymentItemRequest{
+    {
+      Type: invoiced.String("invoice"),
+      Amount: invoiced.Float64(800),
+      Invoice: invoiced.Int64(44648),
+    },
+  },
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -363,7 +367,7 @@ var payment = invoiced.NewPayment().Retrieve({PAYMENT_ID});
 ```
 
 ```go
-payment, err := invoiced.NewPayment().Retrieve({PAYMENT_ID})
+payment, err := client.Payment.Retrieve({PAYMENT_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -441,8 +445,9 @@ payment.SaveAll();
 ```
 
 ```go
-payment.Notes = "Check was received by Jan"
-err := payment.Save()
+payment, err := client.Payment.Update(&invoiced.PaymentRequest{
+  Notes: invoiced.String("Check was received by Jan"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -543,16 +548,14 @@ var emails = payment.SendEmail(emailRequest);
 ```
 
 ```go
-var emailRequest invdendpoint.EmailRequest
-emailRecipients := make([]invdendpoint.EmailDetail, 1)
-emailRecipients[0].Name = "Client"
-emailRecipients[0].Email = "client@example.com"
-
-emailRequest.To = emailRecipients
-emailRequest.Subject = "Receipt for your recent payment to Dunder Mifflin, Inc."
-emailRequest.Message = "Dear Client, we have attached a receipt for your most recent payment. Thank you!"
-
-emails, err := payment.SendEmail(&emailRequest)
+err := client.Payment.SendReceipt({PAYMENT_ID}, &invoiced.SendEmailRequest{
+  To: []*invoiced.EmailRecipient{
+    Name: invoiced.String("Client"),
+    Email: "client@example.com",
+  },
+  Subject: invoiced.String("Receipt for your recent payment to Dunder Mifflin, Inc."),
+  Message: invoiced.String("Dear Client, we have attached a receipt for your most recent payment. Thank you!"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -651,7 +654,7 @@ payment.Delete();
 ```
 
 ```go
-payment.Delete()
+err := client.Payment.Delete({PAYMENT_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -720,7 +723,7 @@ var payments = invoiced.NewPayment().ListAll();
 ```
 
 ```go
-payments, err := invoiced.NewPayment().ListAll(nil, nil)
+payments, err := client.Payment.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:
@@ -937,23 +940,32 @@ var charge = invoiced.NewCharge().Create(chargeRequest);
 ```go
 chargeRequest := new(invdendpoint.ChargeRequest)
 
-chargeRequest.Customer = 401558
-chargeRequest.Currency = "usd"
-chargeRequest.Amount = 2000
-chargeRequest.AppliedTo = []{
-  PaymentItem{Type: "invoice", Amount: 1710, Invoice: 2112620},
-  PaymentItem{Type: "invoice", Amount: 290, Invoice: 2112622}
-}
-chargeRequest.Method = "credit_card"
 
-// (Tokenized Payment Info)
-chargeRequest.InvoicedToken = "acdf7f31da641970cdb9c6c46a373577"
+charge, err := client.Charge.Create(&invoiced.ChargeRequest{
+  Customer: invoiced.Int64(401558),
+  Currency: invoiced.String("usd"),
+  Amount: invoiced.Float64(2000),
+  AppliedTo: []*invoiced.PaymentItemRequest{
+    {
+      Type: invoiced.String("invoice"),
+      Amount: invoiced.Float64(1710),
+      Invoice: invoiced.Int64(2112620),
+    },
+    {
+      Type: invoiced.String("invoice"),
+      Amount: invoiced.Float64(290),
+      Invoice: invoiced.Int64(2112622),
+    },
+  },
+  Method: invoiced.String("credit_card"),
 
-// (Saved Payment Source)
-chargeRequest.PaymentSourceType = "card"
-chargeRequest.PaymentSourceId = 1234
+  // (Tokenized Payment Info)
+  InvoicedToken: invoiced.String("acdf7f31da641970cdb9c6c46a373577"),
 
-charge := invoiced.NewCharge().Create(chargeRequest)
+  // (Saved Payment Source)
+  PaymentSourceType: invoiced.String("card"),
+  PaymentSourceId: invoiced.Int64(1234),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -1042,7 +1054,9 @@ var refund = invoiced.NewRefund().Create(CHARGE_ID, 400);
 ```
 
 ```go
-err := invoiced.NewRefund().Create(CHARGE_ID, 400)
+refund, err := client.Refund.Create(CHARGE_ID, &invoiced.RefundRequest{
+  Amount: invoiced.Float64(400),
+})
 ```
 
 > The above command returns JSON structured like this:

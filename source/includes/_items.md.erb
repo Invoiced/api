@@ -112,12 +112,12 @@ item.Create();
 ```
 
 ```go
-item := invoiced.NewItem()
-item.Id = "delivery"
-item.Name = "Delivery"
-item.Type = "service"
-item.UnitCost = 100
-item, err := item.Create(item)
+item, err := client.Item.Create(&invoiced.ItemRequest{
+  Id: invoiced.String("delivery"),
+  Name: invoiced.String("Delivery"),
+  Type: invoiced.String("service"),
+  UnitCost: invoiced.Float64(100),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -181,29 +181,29 @@ curl "https://api.invoiced.com/items/:id" \
 ```
 
 ```ruby
-item = invoiced.Item.retrieve("{CITEM_ID}")
+item = invoiced.Item.retrieve("{ITEM_ID}")
 ```
 
 ```php
 <?php
 
-$item = $invoiced->Item->retrieve("{CITEM_ID}");
+$item = $invoiced->Item->retrieve("{ITEM_ID}");
 ```
 
 ```python
-item = client.Item.retrieve("{CITEM_ID}")
+item = client.Item.retrieve("{ITEM_ID}")
 ```
 
 ```java
-Item item = invoiced.newItem().retrieve({CITEM_ID});
+Item item = invoiced.newItem().retrieve({ITEM_ID});
 ```
 
 ```csharp
-var item = invoiced.NewItem().Retrieve({CITEM_ID});
+var item = invoiced.NewItem().Retrieve({ITEM_ID});
 ```
 
 ```go
-item, err := invoiced.NewItem().Retrieve({CITEM_ID})
+item, err := client.Item.Retrieve({ITEM_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -279,8 +279,9 @@ item.SaveAll();
 ```
 
 ```go
-item.Type = "product"
-err := item.Save()
+item, err := client.Item.Update({ITEM_ID}, &invoiced.ItemRequest{
+  Type: invoiced.String("product"),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -361,7 +362,7 @@ item.Delete();
 ```
 
 ```go
-err := item.Delete()
+err := client.Item.Delete({ITEM_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -402,7 +403,7 @@ var items = item.ListAll();
 ```
 
 ```go
-items, err := item.ListAll(nil, nil)
+items, err := client.Item.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:

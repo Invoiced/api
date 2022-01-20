@@ -96,8 +96,10 @@ note.Create();
 ```
 
 ```go
-request := invdendpoint.CreateNoteRequest{InvoiceID:int64(46225)}
-note, err := invoiced.NewNote().Create(request)
+note, err := client.Note.Create(&invoiced.NoteRequest{
+  Invoice: invoiced.Int64(46225),
+  Notes: invoiced.String("Customer called 10/1, clarified account terms."),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -181,8 +183,7 @@ var notes = invoice.NewNote().ListAll();
 ```
 
 ```go
-invoice, err := invoiced.NewInvoice().Retrieve({INVOICE_ID})
-notes, err := invoice.RetrieveNotes()
+notes, err := client.Invoice.RetrieveNotes({INVOICE_ID})
 ```
 
 > The above command returns JSON structured like this:
@@ -272,8 +273,9 @@ note.SaveAll();
 ```
 
 ```go
-note.Notes = "Customer called 10/2, sent check arriving Thu."
-err := note.Save()
+note, err := client.Note.Update({NOTE_ID}, &invoiced.NoteRequest{
+  Notes: invoiced.String("Customer called 10/2, sent check arriving Thu."),
+})
 ```
 
 > The above command returns JSON structured like this:
@@ -349,7 +351,7 @@ note.Delete();
 ```
 
 ```go
-err := note.Delete()
+err := client.Note.Delete({NOTE_ID})
 ```
 
 > The above command returns `204 No Content`
@@ -390,7 +392,7 @@ var notes = invoiced.NewNote().ListAll();
 ```
 
 ```go
-notes, err := invoiced.NewNote().ListAll(nil, nil)
+notes, err := client.Note.ListAll(nil, nil)
 ```
 
 > The above command returns JSON structured like this:
