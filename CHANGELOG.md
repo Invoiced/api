@@ -309,4 +309,4 @@ Changelog
 
 ### July 30, 2015
 
-- The API documentation has been redesigned. It's now viewable at [invoiced.com/docs/api](https://invoiced.com/resources/docs/api).
+- The API documentation has been redesigned. It's now viewable at [developer.invoiced.com/api](https://developer.invoiced.com/api).
