@@ -227,9 +227,9 @@ Link: <https://api.invoiced.com/customers?page=3&per_page=10>; rel="self",
 	  <https://api.invoiced.com/customers?page=5&per_page=10>; rel="last"
 ```
 
-All list operations will be paginated in similar fashion as the GitHub API. In most cases we will paginate requests returning more than 100 results. You can control pagination with the `page` and `per_page` parameters. Pages start at `1` and the first page will be returned if no page is specified.
+All list operations will be paginated. You can control pagination with the `page` and `per_page` parameters. Pages start at `1` and the first page will be returned if no page is specified.
 
-When traversing the pages, we recommend using the `Link` and `X-Total-Count` headers. The [Link header](http://tools.ietf.org/html/rfc5988) will return URLs that you can use to traverse the API without having to write your own. It's preferred to use the links from the API because it protects against future updates.
+When traversing the pages, we recommend using the `Link` and `X-Total-Count` headers. The [Link header](http://tools.ietf.org/html/rfc5988) will return URLs that you can use to traverse the API without having to write your own. It's preferred to use the Link header from the API because it protects you against future updates. If you are fetching multiple pages from the API, then it is required that the pages are fetched sequentially. If you fetch the pages out of order then you might get an error message indicating that the preceding pages have not been fetched first.
 
 # Versioning
 
