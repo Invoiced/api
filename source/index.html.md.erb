@@ -192,6 +192,11 @@ client := api.New("{YOUR_API_KEY}", true)
 
 You can sign up for a sandbox account at [sandbox.invoiced.com](https://sandbox.invoiced.com) and request an API key there. The steps for requesting an API key are the same as production.
 
+
+### OAuth Authentication
+
+If you are a third-party developer building an application to be used by other Invoiced users, then you can use OAuth 2.0 as an authentication method instead of API keys. Our [OAuth Guide](https://docs.invoiced.com/dev/oauth) has more information on how to set up and use OAuth. All API calls support using `Bearer YOUR_ACCESS_TOKEN` for the `Authentication` header in place of an API key.
+
 # Errors
 
 Each API call returns an HTTP status code that reflects the nature of the response. We have done our best to follow the [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) conventions.
